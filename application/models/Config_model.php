@@ -1,20 +1,20 @@
 ﻿<?php
-class Tipo_login_model extends CI_Model{
+class Config_model extends CI_Model{
 	
-	public $idtipologin;
+	public $id;
 	public $nome;
-	public $descricao;
-	public $comentar;
-	public $postar;
-	public $upmidia;
-	public $editarusuario;
-	public $inserirusuario;
-	public $inserirtipousuario;
-	public $editartipousuario;
-	
+	public $valor;	
 	
 	public function __construct(){
 		parent::__construct();
+		$this->declarar();
+	}
+	
+	public function declarar(){
+		$query = $this->db->get('config');
+		foreach($query->result() as $row){
+			$this->config->set_item($row->nome,$row->valor);
+		}
 	}
 }
 ?>
