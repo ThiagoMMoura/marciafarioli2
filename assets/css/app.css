@@ -1,0 +1,31 @@
+@charset "utf-8";
+/* CSS Document */
+#logo-topo>img{
+	width:auto;
+	height:auto;
+	margin-bottom: 15px;
+	margin-top: 10px;
+}
+.slick-dots{
+	margin-left: 0px;
+	margin-bottom: 25px;
+	background-color: rgba(185, 185, 185, 0.6);
+}
+.caixa_corte {
+	width: 1000px;
+	height: 400px;
+	overflow:hidden;
+}
+ 
+.caixa_corte img {
+	width: auto;
+}
+button.transparente:hover, button.transparente:focus, .button.transparente:hover, .button.transparente:focus {
+	color: #999;
+    background-color: transparent;
+}
+button.transparente, .button.transparente {
+	background-color: transparent;
+	border-color: #FFFFFF;
+	color: #333;
+}
