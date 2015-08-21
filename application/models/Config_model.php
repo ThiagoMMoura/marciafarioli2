@@ -1,21 +1,27 @@
 ﻿<?php
-class Config_model extends CI_Model{
+class Config_model extends MY_Model{
 	
-	public $id;
 	public $nome;
 	public $valor;	
 	
 	public function __construct(){
-		parent::__construct();
+		parent::__construct('config');
 		$this->declarar();
 	}
-	
+	/*public function PostVariaveis(){
+		$this->id = $this->input->post('nome');
+		$this->nome = $this->input->post('nome');
+		$this->valor = $this->input->post('valor');
+	}*/
 	public function declarar(){
-		$query = $this->db->get('config');
+		$query = $this->db->get($this->dbtable);
+		
 		foreach($query->result() as $row){
 			$this->config->set_item($row->nome,$row->valor);
 			log_message('info','CONFIG SET - '.$row->nome.' = '.$row->valor);
 		}
 	}
+	
+	
 }
 ?>

@@ -1,7 +1,6 @@
 ﻿<?php
-class Tipo_login_model extends CI_Model{
+class Tipo_login_model extends MY_Model{
 	
-	public $idtipologin;
 	public $nome;
 	public $descricao;
 	public $comentar;
@@ -12,9 +11,23 @@ class Tipo_login_model extends CI_Model{
 	public $inserirtipousuario;
 	public $editartipousuario;
 	
-	
 	public function __construct(){
-		parent::__construct();
+		parent::__construct('tipologin');
+	}
+	
+	public function PostVariaveis(){
+		foreach($this as $coluna){
+			$this->$coluna = $this->input->post($coluna);
+		}
+		/*$this->nome;
+		$this->descricao;
+		$this->comentar;
+		$this->postar;
+		$this->upmidia;
+		$this->editarusuario;
+		$this->inserirusuario;
+		$this->inserirtipousuario;
+		$this->editartipousuario;*/
 	}
 }
 ?>
