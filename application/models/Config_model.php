@@ -1,11 +1,14 @@
 ﻿<?php
+if (!defined('BASEPATH')) exit('No direct script access allowed');
+
 class Config_model extends MY_Model{
 	
 	public $nome;
 	public $valor;	
 	
 	public function __construct(){
-		parent::__construct('config');
+		parent::__construct();
+		$this->dbtable = 'config';
 		$this->declarar();
 	}
 	/*public function PostVariaveis(){
