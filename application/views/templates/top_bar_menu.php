@@ -19,7 +19,7 @@
           </div>
         </li>
         <li class="divider"></li>
-        <li><a href="#">Usuario</a></li>
+        <li><?php echo anchor('usuario','Usuario');?></li>
       </ul>
     </section>
   </nav>

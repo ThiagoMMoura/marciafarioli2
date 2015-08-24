@@ -1,5 +1,5 @@
 ﻿<?php
-class Foto_model extends CI_Model{
+class Foto_model extends MY_Model{
 	
 	public $id;
 	public $idmidia;
