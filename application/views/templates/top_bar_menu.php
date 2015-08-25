@@ -19,7 +19,13 @@
           </div>
         </li>
         <li class="divider"></li>
-        <li><?php echo anchor('usuario','Usuario');?></li>
+		<?php if($this->session->has_userdata('logado')&&$this->session->logado){?>
+            <li><?php echo anchor('',$this->session->name); ?></li>
+		<?php }else{ ?>
+			<li><?php echo anchor('usuario/login','Entre'); ?></li>
+            <li class="divider"></li>
+            <li><?php echo anchor('usuario/cadastro','Cadastre-se');?></li>
+        <?php } ?>
       </ul>
     </section>
   </nav>

@@ -57,4 +57,6 @@ $route['fotografia'] = 'pages/view/fotografia';
 $route['filmes'] = 'pages/view/filmes';
 $route['casa_de_eventos'] = 'pages/view/casa_de_eventos';
 $route['gastronomia'] = 'pages/view/gastronomia';
+$route['usuario/login'] = 'usuario/view/login';
+$route['login'] = 'usuario/view/login';
 

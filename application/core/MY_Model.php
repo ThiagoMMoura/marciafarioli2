@@ -12,9 +12,11 @@ class MY_Model extends CI_Model{
 	
 	public function PostVariaveis(){
 		foreach($this as $coluna){
-			$this->$coluna = $this->input->post($coluna);
+			if($this->input->post($coluna)) {
+				log_message('info', 'Valor de coluna: '.$coluna);
+				$this->$coluna = $this->input->post($coluna);
+			}
 		}
-		 /*show_error('Função PostVariaveis() não implementado.', EXIT__AUTO_MIN);*/
 	}
 	
 	public function inserir($post = TRUE){
@@ -29,6 +31,16 @@ class MY_Model extends CI_Model{
 			$this->PostVariaveis();
 		}
 		$this->db->update($this->dbtable, $this, array('id' => $this->id));
+	}
+	
+	public function selecionar($colunas = NULL,$where = NULL){
+		if($colunas==NULL)$colunas = '*';
+		if($where==NULL)$where = '';
+		
+		$this->db->select($colunas);
+		$this->db->where($where);
+		$query = $this->db->get($this->dbtable);
+		return $query;
 	}
 }
 ?>
