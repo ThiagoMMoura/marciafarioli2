@@ -29,7 +29,7 @@ $config['base_url'] = SITEURL.'/';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -71,7 +71,7 @@ $config['url_suffix'] = '.html';
 | than english.
 |
 */
-$config['language']	= 'english';
+$config['language']	= 'portuguese-brazilian';
 
 /*
 |--------------------------------------------------------------------------

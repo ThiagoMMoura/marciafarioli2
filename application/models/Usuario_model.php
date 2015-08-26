@@ -13,6 +13,7 @@ class Usuario_model extends MY_Model{
 	public function __construct(){
 		parent::__construct();
 		$this->dbtable = 'usuario';
+		$this->idtipologin = $this->config->item('tipousuariopadrao');
 	}
 	
 	public function valida($post = TRUE){
@@ -24,13 +25,14 @@ class Usuario_model extends MY_Model{
 		}
 		$query = $this->db->get_where($this->dbtable,$where);
 		
-		if ($query->num_rows == 1) {
-			$this->id = $query['id'];
-			$this->nome = $query['nome'];
-			$this->email = $query['email'];
-			$this->idtipousuario = $query['idtipologin'];
-			$this->sexo = $query['sexo'];
-			$this->idfotoperfil = $query['idfotoperfil'];
+		if ($query->num_rows() == 1) {
+			$row = $query->row_array();
+			$this->id = $row['id'];
+			$this->nome = $row['nome'];
+			$this->email = $row['email'];
+			$this->idtipousuario = $row['idtipologin'];
+			$this->sexo = $row['sexo'];
+			$this->idfotoperfil = $row['idfotoperfil'];
 			return TRUE;
 		}else return FALSE;
 	}

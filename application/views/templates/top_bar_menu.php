@@ -20,7 +20,7 @@
         </li>
         <li class="divider"></li>
 		<?php if($this->session->has_userdata('logado')&&$this->session->logado){?>
-            <li><?php echo anchor('',$this->session->name); ?></li>
+            <li><?php echo anchor('usuario/sair',$this->session->nome); ?></li>
 		<?php }else{ ?>
 			<li><?php echo anchor('usuario/login','Entre'); ?></li>
             <li class="divider"></li>

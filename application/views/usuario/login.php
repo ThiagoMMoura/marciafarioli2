@@ -2,7 +2,7 @@
 <div class="row">
   <div class="small-12 medium-centered medium-6 columns">
     <?php echo validation_errors(); ?>
-    <?php echo form_open('usuario/login');?>
+    <?php echo form_open('usuario/entrar');?>
     <div class="row">
       <div class="large-12 columns">
         <?php
@@ -29,7 +29,7 @@
     <div class="row">
       <div class="large-12 columns">
         <?php
-		echo form_submit('entrar', 'Entrar', 'class="button"');
+		echo form_submit('entrar', 'Entrar', 'class="button expand"');
 		?>
       </div>
     </div>

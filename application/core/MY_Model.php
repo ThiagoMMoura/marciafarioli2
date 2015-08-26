@@ -3,18 +3,18 @@ if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 class MY_Model extends CI_Model{
 	protected $dbtable;
-	public $id;
+	protected $dbcolunas;
+	private $id;
 	
 	public function __construct(){
 		parent::__construct();
-		log_message('info', 'My Model Class Initialized');
 	}
 	
 	public function PostVariaveis(){
-		foreach($this as $coluna){
-			if($this->input->post($coluna)) {
-				log_message('info', 'Valor de coluna: '.$coluna);
-				$this->$coluna = $this->input->post($coluna);
+		if($this->dbcolunas == NULL) $this->dbcolunas = $this->db->list_fields($this->dbtable);
+		foreach($this->dbcolunas as $coluna){
+			if($this->input->post($coluna)!=NULL) {
+				$this->{$coluna} = $this->input->post($coluna);
 			}
 		}
 	}
@@ -40,7 +40,7 @@ class MY_Model extends CI_Model{
 		$this->db->select($colunas);
 		$this->db->where($where);
 		$query = $this->db->get($this->dbtable);
-		return $query;
+		return $query->result();
 	}
 }
 ?>
