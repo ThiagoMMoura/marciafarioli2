@@ -14,7 +14,7 @@
     <div class="row">
       <div class="large-12 columns">
 		<?php
-		$form_nome = array('name'=>'nome','placeholder'=>'Nome Completo');
+		$form_nome = array('name'=>'nome','placeholder'=>'Nome Completo','value'=>set_value('nome'));
 		echo form_label('Nome Completo'.form_input($form_nome,''));
         ?>
       </div>
@@ -46,10 +46,10 @@
     <div class="row">
       <div class="large-12 columns">
         <?php
-		$form_sexo_f = array('name'=>'sexo','value'=>'Feminino');
+		$form_sexo_f = array('name'=>'sexo','value'=>'Feminino',set_radio('sexo','Feminino'));
 		echo form_label('Sexo');
 		echo form_radio($form_sexo_f).form_label('Feminino','sexo');
-		$form_sexo_m = array('name'=>'sexo','value'=>'Masculino');
+		$form_sexo_m = array('name'=>'sexo','value'=>'Masculino',set_radio('sexo','Masculino'));
 		echo form_radio($form_sexo_m).form_label('Masculino','sexo');
 		?>
       </div>

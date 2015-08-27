@@ -12,7 +12,7 @@ class Usuario extends CI_Controller {
 		$this->view();
 	}
 	
-	public function view($page = 'login')
+	public function view($page = 'login',$data = array())
 	{
 		if ( ! file_exists(APPPATH.'/views/usuario/'.$page.'.php'))
         {
@@ -47,6 +47,8 @@ class Usuario extends CI_Controller {
 								);
 				$this->session->set_userdata($userdata);
 				redirect('home');
+			}else{
+				$this->view('login',array('erro'=>'O email ou senha não está correto.'));
 			}
 		}
 	}
@@ -60,7 +62,7 @@ class Usuario extends CI_Controller {
 	
 	public function cadastrar(){
 		$this->form_validation->set_rules('nome', 'Nome', 'trim|required|min_length[3]|max_length[50]');
-		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|max_length[60]|is_unique[usuario.email]');
+		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|max_length[60]|is_unique[usuario.email]',array('is_unique'=>'Este email já foi cadastrado, tente outro.'));
         $this->form_validation->set_rules('senha', 'Senha', 'trim|required|max_length[50]|md5');
 		$this->form_validation->set_rules('confirmasenha', 'Confirmação de senha', 'trim|required|md5|matches[senha]');
         $this->form_validation->set_rules('sexo','Sexo','required');

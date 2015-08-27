@@ -1,7 +1,10 @@
 ﻿<?php $this->load->view('templates/nav_header', $page); ?>
 <div class="row">
   <div class="small-12 medium-centered medium-6 columns">
-    <?php echo validation_errors(); ?>
+    <?php if(isset($erro)){?>
+    	<small class="error"><?php echo $erro; ?></small>
+    <?php } ?>
+	<?php echo validation_errors(); ?>
     <?php echo form_open('usuario/entrar');?>
     <div class="row">
       <div class="large-12 columns">

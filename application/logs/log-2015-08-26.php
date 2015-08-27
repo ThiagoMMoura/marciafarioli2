@@ -3403,3 +3403,34 @@ INFO - 2015-08-26 23:45:48 --> File loaded: C:\xampp\htdocs\marciafarioli2\appli
 INFO - 2015-08-26 23:45:48 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/scripts.php
 INFO - 2015-08-26 23:45:48 --> Final output sent to browser
 DEBUG - 2015-08-26 23:45:48 --> Total execution time: 0.0580
+INFO - 2015-08-26 23:51:40 --> Config Class Initialized
+INFO - 2015-08-26 23:51:40 --> Hooks Class Initialized
+DEBUG - 2015-08-26 23:51:40 --> UTF-8 Support Enabled
+INFO - 2015-08-26 23:51:40 --> Utf8 Class Initialized
+INFO - 2015-08-26 23:51:40 --> URI Class Initialized
+DEBUG - 2015-08-26 23:51:40 --> No URI present. Default controller set.
+INFO - 2015-08-26 23:51:40 --> Router Class Initialized
+INFO - 2015-08-26 23:51:40 --> Output Class Initialized
+INFO - 2015-08-26 23:51:40 --> Security Class Initialized
+DEBUG - 2015-08-26 23:51:40 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-08-26 23:51:40 --> Input Class Initialized
+INFO - 2015-08-26 23:51:40 --> Language Class Initialized
+INFO - 2015-08-26 23:51:40 --> Loader Class Initialized
+INFO - 2015-08-26 23:51:40 --> Helper loaded: url_helper
+INFO - 2015-08-26 23:51:40 --> Helper loaded: html_helper
+INFO - 2015-08-26 23:51:40 --> Database Driver Class Initialized
+INFO - 2015-08-26 23:51:40 --> Session: Class initialized using 'database' driver.
+INFO - 2015-08-26 23:51:40 --> Model Class Initialized
+INFO - 2015-08-26 23:51:40 --> Model Class Initialized
+INFO - 2015-08-26 23:51:40 --> CONFIG SET - tipousuariopadrao = 0
+INFO - 2015-08-26 23:51:40 --> Model Class Initialized
+INFO - 2015-08-26 23:51:40 --> Controller Class Initialized
+INFO - 2015-08-26 23:51:40 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/header.php
+INFO - 2015-08-26 23:51:40 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/top_bar_menu.php
+INFO - 2015-08-26 23:51:40 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/nav_header.php
+INFO - 2015-08-26 23:51:40 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/news.php
+INFO - 2015-08-26 23:51:40 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/footer.php
+INFO - 2015-08-26 23:51:40 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\pages/home.php
+INFO - 2015-08-26 23:51:40 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/scripts.php
+INFO - 2015-08-26 23:51:40 --> Final output sent to browser
+DEBUG - 2015-08-26 23:51:40 --> Total execution time: 0.0500
