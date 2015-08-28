@@ -17,7 +17,9 @@ class Pages extends CI_Controller {
 
         $data['title'] = ucfirst($page); // Capitalize the first letter
 		$data['page'] = $page;
-
+		if($this->usuario_model->logado()){
+			$data['perm'] = $this->usuario_model->get_permissoes();
+		}
         $this->load->view('templates/header', $data);
 		$this->load->view('templates/top_bar_menu', $data);
         $this->load->view('pages/'.$page, $data);

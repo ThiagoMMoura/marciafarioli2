@@ -31,7 +31,6 @@ class Usuario extends CI_Controller {
 		
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
         $this->form_validation->set_rules('senha', 'Senha', 'trim|required|md5');
-        $this->form_validation->set_error_delimiters('<small class="error">', '</small>');
 		
 		if ($this->form_validation->run() == FALSE) {
 			$this->view('login');
@@ -65,8 +64,8 @@ class Usuario extends CI_Controller {
 		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|max_length[60]|is_unique[usuario.email]',array('is_unique'=>'Este email já foi cadastrado, tente outro.'));
         $this->form_validation->set_rules('senha', 'Senha', 'trim|required|max_length[50]|md5');
 		$this->form_validation->set_rules('confirmasenha', 'Confirmação de senha', 'trim|required|md5|matches[senha]');
-        $this->form_validation->set_rules('sexo','Sexo','required');
-		$this->form_validation->set_error_delimiters('<small class="error">', '</small>');
+        $this->form_validation->set_rules('sexo','Sexo','required',array('required'=>'Selecione uma opção.'));
+
 		if ($this->form_validation->run() == FALSE) {
 			$this->view('cadastro');
 		}else{
@@ -82,6 +81,9 @@ class Usuario extends CI_Controller {
 	
 	public function cadastro(){
 		$this->view('cadastro');
+	}
+	public function recuperarsenha(){
+		$this->view('login',array('erro'=>'Está função ainda não foi implementada!'));
 	}
 }
 ?>

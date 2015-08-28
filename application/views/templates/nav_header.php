@@ -1,4 +1,4 @@
-﻿<div class="row">
+﻿<div class="row nav-header">
     <div class="small-12 small-centered columns">
         <div id="logo-topo" class="text-center">
         	<a href="<?php echo base_url(); ?>">
@@ -7,10 +7,11 @@
         </div>
     </div>
     <div class="small-12 columns">
-    	<?php $botoes = array('Fotografia'=>'fotografia','Filmes'=>'filmes','Casa de Eventos'=>'casa_de_eventos','Gastronomia'=>'gastronomia');?>
-    	<ul class="button-group even-4">
+    	<?php $botoes = array('Home'=>'home','Fotografia'=>'fotografia','Filmes'=>'filmes','Casa de Eventos'=>'casa_de_eventos','Blog'=>'blog');?>
+    	<ul class="button-group even-<?php echo count($botoes);?>">
             <?php foreach($botoes as $botao => $end){?>
-            	<li><?php echo anchor($end,$botao,array('class' => 'button transparente'));?></li>
+            	<?php echo (($page==$end)?'<li class="nav-active">':'<li>');
+				 echo anchor($end,$botao,array('class' => 'button transparente','active'=>''));?></li>
             <?php } ?>
         </ul>
     </div>

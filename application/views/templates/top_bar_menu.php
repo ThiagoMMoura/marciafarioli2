@@ -19,8 +19,15 @@
           </div>
         </li>
         <li class="divider"></li>
-		<?php if($this->session->has_userdata('logado')&&$this->session->logado){?>
-            <li><?php echo anchor('usuario/sair',$this->session->nome); ?></li>
+		<?php if($this->usuario_model->logado()){ ?>
+        	<li class="has-dropdown">
+            	<?php echo anchor('#','Olá, '.word_limiter($this->session->nome,1,'')); ?>
+                <ul class="dropdown">
+                	<?php if($perm->postar)echo '<li>'.anchor('','Novo Post').'</li>'; ?>
+                    <li class="divider"></li>
+                	<li><?php echo anchor('usuario/sair','Sair'); ?></li>
+                </ul>
+            </li>
 		<?php }else{ ?>
 			<li><?php echo anchor('usuario/login','Entre'); ?></li>
             <li class="divider"></li>

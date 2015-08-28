@@ -40,7 +40,7 @@ class MY_Model extends CI_Model{
 		$this->db->select($colunas);
 		$this->db->where($where);
 		$query = $this->db->get($this->dbtable);
-		return $query->result();
+		return $query;
 	}
 }
 ?>

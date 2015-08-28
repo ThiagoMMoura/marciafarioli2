@@ -26,6 +26,9 @@ button.transparente:hover, button.transparente:focus, .button.transparente:hover
 }
 button.transparente, .button.transparente {
 	background-color: transparent;
-	border-color: #FFFFFF;
+	border-color: #000000;
 	color: #333;
+}
+.nav-header ul.button-group .nav-active .button{
+	border-bottom:2px rgba(204,204,204,1) solid;
 }

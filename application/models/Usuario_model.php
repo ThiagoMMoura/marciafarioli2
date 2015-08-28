@@ -36,5 +36,20 @@ class Usuario_model extends MY_Model{
 			return TRUE;
 		}else return FALSE;
 	}
+	
+	public function logado(){
+		if($this->session->has_userdata('logado')&&$this->session->logado){
+			return TRUE;
+		}else{
+			return FALSE;
+		}
+	}
+	public function get_permissoes(){
+		$this->load->model('tipo_login_model');
+		$where = array('id'=>$this->session->idtipologin);
+		$query = $this->tipo_login_model->selecionar(NULL,$where);
+		$row = $query->row(0,'Tipo_login_model');
+		return $row;
+	}
 }
 ?>

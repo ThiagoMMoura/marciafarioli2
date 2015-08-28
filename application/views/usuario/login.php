@@ -1,4 +1,4 @@
-﻿<?php $this->load->view('templates/nav_header', $page); ?>
+﻿<?php $this->load->view('templates/nav_header', 'Entrar'); ?>
 <div class="row">
   <div class="small-12 medium-centered medium-6 columns">
     <?php if(isset($erro)){?>
@@ -17,7 +17,7 @@
       <div class="large-12 columns">
 		<?php
 		$form_email = array('name'=>'email','placeholder'=>'Seu email');
-		echo form_label(form_input($form_email,''));
+		echo form_label('Email'.form_input($form_email,''));
         ?>
       </div>
     </div>
@@ -25,8 +25,13 @@
       <div class="large-12 columns">
         <?php
 		$form_senha = array('name'=>'senha','placeholder'=>'Senha');
-		echo form_label(form_password($form_senha,''));
+		echo form_label('Senha'.form_password($form_senha,''));
 		?>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-12 columns text-right">
+        <?php echo form_label(anchor('usuario/recuperarsenha','Esqueci a minha senha.')); ?><br />
       </div>
     </div>
     <div class="row">
@@ -41,7 +46,7 @@
 	?>
     <div class="row">
       <div class="large-12 columns text-center">
-        <?php echo anchor('usuario/senha','Esqueci a minha senha.'); ?>
+        <p>Ainda não sou cadastrado, <?php echo anchor('usuario/cadastro','Clique aqui'); ?>.</p>
       </div>
     </div>
   </div>

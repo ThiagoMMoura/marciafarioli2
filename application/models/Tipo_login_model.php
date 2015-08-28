@@ -12,25 +12,12 @@ class Tipo_login_model extends MY_Model{
 	public $inserirusuario;
 	public $inserirtipousuario;
 	public $editartipousuario;
+	public $editarhome;
 	
 	public function __construct(){
 		parent::__construct();
 		$this->dbtable = 'tipologin';
 	}
 	
-	public function PostVariaveis(){
-		foreach($this as $coluna){
-			$this->$coluna = $this->input->post($coluna);
-		}
-		/*$this->nome;
-		$this->descricao;
-		$this->comentar;
-		$this->postar;
-		$this->upmidia;
-		$this->editarusuario;
-		$this->inserirusuario;
-		$this->inserirtipousuario;
-		$this->editartipousuario;*/
-	}
 }
 ?>
