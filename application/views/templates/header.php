@@ -4,14 +4,26 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Marcia Farioli - <?php echo $title ?></title>
-    <link rel="stylesheet" href="<?php echo SITEURL.'/'.NORMALIZE_CSS_FILE_LOCAL ?>">
-    <link rel="stylesheet" href="<?php echo SITEURL.'/'.RESPONSIVE_FW_CSS_FILE_LOCAL ?>" /> <!--foundation.css-->
-    <!--Slick - Carrosel plugin -->
-    <link rel="stylesheet" type="text/css" href="<?php echo SITEURL.'/'.SLICK_CSS_FILE_LOCAL ?>"/> <!-- slick.css -->
-	<link rel="stylesheet" type="text/css" href="<?php echo SITEURL.'/'.SLICK_THEME_CSS_FILE_LOCAL ?>"/><!-- slick-theme.css -->
-    <link rel="stylesheet" type="text/css" href="<?php echo SITEURL.'/'.APP_CSS_FILE_LOCAL ?>" /><!-- app.css -->
-    
-    <script src="<?php echo SITEURL.'/'.MODERNIZR_JS_FILE_LOCAL ?>"></script> <!-- modernizr.js -->
+	
+	<?php 
+	$link_list = array(
+			'padrao'=>array(NORMALIZE_CSS_FILE_LOCAL,
+					RESPONSIVE_FW_CSS_FILE_LOCAL,
+					APP_CSS_FILE_LOCAL),
+			'home'=>array(NORMALIZE_CSS_FILE_LOCAL,
+					RESPONSIVE_FW_CSS_FILE_LOCAL,
+					SLICK_CSS_FILE_LOCAL,
+					SLICK_THEME_CSS_FILE_LOCAL,
+					APP_CSS_FILE_LOCAL),
+			);
+			
+	$link_list_name = isset($link_list[$page])?$page:'padrao';
+	foreach($link_list[$link_list_name] as $key => $link_item){
+		echo link_tag($link_item);
+	}
+	
+	echo script_tag(MODERNIZR_JS_FILE_LOCAL);
+	?>
   </head>
 
 <body>

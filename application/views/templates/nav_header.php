@@ -11,7 +11,8 @@
     	<ul class="button-group even-<?php echo count($botoes);?>">
             <?php foreach($botoes as $botao => $end){?>
             	<?php echo (($page==$end)?'<li class="nav-active">':'<li>');
-				 echo anchor($end,$botao,array('class' => 'button transparente','active'=>''));?></li>
+				 echo anchor($end,$botao,array('class' => 'button transparente','active'=>''));
+				?></li>
             <?php } ?>
         </ul>
     </div>

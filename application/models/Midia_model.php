@@ -4,7 +4,7 @@ class Midia_model extends MY_Model{
 	public $id;
 	public $nome;
 	public $biblioteca;
-	public $classificacao;
+	public $categoria;
 	public $url;
 	public $alt;
 	public $local;
