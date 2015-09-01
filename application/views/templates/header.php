@@ -15,6 +15,12 @@
 					SLICK_CSS_FILE_LOCAL,
 					SLICK_THEME_CSS_FILE_LOCAL,
 					APP_CSS_FILE_LOCAL),
+			'editar/carrosel'=>array(
+					NORMALIZE_CSS_FILE_LOCAL,
+					RESPONSIVE_FW_CSS_FILE_LOCAL,
+					'assets/plugin/jcrop/css/jquery.Jcrop.min.css',
+					APP_CSS_FILE_LOCAL
+					)
 			);
 			
 	$link_list_name = isset($link_list[$page])?$page:'padrao';

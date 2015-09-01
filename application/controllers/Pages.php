@@ -23,6 +23,6 @@ class Pages extends CI_Controller {
         $this->load->view('templates/header', $data);
 		$this->load->view('templates/top_bar_menu', $data);
         $this->load->view('pages/'.$page, $data);
-        $this->load->view('templates/scripts');
+        $this->load->view('templates/scripts',$data);
 	}
 }

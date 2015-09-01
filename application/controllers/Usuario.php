@@ -21,10 +21,11 @@ class Usuario extends CI_Controller {
         }
         $data['title'] = ucfirst($page); // Capitalize the first letter
 		$data['page'] = $page;
+		if($this->input->post('erro')!==NULL)$data['erro']=$this->input->post('erro');
 
         $this->load->view('templates/header', $data);
         $this->load->view('usuario/'.$page,$data);
-        $this->load->view('templates/scripts');
+        $this->load->view('templates/scripts',$data);
 	}
 	
 	public function entrar(){
