@@ -50,4 +50,14 @@ function script_tag($src = '', $codigo = '', $type = 'text/javascript', $index_p
 
 	return $script.">".$codigo."</script>\n";
 }
+function alert_div($mensagem='',$tipo='info',$fechavel=TRUE){
+	if(is_array($mensagem)) return FALSE;
+	$alert = '<div data-alert class="alert-box ';
+	$alert .= $tipo;
+	$alert .= '" >';
+	$alert .= $mensagem;
+	if($fechavel===TRUE)$alert .= '<a href="#" class="close">&times;</a>';
+	$alert .= '</div>';
+	return $alert;
+}
 ?>

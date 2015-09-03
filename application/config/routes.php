@@ -58,6 +58,8 @@ $route['fotografia'] = 'pages/view/fotografia';
 $route['filmes'] = 'pages/view/filmes';
 $route['casa_de_eventos'] = 'pages/view/casa_de_eventos';
 $route['gastronomia'] = 'pages/view/gastronomia';
+$route['usuario/login/(:any)'] = 'usuario/view/login/$1/';
 $route['usuario/login'] = 'usuario/view/login';
+$route['login/(:any)'] = 'usuario/view/login/$1/';
 $route['login'] = 'usuario/view/login';
 

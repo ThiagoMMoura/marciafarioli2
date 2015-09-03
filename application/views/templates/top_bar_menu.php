@@ -2,7 +2,7 @@
   <nav class="top-bar" data-topbar role="navigation">
     <ul class="title-area">
       <li class="name">
-        <h1><a href="#">Marcia Farioli</a></h1>
+        <h1><?php echo anchor('home','Marcia Farioli'); ?></h1>
       </li>
       <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
     </ul>

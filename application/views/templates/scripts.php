@@ -16,7 +16,8 @@
 					JQUERY_JS_FILE_LOCAL,
 					RESPONSIVE_FW_JS_FILE_LOCAL,
 					array('codigo'=>'$(document).foundation();'),
-					'assets/plugin/jcrop/js/jquery.Jcrop.min.js'
+					'assets/plugin/jcrop/js/jquery.Jcrop.min.js',
+					'assets/js/jcrop_carrosel.js'
 					)
 			);
 	$script_list_name = isset($script_list[$page])?$page:'padrao';

@@ -4,7 +4,6 @@ class Usuario extends CI_Controller {
 	
 	public function __construct(){
 		parent::__construct();
-		$this->load->helper('form');
 		$this->load->library('form_validation');
 	}
 	
@@ -12,7 +11,7 @@ class Usuario extends CI_Controller {
 		$this->view();
 	}
 	
-	public function view($page = 'login',$data = array())
+	public function view($page = 'login',$alerta=NULL,$data = array())
 	{
 		if ( ! file_exists(APPPATH.'/views/usuario/'.$page.'.php'))
         {
@@ -21,7 +20,7 @@ class Usuario extends CI_Controller {
         }
         $data['title'] = ucfirst($page); // Capitalize the first letter
 		$data['page'] = $page;
-		if($this->input->post('erro')!==NULL)$data['erro']=$this->input->post('erro');
+		if($alerta!==NULL)$data[separa_str($alerta,'_',FALSE)]=$this->lang->line($alerta);
 
         $this->load->view('templates/header', $data);
         $this->load->view('usuario/'.$page,$data);
@@ -48,7 +47,7 @@ class Usuario extends CI_Controller {
 				$this->session->set_userdata($userdata);
 				redirect('home');
 			}else{
-				$this->view('login',array('erro'=>'O email ou senha não está correto.'));
+				$this->view('login','error_login_incorreto');
 			}
 		}
 	}
@@ -84,7 +83,7 @@ class Usuario extends CI_Controller {
 		$this->view('cadastro');
 	}
 	public function recuperarsenha(){
-		$this->view('login',array('erro'=>'Está função ainda não foi implementada!'));
+		$this->view('login','warning_not_implemented');
 	}
 }
 ?>

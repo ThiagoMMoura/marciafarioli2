@@ -18,10 +18,13 @@ class Admin extends CI_Controller {
 		if($this->usuario_model->logado()){
 			$data['perm'] = $this->usuario_model->get_permissoes();
 		}else{
-			$_POST['erro'] = 'Você precisa logar para acessar está área.';
-			redirect('login');
+			redirect('login/error_login_necessario');
 		}
 		
+		$this->load->view('templates/header',$data);
+		$this->load->view('templates/top_bar_menu', $data);
+        $this->load->view('admin/editar/'.$page, $data);
+        $this->load->view('templates/scripts',$data);
 	}
 }
 ?>
