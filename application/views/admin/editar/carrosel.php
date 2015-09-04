@@ -16,14 +16,13 @@
     </div>
     <div class="row">
       <div class="large-12 columns">
-		<?php echo form_submit('upload', 'Salvar', 'class="button expand"'); ?>
+		<?php echo form_submit('upload', 'Enviar', 'class="button expand" id="btnenviar"'); ?>
       </div>
     </div>    
     </form>
   </div>
 </div>
 <div class="row">
-  <div class="small-12 columns">
-    <?php echo img(array('src'=>'images/site/construindo marcia farioli0041.jpg','id'=>'imgcrop'));?>
+  <div class="small-12 columns" id="imgupload">
   </div>
 </div>
