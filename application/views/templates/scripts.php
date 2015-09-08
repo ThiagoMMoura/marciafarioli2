@@ -17,6 +17,7 @@
 					RESPONSIVE_FW_JS_FILE_LOCAL,
 					array('codigo'=>'$(document).foundation();'),
 					'assets/plugin/jcrop/js/jquery.Jcrop.min.js',
+					array('src'=>'http://malsup.github.com/jquery.form.js'),
 					'assets/js/jcrop_carrosel.js'
 					)
 			);

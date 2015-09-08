@@ -5,7 +5,7 @@
 </div>
 <div class="row">
   <div class="small-12 columns">
-    <?php echo form_open_multipart('upload/carrosel');?>
+    <?php echo form_open_multipart('upload/carrosel',array('id'=>'uploadform'));?>
     <div class="row">
       <div class="large-12 columns">
 		<?php 
