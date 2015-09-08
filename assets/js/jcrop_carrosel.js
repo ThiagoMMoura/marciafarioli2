@@ -1,12 +1,16 @@
 // JavaScript Document
-jQuery(function($) {
-	$('#imgcrop').Jcrop({
-		bgColor:     'black',
-		bgOpacity:   .4,
-		aspectRatio: 10 / 4,
-		maxSize: [1000,400],
-		setSelect: [0,0,0,1000]
+$(document).ajaxSuccess(function() {
+  if($( "img[id*='imgcrop']" )){
+	jQuery(function($) {
+	  $('#imgcrop').Jcrop({
+		  bgColor:     'black',
+		  bgOpacity:   .4,
+		  aspectRatio: 10 / 4,
+		  maxSize: [1000,400],
+		  setSelect: [0,0,0,1000]
+	  });
 	});
+  }
 });
 /*$('#btnenviar').click(function(){
 	var urlenvio = $('#uploadform').attr('action');
@@ -20,7 +24,8 @@ jQuery(function($) {
 	  });              
 
 });*/
-$(document).ready(function() { 
+jQuery(document).ready(function() { 
+
 var options = { 
         target:        '#imgupload'   // target element(s) to be updated with server response 
         // beforeSubmit:  showRequest,  pre-submit callback 
@@ -35,5 +40,6 @@ var options = {
         //dataType:  null        // 'xml', 'script', or 'json' (expected server response type) 
         //clearForm: true        // clear all form fields after successful submit 
         //resetForm: true        // reset the form after successful submit 
-$('#uploadform').ajaxForm(options); 
+jQuery('#uploadform').ajaxForm(options);
+
 });

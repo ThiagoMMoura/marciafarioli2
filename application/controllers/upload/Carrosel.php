@@ -13,7 +13,8 @@ class Carrosel extends CI_Controller {
   
 		if ( ! $this->upload->do_upload())
 		{
-			echo $this->upload->display_errors();
+			$data = array('error'=>$this->upload->display_errors('',''));
+			$this->load->view('templates/alertas',$data);
 		}
 		else
 		{
