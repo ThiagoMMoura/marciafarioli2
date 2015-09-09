@@ -10,4 +10,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $lang['error_login_necessario']='Você precisa realizar login para acessar a página.';
 $lang['error_login_incorreto']='O email ou senha não está correto.';
 $lang['error_not_implemented']='Está função ainda não foi implementada.';
+$lang['error_permissao_edicao']='Você não tem permissão para editar.';
 ?>

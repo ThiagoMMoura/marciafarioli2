@@ -1,6 +1,6 @@
 // JavaScript Document
-$(document).ajaxSuccess(function() {
-  if($( "img[id*='imgcrop']" )){
+$(document).ajaxComplete(function() {
+  if($( "img[id~='imgcrop']" ).has('src')){
 	jQuery(function($) {
 	  $('#imgcrop').Jcrop({
 		  bgColor:     'black',
@@ -10,22 +10,13 @@ $(document).ajaxSuccess(function() {
 		  setSelect: [0,0,0,1000]
 	  });
 	});
+	$('#btnsalvar').show();
+  }else{
+	  $('#btnsalvar').hide();
   }
 });
-/*$('#btnenviar').click(function(){
-	var urlenvio = $('#uploadform').attr('action');
-	  $.ajax({
-		  url: urlenvio,
-		  type : 'POST',
-		  success : function(data){ 
-			  var result = JSON.parse( data );                             	                        
-			  $('#imgupload').html(result.date);
-		  }
-	  });              
-
-});*/
 jQuery(document).ready(function() { 
-
+$('#btnsalvar').hide();
 var options = { 
         target:        '#imgupload'   // target element(s) to be updated with server response 
         // beforeSubmit:  showRequest,  pre-submit callback 
