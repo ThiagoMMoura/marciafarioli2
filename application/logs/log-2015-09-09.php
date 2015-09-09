@@ -1215,3 +1215,1440 @@ ERROR - 2015-09-09 02:52:27 --> Você não selecionou o arquivo para fazer uploa
 INFO - 2015-09-09 02:52:27 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/alertas.php
 INFO - 2015-09-09 02:52:27 --> Final output sent to browser
 DEBUG - 2015-09-09 02:52:27 --> Total execution time: 0.1151
+INFO - 2015-09-09 22:21:48 --> Config Class Initialized
+INFO - 2015-09-09 22:21:48 --> Hooks Class Initialized
+DEBUG - 2015-09-09 22:21:48 --> UTF-8 Support Enabled
+INFO - 2015-09-09 22:21:48 --> Utf8 Class Initialized
+INFO - 2015-09-09 22:21:48 --> URI Class Initialized
+INFO - 2015-09-09 22:21:48 --> Router Class Initialized
+INFO - 2015-09-09 22:21:48 --> Output Class Initialized
+INFO - 2015-09-09 22:21:48 --> Security Class Initialized
+DEBUG - 2015-09-09 22:21:48 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 22:21:48 --> Input Class Initialized
+INFO - 2015-09-09 22:21:48 --> Language Class Initialized
+INFO - 2015-09-09 22:21:48 --> Loader Class Initialized
+INFO - 2015-09-09 22:21:48 --> Helper loaded: form_helper
+INFO - 2015-09-09 22:21:48 --> Helper loaded: url_helper
+INFO - 2015-09-09 22:21:48 --> Helper loaded: html_helper
+INFO - 2015-09-09 22:21:48 --> Helper loaded: text_helper
+INFO - 2015-09-09 22:21:48 --> Helper loaded: string_helper
+INFO - 2015-09-09 22:21:48 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 22:21:48 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 22:21:48 --> Database Driver Class Initialized
+INFO - 2015-09-09 22:21:49 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 22:21:49 --> Model Class Initialized
+INFO - 2015-09-09 22:21:49 --> Model Class Initialized
+INFO - 2015-09-09 22:21:49 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 22:21:49 --> Model Class Initialized
+INFO - 2015-09-09 22:21:49 --> Controller Class Initialized
+INFO - 2015-09-09 22:21:49 --> Config Class Initialized
+INFO - 2015-09-09 22:21:49 --> Hooks Class Initialized
+DEBUG - 2015-09-09 22:21:49 --> UTF-8 Support Enabled
+INFO - 2015-09-09 22:21:49 --> Utf8 Class Initialized
+INFO - 2015-09-09 22:21:49 --> URI Class Initialized
+INFO - 2015-09-09 22:21:49 --> Router Class Initialized
+INFO - 2015-09-09 22:21:49 --> Output Class Initialized
+INFO - 2015-09-09 22:21:49 --> Security Class Initialized
+DEBUG - 2015-09-09 22:21:49 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 22:21:49 --> Input Class Initialized
+INFO - 2015-09-09 22:21:49 --> Language Class Initialized
+INFO - 2015-09-09 22:21:49 --> Loader Class Initialized
+INFO - 2015-09-09 22:21:49 --> Helper loaded: form_helper
+INFO - 2015-09-09 22:21:49 --> Helper loaded: url_helper
+INFO - 2015-09-09 22:21:49 --> Helper loaded: html_helper
+INFO - 2015-09-09 22:21:49 --> Helper loaded: text_helper
+INFO - 2015-09-09 22:21:49 --> Helper loaded: string_helper
+INFO - 2015-09-09 22:21:49 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 22:21:49 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 22:21:49 --> Database Driver Class Initialized
+INFO - 2015-09-09 22:21:49 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 22:21:49 --> Model Class Initialized
+INFO - 2015-09-09 22:21:49 --> Model Class Initialized
+INFO - 2015-09-09 22:21:49 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 22:21:49 --> Model Class Initialized
+INFO - 2015-09-09 22:21:49 --> Controller Class Initialized
+INFO - 2015-09-09 22:21:49 --> Form Validation Class Initialized
+INFO - 2015-09-09 22:21:49 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/header.php
+INFO - 2015-09-09 22:21:49 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/nav_header.php
+INFO - 2015-09-09 22:21:49 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/alertas.php
+INFO - 2015-09-09 22:21:49 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/footer.php
+INFO - 2015-09-09 22:21:49 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\usuario/login.php
+INFO - 2015-09-09 22:21:49 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/scripts.php
+INFO - 2015-09-09 22:21:49 --> Final output sent to browser
+DEBUG - 2015-09-09 22:21:49 --> Total execution time: 0.0780
+INFO - 2015-09-09 22:21:58 --> Config Class Initialized
+INFO - 2015-09-09 22:21:58 --> Hooks Class Initialized
+DEBUG - 2015-09-09 22:21:58 --> UTF-8 Support Enabled
+INFO - 2015-09-09 22:21:58 --> Utf8 Class Initialized
+INFO - 2015-09-09 22:21:58 --> URI Class Initialized
+INFO - 2015-09-09 22:21:58 --> Router Class Initialized
+INFO - 2015-09-09 22:21:58 --> Output Class Initialized
+INFO - 2015-09-09 22:21:58 --> Security Class Initialized
+DEBUG - 2015-09-09 22:21:58 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 22:21:58 --> Input Class Initialized
+INFO - 2015-09-09 22:21:58 --> Language Class Initialized
+INFO - 2015-09-09 22:21:58 --> Loader Class Initialized
+INFO - 2015-09-09 22:21:58 --> Helper loaded: form_helper
+INFO - 2015-09-09 22:21:58 --> Helper loaded: url_helper
+INFO - 2015-09-09 22:21:58 --> Helper loaded: html_helper
+INFO - 2015-09-09 22:21:58 --> Helper loaded: text_helper
+INFO - 2015-09-09 22:21:58 --> Helper loaded: string_helper
+INFO - 2015-09-09 22:21:58 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 22:21:58 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 22:21:58 --> Database Driver Class Initialized
+INFO - 2015-09-09 22:21:58 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 22:21:58 --> Model Class Initialized
+INFO - 2015-09-09 22:21:58 --> Model Class Initialized
+INFO - 2015-09-09 22:21:58 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 22:21:58 --> Model Class Initialized
+INFO - 2015-09-09 22:21:58 --> Controller Class Initialized
+INFO - 2015-09-09 22:21:58 --> Form Validation Class Initialized
+INFO - 2015-09-09 22:21:58 --> Language file loaded: language/portuguese-brazilian/form_validation_lang.php
+INFO - 2015-09-09 22:21:58 --> Config Class Initialized
+INFO - 2015-09-09 22:21:58 --> Hooks Class Initialized
+DEBUG - 2015-09-09 22:21:58 --> UTF-8 Support Enabled
+INFO - 2015-09-09 22:21:58 --> Utf8 Class Initialized
+INFO - 2015-09-09 22:21:58 --> URI Class Initialized
+INFO - 2015-09-09 22:21:58 --> Router Class Initialized
+INFO - 2015-09-09 22:21:58 --> Output Class Initialized
+INFO - 2015-09-09 22:21:58 --> Security Class Initialized
+DEBUG - 2015-09-09 22:21:58 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 22:21:58 --> Input Class Initialized
+INFO - 2015-09-09 22:21:58 --> Language Class Initialized
+INFO - 2015-09-09 22:21:58 --> Loader Class Initialized
+INFO - 2015-09-09 22:21:58 --> Helper loaded: form_helper
+INFO - 2015-09-09 22:21:58 --> Helper loaded: url_helper
+INFO - 2015-09-09 22:21:58 --> Helper loaded: html_helper
+INFO - 2015-09-09 22:21:58 --> Helper loaded: text_helper
+INFO - 2015-09-09 22:21:58 --> Helper loaded: string_helper
+INFO - 2015-09-09 22:21:58 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 22:21:58 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 22:21:58 --> Database Driver Class Initialized
+INFO - 2015-09-09 22:21:58 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 22:21:58 --> Model Class Initialized
+INFO - 2015-09-09 22:21:58 --> Model Class Initialized
+INFO - 2015-09-09 22:21:58 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 22:21:58 --> Model Class Initialized
+INFO - 2015-09-09 22:21:58 --> Controller Class Initialized
+INFO - 2015-09-09 22:21:58 --> Model Class Initialized
+INFO - 2015-09-09 22:21:58 --> Model Class Initialized
+INFO - 2015-09-09 22:21:58 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/header.php
+INFO - 2015-09-09 22:21:58 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/top_bar_menu.php
+INFO - 2015-09-09 22:21:58 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/nav_header.php
+INFO - 2015-09-09 22:21:58 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/news.php
+INFO - 2015-09-09 22:21:58 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/footer.php
+INFO - 2015-09-09 22:21:58 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\pages/home.php
+INFO - 2015-09-09 22:21:58 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/scripts.php
+INFO - 2015-09-09 22:21:58 --> Final output sent to browser
+DEBUG - 2015-09-09 22:21:58 --> Total execution time: 0.0936
+INFO - 2015-09-09 22:22:01 --> Config Class Initialized
+INFO - 2015-09-09 22:22:01 --> Hooks Class Initialized
+DEBUG - 2015-09-09 22:22:01 --> UTF-8 Support Enabled
+INFO - 2015-09-09 22:22:01 --> Utf8 Class Initialized
+INFO - 2015-09-09 22:22:01 --> URI Class Initialized
+INFO - 2015-09-09 22:22:01 --> Router Class Initialized
+INFO - 2015-09-09 22:22:01 --> Output Class Initialized
+INFO - 2015-09-09 22:22:01 --> Security Class Initialized
+DEBUG - 2015-09-09 22:22:01 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 22:22:01 --> Input Class Initialized
+INFO - 2015-09-09 22:22:01 --> Language Class Initialized
+INFO - 2015-09-09 22:22:01 --> Loader Class Initialized
+INFO - 2015-09-09 22:22:01 --> Helper loaded: form_helper
+INFO - 2015-09-09 22:22:01 --> Helper loaded: url_helper
+INFO - 2015-09-09 22:22:01 --> Helper loaded: html_helper
+INFO - 2015-09-09 22:22:01 --> Helper loaded: text_helper
+INFO - 2015-09-09 22:22:01 --> Helper loaded: string_helper
+INFO - 2015-09-09 22:22:01 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 22:22:01 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 22:22:01 --> Database Driver Class Initialized
+INFO - 2015-09-09 22:22:01 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 22:22:01 --> Model Class Initialized
+INFO - 2015-09-09 22:22:01 --> Model Class Initialized
+INFO - 2015-09-09 22:22:01 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 22:22:01 --> Model Class Initialized
+INFO - 2015-09-09 22:22:01 --> Controller Class Initialized
+INFO - 2015-09-09 22:22:01 --> Model Class Initialized
+INFO - 2015-09-09 22:22:01 --> Model Class Initialized
+INFO - 2015-09-09 22:22:01 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/header.php
+INFO - 2015-09-09 22:22:01 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/top_bar_menu.php
+INFO - 2015-09-09 22:22:01 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\admin/editar/carrosel.php
+INFO - 2015-09-09 22:22:01 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/scripts.php
+INFO - 2015-09-09 22:22:01 --> Final output sent to browser
+DEBUG - 2015-09-09 22:22:01 --> Total execution time: 0.0780
+INFO - 2015-09-09 22:22:06 --> Config Class Initialized
+INFO - 2015-09-09 22:22:06 --> Hooks Class Initialized
+DEBUG - 2015-09-09 22:22:06 --> UTF-8 Support Enabled
+INFO - 2015-09-09 22:22:06 --> Utf8 Class Initialized
+INFO - 2015-09-09 22:22:06 --> URI Class Initialized
+INFO - 2015-09-09 22:22:06 --> Router Class Initialized
+INFO - 2015-09-09 22:22:06 --> Output Class Initialized
+INFO - 2015-09-09 22:22:06 --> Security Class Initialized
+DEBUG - 2015-09-09 22:22:06 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 22:22:06 --> Input Class Initialized
+INFO - 2015-09-09 22:22:06 --> Language Class Initialized
+INFO - 2015-09-09 22:22:06 --> Loader Class Initialized
+INFO - 2015-09-09 22:22:06 --> Helper loaded: form_helper
+INFO - 2015-09-09 22:22:06 --> Helper loaded: url_helper
+INFO - 2015-09-09 22:22:06 --> Helper loaded: html_helper
+INFO - 2015-09-09 22:22:06 --> Helper loaded: text_helper
+INFO - 2015-09-09 22:22:06 --> Helper loaded: string_helper
+INFO - 2015-09-09 22:22:06 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 22:22:06 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 22:22:06 --> Database Driver Class Initialized
+INFO - 2015-09-09 22:22:06 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 22:22:06 --> Model Class Initialized
+INFO - 2015-09-09 22:22:06 --> Model Class Initialized
+INFO - 2015-09-09 22:22:06 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 22:22:06 --> Model Class Initialized
+INFO - 2015-09-09 22:22:06 --> Controller Class Initialized
+INFO - 2015-09-09 22:22:06 --> Model Class Initialized
+INFO - 2015-09-09 22:22:06 --> Model Class Initialized
+INFO - 2015-09-09 22:22:06 --> Upload Class Initialized
+INFO - 2015-09-09 22:22:06 --> Language file loaded: language/portuguese-brazilian/upload_lang.php
+ERROR - 2015-09-09 22:22:06 --> Você não selecionou o arquivo para fazer upload.
+INFO - 2015-09-09 22:22:06 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/alertas.php
+INFO - 2015-09-09 22:22:06 --> Final output sent to browser
+DEBUG - 2015-09-09 22:22:06 --> Total execution time: 0.0624
+INFO - 2015-09-09 22:22:52 --> Config Class Initialized
+INFO - 2015-09-09 22:22:52 --> Hooks Class Initialized
+DEBUG - 2015-09-09 22:22:52 --> UTF-8 Support Enabled
+INFO - 2015-09-09 22:22:52 --> Utf8 Class Initialized
+INFO - 2015-09-09 22:22:52 --> URI Class Initialized
+INFO - 2015-09-09 22:22:52 --> Router Class Initialized
+INFO - 2015-09-09 22:22:52 --> Output Class Initialized
+INFO - 2015-09-09 22:22:52 --> Security Class Initialized
+DEBUG - 2015-09-09 22:22:52 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 22:22:52 --> Input Class Initialized
+INFO - 2015-09-09 22:22:52 --> Language Class Initialized
+INFO - 2015-09-09 22:22:52 --> Loader Class Initialized
+INFO - 2015-09-09 22:22:52 --> Helper loaded: form_helper
+INFO - 2015-09-09 22:22:52 --> Helper loaded: url_helper
+INFO - 2015-09-09 22:22:52 --> Helper loaded: html_helper
+INFO - 2015-09-09 22:22:52 --> Helper loaded: text_helper
+INFO - 2015-09-09 22:22:52 --> Helper loaded: string_helper
+INFO - 2015-09-09 22:22:52 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 22:22:52 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 22:22:52 --> Database Driver Class Initialized
+INFO - 2015-09-09 22:22:52 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 22:22:52 --> Model Class Initialized
+INFO - 2015-09-09 22:22:52 --> Model Class Initialized
+INFO - 2015-09-09 22:22:52 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 22:22:52 --> Model Class Initialized
+INFO - 2015-09-09 22:22:52 --> Controller Class Initialized
+INFO - 2015-09-09 22:22:52 --> Model Class Initialized
+INFO - 2015-09-09 22:22:52 --> Model Class Initialized
+INFO - 2015-09-09 22:22:52 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/header.php
+INFO - 2015-09-09 22:22:52 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/top_bar_menu.php
+INFO - 2015-09-09 22:22:52 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\admin/editar/carrosel.php
+INFO - 2015-09-09 22:22:52 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/scripts.php
+INFO - 2015-09-09 22:22:52 --> Final output sent to browser
+DEBUG - 2015-09-09 22:22:52 --> Total execution time: 0.0624
+INFO - 2015-09-09 22:22:55 --> Config Class Initialized
+INFO - 2015-09-09 22:22:55 --> Hooks Class Initialized
+DEBUG - 2015-09-09 22:22:55 --> UTF-8 Support Enabled
+INFO - 2015-09-09 22:22:55 --> Utf8 Class Initialized
+INFO - 2015-09-09 22:22:55 --> URI Class Initialized
+INFO - 2015-09-09 22:22:55 --> Router Class Initialized
+INFO - 2015-09-09 22:22:55 --> Output Class Initialized
+INFO - 2015-09-09 22:22:55 --> Security Class Initialized
+DEBUG - 2015-09-09 22:22:55 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 22:22:55 --> Input Class Initialized
+INFO - 2015-09-09 22:22:55 --> Language Class Initialized
+INFO - 2015-09-09 22:22:55 --> Loader Class Initialized
+INFO - 2015-09-09 22:22:55 --> Helper loaded: form_helper
+INFO - 2015-09-09 22:22:55 --> Helper loaded: url_helper
+INFO - 2015-09-09 22:22:55 --> Helper loaded: html_helper
+INFO - 2015-09-09 22:22:55 --> Helper loaded: text_helper
+INFO - 2015-09-09 22:22:55 --> Helper loaded: string_helper
+INFO - 2015-09-09 22:22:55 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 22:22:55 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 22:22:55 --> Database Driver Class Initialized
+INFO - 2015-09-09 22:22:55 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 22:22:55 --> Model Class Initialized
+INFO - 2015-09-09 22:22:55 --> Model Class Initialized
+INFO - 2015-09-09 22:22:55 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 22:22:55 --> Model Class Initialized
+INFO - 2015-09-09 22:22:55 --> Controller Class Initialized
+INFO - 2015-09-09 22:22:55 --> Model Class Initialized
+INFO - 2015-09-09 22:22:55 --> Model Class Initialized
+INFO - 2015-09-09 22:22:55 --> Upload Class Initialized
+INFO - 2015-09-09 22:22:55 --> Language file loaded: language/portuguese-brazilian/upload_lang.php
+ERROR - 2015-09-09 22:22:55 --> Você não selecionou o arquivo para fazer upload.
+INFO - 2015-09-09 22:22:55 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/alertas.php
+INFO - 2015-09-09 22:22:55 --> Final output sent to browser
+DEBUG - 2015-09-09 22:22:55 --> Total execution time: 0.0624
+INFO - 2015-09-09 22:25:21 --> Config Class Initialized
+INFO - 2015-09-09 22:25:21 --> Hooks Class Initialized
+DEBUG - 2015-09-09 22:25:21 --> UTF-8 Support Enabled
+INFO - 2015-09-09 22:25:21 --> Utf8 Class Initialized
+INFO - 2015-09-09 22:25:21 --> URI Class Initialized
+INFO - 2015-09-09 22:25:21 --> Router Class Initialized
+INFO - 2015-09-09 22:25:21 --> Output Class Initialized
+INFO - 2015-09-09 22:25:21 --> Security Class Initialized
+DEBUG - 2015-09-09 22:25:21 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 22:25:21 --> Input Class Initialized
+INFO - 2015-09-09 22:25:21 --> Language Class Initialized
+INFO - 2015-09-09 22:25:21 --> Loader Class Initialized
+INFO - 2015-09-09 22:25:21 --> Helper loaded: form_helper
+INFO - 2015-09-09 22:25:21 --> Helper loaded: url_helper
+INFO - 2015-09-09 22:25:21 --> Helper loaded: html_helper
+INFO - 2015-09-09 22:25:21 --> Helper loaded: text_helper
+INFO - 2015-09-09 22:25:21 --> Helper loaded: string_helper
+INFO - 2015-09-09 22:25:21 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 22:25:21 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 22:25:21 --> Database Driver Class Initialized
+INFO - 2015-09-09 22:25:21 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 22:25:21 --> Model Class Initialized
+INFO - 2015-09-09 22:25:21 --> Model Class Initialized
+INFO - 2015-09-09 22:25:21 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 22:25:21 --> Model Class Initialized
+INFO - 2015-09-09 22:25:21 --> Controller Class Initialized
+INFO - 2015-09-09 22:25:21 --> Model Class Initialized
+INFO - 2015-09-09 22:25:21 --> Model Class Initialized
+INFO - 2015-09-09 22:25:21 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/header.php
+INFO - 2015-09-09 22:25:21 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/top_bar_menu.php
+INFO - 2015-09-09 22:25:21 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\admin/editar/carrosel.php
+INFO - 2015-09-09 22:25:21 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/scripts.php
+INFO - 2015-09-09 22:25:21 --> Final output sent to browser
+DEBUG - 2015-09-09 22:25:21 --> Total execution time: 0.0468
+INFO - 2015-09-09 22:25:32 --> Config Class Initialized
+INFO - 2015-09-09 22:25:32 --> Hooks Class Initialized
+DEBUG - 2015-09-09 22:25:32 --> UTF-8 Support Enabled
+INFO - 2015-09-09 22:25:32 --> Utf8 Class Initialized
+INFO - 2015-09-09 22:25:32 --> URI Class Initialized
+INFO - 2015-09-09 22:25:32 --> Router Class Initialized
+INFO - 2015-09-09 22:25:32 --> Output Class Initialized
+INFO - 2015-09-09 22:25:32 --> Security Class Initialized
+DEBUG - 2015-09-09 22:25:32 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 22:25:32 --> Input Class Initialized
+INFO - 2015-09-09 22:25:32 --> Language Class Initialized
+INFO - 2015-09-09 22:25:32 --> Loader Class Initialized
+INFO - 2015-09-09 22:25:32 --> Helper loaded: form_helper
+INFO - 2015-09-09 22:25:32 --> Helper loaded: url_helper
+INFO - 2015-09-09 22:25:32 --> Helper loaded: html_helper
+INFO - 2015-09-09 22:25:32 --> Helper loaded: text_helper
+INFO - 2015-09-09 22:25:32 --> Helper loaded: string_helper
+INFO - 2015-09-09 22:25:32 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 22:25:32 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 22:25:32 --> Database Driver Class Initialized
+INFO - 2015-09-09 22:25:32 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 22:25:32 --> Model Class Initialized
+INFO - 2015-09-09 22:25:32 --> Model Class Initialized
+INFO - 2015-09-09 22:25:32 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 22:25:32 --> Model Class Initialized
+INFO - 2015-09-09 22:25:32 --> Controller Class Initialized
+INFO - 2015-09-09 22:25:32 --> Model Class Initialized
+INFO - 2015-09-09 22:25:32 --> Model Class Initialized
+INFO - 2015-09-09 22:25:32 --> Upload Class Initialized
+INFO - 2015-09-09 22:25:32 --> Language file loaded: language/portuguese-brazilian/upload_lang.php
+ERROR - 2015-09-09 22:25:32 --> Você não selecionou o arquivo para fazer upload.
+INFO - 2015-09-09 22:25:32 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/alertas.php
+INFO - 2015-09-09 22:25:32 --> Final output sent to browser
+DEBUG - 2015-09-09 22:25:32 --> Total execution time: 0.0468
+INFO - 2015-09-09 22:26:08 --> Config Class Initialized
+INFO - 2015-09-09 22:26:08 --> Hooks Class Initialized
+DEBUG - 2015-09-09 22:26:08 --> UTF-8 Support Enabled
+INFO - 2015-09-09 22:26:08 --> Utf8 Class Initialized
+INFO - 2015-09-09 22:26:08 --> URI Class Initialized
+INFO - 2015-09-09 22:26:08 --> Router Class Initialized
+INFO - 2015-09-09 22:26:08 --> Output Class Initialized
+INFO - 2015-09-09 22:26:08 --> Security Class Initialized
+DEBUG - 2015-09-09 22:26:08 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 22:26:08 --> Input Class Initialized
+INFO - 2015-09-09 22:26:08 --> Language Class Initialized
+INFO - 2015-09-09 22:26:08 --> Loader Class Initialized
+INFO - 2015-09-09 22:26:08 --> Helper loaded: form_helper
+INFO - 2015-09-09 22:26:08 --> Helper loaded: url_helper
+INFO - 2015-09-09 22:26:08 --> Helper loaded: html_helper
+INFO - 2015-09-09 22:26:08 --> Helper loaded: text_helper
+INFO - 2015-09-09 22:26:08 --> Helper loaded: string_helper
+INFO - 2015-09-09 22:26:08 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 22:26:08 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 22:26:08 --> Database Driver Class Initialized
+INFO - 2015-09-09 22:26:08 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 22:26:08 --> Model Class Initialized
+INFO - 2015-09-09 22:26:08 --> Model Class Initialized
+INFO - 2015-09-09 22:26:08 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 22:26:08 --> Model Class Initialized
+INFO - 2015-09-09 22:26:08 --> Controller Class Initialized
+INFO - 2015-09-09 22:26:08 --> Model Class Initialized
+INFO - 2015-09-09 22:26:08 --> Model Class Initialized
+INFO - 2015-09-09 22:26:08 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/header.php
+INFO - 2015-09-09 22:26:08 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/top_bar_menu.php
+INFO - 2015-09-09 22:26:08 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\admin/editar/carrosel.php
+INFO - 2015-09-09 22:26:08 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/scripts.php
+INFO - 2015-09-09 22:26:08 --> Final output sent to browser
+DEBUG - 2015-09-09 22:26:08 --> Total execution time: 0.0468
+INFO - 2015-09-09 22:26:11 --> Config Class Initialized
+INFO - 2015-09-09 22:26:11 --> Hooks Class Initialized
+DEBUG - 2015-09-09 22:26:11 --> UTF-8 Support Enabled
+INFO - 2015-09-09 22:26:11 --> Utf8 Class Initialized
+INFO - 2015-09-09 22:26:11 --> URI Class Initialized
+INFO - 2015-09-09 22:26:11 --> Router Class Initialized
+INFO - 2015-09-09 22:26:11 --> Output Class Initialized
+INFO - 2015-09-09 22:26:11 --> Security Class Initialized
+DEBUG - 2015-09-09 22:26:11 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 22:26:11 --> Input Class Initialized
+INFO - 2015-09-09 22:26:11 --> Language Class Initialized
+INFO - 2015-09-09 22:26:11 --> Loader Class Initialized
+INFO - 2015-09-09 22:26:11 --> Helper loaded: form_helper
+INFO - 2015-09-09 22:26:11 --> Helper loaded: url_helper
+INFO - 2015-09-09 22:26:11 --> Helper loaded: html_helper
+INFO - 2015-09-09 22:26:11 --> Helper loaded: text_helper
+INFO - 2015-09-09 22:26:11 --> Helper loaded: string_helper
+INFO - 2015-09-09 22:26:11 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 22:26:11 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 22:26:11 --> Database Driver Class Initialized
+INFO - 2015-09-09 22:26:11 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 22:26:11 --> Model Class Initialized
+INFO - 2015-09-09 22:26:11 --> Model Class Initialized
+INFO - 2015-09-09 22:26:11 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 22:26:11 --> Model Class Initialized
+INFO - 2015-09-09 22:26:11 --> Controller Class Initialized
+INFO - 2015-09-09 22:26:11 --> Model Class Initialized
+INFO - 2015-09-09 22:26:11 --> Model Class Initialized
+INFO - 2015-09-09 22:26:11 --> Upload Class Initialized
+INFO - 2015-09-09 22:26:11 --> Language file loaded: language/portuguese-brazilian/upload_lang.php
+ERROR - 2015-09-09 22:26:11 --> Você não selecionou o arquivo para fazer upload.
+INFO - 2015-09-09 22:26:11 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/alertas.php
+INFO - 2015-09-09 22:26:11 --> Final output sent to browser
+DEBUG - 2015-09-09 22:26:11 --> Total execution time: 0.0468
+INFO - 2015-09-09 22:58:34 --> Config Class Initialized
+INFO - 2015-09-09 22:58:34 --> Hooks Class Initialized
+DEBUG - 2015-09-09 22:58:34 --> UTF-8 Support Enabled
+INFO - 2015-09-09 22:58:34 --> Utf8 Class Initialized
+INFO - 2015-09-09 22:58:34 --> URI Class Initialized
+INFO - 2015-09-09 22:58:34 --> Router Class Initialized
+INFO - 2015-09-09 22:58:34 --> Output Class Initialized
+INFO - 2015-09-09 22:58:34 --> Security Class Initialized
+DEBUG - 2015-09-09 22:58:34 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 22:58:34 --> Input Class Initialized
+INFO - 2015-09-09 22:58:34 --> Language Class Initialized
+INFO - 2015-09-09 22:58:34 --> Loader Class Initialized
+INFO - 2015-09-09 22:58:34 --> Helper loaded: form_helper
+INFO - 2015-09-09 22:58:34 --> Helper loaded: url_helper
+INFO - 2015-09-09 22:58:34 --> Helper loaded: html_helper
+INFO - 2015-09-09 22:58:34 --> Helper loaded: text_helper
+INFO - 2015-09-09 22:58:34 --> Helper loaded: string_helper
+INFO - 2015-09-09 22:58:34 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 22:58:34 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 22:58:34 --> Database Driver Class Initialized
+INFO - 2015-09-09 22:58:37 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 22:58:37 --> Model Class Initialized
+INFO - 2015-09-09 22:58:37 --> Model Class Initialized
+INFO - 2015-09-09 22:58:37 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 22:58:37 --> Model Class Initialized
+INFO - 2015-09-09 22:58:37 --> Controller Class Initialized
+INFO - 2015-09-09 22:58:37 --> Model Class Initialized
+INFO - 2015-09-09 22:58:37 --> Model Class Initialized
+INFO - 2015-09-09 22:58:37 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/header.php
+INFO - 2015-09-09 22:58:37 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/top_bar_menu.php
+INFO - 2015-09-09 22:58:37 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\admin/editar/carrosel.php
+INFO - 2015-09-09 22:58:37 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/scripts.php
+INFO - 2015-09-09 22:58:37 --> Final output sent to browser
+DEBUG - 2015-09-09 22:58:37 --> Total execution time: 3.0732
+INFO - 2015-09-09 22:58:44 --> Config Class Initialized
+INFO - 2015-09-09 22:58:44 --> Hooks Class Initialized
+DEBUG - 2015-09-09 22:58:44 --> UTF-8 Support Enabled
+INFO - 2015-09-09 22:58:44 --> Utf8 Class Initialized
+INFO - 2015-09-09 22:58:44 --> URI Class Initialized
+INFO - 2015-09-09 22:58:44 --> Router Class Initialized
+INFO - 2015-09-09 22:58:44 --> Output Class Initialized
+INFO - 2015-09-09 22:58:44 --> Security Class Initialized
+DEBUG - 2015-09-09 22:58:44 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 22:58:44 --> Input Class Initialized
+INFO - 2015-09-09 22:58:44 --> Language Class Initialized
+INFO - 2015-09-09 22:58:44 --> Loader Class Initialized
+INFO - 2015-09-09 22:58:44 --> Helper loaded: form_helper
+INFO - 2015-09-09 22:58:44 --> Helper loaded: url_helper
+INFO - 2015-09-09 22:58:44 --> Helper loaded: html_helper
+INFO - 2015-09-09 22:58:44 --> Helper loaded: text_helper
+INFO - 2015-09-09 22:58:44 --> Helper loaded: string_helper
+INFO - 2015-09-09 22:58:44 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 22:58:44 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 22:58:44 --> Database Driver Class Initialized
+INFO - 2015-09-09 22:58:44 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 22:58:44 --> Model Class Initialized
+INFO - 2015-09-09 22:58:44 --> Model Class Initialized
+INFO - 2015-09-09 22:58:44 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 22:58:44 --> Model Class Initialized
+INFO - 2015-09-09 22:58:44 --> Controller Class Initialized
+INFO - 2015-09-09 22:58:44 --> Model Class Initialized
+INFO - 2015-09-09 22:58:44 --> Model Class Initialized
+INFO - 2015-09-09 22:58:44 --> Upload Class Initialized
+INFO - 2015-09-09 22:58:44 --> Language file loaded: language/portuguese-brazilian/upload_lang.php
+ERROR - 2015-09-09 22:58:44 --> Você não selecionou o arquivo para fazer upload.
+INFO - 2015-09-09 22:58:44 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/alertas.php
+INFO - 2015-09-09 22:58:44 --> Final output sent to browser
+DEBUG - 2015-09-09 22:58:44 --> Total execution time: 0.0468
+INFO - 2015-09-09 22:58:49 --> Config Class Initialized
+INFO - 2015-09-09 22:58:49 --> Hooks Class Initialized
+DEBUG - 2015-09-09 22:58:49 --> UTF-8 Support Enabled
+INFO - 2015-09-09 22:58:49 --> Utf8 Class Initialized
+INFO - 2015-09-09 22:58:49 --> URI Class Initialized
+INFO - 2015-09-09 22:58:49 --> Router Class Initialized
+INFO - 2015-09-09 22:58:49 --> Output Class Initialized
+INFO - 2015-09-09 22:58:49 --> Security Class Initialized
+DEBUG - 2015-09-09 22:58:49 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 22:58:49 --> Input Class Initialized
+INFO - 2015-09-09 22:58:49 --> Language Class Initialized
+INFO - 2015-09-09 22:58:49 --> Loader Class Initialized
+INFO - 2015-09-09 22:58:49 --> Helper loaded: form_helper
+INFO - 2015-09-09 22:58:49 --> Helper loaded: url_helper
+INFO - 2015-09-09 22:58:49 --> Helper loaded: html_helper
+INFO - 2015-09-09 22:58:49 --> Helper loaded: text_helper
+INFO - 2015-09-09 22:58:49 --> Helper loaded: string_helper
+INFO - 2015-09-09 22:58:49 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 22:58:49 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 22:58:49 --> Database Driver Class Initialized
+INFO - 2015-09-09 22:58:49 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 22:58:49 --> Model Class Initialized
+INFO - 2015-09-09 22:58:49 --> Model Class Initialized
+INFO - 2015-09-09 22:58:49 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 22:58:49 --> Model Class Initialized
+INFO - 2015-09-09 22:58:49 --> Controller Class Initialized
+INFO - 2015-09-09 22:58:49 --> Model Class Initialized
+INFO - 2015-09-09 22:58:49 --> Model Class Initialized
+INFO - 2015-09-09 22:58:49 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/header.php
+INFO - 2015-09-09 22:58:49 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/top_bar_menu.php
+INFO - 2015-09-09 22:58:49 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\admin/editar/carrosel.php
+INFO - 2015-09-09 22:58:49 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/scripts.php
+INFO - 2015-09-09 22:58:49 --> Final output sent to browser
+DEBUG - 2015-09-09 22:58:49 --> Total execution time: 0.0624
+INFO - 2015-09-09 22:58:59 --> Config Class Initialized
+INFO - 2015-09-09 22:58:59 --> Hooks Class Initialized
+DEBUG - 2015-09-09 22:58:59 --> UTF-8 Support Enabled
+INFO - 2015-09-09 22:58:59 --> Utf8 Class Initialized
+INFO - 2015-09-09 22:58:59 --> URI Class Initialized
+INFO - 2015-09-09 22:58:59 --> Router Class Initialized
+INFO - 2015-09-09 22:58:59 --> Output Class Initialized
+INFO - 2015-09-09 22:58:59 --> Security Class Initialized
+DEBUG - 2015-09-09 22:58:59 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 22:58:59 --> Input Class Initialized
+INFO - 2015-09-09 22:58:59 --> Language Class Initialized
+INFO - 2015-09-09 22:58:59 --> Loader Class Initialized
+INFO - 2015-09-09 22:58:59 --> Helper loaded: form_helper
+INFO - 2015-09-09 22:58:59 --> Helper loaded: url_helper
+INFO - 2015-09-09 22:58:59 --> Helper loaded: html_helper
+INFO - 2015-09-09 22:58:59 --> Helper loaded: text_helper
+INFO - 2015-09-09 22:58:59 --> Helper loaded: string_helper
+INFO - 2015-09-09 22:58:59 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 22:58:59 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 22:58:59 --> Database Driver Class Initialized
+INFO - 2015-09-09 22:58:59 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 22:58:59 --> Model Class Initialized
+INFO - 2015-09-09 22:58:59 --> Model Class Initialized
+INFO - 2015-09-09 22:58:59 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 22:58:59 --> Model Class Initialized
+INFO - 2015-09-09 22:58:59 --> Controller Class Initialized
+INFO - 2015-09-09 22:58:59 --> Model Class Initialized
+INFO - 2015-09-09 22:58:59 --> Model Class Initialized
+INFO - 2015-09-09 22:58:59 --> Upload Class Initialized
+INFO - 2015-09-09 22:58:59 --> Final output sent to browser
+DEBUG - 2015-09-09 22:58:59 --> Total execution time: 0.0468
+INFO - 2015-09-09 23:02:01 --> Config Class Initialized
+INFO - 2015-09-09 23:02:01 --> Hooks Class Initialized
+DEBUG - 2015-09-09 23:02:01 --> UTF-8 Support Enabled
+INFO - 2015-09-09 23:02:01 --> Utf8 Class Initialized
+INFO - 2015-09-09 23:02:01 --> URI Class Initialized
+INFO - 2015-09-09 23:02:01 --> Router Class Initialized
+INFO - 2015-09-09 23:02:01 --> Output Class Initialized
+INFO - 2015-09-09 23:02:01 --> Security Class Initialized
+DEBUG - 2015-09-09 23:02:01 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 23:02:01 --> Input Class Initialized
+INFO - 2015-09-09 23:02:01 --> Language Class Initialized
+INFO - 2015-09-09 23:02:01 --> Loader Class Initialized
+INFO - 2015-09-09 23:02:01 --> Helper loaded: form_helper
+INFO - 2015-09-09 23:02:01 --> Helper loaded: url_helper
+INFO - 2015-09-09 23:02:01 --> Helper loaded: html_helper
+INFO - 2015-09-09 23:02:01 --> Helper loaded: text_helper
+INFO - 2015-09-09 23:02:01 --> Helper loaded: string_helper
+INFO - 2015-09-09 23:02:01 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 23:02:01 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 23:02:01 --> Database Driver Class Initialized
+INFO - 2015-09-09 23:02:01 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 23:02:01 --> Model Class Initialized
+INFO - 2015-09-09 23:02:01 --> Model Class Initialized
+INFO - 2015-09-09 23:02:01 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 23:02:01 --> Model Class Initialized
+INFO - 2015-09-09 23:02:01 --> Controller Class Initialized
+INFO - 2015-09-09 23:02:01 --> Model Class Initialized
+INFO - 2015-09-09 23:02:01 --> Model Class Initialized
+INFO - 2015-09-09 23:02:01 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/header.php
+INFO - 2015-09-09 23:02:01 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/top_bar_menu.php
+INFO - 2015-09-09 23:02:01 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\admin/editar/carrosel.php
+INFO - 2015-09-09 23:02:01 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/scripts.php
+INFO - 2015-09-09 23:02:01 --> Final output sent to browser
+DEBUG - 2015-09-09 23:02:01 --> Total execution time: 0.0468
+INFO - 2015-09-09 23:02:05 --> Config Class Initialized
+INFO - 2015-09-09 23:02:05 --> Hooks Class Initialized
+DEBUG - 2015-09-09 23:02:05 --> UTF-8 Support Enabled
+INFO - 2015-09-09 23:02:05 --> Utf8 Class Initialized
+INFO - 2015-09-09 23:02:05 --> URI Class Initialized
+INFO - 2015-09-09 23:02:05 --> Router Class Initialized
+INFO - 2015-09-09 23:02:05 --> Output Class Initialized
+INFO - 2015-09-09 23:02:05 --> Security Class Initialized
+DEBUG - 2015-09-09 23:02:05 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 23:02:05 --> Input Class Initialized
+INFO - 2015-09-09 23:02:05 --> Language Class Initialized
+INFO - 2015-09-09 23:02:05 --> Loader Class Initialized
+INFO - 2015-09-09 23:02:05 --> Helper loaded: form_helper
+INFO - 2015-09-09 23:02:05 --> Helper loaded: url_helper
+INFO - 2015-09-09 23:02:05 --> Helper loaded: html_helper
+INFO - 2015-09-09 23:02:05 --> Helper loaded: text_helper
+INFO - 2015-09-09 23:02:05 --> Helper loaded: string_helper
+INFO - 2015-09-09 23:02:05 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 23:02:05 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 23:02:05 --> Database Driver Class Initialized
+INFO - 2015-09-09 23:02:05 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 23:02:05 --> Model Class Initialized
+INFO - 2015-09-09 23:02:05 --> Model Class Initialized
+INFO - 2015-09-09 23:02:05 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 23:02:05 --> Model Class Initialized
+INFO - 2015-09-09 23:02:05 --> Controller Class Initialized
+INFO - 2015-09-09 23:02:05 --> Model Class Initialized
+INFO - 2015-09-09 23:02:05 --> Model Class Initialized
+INFO - 2015-09-09 23:02:05 --> Upload Class Initialized
+INFO - 2015-09-09 23:02:05 --> Language file loaded: language/portuguese-brazilian/upload_lang.php
+ERROR - 2015-09-09 23:02:05 --> Você não selecionou o arquivo para fazer upload.
+INFO - 2015-09-09 23:02:05 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/alertas.php
+INFO - 2015-09-09 23:02:05 --> Final output sent to browser
+DEBUG - 2015-09-09 23:02:05 --> Total execution time: 0.0468
+INFO - 2015-09-09 23:02:09 --> Config Class Initialized
+INFO - 2015-09-09 23:02:09 --> Hooks Class Initialized
+DEBUG - 2015-09-09 23:02:09 --> UTF-8 Support Enabled
+INFO - 2015-09-09 23:02:09 --> Utf8 Class Initialized
+INFO - 2015-09-09 23:02:09 --> URI Class Initialized
+INFO - 2015-09-09 23:02:09 --> Router Class Initialized
+INFO - 2015-09-09 23:02:09 --> Output Class Initialized
+INFO - 2015-09-09 23:02:09 --> Security Class Initialized
+DEBUG - 2015-09-09 23:02:09 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 23:02:09 --> Input Class Initialized
+INFO - 2015-09-09 23:02:09 --> Language Class Initialized
+INFO - 2015-09-09 23:02:09 --> Loader Class Initialized
+INFO - 2015-09-09 23:02:09 --> Helper loaded: form_helper
+INFO - 2015-09-09 23:02:09 --> Helper loaded: url_helper
+INFO - 2015-09-09 23:02:09 --> Helper loaded: html_helper
+INFO - 2015-09-09 23:02:09 --> Helper loaded: text_helper
+INFO - 2015-09-09 23:02:09 --> Helper loaded: string_helper
+INFO - 2015-09-09 23:02:09 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 23:02:09 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 23:02:09 --> Database Driver Class Initialized
+INFO - 2015-09-09 23:02:09 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 23:02:09 --> Model Class Initialized
+INFO - 2015-09-09 23:02:09 --> Model Class Initialized
+INFO - 2015-09-09 23:02:09 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 23:02:09 --> Model Class Initialized
+INFO - 2015-09-09 23:02:09 --> Controller Class Initialized
+INFO - 2015-09-09 23:02:09 --> Model Class Initialized
+INFO - 2015-09-09 23:02:09 --> Model Class Initialized
+INFO - 2015-09-09 23:02:09 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/header.php
+INFO - 2015-09-09 23:02:09 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/top_bar_menu.php
+INFO - 2015-09-09 23:02:09 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\admin/editar/carrosel.php
+INFO - 2015-09-09 23:02:09 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/scripts.php
+INFO - 2015-09-09 23:02:09 --> Final output sent to browser
+DEBUG - 2015-09-09 23:02:09 --> Total execution time: 0.0624
+INFO - 2015-09-09 23:02:15 --> Config Class Initialized
+INFO - 2015-09-09 23:02:15 --> Hooks Class Initialized
+DEBUG - 2015-09-09 23:02:15 --> UTF-8 Support Enabled
+INFO - 2015-09-09 23:02:15 --> Utf8 Class Initialized
+INFO - 2015-09-09 23:02:15 --> URI Class Initialized
+INFO - 2015-09-09 23:02:15 --> Router Class Initialized
+INFO - 2015-09-09 23:02:15 --> Output Class Initialized
+INFO - 2015-09-09 23:02:15 --> Security Class Initialized
+DEBUG - 2015-09-09 23:02:15 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 23:02:15 --> Input Class Initialized
+INFO - 2015-09-09 23:02:15 --> Language Class Initialized
+INFO - 2015-09-09 23:02:15 --> Loader Class Initialized
+INFO - 2015-09-09 23:02:15 --> Helper loaded: form_helper
+INFO - 2015-09-09 23:02:15 --> Helper loaded: url_helper
+INFO - 2015-09-09 23:02:15 --> Helper loaded: html_helper
+INFO - 2015-09-09 23:02:15 --> Helper loaded: text_helper
+INFO - 2015-09-09 23:02:15 --> Helper loaded: string_helper
+INFO - 2015-09-09 23:02:15 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 23:02:15 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 23:02:15 --> Database Driver Class Initialized
+INFO - 2015-09-09 23:02:15 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 23:02:15 --> Model Class Initialized
+INFO - 2015-09-09 23:02:15 --> Model Class Initialized
+INFO - 2015-09-09 23:02:15 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 23:02:15 --> Model Class Initialized
+INFO - 2015-09-09 23:02:15 --> Controller Class Initialized
+INFO - 2015-09-09 23:02:15 --> Model Class Initialized
+INFO - 2015-09-09 23:02:15 --> Model Class Initialized
+INFO - 2015-09-09 23:02:15 --> Upload Class Initialized
+INFO - 2015-09-09 23:02:15 --> Final output sent to browser
+DEBUG - 2015-09-09 23:02:15 --> Total execution time: 0.0624
+INFO - 2015-09-09 23:02:45 --> Config Class Initialized
+INFO - 2015-09-09 23:02:45 --> Hooks Class Initialized
+DEBUG - 2015-09-09 23:02:45 --> UTF-8 Support Enabled
+INFO - 2015-09-09 23:02:45 --> Utf8 Class Initialized
+INFO - 2015-09-09 23:02:45 --> URI Class Initialized
+INFO - 2015-09-09 23:02:45 --> Router Class Initialized
+INFO - 2015-09-09 23:02:45 --> Output Class Initialized
+INFO - 2015-09-09 23:02:45 --> Security Class Initialized
+DEBUG - 2015-09-09 23:02:45 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 23:02:45 --> Input Class Initialized
+INFO - 2015-09-09 23:02:45 --> Language Class Initialized
+INFO - 2015-09-09 23:02:45 --> Loader Class Initialized
+INFO - 2015-09-09 23:02:45 --> Helper loaded: form_helper
+INFO - 2015-09-09 23:02:45 --> Helper loaded: url_helper
+INFO - 2015-09-09 23:02:45 --> Helper loaded: html_helper
+INFO - 2015-09-09 23:02:45 --> Helper loaded: text_helper
+INFO - 2015-09-09 23:02:45 --> Helper loaded: string_helper
+INFO - 2015-09-09 23:02:45 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 23:02:45 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 23:02:45 --> Database Driver Class Initialized
+INFO - 2015-09-09 23:02:45 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 23:02:45 --> Model Class Initialized
+INFO - 2015-09-09 23:02:45 --> Model Class Initialized
+INFO - 2015-09-09 23:02:45 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 23:02:45 --> Model Class Initialized
+INFO - 2015-09-09 23:02:45 --> Controller Class Initialized
+INFO - 2015-09-09 23:02:45 --> Model Class Initialized
+INFO - 2015-09-09 23:02:45 --> Model Class Initialized
+INFO - 2015-09-09 23:02:45 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/header.php
+INFO - 2015-09-09 23:02:45 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/top_bar_menu.php
+INFO - 2015-09-09 23:02:45 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\admin/editar/carrosel.php
+INFO - 2015-09-09 23:02:45 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/scripts.php
+INFO - 2015-09-09 23:02:45 --> Final output sent to browser
+DEBUG - 2015-09-09 23:02:45 --> Total execution time: 0.0624
+INFO - 2015-09-09 23:02:48 --> Config Class Initialized
+INFO - 2015-09-09 23:02:48 --> Hooks Class Initialized
+DEBUG - 2015-09-09 23:02:48 --> UTF-8 Support Enabled
+INFO - 2015-09-09 23:02:48 --> Utf8 Class Initialized
+INFO - 2015-09-09 23:02:48 --> URI Class Initialized
+INFO - 2015-09-09 23:02:48 --> Router Class Initialized
+INFO - 2015-09-09 23:02:48 --> Output Class Initialized
+INFO - 2015-09-09 23:02:48 --> Security Class Initialized
+DEBUG - 2015-09-09 23:02:48 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 23:02:48 --> Input Class Initialized
+INFO - 2015-09-09 23:02:48 --> Language Class Initialized
+INFO - 2015-09-09 23:02:48 --> Loader Class Initialized
+INFO - 2015-09-09 23:02:48 --> Helper loaded: form_helper
+INFO - 2015-09-09 23:02:48 --> Helper loaded: url_helper
+INFO - 2015-09-09 23:02:48 --> Helper loaded: html_helper
+INFO - 2015-09-09 23:02:48 --> Helper loaded: text_helper
+INFO - 2015-09-09 23:02:48 --> Helper loaded: string_helper
+INFO - 2015-09-09 23:02:48 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 23:02:48 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 23:02:48 --> Database Driver Class Initialized
+INFO - 2015-09-09 23:02:48 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 23:02:48 --> Model Class Initialized
+INFO - 2015-09-09 23:02:48 --> Model Class Initialized
+INFO - 2015-09-09 23:02:48 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 23:02:48 --> Model Class Initialized
+INFO - 2015-09-09 23:02:48 --> Controller Class Initialized
+INFO - 2015-09-09 23:02:48 --> Model Class Initialized
+INFO - 2015-09-09 23:02:48 --> Model Class Initialized
+INFO - 2015-09-09 23:02:48 --> Upload Class Initialized
+INFO - 2015-09-09 23:02:48 --> Language file loaded: language/portuguese-brazilian/upload_lang.php
+ERROR - 2015-09-09 23:02:48 --> Você não selecionou o arquivo para fazer upload.
+INFO - 2015-09-09 23:02:48 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/alertas.php
+INFO - 2015-09-09 23:02:48 --> Final output sent to browser
+DEBUG - 2015-09-09 23:02:48 --> Total execution time: 0.0468
+INFO - 2015-09-09 23:02:58 --> Config Class Initialized
+INFO - 2015-09-09 23:02:58 --> Hooks Class Initialized
+DEBUG - 2015-09-09 23:02:58 --> UTF-8 Support Enabled
+INFO - 2015-09-09 23:02:58 --> Utf8 Class Initialized
+INFO - 2015-09-09 23:02:58 --> URI Class Initialized
+INFO - 2015-09-09 23:02:58 --> Router Class Initialized
+INFO - 2015-09-09 23:02:58 --> Output Class Initialized
+INFO - 2015-09-09 23:02:58 --> Security Class Initialized
+DEBUG - 2015-09-09 23:02:58 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 23:02:58 --> Input Class Initialized
+INFO - 2015-09-09 23:02:58 --> Language Class Initialized
+INFO - 2015-09-09 23:02:58 --> Loader Class Initialized
+INFO - 2015-09-09 23:02:58 --> Helper loaded: form_helper
+INFO - 2015-09-09 23:02:58 --> Helper loaded: url_helper
+INFO - 2015-09-09 23:02:58 --> Helper loaded: html_helper
+INFO - 2015-09-09 23:02:58 --> Helper loaded: text_helper
+INFO - 2015-09-09 23:02:58 --> Helper loaded: string_helper
+INFO - 2015-09-09 23:02:58 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 23:02:58 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 23:02:58 --> Database Driver Class Initialized
+INFO - 2015-09-09 23:02:58 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 23:02:58 --> Model Class Initialized
+INFO - 2015-09-09 23:02:58 --> Model Class Initialized
+INFO - 2015-09-09 23:02:58 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 23:02:58 --> Model Class Initialized
+INFO - 2015-09-09 23:02:58 --> Controller Class Initialized
+INFO - 2015-09-09 23:02:58 --> Model Class Initialized
+INFO - 2015-09-09 23:02:58 --> Model Class Initialized
+INFO - 2015-09-09 23:02:58 --> Upload Class Initialized
+INFO - 2015-09-09 23:02:58 --> Final output sent to browser
+DEBUG - 2015-09-09 23:02:58 --> Total execution time: 0.0624
+INFO - 2015-09-09 23:07:46 --> Config Class Initialized
+INFO - 2015-09-09 23:07:46 --> Hooks Class Initialized
+DEBUG - 2015-09-09 23:07:46 --> UTF-8 Support Enabled
+INFO - 2015-09-09 23:07:46 --> Utf8 Class Initialized
+INFO - 2015-09-09 23:07:46 --> URI Class Initialized
+INFO - 2015-09-09 23:07:46 --> Router Class Initialized
+INFO - 2015-09-09 23:07:46 --> Output Class Initialized
+INFO - 2015-09-09 23:07:46 --> Security Class Initialized
+DEBUG - 2015-09-09 23:07:46 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 23:07:46 --> Input Class Initialized
+INFO - 2015-09-09 23:07:46 --> Language Class Initialized
+INFO - 2015-09-09 23:07:46 --> Loader Class Initialized
+INFO - 2015-09-09 23:07:46 --> Helper loaded: form_helper
+INFO - 2015-09-09 23:07:46 --> Helper loaded: url_helper
+INFO - 2015-09-09 23:07:46 --> Helper loaded: html_helper
+INFO - 2015-09-09 23:07:46 --> Helper loaded: text_helper
+INFO - 2015-09-09 23:07:46 --> Helper loaded: string_helper
+INFO - 2015-09-09 23:07:46 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 23:07:46 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 23:07:46 --> Database Driver Class Initialized
+INFO - 2015-09-09 23:07:50 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 23:07:50 --> Model Class Initialized
+INFO - 2015-09-09 23:07:50 --> Model Class Initialized
+INFO - 2015-09-09 23:07:50 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 23:07:50 --> Model Class Initialized
+INFO - 2015-09-09 23:07:50 --> Controller Class Initialized
+INFO - 2015-09-09 23:07:50 --> Model Class Initialized
+INFO - 2015-09-09 23:07:50 --> Model Class Initialized
+INFO - 2015-09-09 23:07:50 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/header.php
+INFO - 2015-09-09 23:07:50 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/top_bar_menu.php
+INFO - 2015-09-09 23:07:50 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\admin/editar/carrosel.php
+INFO - 2015-09-09 23:07:50 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/scripts.php
+INFO - 2015-09-09 23:07:50 --> Final output sent to browser
+DEBUG - 2015-09-09 23:07:50 --> Total execution time: 3.0888
+INFO - 2015-09-09 23:07:53 --> Config Class Initialized
+INFO - 2015-09-09 23:07:53 --> Hooks Class Initialized
+DEBUG - 2015-09-09 23:07:53 --> UTF-8 Support Enabled
+INFO - 2015-09-09 23:07:53 --> Utf8 Class Initialized
+INFO - 2015-09-09 23:07:53 --> URI Class Initialized
+INFO - 2015-09-09 23:07:53 --> Router Class Initialized
+INFO - 2015-09-09 23:07:53 --> Output Class Initialized
+INFO - 2015-09-09 23:07:53 --> Security Class Initialized
+DEBUG - 2015-09-09 23:07:53 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 23:07:53 --> Input Class Initialized
+INFO - 2015-09-09 23:07:53 --> Language Class Initialized
+INFO - 2015-09-09 23:07:53 --> Loader Class Initialized
+INFO - 2015-09-09 23:07:53 --> Helper loaded: form_helper
+INFO - 2015-09-09 23:07:53 --> Helper loaded: url_helper
+INFO - 2015-09-09 23:07:53 --> Helper loaded: html_helper
+INFO - 2015-09-09 23:07:53 --> Helper loaded: text_helper
+INFO - 2015-09-09 23:07:53 --> Helper loaded: string_helper
+INFO - 2015-09-09 23:07:53 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 23:07:53 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 23:07:53 --> Database Driver Class Initialized
+INFO - 2015-09-09 23:07:53 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 23:07:53 --> Model Class Initialized
+INFO - 2015-09-09 23:07:53 --> Model Class Initialized
+INFO - 2015-09-09 23:07:53 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 23:07:53 --> Model Class Initialized
+INFO - 2015-09-09 23:07:53 --> Controller Class Initialized
+INFO - 2015-09-09 23:07:53 --> Model Class Initialized
+INFO - 2015-09-09 23:07:53 --> Model Class Initialized
+INFO - 2015-09-09 23:07:53 --> Upload Class Initialized
+INFO - 2015-09-09 23:07:53 --> Language file loaded: language/portuguese-brazilian/upload_lang.php
+ERROR - 2015-09-09 23:07:53 --> Você não selecionou o arquivo para fazer upload.
+INFO - 2015-09-09 23:07:53 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/alertas.php
+INFO - 2015-09-09 23:07:53 --> Final output sent to browser
+DEBUG - 2015-09-09 23:07:53 --> Total execution time: 0.0468
+INFO - 2015-09-09 23:08:04 --> Config Class Initialized
+INFO - 2015-09-09 23:08:04 --> Hooks Class Initialized
+DEBUG - 2015-09-09 23:08:04 --> UTF-8 Support Enabled
+INFO - 2015-09-09 23:08:04 --> Utf8 Class Initialized
+INFO - 2015-09-09 23:08:04 --> URI Class Initialized
+INFO - 2015-09-09 23:08:04 --> Router Class Initialized
+INFO - 2015-09-09 23:08:04 --> Output Class Initialized
+INFO - 2015-09-09 23:08:04 --> Security Class Initialized
+DEBUG - 2015-09-09 23:08:04 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 23:08:04 --> Input Class Initialized
+INFO - 2015-09-09 23:08:04 --> Language Class Initialized
+INFO - 2015-09-09 23:08:04 --> Loader Class Initialized
+INFO - 2015-09-09 23:08:04 --> Helper loaded: form_helper
+INFO - 2015-09-09 23:08:04 --> Helper loaded: url_helper
+INFO - 2015-09-09 23:08:04 --> Helper loaded: html_helper
+INFO - 2015-09-09 23:08:04 --> Helper loaded: text_helper
+INFO - 2015-09-09 23:08:04 --> Helper loaded: string_helper
+INFO - 2015-09-09 23:08:04 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 23:08:04 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 23:08:04 --> Database Driver Class Initialized
+INFO - 2015-09-09 23:08:04 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 23:08:04 --> Model Class Initialized
+INFO - 2015-09-09 23:08:04 --> Model Class Initialized
+INFO - 2015-09-09 23:08:04 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 23:08:04 --> Model Class Initialized
+INFO - 2015-09-09 23:08:04 --> Controller Class Initialized
+INFO - 2015-09-09 23:08:04 --> Model Class Initialized
+INFO - 2015-09-09 23:08:04 --> Model Class Initialized
+INFO - 2015-09-09 23:08:04 --> Upload Class Initialized
+INFO - 2015-09-09 23:08:04 --> Final output sent to browser
+DEBUG - 2015-09-09 23:08:04 --> Total execution time: 0.0624
+INFO - 2015-09-09 23:14:39 --> Config Class Initialized
+INFO - 2015-09-09 23:14:39 --> Hooks Class Initialized
+DEBUG - 2015-09-09 23:14:39 --> UTF-8 Support Enabled
+INFO - 2015-09-09 23:14:39 --> Utf8 Class Initialized
+INFO - 2015-09-09 23:14:39 --> URI Class Initialized
+INFO - 2015-09-09 23:14:39 --> Router Class Initialized
+INFO - 2015-09-09 23:14:39 --> Output Class Initialized
+INFO - 2015-09-09 23:14:39 --> Security Class Initialized
+DEBUG - 2015-09-09 23:14:39 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 23:14:39 --> Input Class Initialized
+INFO - 2015-09-09 23:14:39 --> Language Class Initialized
+INFO - 2015-09-09 23:14:39 --> Loader Class Initialized
+INFO - 2015-09-09 23:14:39 --> Helper loaded: form_helper
+INFO - 2015-09-09 23:14:39 --> Helper loaded: url_helper
+INFO - 2015-09-09 23:14:39 --> Helper loaded: html_helper
+INFO - 2015-09-09 23:14:39 --> Helper loaded: text_helper
+INFO - 2015-09-09 23:14:39 --> Helper loaded: string_helper
+INFO - 2015-09-09 23:14:39 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 23:14:39 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 23:14:39 --> Database Driver Class Initialized
+INFO - 2015-09-09 23:14:39 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 23:14:39 --> Model Class Initialized
+INFO - 2015-09-09 23:14:39 --> Model Class Initialized
+INFO - 2015-09-09 23:14:39 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 23:14:39 --> Model Class Initialized
+INFO - 2015-09-09 23:14:39 --> Controller Class Initialized
+INFO - 2015-09-09 23:14:39 --> Model Class Initialized
+INFO - 2015-09-09 23:14:39 --> Model Class Initialized
+INFO - 2015-09-09 23:14:39 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/header.php
+INFO - 2015-09-09 23:14:39 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/top_bar_menu.php
+INFO - 2015-09-09 23:14:39 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\admin/editar/carrosel.php
+INFO - 2015-09-09 23:14:39 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/scripts.php
+INFO - 2015-09-09 23:14:39 --> Final output sent to browser
+DEBUG - 2015-09-09 23:14:39 --> Total execution time: 0.0624
+INFO - 2015-09-09 23:14:49 --> Config Class Initialized
+INFO - 2015-09-09 23:14:49 --> Hooks Class Initialized
+DEBUG - 2015-09-09 23:14:49 --> UTF-8 Support Enabled
+INFO - 2015-09-09 23:14:49 --> Utf8 Class Initialized
+INFO - 2015-09-09 23:14:49 --> URI Class Initialized
+INFO - 2015-09-09 23:14:49 --> Router Class Initialized
+INFO - 2015-09-09 23:14:49 --> Output Class Initialized
+INFO - 2015-09-09 23:14:49 --> Security Class Initialized
+DEBUG - 2015-09-09 23:14:49 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 23:14:49 --> Input Class Initialized
+INFO - 2015-09-09 23:14:49 --> Language Class Initialized
+INFO - 2015-09-09 23:14:49 --> Loader Class Initialized
+INFO - 2015-09-09 23:14:49 --> Helper loaded: form_helper
+INFO - 2015-09-09 23:14:49 --> Helper loaded: url_helper
+INFO - 2015-09-09 23:14:49 --> Helper loaded: html_helper
+INFO - 2015-09-09 23:14:49 --> Helper loaded: text_helper
+INFO - 2015-09-09 23:14:49 --> Helper loaded: string_helper
+INFO - 2015-09-09 23:14:49 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 23:14:49 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 23:14:49 --> Database Driver Class Initialized
+INFO - 2015-09-09 23:14:49 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 23:14:49 --> Model Class Initialized
+INFO - 2015-09-09 23:14:49 --> Model Class Initialized
+INFO - 2015-09-09 23:14:49 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 23:14:49 --> Model Class Initialized
+INFO - 2015-09-09 23:14:49 --> Controller Class Initialized
+INFO - 2015-09-09 23:14:49 --> Model Class Initialized
+INFO - 2015-09-09 23:14:49 --> Model Class Initialized
+INFO - 2015-09-09 23:14:49 --> Upload Class Initialized
+INFO - 2015-09-09 23:14:49 --> Final output sent to browser
+DEBUG - 2015-09-09 23:14:49 --> Total execution time: 0.0624
+INFO - 2015-09-09 23:28:38 --> Config Class Initialized
+INFO - 2015-09-09 23:28:38 --> Hooks Class Initialized
+DEBUG - 2015-09-09 23:28:38 --> UTF-8 Support Enabled
+INFO - 2015-09-09 23:28:38 --> Utf8 Class Initialized
+INFO - 2015-09-09 23:28:38 --> URI Class Initialized
+INFO - 2015-09-09 23:28:38 --> Router Class Initialized
+INFO - 2015-09-09 23:28:38 --> Output Class Initialized
+INFO - 2015-09-09 23:28:38 --> Security Class Initialized
+DEBUG - 2015-09-09 23:28:38 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 23:28:38 --> Input Class Initialized
+INFO - 2015-09-09 23:28:38 --> Language Class Initialized
+INFO - 2015-09-09 23:28:38 --> Loader Class Initialized
+INFO - 2015-09-09 23:28:38 --> Helper loaded: form_helper
+INFO - 2015-09-09 23:28:38 --> Helper loaded: url_helper
+INFO - 2015-09-09 23:28:38 --> Helper loaded: html_helper
+INFO - 2015-09-09 23:28:38 --> Helper loaded: text_helper
+INFO - 2015-09-09 23:28:38 --> Helper loaded: string_helper
+INFO - 2015-09-09 23:28:38 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 23:28:38 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 23:28:38 --> Database Driver Class Initialized
+INFO - 2015-09-09 23:28:38 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 23:28:38 --> Model Class Initialized
+INFO - 2015-09-09 23:28:38 --> Model Class Initialized
+INFO - 2015-09-09 23:28:38 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 23:28:38 --> Model Class Initialized
+INFO - 2015-09-09 23:28:38 --> Controller Class Initialized
+INFO - 2015-09-09 23:28:38 --> Model Class Initialized
+INFO - 2015-09-09 23:28:38 --> Model Class Initialized
+INFO - 2015-09-09 23:28:38 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/header.php
+INFO - 2015-09-09 23:28:38 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/top_bar_menu.php
+INFO - 2015-09-09 23:28:38 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\admin/editar/carrosel.php
+INFO - 2015-09-09 23:28:38 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/scripts.php
+INFO - 2015-09-09 23:28:38 --> Final output sent to browser
+DEBUG - 2015-09-09 23:28:38 --> Total execution time: 0.0600
+INFO - 2015-09-09 23:28:55 --> Config Class Initialized
+INFO - 2015-09-09 23:28:55 --> Hooks Class Initialized
+DEBUG - 2015-09-09 23:28:55 --> UTF-8 Support Enabled
+INFO - 2015-09-09 23:28:55 --> Utf8 Class Initialized
+INFO - 2015-09-09 23:28:55 --> URI Class Initialized
+INFO - 2015-09-09 23:28:55 --> Router Class Initialized
+INFO - 2015-09-09 23:28:55 --> Output Class Initialized
+INFO - 2015-09-09 23:28:55 --> Security Class Initialized
+DEBUG - 2015-09-09 23:28:55 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 23:28:55 --> Input Class Initialized
+INFO - 2015-09-09 23:28:55 --> Language Class Initialized
+INFO - 2015-09-09 23:28:55 --> Loader Class Initialized
+INFO - 2015-09-09 23:28:55 --> Helper loaded: form_helper
+INFO - 2015-09-09 23:28:55 --> Helper loaded: url_helper
+INFO - 2015-09-09 23:28:55 --> Helper loaded: html_helper
+INFO - 2015-09-09 23:28:55 --> Helper loaded: text_helper
+INFO - 2015-09-09 23:28:55 --> Helper loaded: string_helper
+INFO - 2015-09-09 23:28:55 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 23:28:55 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 23:28:55 --> Database Driver Class Initialized
+INFO - 2015-09-09 23:28:55 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 23:28:55 --> Model Class Initialized
+INFO - 2015-09-09 23:28:55 --> Model Class Initialized
+INFO - 2015-09-09 23:28:55 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 23:28:55 --> Model Class Initialized
+INFO - 2015-09-09 23:28:55 --> Controller Class Initialized
+INFO - 2015-09-09 23:28:55 --> Model Class Initialized
+INFO - 2015-09-09 23:28:55 --> Model Class Initialized
+INFO - 2015-09-09 23:28:55 --> Upload Class Initialized
+INFO - 2015-09-09 23:28:55 --> Final output sent to browser
+DEBUG - 2015-09-09 23:28:55 --> Total execution time: 0.0560
+INFO - 2015-09-09 23:31:44 --> Config Class Initialized
+INFO - 2015-09-09 23:31:44 --> Hooks Class Initialized
+DEBUG - 2015-09-09 23:31:44 --> UTF-8 Support Enabled
+INFO - 2015-09-09 23:31:44 --> Utf8 Class Initialized
+INFO - 2015-09-09 23:31:44 --> URI Class Initialized
+INFO - 2015-09-09 23:31:44 --> Router Class Initialized
+INFO - 2015-09-09 23:31:44 --> Output Class Initialized
+INFO - 2015-09-09 23:31:44 --> Security Class Initialized
+DEBUG - 2015-09-09 23:31:44 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 23:31:44 --> Input Class Initialized
+INFO - 2015-09-09 23:31:44 --> Language Class Initialized
+INFO - 2015-09-09 23:31:44 --> Loader Class Initialized
+INFO - 2015-09-09 23:31:44 --> Helper loaded: form_helper
+INFO - 2015-09-09 23:31:44 --> Helper loaded: url_helper
+INFO - 2015-09-09 23:31:44 --> Helper loaded: html_helper
+INFO - 2015-09-09 23:31:44 --> Helper loaded: text_helper
+INFO - 2015-09-09 23:31:44 --> Helper loaded: string_helper
+INFO - 2015-09-09 23:31:44 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 23:31:44 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 23:31:44 --> Database Driver Class Initialized
+INFO - 2015-09-09 23:31:44 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 23:31:44 --> Model Class Initialized
+INFO - 2015-09-09 23:31:44 --> Model Class Initialized
+INFO - 2015-09-09 23:31:44 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 23:31:44 --> Model Class Initialized
+INFO - 2015-09-09 23:31:44 --> Controller Class Initialized
+INFO - 2015-09-09 23:31:44 --> Model Class Initialized
+INFO - 2015-09-09 23:31:44 --> Model Class Initialized
+INFO - 2015-09-09 23:31:44 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/header.php
+INFO - 2015-09-09 23:31:44 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/top_bar_menu.php
+INFO - 2015-09-09 23:31:44 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\admin/editar/carrosel.php
+INFO - 2015-09-09 23:31:44 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/scripts.php
+INFO - 2015-09-09 23:31:44 --> Final output sent to browser
+DEBUG - 2015-09-09 23:31:44 --> Total execution time: 0.0640
+INFO - 2015-09-09 23:31:51 --> Config Class Initialized
+INFO - 2015-09-09 23:31:51 --> Hooks Class Initialized
+DEBUG - 2015-09-09 23:31:51 --> UTF-8 Support Enabled
+INFO - 2015-09-09 23:31:51 --> Utf8 Class Initialized
+INFO - 2015-09-09 23:31:51 --> URI Class Initialized
+INFO - 2015-09-09 23:31:51 --> Router Class Initialized
+INFO - 2015-09-09 23:31:51 --> Output Class Initialized
+INFO - 2015-09-09 23:31:51 --> Security Class Initialized
+DEBUG - 2015-09-09 23:31:51 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 23:31:51 --> Input Class Initialized
+INFO - 2015-09-09 23:31:51 --> Language Class Initialized
+INFO - 2015-09-09 23:31:51 --> Loader Class Initialized
+INFO - 2015-09-09 23:31:51 --> Helper loaded: form_helper
+INFO - 2015-09-09 23:31:51 --> Helper loaded: url_helper
+INFO - 2015-09-09 23:31:51 --> Helper loaded: html_helper
+INFO - 2015-09-09 23:31:51 --> Helper loaded: text_helper
+INFO - 2015-09-09 23:31:51 --> Helper loaded: string_helper
+INFO - 2015-09-09 23:31:51 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 23:31:51 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 23:31:51 --> Database Driver Class Initialized
+INFO - 2015-09-09 23:31:51 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 23:31:51 --> Model Class Initialized
+INFO - 2015-09-09 23:31:51 --> Model Class Initialized
+INFO - 2015-09-09 23:31:51 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 23:31:51 --> Model Class Initialized
+INFO - 2015-09-09 23:31:51 --> Controller Class Initialized
+INFO - 2015-09-09 23:31:51 --> Model Class Initialized
+INFO - 2015-09-09 23:31:51 --> Model Class Initialized
+INFO - 2015-09-09 23:31:51 --> Upload Class Initialized
+INFO - 2015-09-09 23:31:51 --> Final output sent to browser
+DEBUG - 2015-09-09 23:31:51 --> Total execution time: 0.0560
+INFO - 2015-09-09 23:40:36 --> Config Class Initialized
+INFO - 2015-09-09 23:40:36 --> Hooks Class Initialized
+DEBUG - 2015-09-09 23:40:36 --> UTF-8 Support Enabled
+INFO - 2015-09-09 23:40:36 --> Utf8 Class Initialized
+INFO - 2015-09-09 23:40:36 --> URI Class Initialized
+INFO - 2015-09-09 23:40:36 --> Router Class Initialized
+INFO - 2015-09-09 23:40:36 --> Output Class Initialized
+INFO - 2015-09-09 23:40:36 --> Security Class Initialized
+DEBUG - 2015-09-09 23:40:36 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 23:40:36 --> Input Class Initialized
+INFO - 2015-09-09 23:40:36 --> Language Class Initialized
+INFO - 2015-09-09 23:40:36 --> Loader Class Initialized
+INFO - 2015-09-09 23:40:36 --> Helper loaded: form_helper
+INFO - 2015-09-09 23:40:36 --> Helper loaded: url_helper
+INFO - 2015-09-09 23:40:36 --> Helper loaded: html_helper
+INFO - 2015-09-09 23:40:36 --> Helper loaded: text_helper
+INFO - 2015-09-09 23:40:36 --> Helper loaded: string_helper
+INFO - 2015-09-09 23:40:36 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 23:40:36 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 23:40:36 --> Database Driver Class Initialized
+INFO - 2015-09-09 23:40:36 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 23:40:36 --> Model Class Initialized
+INFO - 2015-09-09 23:40:36 --> Model Class Initialized
+INFO - 2015-09-09 23:40:36 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 23:40:36 --> Model Class Initialized
+INFO - 2015-09-09 23:40:36 --> Controller Class Initialized
+INFO - 2015-09-09 23:40:36 --> Model Class Initialized
+INFO - 2015-09-09 23:40:36 --> Model Class Initialized
+INFO - 2015-09-09 23:40:36 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/header.php
+INFO - 2015-09-09 23:40:36 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/top_bar_menu.php
+INFO - 2015-09-09 23:40:36 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/nav_header.php
+INFO - 2015-09-09 23:40:36 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/news.php
+INFO - 2015-09-09 23:40:36 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/footer.php
+INFO - 2015-09-09 23:40:36 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\pages/home.php
+INFO - 2015-09-09 23:40:36 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/scripts.php
+INFO - 2015-09-09 23:40:36 --> Final output sent to browser
+DEBUG - 2015-09-09 23:40:36 --> Total execution time: 0.0780
+INFO - 2015-09-09 23:40:39 --> Config Class Initialized
+INFO - 2015-09-09 23:40:39 --> Hooks Class Initialized
+DEBUG - 2015-09-09 23:40:39 --> UTF-8 Support Enabled
+INFO - 2015-09-09 23:40:39 --> Utf8 Class Initialized
+INFO - 2015-09-09 23:40:39 --> URI Class Initialized
+INFO - 2015-09-09 23:40:39 --> Router Class Initialized
+INFO - 2015-09-09 23:40:39 --> Output Class Initialized
+INFO - 2015-09-09 23:40:39 --> Security Class Initialized
+DEBUG - 2015-09-09 23:40:39 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 23:40:39 --> Input Class Initialized
+INFO - 2015-09-09 23:40:39 --> Language Class Initialized
+ERROR - 2015-09-09 23:40:39 --> 404 Page Not Found: admin/Editar/carrosel
+INFO - 2015-09-09 23:45:05 --> Config Class Initialized
+INFO - 2015-09-09 23:45:05 --> Hooks Class Initialized
+DEBUG - 2015-09-09 23:45:05 --> UTF-8 Support Enabled
+INFO - 2015-09-09 23:45:05 --> Utf8 Class Initialized
+INFO - 2015-09-09 23:45:05 --> URI Class Initialized
+INFO - 2015-09-09 23:45:05 --> Router Class Initialized
+INFO - 2015-09-09 23:45:05 --> Output Class Initialized
+INFO - 2015-09-09 23:45:05 --> Security Class Initialized
+DEBUG - 2015-09-09 23:45:05 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 23:45:05 --> Input Class Initialized
+INFO - 2015-09-09 23:45:05 --> Language Class Initialized
+ERROR - 2015-09-09 23:45:05 --> 404 Page Not Found: admin/Editar/carrosel
+INFO - 2015-09-09 23:47:56 --> Config Class Initialized
+INFO - 2015-09-09 23:47:56 --> Hooks Class Initialized
+DEBUG - 2015-09-09 23:47:56 --> UTF-8 Support Enabled
+INFO - 2015-09-09 23:47:56 --> Utf8 Class Initialized
+INFO - 2015-09-09 23:47:56 --> URI Class Initialized
+INFO - 2015-09-09 23:47:56 --> Router Class Initialized
+INFO - 2015-09-09 23:47:56 --> Output Class Initialized
+INFO - 2015-09-09 23:47:56 --> Security Class Initialized
+DEBUG - 2015-09-09 23:47:56 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 23:47:56 --> Input Class Initialized
+INFO - 2015-09-09 23:47:56 --> Language Class Initialized
+ERROR - 2015-09-09 23:47:56 --> 404 Page Not Found: admin/Editar/wiew
+INFO - 2015-09-09 23:48:53 --> Config Class Initialized
+INFO - 2015-09-09 23:48:53 --> Hooks Class Initialized
+DEBUG - 2015-09-09 23:48:53 --> UTF-8 Support Enabled
+INFO - 2015-09-09 23:48:53 --> Utf8 Class Initialized
+INFO - 2015-09-09 23:48:53 --> URI Class Initialized
+INFO - 2015-09-09 23:48:53 --> Router Class Initialized
+INFO - 2015-09-09 23:48:53 --> Output Class Initialized
+INFO - 2015-09-09 23:48:53 --> Security Class Initialized
+DEBUG - 2015-09-09 23:48:53 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 23:48:53 --> Input Class Initialized
+INFO - 2015-09-09 23:48:53 --> Language Class Initialized
+INFO - 2015-09-09 23:48:53 --> Loader Class Initialized
+INFO - 2015-09-09 23:48:53 --> Helper loaded: form_helper
+INFO - 2015-09-09 23:48:53 --> Helper loaded: url_helper
+INFO - 2015-09-09 23:48:53 --> Helper loaded: html_helper
+INFO - 2015-09-09 23:48:53 --> Helper loaded: text_helper
+INFO - 2015-09-09 23:48:53 --> Helper loaded: string_helper
+INFO - 2015-09-09 23:48:53 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 23:48:53 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 23:48:53 --> Database Driver Class Initialized
+INFO - 2015-09-09 23:48:53 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 23:48:53 --> Model Class Initialized
+INFO - 2015-09-09 23:48:53 --> Model Class Initialized
+INFO - 2015-09-09 23:48:53 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 23:48:53 --> Model Class Initialized
+INFO - 2015-09-09 23:48:53 --> Controller Class Initialized
+INFO - 2015-09-09 23:48:53 --> Model Class Initialized
+INFO - 2015-09-09 23:48:53 --> Model Class Initialized
+INFO - 2015-09-09 23:48:53 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/header.php
+INFO - 2015-09-09 23:48:53 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/top_bar_menu.php
+INFO - 2015-09-09 23:48:53 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\admin/editar/carrosel.php
+INFO - 2015-09-09 23:48:53 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/scripts.php
+INFO - 2015-09-09 23:48:53 --> Final output sent to browser
+DEBUG - 2015-09-09 23:48:53 --> Total execution time: 0.0570
+INFO - 2015-09-09 23:49:06 --> Config Class Initialized
+INFO - 2015-09-09 23:49:06 --> Hooks Class Initialized
+DEBUG - 2015-09-09 23:49:06 --> UTF-8 Support Enabled
+INFO - 2015-09-09 23:49:06 --> Utf8 Class Initialized
+INFO - 2015-09-09 23:49:06 --> URI Class Initialized
+INFO - 2015-09-09 23:49:06 --> Router Class Initialized
+INFO - 2015-09-09 23:49:06 --> Output Class Initialized
+INFO - 2015-09-09 23:49:06 --> Security Class Initialized
+DEBUG - 2015-09-09 23:49:06 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 23:49:06 --> Input Class Initialized
+INFO - 2015-09-09 23:49:06 --> Language Class Initialized
+ERROR - 2015-09-09 23:49:06 --> 404 Page Not Found: Upload/carrosel
+INFO - 2015-09-09 23:51:36 --> Config Class Initialized
+INFO - 2015-09-09 23:51:36 --> Hooks Class Initialized
+DEBUG - 2015-09-09 23:51:36 --> UTF-8 Support Enabled
+INFO - 2015-09-09 23:51:36 --> Utf8 Class Initialized
+INFO - 2015-09-09 23:51:36 --> URI Class Initialized
+INFO - 2015-09-09 23:51:36 --> Router Class Initialized
+INFO - 2015-09-09 23:51:36 --> Output Class Initialized
+INFO - 2015-09-09 23:51:36 --> Security Class Initialized
+DEBUG - 2015-09-09 23:51:36 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 23:51:36 --> Input Class Initialized
+INFO - 2015-09-09 23:51:36 --> Language Class Initialized
+INFO - 2015-09-09 23:51:36 --> Loader Class Initialized
+INFO - 2015-09-09 23:51:36 --> Helper loaded: form_helper
+INFO - 2015-09-09 23:51:36 --> Helper loaded: url_helper
+INFO - 2015-09-09 23:51:36 --> Helper loaded: html_helper
+INFO - 2015-09-09 23:51:36 --> Helper loaded: text_helper
+INFO - 2015-09-09 23:51:36 --> Helper loaded: string_helper
+INFO - 2015-09-09 23:51:36 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 23:51:36 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 23:51:36 --> Database Driver Class Initialized
+INFO - 2015-09-09 23:51:38 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 23:51:38 --> Model Class Initialized
+INFO - 2015-09-09 23:51:38 --> Model Class Initialized
+INFO - 2015-09-09 23:51:38 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 23:51:38 --> Model Class Initialized
+INFO - 2015-09-09 23:51:38 --> Controller Class Initialized
+INFO - 2015-09-09 23:51:38 --> Model Class Initialized
+INFO - 2015-09-09 23:51:38 --> Model Class Initialized
+INFO - 2015-09-09 23:51:38 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/header.php
+INFO - 2015-09-09 23:51:38 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/top_bar_menu.php
+INFO - 2015-09-09 23:51:38 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\admin/editar/carrosel.php
+INFO - 2015-09-09 23:51:38 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/scripts.php
+INFO - 2015-09-09 23:51:38 --> Final output sent to browser
+DEBUG - 2015-09-09 23:51:38 --> Total execution time: 2.0904
+INFO - 2015-09-09 23:51:43 --> Config Class Initialized
+INFO - 2015-09-09 23:51:43 --> Hooks Class Initialized
+DEBUG - 2015-09-09 23:51:43 --> UTF-8 Support Enabled
+INFO - 2015-09-09 23:51:43 --> Utf8 Class Initialized
+INFO - 2015-09-09 23:51:43 --> URI Class Initialized
+INFO - 2015-09-09 23:51:43 --> Router Class Initialized
+INFO - 2015-09-09 23:51:43 --> Output Class Initialized
+INFO - 2015-09-09 23:51:43 --> Security Class Initialized
+DEBUG - 2015-09-09 23:51:43 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 23:51:43 --> Input Class Initialized
+INFO - 2015-09-09 23:51:43 --> Language Class Initialized
+INFO - 2015-09-09 23:51:43 --> Loader Class Initialized
+INFO - 2015-09-09 23:51:43 --> Helper loaded: form_helper
+INFO - 2015-09-09 23:51:43 --> Helper loaded: url_helper
+INFO - 2015-09-09 23:51:43 --> Helper loaded: html_helper
+INFO - 2015-09-09 23:51:43 --> Helper loaded: text_helper
+INFO - 2015-09-09 23:51:43 --> Helper loaded: string_helper
+INFO - 2015-09-09 23:51:43 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 23:51:43 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 23:51:43 --> Database Driver Class Initialized
+INFO - 2015-09-09 23:51:46 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 23:51:46 --> Model Class Initialized
+INFO - 2015-09-09 23:51:46 --> Model Class Initialized
+INFO - 2015-09-09 23:51:46 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 23:51:46 --> Model Class Initialized
+INFO - 2015-09-09 23:51:46 --> Controller Class Initialized
+INFO - 2015-09-09 23:51:46 --> Model Class Initialized
+INFO - 2015-09-09 23:51:46 --> Model Class Initialized
+INFO - 2015-09-09 23:51:46 --> Upload Class Initialized
+INFO - 2015-09-09 23:51:46 --> Final output sent to browser
+DEBUG - 2015-09-09 23:51:46 --> Total execution time: 3.0712
+INFO - 2015-09-09 23:51:46 --> Config Class Initialized
+INFO - 2015-09-09 23:51:46 --> Hooks Class Initialized
+DEBUG - 2015-09-09 23:51:46 --> UTF-8 Support Enabled
+INFO - 2015-09-09 23:51:46 --> Utf8 Class Initialized
+INFO - 2015-09-09 23:51:46 --> URI Class Initialized
+INFO - 2015-09-09 23:51:46 --> Router Class Initialized
+INFO - 2015-09-09 23:51:46 --> Output Class Initialized
+INFO - 2015-09-09 23:51:46 --> Security Class Initialized
+DEBUG - 2015-09-09 23:51:46 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 23:51:46 --> Input Class Initialized
+INFO - 2015-09-09 23:51:46 --> Language Class Initialized
+INFO - 2015-09-09 23:51:46 --> Loader Class Initialized
+INFO - 2015-09-09 23:51:46 --> Helper loaded: form_helper
+INFO - 2015-09-09 23:51:46 --> Helper loaded: url_helper
+INFO - 2015-09-09 23:51:46 --> Helper loaded: html_helper
+INFO - 2015-09-09 23:51:46 --> Helper loaded: text_helper
+INFO - 2015-09-09 23:51:46 --> Helper loaded: string_helper
+INFO - 2015-09-09 23:51:46 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 23:51:46 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 23:51:46 --> Database Driver Class Initialized
+INFO - 2015-09-09 23:51:46 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 23:51:46 --> Model Class Initialized
+INFO - 2015-09-09 23:51:46 --> Model Class Initialized
+INFO - 2015-09-09 23:51:46 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 23:51:46 --> Model Class Initialized
+INFO - 2015-09-09 23:51:46 --> Controller Class Initialized
+INFO - 2015-09-09 23:51:46 --> Model Class Initialized
+INFO - 2015-09-09 23:51:46 --> Model Class Initialized
+INFO - 2015-09-09 23:51:46 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/header.php
+INFO - 2015-09-09 23:51:46 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/top_bar_menu.php
+INFO - 2015-09-09 23:51:46 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\admin/editar/carrosel.php
+INFO - 2015-09-09 23:51:46 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/scripts.php
+INFO - 2015-09-09 23:51:46 --> Final output sent to browser
+DEBUG - 2015-09-09 23:51:46 --> Total execution time: 0.0640
+INFO - 2015-09-09 23:51:54 --> Config Class Initialized
+INFO - 2015-09-09 23:51:54 --> Hooks Class Initialized
+DEBUG - 2015-09-09 23:51:54 --> UTF-8 Support Enabled
+INFO - 2015-09-09 23:51:54 --> Utf8 Class Initialized
+INFO - 2015-09-09 23:51:54 --> URI Class Initialized
+INFO - 2015-09-09 23:51:54 --> Router Class Initialized
+INFO - 2015-09-09 23:51:54 --> Output Class Initialized
+INFO - 2015-09-09 23:51:54 --> Security Class Initialized
+DEBUG - 2015-09-09 23:51:54 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 23:51:54 --> Input Class Initialized
+INFO - 2015-09-09 23:51:54 --> Language Class Initialized
+INFO - 2015-09-09 23:51:54 --> Loader Class Initialized
+INFO - 2015-09-09 23:51:54 --> Helper loaded: form_helper
+INFO - 2015-09-09 23:51:54 --> Helper loaded: url_helper
+INFO - 2015-09-09 23:51:54 --> Helper loaded: html_helper
+INFO - 2015-09-09 23:51:54 --> Helper loaded: text_helper
+INFO - 2015-09-09 23:51:54 --> Helper loaded: string_helper
+INFO - 2015-09-09 23:51:54 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 23:51:54 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 23:51:54 --> Database Driver Class Initialized
+INFO - 2015-09-09 23:51:54 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 23:51:54 --> Model Class Initialized
+INFO - 2015-09-09 23:51:54 --> Model Class Initialized
+INFO - 2015-09-09 23:51:54 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 23:51:54 --> Model Class Initialized
+INFO - 2015-09-09 23:51:54 --> Controller Class Initialized
+INFO - 2015-09-09 23:51:54 --> Model Class Initialized
+INFO - 2015-09-09 23:51:54 --> Model Class Initialized
+INFO - 2015-09-09 23:51:54 --> Upload Class Initialized
+INFO - 2015-09-09 23:51:54 --> Final output sent to browser
+DEBUG - 2015-09-09 23:51:54 --> Total execution time: 0.0630
+INFO - 2015-09-09 23:55:44 --> Config Class Initialized
+INFO - 2015-09-09 23:55:44 --> Hooks Class Initialized
+DEBUG - 2015-09-09 23:55:44 --> UTF-8 Support Enabled
+INFO - 2015-09-09 23:55:44 --> Utf8 Class Initialized
+INFO - 2015-09-09 23:55:44 --> URI Class Initialized
+INFO - 2015-09-09 23:55:44 --> Router Class Initialized
+INFO - 2015-09-09 23:55:44 --> Output Class Initialized
+INFO - 2015-09-09 23:55:44 --> Security Class Initialized
+DEBUG - 2015-09-09 23:55:44 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 23:55:44 --> Input Class Initialized
+INFO - 2015-09-09 23:55:44 --> Language Class Initialized
+INFO - 2015-09-09 23:55:44 --> Loader Class Initialized
+INFO - 2015-09-09 23:55:44 --> Helper loaded: form_helper
+INFO - 2015-09-09 23:55:44 --> Helper loaded: url_helper
+INFO - 2015-09-09 23:55:44 --> Helper loaded: html_helper
+INFO - 2015-09-09 23:55:44 --> Helper loaded: text_helper
+INFO - 2015-09-09 23:55:44 --> Helper loaded: string_helper
+INFO - 2015-09-09 23:55:44 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 23:55:44 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 23:55:44 --> Database Driver Class Initialized
+INFO - 2015-09-09 23:55:44 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 23:55:44 --> Model Class Initialized
+INFO - 2015-09-09 23:55:44 --> Model Class Initialized
+INFO - 2015-09-09 23:55:44 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 23:55:44 --> Model Class Initialized
+INFO - 2015-09-09 23:55:44 --> Controller Class Initialized
+INFO - 2015-09-09 23:55:44 --> Model Class Initialized
+INFO - 2015-09-09 23:55:44 --> Model Class Initialized
+INFO - 2015-09-09 23:55:44 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/header.php
+INFO - 2015-09-09 23:55:44 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/top_bar_menu.php
+INFO - 2015-09-09 23:55:44 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\admin/editar/carrosel.php
+INFO - 2015-09-09 23:55:44 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/scripts.php
+INFO - 2015-09-09 23:55:44 --> Final output sent to browser
+DEBUG - 2015-09-09 23:55:44 --> Total execution time: 0.0468
+INFO - 2015-09-09 23:55:51 --> Config Class Initialized
+INFO - 2015-09-09 23:55:51 --> Hooks Class Initialized
+DEBUG - 2015-09-09 23:55:51 --> UTF-8 Support Enabled
+INFO - 2015-09-09 23:55:51 --> Utf8 Class Initialized
+INFO - 2015-09-09 23:55:51 --> URI Class Initialized
+INFO - 2015-09-09 23:55:51 --> Router Class Initialized
+INFO - 2015-09-09 23:55:51 --> Output Class Initialized
+INFO - 2015-09-09 23:55:51 --> Security Class Initialized
+DEBUG - 2015-09-09 23:55:51 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 23:55:51 --> Input Class Initialized
+INFO - 2015-09-09 23:55:51 --> Language Class Initialized
+INFO - 2015-09-09 23:55:51 --> Loader Class Initialized
+INFO - 2015-09-09 23:55:51 --> Helper loaded: form_helper
+INFO - 2015-09-09 23:55:51 --> Helper loaded: url_helper
+INFO - 2015-09-09 23:55:51 --> Helper loaded: html_helper
+INFO - 2015-09-09 23:55:51 --> Helper loaded: text_helper
+INFO - 2015-09-09 23:55:51 --> Helper loaded: string_helper
+INFO - 2015-09-09 23:55:51 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 23:55:51 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 23:55:51 --> Database Driver Class Initialized
+INFO - 2015-09-09 23:55:51 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 23:55:51 --> Model Class Initialized
+INFO - 2015-09-09 23:55:51 --> Model Class Initialized
+INFO - 2015-09-09 23:55:51 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 23:55:51 --> Model Class Initialized
+INFO - 2015-09-09 23:55:51 --> Controller Class Initialized
+INFO - 2015-09-09 23:55:51 --> Model Class Initialized
+INFO - 2015-09-09 23:55:51 --> Model Class Initialized
+INFO - 2015-09-09 23:55:51 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/alertas.php
+INFO - 2015-09-09 23:55:51 --> Upload Class Initialized
+INFO - 2015-09-09 23:55:51 --> Final output sent to browser
+DEBUG - 2015-09-09 23:55:51 --> Total execution time: 0.0624
+INFO - 2015-09-09 23:56:09 --> Config Class Initialized
+INFO - 2015-09-09 23:56:09 --> Hooks Class Initialized
+DEBUG - 2015-09-09 23:56:09 --> UTF-8 Support Enabled
+INFO - 2015-09-09 23:56:09 --> Utf8 Class Initialized
+INFO - 2015-09-09 23:56:09 --> URI Class Initialized
+INFO - 2015-09-09 23:56:09 --> Router Class Initialized
+INFO - 2015-09-09 23:56:09 --> Output Class Initialized
+INFO - 2015-09-09 23:56:09 --> Security Class Initialized
+DEBUG - 2015-09-09 23:56:09 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 23:56:09 --> Input Class Initialized
+INFO - 2015-09-09 23:56:09 --> Language Class Initialized
+INFO - 2015-09-09 23:56:09 --> Loader Class Initialized
+INFO - 2015-09-09 23:56:09 --> Helper loaded: form_helper
+INFO - 2015-09-09 23:56:09 --> Helper loaded: url_helper
+INFO - 2015-09-09 23:56:09 --> Helper loaded: html_helper
+INFO - 2015-09-09 23:56:09 --> Helper loaded: text_helper
+INFO - 2015-09-09 23:56:09 --> Helper loaded: string_helper
+INFO - 2015-09-09 23:56:09 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 23:56:09 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 23:56:09 --> Database Driver Class Initialized
+INFO - 2015-09-09 23:56:09 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 23:56:09 --> Model Class Initialized
+INFO - 2015-09-09 23:56:09 --> Model Class Initialized
+INFO - 2015-09-09 23:56:09 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 23:56:09 --> Model Class Initialized
+INFO - 2015-09-09 23:56:09 --> Controller Class Initialized
+INFO - 2015-09-09 23:56:09 --> Model Class Initialized
+INFO - 2015-09-09 23:56:09 --> Model Class Initialized
+INFO - 2015-09-09 23:56:09 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/header.php
+INFO - 2015-09-09 23:56:09 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/top_bar_menu.php
+INFO - 2015-09-09 23:56:09 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\admin/editar/carrosel.php
+INFO - 2015-09-09 23:56:09 --> File loaded: C:\xampp\htdocs\marciafarioli2\application\views\templates/scripts.php
+INFO - 2015-09-09 23:56:09 --> Final output sent to browser
+DEBUG - 2015-09-09 23:56:09 --> Total execution time: 0.0630
+INFO - 2015-09-09 23:56:14 --> Config Class Initialized
+INFO - 2015-09-09 23:56:14 --> Hooks Class Initialized
+DEBUG - 2015-09-09 23:56:14 --> UTF-8 Support Enabled
+INFO - 2015-09-09 23:56:14 --> Utf8 Class Initialized
+INFO - 2015-09-09 23:56:14 --> URI Class Initialized
+INFO - 2015-09-09 23:56:14 --> Router Class Initialized
+INFO - 2015-09-09 23:56:14 --> Output Class Initialized
+INFO - 2015-09-09 23:56:14 --> Security Class Initialized
+DEBUG - 2015-09-09 23:56:14 --> Global POST, GET and COOKIE data sanitized
+INFO - 2015-09-09 23:56:14 --> Input Class Initialized
+INFO - 2015-09-09 23:56:14 --> Language Class Initialized
+INFO - 2015-09-09 23:56:14 --> Loader Class Initialized
+INFO - 2015-09-09 23:56:14 --> Helper loaded: form_helper
+INFO - 2015-09-09 23:56:14 --> Helper loaded: url_helper
+INFO - 2015-09-09 23:56:14 --> Helper loaded: html_helper
+INFO - 2015-09-09 23:56:14 --> Helper loaded: text_helper
+INFO - 2015-09-09 23:56:14 --> Helper loaded: string_helper
+INFO - 2015-09-09 23:56:14 --> Language file loaded: language/portuguese-brazilian/error_lang.php
+INFO - 2015-09-09 23:56:14 --> Language file loaded: language/portuguese-brazilian/warning_lang.php
+INFO - 2015-09-09 23:56:14 --> Database Driver Class Initialized
+INFO - 2015-09-09 23:56:14 --> Session: Class initialized using 'database' driver.
+INFO - 2015-09-09 23:56:14 --> Model Class Initialized
+INFO - 2015-09-09 23:56:14 --> Model Class Initialized
+INFO - 2015-09-09 23:56:14 --> CONFIG SET - tipousuariopadrao = 1
+INFO - 2015-09-09 23:56:14 --> Model Class Initialized
+INFO - 2015-09-09 23:56:14 --> Controller Class Initialized
+INFO - 2015-09-09 23:56:14 --> Model Class Initialized
+INFO - 2015-09-09 23:56:14 --> Model Class Initialized
+INFO - 2015-09-09 23:56:14 --> Upload Class Initialized
+INFO - 2015-09-09 23:56:14 --> Final output sent to browser
+DEBUG - 2015-09-09 23:56:14 --> Total execution time: 0.0640

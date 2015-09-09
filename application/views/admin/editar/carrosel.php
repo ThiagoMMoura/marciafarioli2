@@ -5,7 +5,7 @@
 </div>
 <div class="row">
   <div class="small-12 columns">
-    <?php echo form_open_multipart('upload/carrosel',array('id'=>'uploadform'));?>
+    <?php echo form_open_multipart('admin/carrosel/upload',array('id'=>'uploadform'));?>
     <div class="row">
       <div class="large-12 columns">
 		<?php 
@@ -28,16 +28,18 @@
 </div>
 <div class="row">
   <div class="small-12 columns">
-  	<?php echo form_open('upload/carrosel',array('id'=>'cropform'));?>
+  	<?php echo form_open('admin/carrosel/crop',array('id'=>'cropform'));?>
 		<?php 
-        $form_file = array('name'=>'x','id'=>'x');
-        echo form_label(form_hidden($form_file,''));
-		$form_file = array('name'=>'y','id'=>'y');
-        echo form_label(form_hidden($form_file,''));
-		$form_file = array('name'=>'w','id'=>'w');
-        echo form_label(form_hidden($form_file,''));
-		$form_file = array('name'=>'h','id'=>'h');
-        echo form_label(form_hidden($form_file,''));
+        $form_file = array('type'=>'hidden','name'=>'x','id'=>'x');
+        echo form_label(form_input($form_file));
+		$form_file = array('type'=>'hidden','name'=>'y','id'=>'y');
+        echo form_label(form_input($form_file));
+		$form_file = array('type'=>'hidden','name'=>'w','id'=>'w');
+        echo form_label(form_input($form_file));
+		$form_file = array('type'=>'hidden','name'=>'h','id'=>'h');
+        echo form_label(form_input($form_file));
+		$form_file = array('type'=>'hidden','name'=>'url','id'=>'url');
+        echo form_label(form_input($form_file));
         ?>
     <div class="row">
       <div class="large-12 columns">

@@ -62,4 +62,5 @@ $route['usuario/login/(:any)'] = 'usuario/view/login/$1/';
 $route['usuario/login'] = 'usuario/view/login';
 $route['login/(:any)'] = 'usuario/view/login/$1/';
 $route['login'] = 'usuario/view/login';
+$route['admin/editar/(:any)'] = 'admin/editar/view/$1/';
 

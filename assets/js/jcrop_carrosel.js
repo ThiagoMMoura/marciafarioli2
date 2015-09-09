@@ -1,6 +1,6 @@
 // JavaScript Document
 $(document).ajaxComplete(function() {
-  if($( "img[id~='imgcrop']" ).has('src')){
+  if($.contains(document.getElementById('imgupload'),document.getElementById('imgcrop'))){
 	jQuery(function($) {
 	  $('#imgcrop').Jcrop({
 		  bgColor:     'black',
@@ -11,6 +11,7 @@ $(document).ajaxComplete(function() {
 	  });
 	});
 	$('#btnsalvar').show();
+	$('#url').val($('#imgcrop').attr('src'));
   }else{
 	  $('#btnsalvar').hide();
   }

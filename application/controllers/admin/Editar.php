@@ -1,12 +1,10 @@
 ﻿<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Admin extends CI_Controller {
-
-	public function index()
-	{
-		
+class Editar extends CI_Controller {
+	public function inde(){
 	}
-	public function editar($page){
+	public function view($page)
+	{
 		if ( ! file_exists(APPPATH.'/views/admin/editar/'.$page.'.php'))
         {
                 // Whoops, we don't have a page for that!
