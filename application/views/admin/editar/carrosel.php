@@ -42,6 +42,10 @@
         echo form_label(form_input($form_file));
 		$form_file = array('type'=>'hidden','name'=>'h','id'=>'h');
         echo form_label(form_input($form_file));
+		$form_file = array('type'=>'hidden','name'=>'real-w','id'=>'real-w');
+        echo form_label(form_input($form_file));
+		$form_file = array('type'=>'hidden','name'=>'real-h','id'=>'real-h');
+        echo form_label(form_input($form_file));
 		$form_file = array('type'=>'hidden','name'=>'url','id'=>'url');
         echo form_label(form_input($form_file));
         ?>

@@ -25,6 +25,8 @@ function getCoordenadas(c){
 	$('#y2').val(c.y2);
 	$('#w').val(c.w);
 	$('#h').val(c.h);
+	$('#real-w').val($('.jcrop-holder').css('width'));
+	$('#real-h').val($('.jcrop-holder').css('height'));
 }
 jQuery(document).ready(function() { 
 $('#btnsalvar').hide();
