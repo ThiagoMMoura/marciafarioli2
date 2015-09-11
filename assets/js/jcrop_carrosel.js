@@ -3,6 +3,8 @@ $(document).ajaxComplete(function() {
   if($.contains(document.getElementById('imgupload'),document.getElementById('imgcrop'))){
 	jQuery(function($) {
 	  $('#imgcrop').Jcrop({
+		  onChange: getCoordenadas,
+		  onSelect: getCoordenadas,
 		  bgColor:     'black',
 		  bgOpacity:   .4,
 		  aspectRatio: 10 / 4,
@@ -16,6 +18,14 @@ $(document).ajaxComplete(function() {
 	  $('#btnsalvar').hide();
   }
 });
+function getCoordenadas(c){
+	$('#x').val(c.x);
+	$('#y').val(c.y);
+	$('#x2').val(c.x2);
+	$('#y2').val(c.y2);
+	$('#w').val(c.w);
+	$('#h').val(c.h);
+}
 jQuery(document).ready(function() { 
 $('#btnsalvar').hide();
 var options = { 
