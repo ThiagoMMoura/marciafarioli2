@@ -1,6 +1,7 @@
-﻿<div class="row">
+﻿<?php $this->load->helper('directory'); ?>
+<div class="row">
   <div class="small-12 columns text-center">
-    <?php echo heading('UPLOAD DE IMAGENS PARA O CARROSEL',2);?>
+    <?php echo heading('Adicionar imagem ao Carrosel:',2);?>
   </div>
 </div>
 <div class="row">
@@ -9,7 +10,7 @@
     <div class="row">
       <div class="large-12 columns">
 		<?php 
-        $form_file = array('name'=>'userfile','type'=>'file','size'=>'30');
+        $form_file = array('name'=>'userfile','type'=>'file','size'=>'50','id'=>'userfile');
         echo form_label(form_input($form_file,''));
         ?>
       </div>
@@ -51,9 +52,34 @@
         ?>
     <div class="row">
       <div class="large-12 columns">
-		<?php echo form_submit('salvar', 'Salvar', 'class="button expand" id="btnsalvar"'); ?>
+      	<ul class="button-group even-2">
+			<li><?php echo form_submit('salvar', 'Salvar', 'class="button" id="btnsalvar" style="display: none;"'); ?></li>
+			<li><?php echo form_submit('cancelar', 'Cancelar', 'class="button" id="btncancelar" style="display: none;"'); ?></li>
+        </ul>
       </div>
     </div>    
     </form>
   </div>
+</div>
+<div class="row">
+  <div class="small-12 columns text-center">
+    <?php echo heading('Imagens do carrosel',2);?>
+  </div>
+</div>
+<div class="row">
+	<div class="carrosel-lista">
+    	<ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-5">
+		<?php
+        $pasta = './images/site/carrosel/';
+        $map = directory_map($pasta,1);
+		if(empty($map)) echo '<p>Nenhuma imagem encontrada.</p>';
+		else{
+			foreach($map as $img){ ?>
+				<li><?php echo img($pasta.$img); 
+				echo anchor('admin/carrosel/excluir/'.$img,'Excluir');
+				?></li>
+        <?php } 
+		}?>
+        </ul>
+    </div>
 </div>

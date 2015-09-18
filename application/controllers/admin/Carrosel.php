@@ -1,7 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Carrosel extends CI_Controller {
-	
 	public function __construct(){
 		parent::__construct();
 		if(!$this->usuario_model->logado()) redirect('login/error_login_necessario');
@@ -11,6 +10,7 @@ class Carrosel extends CI_Controller {
 			$this->load->view('templates/alertas',$data);
 		}
 		$this->load->library('image_lib');
+		
 	}
 	
 	public function index(){
@@ -33,18 +33,7 @@ class Carrosel extends CI_Controller {
 		}else{
 			$data = $this->upload->data();
 			
-			/*$img_cfg['image_library'] = 'gd2';
-			$img_cfg['source_image'] = $config['upload_path'].$data['file_name'];
-			$img_cfg['maintain_ratio'] = TRUE;
-			$img_cfg['width']         = 1000;
-			
-			$this->image_lib->initialize($img_cfg);
-			
-			if ( ! $this->image_lib->resize()){
-				echo $this->image_lib->display_errors();
-			}else{*/
 			echo img(array('src'=>base_url().$config['upload_path'].$data['file_name'],'id'=>'imgcrop','width'=>$data['image_width'],'height'=>$data['image_height']));
-			//}
 		}
 		
 	}
@@ -52,7 +41,9 @@ class Carrosel extends CI_Controller {
 		$data = $this->input->post();
 		
 		$img = str_replace(base_url(),'',$data['url']);
-		$nome = random_string('alnum', 16).strrchr($data['url'],'.');
+		if(isset($data['cancelar'])) $this->cancelar($img);
+		
+		$nome = date('YmdHis').random_string('alnum', 16).strrchr($data['url'],'.');
 		$pasta = 'images/site/carrosel/';
 		if(!is_dir($pasta)) mkdir($pasta);
 		
@@ -60,7 +51,7 @@ class Carrosel extends CI_Controller {
 		$w = ($data['w']*100/$data['real-w'])*$largura/100;
 		$h = ($data['h']*100/$data['real-h'])*$altura/100;
 		$x = ($data['x']*100/$data['real-w'])*$largura/100;
-		$y = ($data['y']*100/$data['real-h'])*$largura/100;
+		$y = ($data['y']*100/$data['real-h'])*$altura/100;
 		
 		$img_cfg['image_library'] = 'gd2';
 		$img_cfg['source_image'] = $img;
@@ -77,17 +68,19 @@ class Carrosel extends CI_Controller {
 			echo $this->image_lib->display_errors();
 		}else{
 			unlink($img_cfg['source_image']);
-			echo 'x: '.$x;
-			echo 'y: '.$y;
-			echo 'h: '.$h;
-			echo 'w: '.$w;
-			echo 'largura: '.$largura;
-			echo 'altura: '.$altura;
-			foreach($data as $key => $value){
-				echo $key.' - '.$value;
-			}
-			//redirect('admin/editar/carrosel');
+			redirect('admin/editar/carrosel');
 		}
+	}
+	public function excluir($nome = NULL){
+		if($nome === NULL) $nome = $this->input->post('nome');
+		unlink('./images/site/carrosel/'.$nome);
+		redirect('admin/editar/carrosel');
+	}
+	public function cancelar($nome = NULL){
+		if($nome === NULL) $nome = $this->input->post['url'];
+		$nome = strrchr($nome,'/');
+		unlink('./tmp_data/'.$nome);
+		redirect('admin/editar/carrosel');
 	}
 }
 ?>

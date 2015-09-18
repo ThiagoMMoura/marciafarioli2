@@ -1,11 +1,17 @@
-﻿<?php $this->load->view('templates/nav_header', $page); ?>
+﻿<?php 
+$this->load->view('templates/nav_header', $page);
+$this->load->helper('directory');
+?>
 <div class="row">
     <div class="small-12 small-centered columns">
     	<?php if(isset($perm)&&$perm->editarhome) echo '<small>'.anchor('admin/editar/carrosel','Editar').'</small>';?>
-        <div class="slick-principal">
-            <div class="caixa_corte"><?php echo img(IMAGES_PATH.'/site/construindo marcia farioli0041.jpg');?></div>
-            <div class="caixa_corte"><?php echo img(IMAGES_PATH.'/site/construindo marcia farioli0042.jpg');?></div>
-            <div class="caixa_corte"><?php echo img(IMAGES_PATH.'/site/construindo marcia farioli0043.jpg');?></div>
+        <div class="carrosel">
+        	<?php
+            $pasta = './images/site/carrosel/';
+			$map = directory_map($pasta,1);
+			foreach($map as $img){ ?>
+				<div><?php echo img($pasta.$img); ?></div>
+			<?php } ?>
         </div>
     </div>
 </div>

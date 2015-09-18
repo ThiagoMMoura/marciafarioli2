@@ -6,19 +6,13 @@
 	margin-bottom: 15px;
 	margin-top: 10px;
 }
+.slick-slide{
+	height:auto;
+}
 .slick-dots{
 	margin-left: 0px;
-	margin-bottom: 25px;
+	margin-bottom: 26px;
 	background-color: rgba(185, 185, 185, 0.6);
-}
-.caixa_corte {
-	width: 1000px;
-	height: 400px;
-	overflow:hidden;
-}
- 
-.caixa_corte img {
-	width: auto;
 }
 button.transparente:hover, button.transparente:focus, .button.transparente:hover, .button.transparente:focus {
 	color: #999;

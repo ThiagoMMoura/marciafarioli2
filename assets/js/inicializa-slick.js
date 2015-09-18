@@ -13,7 +13,7 @@ $(document).ready(function(){
 		autoplay: true,
 		autoplaySpeed: 2000,
 	});
-	$('.slick-principal').slick({
+	$('.carrosel').slick({
 		lazyLoad: 'ondemand',
 		slidesToShow: 1,
 		slidesToScroll: 1,
