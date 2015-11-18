@@ -19,6 +19,12 @@
 					'assets/plugin/jcrop/js/jquery.Jcrop.min.js',
 					array('src'=>'http://malsup.github.com/jquery.form.js'),
 					'assets/js/jcrop_carrosel.js'
+					),
+			'editar/portfolio'=>array(
+					JQUERY_JS_FILE_LOCAL,
+					RESPONSIVE_FW_JS_FILE_LOCAL,
+					array('codigo'=>'$(document).foundation();'),
+					array('src'=>'http://malsup.github.com/jquery.form.js')
 					)
 			);
 	$script_list_name = isset($script_list[$page])?$page:'padrao';

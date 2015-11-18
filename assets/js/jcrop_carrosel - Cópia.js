@@ -1,17 +1,6 @@
 // JavaScript Document
 $(document).ajaxComplete(function() {
   if($.contains(document.getElementById('imgupload'),document.getElementById('imgcrop'))){
-	jQuery(function($) {
-	  $('#imgcrop').Jcrop({
-		  onChange: getCoordenadas,
-		  onSelect: getCoordenadas,
-		  bgColor:     'black',
-		  bgOpacity:   .4,
-		  aspectRatio: 10 / 4,
-		  maxSize: [1000,400],
-		  setSelect: [0,0,0,1000]
-	  });
-	});
 	$('#btnsalvar').show();
 	$('#btncancelar').show();
 	$('#url').val($('#imgcrop').attr('src'));
@@ -19,16 +8,6 @@ $(document).ajaxComplete(function() {
 	  $('#btnsalvar').hide();
   }
 });
-function getCoordenadas(c){
-	$('#x').val(c.x);
-	$('#y').val(c.y);
-	$('#x2').val(c.x2);
-	$('#y2').val(c.y2);
-	$('#w').val(c.w);
-	$('#h').val(c.h);
-	$('#real-w').val($('.jcrop-holder').css('width'));
-	$('#real-h').val($('.jcrop-holder').css('height'));
-}
 jQuery(document).ready(function() { 
 	$('#btnsalvar').hide();
 	$('#btncancelar').hide();

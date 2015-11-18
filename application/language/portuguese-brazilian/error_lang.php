@@ -11,4 +11,7 @@ $lang['error_login_necessario']='Você precisa realizar login para acessar a pá
 $lang['error_login_incorreto']='O email ou senha não está correto.';
 $lang['error_not_implemented']='Está função ainda não foi implementada.';
 $lang['error_permissao_edicao']='Você não tem permissão para editar.';
+$lang['error_permissao'] = 'Você não tem permissão para acessar está seção.';
+$lang['error_insert_failed']='Falha na inserção do registro, tente mais tarde!';
+$lang['error_album_inexistente']='O Album procurado não existe!';
 ?>

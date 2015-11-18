@@ -3,17 +3,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Carrosel extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
-		if(!$this->usuario_model->logado()) redirect('login/error_login_necessario');
-		$data['perm'] = $this->usuario_model->get_permissoes();
-		if(!$data['perm']->editarhome){
-			$data = array('error'=>$this->lang->line('error_permissao_edicao'));
-			$this->load->view('templates/alertas',$data);
-		}
-		$this->load->library('image_lib');
 		
+		if($this->usuario_model->verificaUsuario()){
+			$this->usuario_model->getPermissao('editarhome','error_permissao_edicao',TRUE);
+		}
+		
+		$this->load->library('image_lib');
 	}
 	
 	public function index(){
+		show_404();
 	}
 	public function upload(){
 		$pasta = 'tmp_data/';
@@ -74,6 +73,7 @@ class Carrosel extends CI_Controller {
 	public function excluir($nome = NULL){
 		if($nome === NULL) $nome = $this->input->post('nome');
 		unlink('./images/site/carrosel/'.$nome);
+		$this->session->set_flashdata('alerta','success_excluded_image');
 		redirect('admin/editar/carrosel');
 	}
 	public function cancelar($nome = NULL){

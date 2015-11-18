@@ -27,7 +27,7 @@ class Usuario_model extends MY_Model{
 		
 		if ($query->num_rows() == 1) {
 			$row = $query->row_array();
-			$this->id = $row['id'];
+			$this->setId($row['id']);
 			$this->nome = $row['nome'];
 			$this->email = $row['email'];
 			$this->idtipousuario = $row['idtipologin'];
@@ -37,19 +37,46 @@ class Usuario_model extends MY_Model{
 		}else return FALSE;
 	}
 	
-	public function logado(){
+	public function isLogado(){
 		if($this->session->has_userdata('logado')&&$this->session->logado){
 			return TRUE;
 		}else{
 			return FALSE;
 		}
 	}
+	
+	public function verificaUsuario($redireciona = TRUE){
+		if($this->isLogado()){
+			return TRUE;
+		}else{
+			if($redireciona){
+				$this->session->set_flashdata('alerta','error_login_necessario');
+				redirect('login');
+			}else return FALSE;
+		}
+	}
+	
 	public function get_permissoes(){
 		$this->load->model('tipo_login_model');
 		$where = array('id'=>$this->session->idtipologin);
 		$query = $this->tipo_login_model->selecionar(NULL,$where);
 		$row = $query->row(0,'Tipo_login_model');
 		return $row;
+	}
+	
+	public function getPermissao($permissao,$error = NULL,$redireciona = FALSE,$pagina = NULL){
+		$usuario = $this->get_permissoes();
+		if($usuario!=NULL&&$usuario->{$permissao}){
+			return TRUE;
+		}else{
+			if($redireciona){
+				if($error==NULL) $error = 'error_permissao';
+				$this->session->set_flashdata('alerta',$error);
+				if($pagina==NULL) $pagina = 'home';
+				redirect($pagina);
+			}
+			return FALSE;
+		}
 	}
 }
 ?>

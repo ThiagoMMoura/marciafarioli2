@@ -19,11 +19,12 @@
           </div>
         </li>
         <li class="divider"></li>
-		<?php if($this->usuario_model->logado()){ ?>
+		<?php if($this->usuario_model->isLogado()){ ?>
         	<li class="has-dropdown">
             	<?php echo anchor('#','Olá, '.word_limiter($this->session->nome,1,'')); ?>
                 <ul class="dropdown">
                 	<?php if($perm->postar)echo '<li>'.anchor('','Novo Post').'</li>'; ?>
+                    <?php if($perm->postar)echo '<li>'.anchor('admin/editar/album','Criar Portfolio').'</li>'; ?>
                     <li class="divider"></li>
                 	<li><?php echo anchor('usuario/sair','Sair'); ?></li>
                 </ul>

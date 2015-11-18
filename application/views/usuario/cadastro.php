@@ -24,7 +24,7 @@
     <div class="row">
       <div class="large-12 columns">
         <?php
-		$form_email = array('name'=>'email','placeholder'=>'Seu email','pattern'=>'email','required'=>'');
+		$form_email = array('name'=>'email','placeholder'=>'Seu email','required'=>'');
 		$atributos = array();
 		if(form_error('email')!=NULL) $atributos['class'] = isset($atributos['class'])?$atributos['class'].' error':'error';
 		echo form_label('Email'.form_input($form_email,''),'',$atributos);

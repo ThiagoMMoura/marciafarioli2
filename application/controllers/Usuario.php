@@ -4,7 +4,6 @@ class Usuario extends CI_Controller {
 	
 	public function __construct(){
 		parent::__construct();
-		$this->load->library('form_validation');
 	}
 	
 	public function index(){
@@ -20,6 +19,8 @@ class Usuario extends CI_Controller {
         }
         $data['title'] = ucfirst($page); // Capitalize the first letter
 		$data['page'] = $page;
+		
+		$alerta = $this->session->flashdata('alerta');
 		if($alerta!==NULL)$data[separa_str($alerta,'_',FALSE)]=$this->lang->line($alerta);
 
         $this->load->view('templates/header', $data);
@@ -36,18 +37,18 @@ class Usuario extends CI_Controller {
 			$this->view('login');
 		} else {
 			if($this->usuario_model->valida()){
-				/*$this->session->set_userdata(get_object_vars($this->usuario_model));*/
-				$userdata = array('id'=>$this->usuario_model->id,
-								'nome'=>$this->usuario_model->nome,
-								'email'=>$this->usuario_model->email,
-								'idtipologin'=>$this->usuario_model->idtipologin,
-								'idfotoperfil'=>$this->usuario_model->nome,
-								'logado'=>TRUE
-								);
+				$userdata['id']           = $this->usuario_model->getId();
+				$userdata['nome']         = $this->usuario_model->nome;
+				$userdata['email']        = $this->usuario_model->email;
+				$userdata['idtipologin']  = $this->usuario_model->idtipologin;
+				$userdata['idfotoperfil'] = $this->usuario_model->idfotoperfil;
+				$userdata['logado']       = TRUE;
+								
 				$this->session->set_userdata($userdata);
 				redirect('home');
 			}else{
-				$this->view('login','error_login_incorreto');
+				$this->session->set_flashdata('alerta', 'error_login_incorreto');
+				$this->view('login');
 			}
 		}
 	}
@@ -82,6 +83,7 @@ class Usuario extends CI_Controller {
 	public function cadastro(){
 		$this->view('cadastro');
 	}
+	
 	public function recuperarsenha(){
 		$this->view('login','warning_not_implemented');
 	}
