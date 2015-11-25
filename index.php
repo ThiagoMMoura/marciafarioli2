@@ -177,7 +177,7 @@ switch (ENVIRONMENT)
  */
 	// $assign_to_config['name_of_config_item'] = 'value of config item';
 	
-	$site_name = 'localhost/marciafarioli2';
+	$site_name = $_SERVER['SERVER_NAME'];//'localhost/marciafarioli2';
 	$responsive_fw_name = 'foundation';
 	
 	$assets_folder = 'assets';
