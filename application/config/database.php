@@ -59,7 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | the query builder class.
 */
 
-$active_group = 'default';
+$active_group = $_SERVER['SERVER_ADDR']=='localhost'?'default':$_SERVER['SERVER_ADDR'];
 $query_builder = TRUE;
 
 $db['default'] = array(
@@ -80,27 +80,27 @@ $db['default'] = array(
 	'encrypt' => FALSE,
 	'compress' => FALSE,
 	'stricton' => FALSE,
-	'failover' => array(
-		array(
-			'dsn'	=> '',
-			'hostname' => 'mysql.hostinger.com.br',
-			'username' => 'u857456774_mf',
-			'password' => 'marcia',
-			'database' => 'u857456774_dbmf',
-			'dbdriver' => 'mysqli',
-			'dbprefix' => '',
-			'pconnect' => FALSE,
-			'db_debug' => TRUE,
-			'cache_on' => FALSE,
-			'cachedir' => '',
-			'char_set' => 'utf8',
-			'dbcollat' => 'utf8_general_ci',
-			'swap_pre' => '',
-			'encrypt' => FALSE,
-			'compress' => FALSE,
-			'stricton' => FALSE,
-			'save_queries' => TRUE
-		)
-	),
+	'failover' => array(),
+	'save_queries' => TRUE
+);
+//DB Hostinger
+$db['31.220.16.48'] = array(
+	'dsn'	=> '',
+	'hostname' => 'mysql.hostinger.com.br',
+	'username' => 'u857456774_mf',
+	'password' => 'marcia',
+	'database' => 'u857456774_dbmf',
+	'dbdriver' => 'mysqli',
+	'dbprefix' => '',
+	'pconnect' => FALSE,
+	'db_debug' => TRUE,
+	'cache_on' => FALSE,
+	'cachedir' => '',
+	'char_set' => 'utf8',
+	'dbcollat' => 'utf8_general_ci',
+	'swap_pre' => '',
+	'encrypt' => FALSE,
+	'compress' => FALSE,
+	'stricton' => FALSE,
 	'save_queries' => TRUE
 );
