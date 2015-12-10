@@ -1,19 +1,23 @@
 ﻿<?php
-if (!defined('BASEPATH')) exit('No direct script access allowed');
+if (!defined('BASEPATH')) {
+    exit('No direct script access allowed');
+}
 
 class Usuario_model extends MY_Model{
 	
-	public $nome;
-	public $email;
-	public $senha;
+	public $nome;           //String
+	public $email;          //String
+	public $senha;          //String
 	public $idtipologin;
 	public $sexo;
-	public $idfotoperfil;
+	public $idfotoperfil;   //INT FK
+        public $idnivel;        //INT FK
 	
 	public function __construct(){
 		parent::__construct();
 		$this->dbtable = 'usuario';
 		$this->idtipologin = $this->config->item('tipousuariopadrao');
+                $this->idnivel = $this->config->item('tipousuariopadrao');
 	}
 	
 	public function valida($post = TRUE){

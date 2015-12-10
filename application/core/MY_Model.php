@@ -1,6 +1,11 @@
 ﻿<?php
 if (!defined('BASEPATH')) exit('No direct script access allowed');
 
+/**
+ * Classe que define funções básicas para as classes model
+ *
+ * @author Thiago Moura
+ */
 class MY_Model extends CI_Model{
 	protected $dbtable;
 	protected $dbcolunas;
