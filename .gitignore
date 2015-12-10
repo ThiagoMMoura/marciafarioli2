@@ -42,3 +42,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 application/logs/
+/nbproject/private/
+/nbproject/project.properties
+/nbproject/project.xml
