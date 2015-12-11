@@ -37,6 +37,7 @@ class Usuario_model extends MY_Model{
 			$this->idtipousuario = $row['idtipologin'];
 			$this->sexo = $row['sexo'];
 			$this->idfotoperfil = $row['idfotoperfil'];
+                        $this->idnivel = $row['idnivel'];
 			return TRUE;
 		}else return FALSE;
 	}

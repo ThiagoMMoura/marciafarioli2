@@ -12,9 +12,9 @@ class Menu_model extends MY_Model{
     public $nome;       //String
     public $descricao;  //String
     public $url;        //String
-    public $grupo;      //String
-    public $tipo;       //String
-    public $formato;    //String
+    public $grupo;      //String Agrupamento dos menus
+    public $tipo;       //String Tipos(Link,Botao,Aba,Separador)
+    public $formato;    //String 
     public $nivel;      //INT
     public $ordem;      //INT
     public $idmenupai;  //INT FK
@@ -23,6 +23,7 @@ class Menu_model extends MY_Model{
     public function __construct() {
         parent::__construct();
         $this->dbtable = 'menu';
+        $this->sistema = FALSE;
     }
     
     public function Novo($campos){
@@ -40,4 +41,40 @@ class Menu_model extends MY_Model{
         return $this->Novo($campos);
     }
 
+    public function hasItensMenu($id = NULL){
+        $this->getItensMenu($id);
+        return $this->getNumRows()>0;
+    }
+    
+    public function getLink(){
+        return site_url($this->url);
+    }
+    
+    public function getItensMenu($id = NULL){
+        if($id===NULL){
+            $id = $this->getId();
+        }
+        $this->selecionar('*', array('idmenupai'=>$id));
+        return $this->getResultados();
+    }
+    
+    public function getMenuHTML($menu = NULL){
+        if($menu===NULL){
+            $menu = $this;
+        }
+        if($menu->hasItensMenu()) {?>
+            <li class="has-dropdown">
+                <?=anchor($menu->url,$menu->nome); ?>
+                <ul class="dropdown">
+                    <?foreach($menu->getResultados() as $item){
+                        echo $item->getMenuHTML();
+                    }?>
+                </ul>
+            </li>
+       <?}else{
+           //if($menu->){?>
+           <li><?php echo anchor($menu->url,$menu->nome); ?></li>
+           <?//}
+       }
+    }
 }
