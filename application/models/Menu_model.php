@@ -71,10 +71,12 @@ class Menu_model extends MY_Model{
                     }?>
                 </ul>
             </li>
-       <?}else{
-           //if($menu->){?>
-           <li><?php echo anchor($menu->url,$menu->nome); ?></li>
-           <?//}
-       }
+        <?}else{
+            if($menu->tipo!='Separador'){?>
+                <li><?php echo anchor($menu->url,$menu->nome); ?></li>
+            <?}else{
+                echo '<li class="divider"></li>';
+            }
+        }
     }
 }
