@@ -1,5 +1,7 @@
 ﻿<?php
-if (!defined('BASEPATH')) exit('No direct script access allowed');
+if (!defined('BASEPATH')) {
+    exit('No direct script access allowed');
+}
 
 /**
  * Classe que define funções básicas para as classes model
@@ -39,7 +41,7 @@ class MY_Model extends CI_Model{
         if($this->query!==NULL){
             foreach($this->query->result() as $result){
                 $lista[$i] = new $this();
-                $lista[$i]->setCampos($this->query->result());
+                $lista[$i]->setCampos($result);
                 $i++;
             }
         }
@@ -55,7 +57,9 @@ class MY_Model extends CI_Model{
     }
     
     public function PostVariaveis(){
-        if($this->dbcolunas == NULL) $this->dbcolunas = $this->db->list_fields($this->dbtable);
+        if ($this->dbcolunas == NULL) {
+            $this->dbcolunas = $this->db->list_fields($this->dbtable);
+        }
         foreach($this->dbcolunas as $coluna){
             if($this->input->post($coluna)!=NULL) {
                 $this->{$coluna} = $this->input->post($coluna);
@@ -65,7 +69,9 @@ class MY_Model extends CI_Model{
 
     public function getCampos(){
         $cmp = array();
-        if($this->dbcolunas == NULL) $this->dbcolunas = $this->db->list_fields($this->dbtable);
+        if ($this->dbcolunas == NULL) {
+            $this->dbcolunas = $this->db->list_fields($this->dbtable);
+        }
         foreach($this->dbcolunas as $coluna){
             if($this->{$coluna}!=NULL){
                 $cmp[$coluna] = $this->{$coluna};
@@ -76,7 +82,9 @@ class MY_Model extends CI_Model{
 
     public function limpaCampos(){
         $cmp = array();
-        if($this->dbcolunas == NULL) $this->dbcolunas = $this->db->list_fields($this->dbtable);
+        if ($this->dbcolunas == NULL) {
+            $this->dbcolunas = $this->db->list_fields($this->dbtable);
+        }
         foreach($this->dbcolunas as $coluna){
             $this->{$coluna} = NULL;
         }
