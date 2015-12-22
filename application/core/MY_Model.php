@@ -125,14 +125,11 @@ class MY_Model extends CI_Model{
         return $this->db->update($this->dbtable, $this->getCampos(), array('id' => $this->getId));
     }
 
-    public function selecionar($colunas = NULL,$where = NULL,$orderBy = NULL){
-        if($colunas==NULL)$colunas = '*';
-        if($where==NULL)$where = '';
-        if($orderBy==NULL)$orderBy = '';
-
+    public function selecionar($colunas = '*',$where = '',$orderBy = '',$groupBy = ''){
         $this->db->select($colunas);
         $this->db->where($where);
         $this->db->order_by($orderBy);
+        $this->db->group_by($groupBy);
         $this->setQuery($this->db->get($this->dbtable));
         return $this->getResultadosArray();
     }
