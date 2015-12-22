@@ -65,7 +65,7 @@ class Usuario_model extends MY_Model{
 		$this->load->model('tipo_login_model');
 		$where = array('id'=>$this->session->idtipologin);
 		$query = $this->tipo_login_model->selecionar(NULL,$where);
-		$row = $query->row(0,'Tipo_login_model');
+		$row = $query->custom_row_object(0,'Tipo_login_model');
 		return $row;
 	}
 	
