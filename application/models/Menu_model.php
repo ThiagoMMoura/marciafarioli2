@@ -13,8 +13,9 @@ class Menu_model extends MY_Model{
     public $descricao;  //String
     public $url;        //String
     public $grupo;      //String Agrupamento dos menus
-    public $tipo;       //String Tipos(Link,Botao,Aba,Separador)
-    public $formato;    //String 
+    public $tipo;       //String Tipos(Separador,Imagem,Botao,Acao)
+    public $formato;    //String Formatos(Aba,Link,Botao)
+    public $icone;      //String html, link, id midia
     public $nivel;      //INT
     public $ordem;      //INT
     public $idmenupai;  //INT FK
