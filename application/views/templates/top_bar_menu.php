@@ -29,18 +29,26 @@
                             <li><?php echo anchor('usuario/sair','Sair'); ?></li>
                         </ul>
                     </li>
+                    <? $where = array('grupo'=>'Top Bar Menu','sistema'=>TRUE);
+                    $this->menu_model->selecionar('*',$where,'ordem ASC');
+                    $menus = $this->menu_model->getResultados();
+                    foreach ($menus as $menu){
+                       echo '<li class="divider"></li>';
+                       echo $menu->getMenuHTML();
+                       $cont++;
+                    }
+                    ?>
 		<?php }else{ ?>
                     <? $where = array('grupo'=>'Top Bar Menu','sistema'=>FALSE);
                     $this->menu_model->selecionar('*',$where,'ordem ASC');
                     $menus = $this->menu_model->getResultados();
+                    $cont = 0;
                     foreach ($menus as $menu){
+                       echo $cont > 0?'<li class="divider"></li>':'';
                        echo $menu->getMenuHTML();
+                       $cont++;
                     }
                     ?>
-                    <li class="divider"></li>
-                    <li><?php echo anchor('usuario/login','Entre'); ?></li>
-                    <li class="divider"></li>
-                    <li><?php echo anchor('usuario/cadastro','Cadastre-se');?></li>
                 <?php } ?>
             </ul>
         </section>
