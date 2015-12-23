@@ -64,7 +64,7 @@ class Usuario_model extends MY_Model{
 	public function get_permissoes(){
 		$this->load->model('tipo_login_model');
 		$where = array('id'=>$this->session->idtipologin);
-		$query = $this->tipo_login_model->selecionar(NULL,$where);
+		$this->tipo_login_model->selecionar(NULL,$where);
 		$row = $this->tipo_login_model->getQuery();
 		return $row;
 	}
