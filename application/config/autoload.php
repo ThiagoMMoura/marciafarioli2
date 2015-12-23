@@ -137,4 +137,4 @@ $autoload['language'] = array('error','warning');
 |	$autoload['model'] = array('first_model' => 'first');
 */
 
-$autoload['model'] = array('config_model','usuario_model','menu_model');
+$autoload['model'] = array('config_model','usuario_model','menu_model','nivel_model','permissao_model');
