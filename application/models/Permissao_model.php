@@ -5,11 +5,12 @@ if (!defined('BASEPATH')) {
 /**
  * Description of Permissao_model
  *
- * @author 61171
+ * @author Thiago Moura
  */
 class Permissao_model extends MY_Model{
     public $idnivel;    //INT FK
     public $idmenu;     //INT FK
+    public $nome;       //String única que identifica cada permissão
     public $consultar;  //Boolean
     public $incluir;    //Boolean
     public $editar;     //Boolean
