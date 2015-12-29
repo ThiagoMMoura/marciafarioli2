@@ -135,10 +135,18 @@ class MY_Model extends CI_Model{
      * @return array - Retorna todos as linhas e colunas em uma matriz.
      */
     public function selecionar($colunas = '*',$where = '',$orderBy = '',$groupBy = ''){
-        $this->db->select($colunas);
-        $this->db->where($where);
-        $this->db->order_by($orderBy);
-        $this->db->group_by($groupBy);
+        $this->db->select($colunas===NULL?'*':$colunas);
+        
+        if($where!==NULL){
+            $this->db->where($where);
+        }
+        if($orderBy!==NULL){
+            $this->db->order_by($orderBy);
+        }
+        if($groupBy!==NULL){
+            $this->db->group_by($groupBy);
+        }
+        
         $this->setQuery($this->db->get($this->dbtable));
         return $this->getResultadosArray();
     }
