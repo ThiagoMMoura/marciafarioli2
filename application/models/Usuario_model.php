@@ -83,5 +83,25 @@ class Usuario_model extends MY_Model{
 			return FALSE;
 		}
 	}
+        
+        public function hasPermissao($idmenu,$para='consultar'){
+            $campo = 'idmenu';
+            if(!is_numeric($idmenu)){
+                $campo = 'nome';
+            }
+            
+            foreach($this->session->permissoes as $permissao){
+                if($permissao[$campo]==$idmenu){
+                    return $permissao[$para];
+                }
+            }
+            return FALSE;
+        }
+        
+        public function validarPermissaoDeAcesso($permissao,$alerta = 'error_permissao',$pagina = 'home'){
+            if(!$this->hasPermissao($permissao)){
+                $this->session->set_flashdata('alerta',$alerta);
+                redirect($pagina);
+            }
+        }
 }
-?>
