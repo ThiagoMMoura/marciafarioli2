@@ -35,7 +35,6 @@
                     foreach ($menus as $menu){
                        echo '<li class="divider"></li>';
                        echo $menu->getMenuHTML();
-                       $cont++;
                     }
                     ?>
 		<?php }else{ ?>
