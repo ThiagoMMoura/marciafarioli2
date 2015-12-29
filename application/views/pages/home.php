@@ -4,7 +4,9 @@ $this->load->helper('directory');
 ?>
 <div class="row">
     <div class="small-12 small-centered columns">
-    	<?php if(isset($perm)&&$perm->editarhome) echo '<small>'.anchor('admin/editar/carrosel','Editar').'</small>';?>
+    	<? if (isset($perm) && $perm->editarhome) {
+            echo '<small>' . anchor('admin/editar/carrosel', 'Editar') . '</small>';
+        }?>
         <div class="carrosel">
         	<?php
             $pasta = './images/site/carrosel/';
