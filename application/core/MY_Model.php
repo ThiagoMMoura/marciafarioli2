@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
 }
@@ -124,7 +124,16 @@ class MY_Model extends CI_Model{
         }
         return $this->db->update($this->dbtable, $this->getCampos(), array('id' => $this->getId));
     }
-
+    
+    /**
+     * Método personalizavel para selecionar registros do banco.
+     * 
+     * @param String $colunas
+     * @param String $where
+     * @param String $orderBy
+     * @param String $groupBy
+     * @return array - Retorna todos as linhas e colunas em uma matriz.
+     */
     public function selecionar($colunas = '*',$where = '',$orderBy = '',$groupBy = ''){
         $this->db->select($colunas);
         $this->db->where($where);
@@ -134,6 +143,12 @@ class MY_Model extends CI_Model{
         return $this->getResultadosArray();
     }
 
+    /**
+     * Método para retornar o objeto de um registro com a id passada por parâmetro.
+     * 
+     * @param int $id
+     * @return \MY_Model
+     */
     public function getObjectById($id){
         if($id!=NULL&&$id!=''){
             $this->db->where('id = '.$id);
@@ -143,4 +158,4 @@ class MY_Model extends CI_Model{
         return NULL;
     }
 }
-?>
+
