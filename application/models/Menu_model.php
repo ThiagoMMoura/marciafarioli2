@@ -48,7 +48,18 @@ class Menu_model extends MY_Model{
     }
     
     public function hasPermissao($idmenu=NULL,$para='consultar'){
-        
+        $campo = 'idmenu';
+        if($idmenu===NULL){
+            $idmenu = $this->getId();
+        }else if(!is_numeric($idmenu)){
+            $campo = 'nome';
+        }
+        foreach($this->session->permissoes as $permissao){
+            if($permissao[$campo]==$idmenu){
+                return $permissao[$para];
+            }
+        }
+        return FALSE;
     }
     
     public function getLink(){
