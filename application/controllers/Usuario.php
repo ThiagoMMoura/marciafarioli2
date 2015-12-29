@@ -29,7 +29,6 @@ class Usuario extends CI_Controller {
     }
 
     public function entrar(){
-
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
         $this->form_validation->set_rules('senha', 'Senha', 'trim|required|md5');
 
@@ -42,6 +41,7 @@ class Usuario extends CI_Controller {
                 $userdata['email']        = $this->usuario_model->email;
                 $userdata['idtipologin']  = $this->usuario_model->idtipologin;
                 $userdata['idfotoperfil'] = $this->usuario_model->idfotoperfil;
+                $userdata['idnivel']      = $this->usuario_model->idnivel;
                 $userdata['permissoes']   = $this->permissao_model->selecionar('*','idnivel = '.$this->usuario_model->idnivel,'ordem ASC','grupo');
                 $userdata['logado']       = TRUE;
 
@@ -89,4 +89,3 @@ class Usuario extends CI_Controller {
         $this->view('login','warning_not_implemented');
     }
 }
-?>
