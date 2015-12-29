@@ -42,7 +42,7 @@ class Usuario extends CI_Controller {
                 $userdata['idtipologin']  = $this->usuario_model->idtipologin;
                 $userdata['idfotoperfil'] = $this->usuario_model->idfotoperfil;
                 $userdata['idnivel']      = $this->usuario_model->idnivel;
-                $userdata['permissoes']   = $this->permissao_model->selecionar('*','idnivel = '.$this->usuario_model->idnivel,'ordem ASC','grupo');
+                $userdata['permissoes']   = $this->permissao_model->selecionar('*','idnivel = '.$this->usuario_model->idnivel,'nome ASC');
                 $userdata['logado']       = TRUE;
 
                 $this->session->set_userdata($userdata);
