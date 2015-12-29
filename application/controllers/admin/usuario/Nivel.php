@@ -11,7 +11,7 @@ class Nivel extends CI_Controller{
         parent::__construct();
 
         if($this->usuario_model->verificaUsuario()){
-            $this->usuario_model->getPermissao('editarportfolio','error_permissao_edicao',TRUE);
+            $this->usuario_model->validarPermissaoDeAcesso('admin-usuario-nivel');
         }
     }
     
