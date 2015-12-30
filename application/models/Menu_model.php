@@ -15,11 +15,12 @@ class Menu_model extends MY_Model{
     public $grupo;      //String Agrupamento dos menus
     public $tipo;       //String Tipos(Separador,Imagem,Menu,Item,Botao,Acao,Link)
     public $formato;    //String Formatos(Aba,Link,Botao,Dropdown)
+    public $permissao;  //String (consultar,incluir,editar,excluir)
     public $icone;      //String html, link, id midia
     public $nivel;      //INT
     public $ordem;      //INT
     public $idmenupai;  //INT FK
-    public $sistema;    //Boolean
+    public $sistema;    //Boolean True para os menus que precisam de permissão e False para os demais.
     
     public function __construct() {
         parent::__construct();
@@ -47,7 +48,7 @@ class Menu_model extends MY_Model{
         return $this->getNumRows()>0;
     }
     
-    public function hasPermissao($idmenu=NULL,$para='consultar'){
+    public function hasPermissao($idmenu=NULL){
         $campo = 'idmenu';
         if($idmenu===NULL){
             $idmenu = $this->getId();
@@ -56,7 +57,7 @@ class Menu_model extends MY_Model{
         }
         foreach($this->session->permissoes as $permissao){
             if($permissao[$campo]==$idmenu){
-                return $permissao[$para];
+                return $permissao[$this->permissao];
             }
         }
         return FALSE;
@@ -77,6 +78,9 @@ class Menu_model extends MY_Model{
     public function getMenuHTML($menu = NULL){
         if($menu===NULL){
             $menu = $this;
+        }
+        if($menu->sistema&&!$menu->hasPermissao()){
+            return;
         }
         if($menu->hasItensMenu()) {?>
             <li class="has-dropdown">
