@@ -64,14 +64,24 @@ class Usuario_model extends MY_Model {
             }
         }
     }
-
+    
+    /**
+     * @deprecated since version 0.2
+     * @return tipo_login_model
+     */
     public function get_permissoes() {
         $this->load->model('tipo_login_model');
-        $where = array('id' => $this->session->idtipologin);
-        $this->tipo_login_model->selecionar('*', $where);
-        return $this->tipo_login_model->getResultados();
+        return $this->tipo_login_model->getObjectById($this->session->idtipologin);
     }
-
+    
+    /**
+     * @deprecated since version 0.2
+     * @param string $permissao
+     * @param string $error
+     * @param boolean $redireciona
+     * @param string $pagina
+     * @return boolean
+     */
     public function getPermissao($permissao, $error = NULL, $redireciona = FALSE, $pagina = NULL) {
         $usuario = $this->get_permissoes();
         if ($usuario != NULL && $usuario->{$permissao}) {
