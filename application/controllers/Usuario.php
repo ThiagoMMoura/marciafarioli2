@@ -55,7 +55,7 @@ class Usuario extends CI_Controller {
     }
 
     public function sair(){
-        $userdata = array('id','nome','email','idtipologin','idfotoperfil','logado');
+        $userdata = array('id','nome','email','idtipologin','idfotoperfil','idnivel','logado');
         $this->session->set_userdata('logado', FALSE);
         $this->session->unset_userdata($userdata);
         redirect('login');
@@ -76,6 +76,7 @@ class Usuario extends CI_Controller {
             $this->usuario_model->senha = $this->input->post('senha');
             $this->usuario_model->sexo = $this->input->post('sexo');
             $this->usuario_model->idtipologin = $this->config->item('tipousuariopadrao');
+            $this->usuario_model->idnivel = $this->config->item('tipousuariopadrao');
             $this->usuario_model->inserir(FALSE);
             redirect('login');
         }
