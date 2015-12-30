@@ -1,6 +1,11 @@
-﻿<?php
-if (!defined('BASEPATH')) exit('No direct script access allowed');
+<?php
+if (!defined('BASEPATH')) {
+    exit('No direct script access allowed');
+}
 
+/**
+ * @deprecated since version 0.2
+ */
 class Tipo_login_model extends MY_Model{
 	
 	public $nome;
@@ -20,4 +25,3 @@ class Tipo_login_model extends MY_Model{
 	}
 	
 }
-?>
