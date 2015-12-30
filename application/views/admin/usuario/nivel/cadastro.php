@@ -51,7 +51,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <? $menus = $this->menu_model->selecionar('id,nome','sistem = 1','nome ASC','grupo'); ?>
+                        <? $menus = $this->menu_model->selecionar('id,nome','sistema = 1','nome ASC','grupo'); ?>
                         <? foreach($menus as $row){?>
                             <tr>
                                 <? $perm = array();
