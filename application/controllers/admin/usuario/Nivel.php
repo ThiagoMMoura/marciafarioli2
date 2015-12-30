@@ -42,7 +42,8 @@ class Nivel extends CI_Controller{
     public function editar($id = NULL){
         $data = array();
         if($id!==NULL){
-            $data = $this->nivel_model->selecionar('*','id =' . $id);
+            $this->nivel_model->selecionar('*','id =' . $id);
+            $data = $this->nivel_model->getQuery()->first_row();
             $data['idnivel'] = $id;
             $data['permissoes'] = $this->permissao_model->selecionar('*','idnivel = ' . $id,'nome ASC');
             return $this->view('cadastro',$data);
