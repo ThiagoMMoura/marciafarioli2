@@ -25,7 +25,7 @@
             <div class="row">
                 <div class="medium-12 columns">
                     <?php
-                    $form_descricao = array('name'=>'descricao','placeholder'=>'Descreva as funções do nível...','value'=>set_value('descricao'),'cols'=>300,'required'=>'');
+                    $form_descricao = array('name'=>'descricao','placeholder'=>'Descreva as funções do nível...','value'=>set_value('descricao'),'rows'=>4,'cols'=>300,'required'=>'');
                     $atributos = array();
                     if (form_error('nome') != NULL) {
                         $atributos['class'] = isset($atributos['class']) ? $atributos['class'] . ' error' : 'error';
@@ -40,7 +40,7 @@
                 <? if(isset($idnivel)){ 
                     $options = $this->menu_model->getOptionsArray('nome','sistema = 1','nome ASC');?>
                     <table>
-                        <thead>
+                        <thead class="text-center">
                             <tr>
                                 <th>Menu</th>
                                 <th>Consultar</th>
@@ -50,7 +50,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?$atributos = array('name'=>'menu[]','size'=>5)?>
+                            <?$atributos = array('name'=>'menu[]')?>
                             <?foreach($permissoes as $row){?>
                                 <tr>
                                     <td><?= form_dropdown($atributos, $options,$row['idmenu'])?> </td>
