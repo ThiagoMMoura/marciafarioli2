@@ -165,5 +165,22 @@ class MY_Model extends CI_Model{
         }
         return NULL;
     }
+    
+    /**
+     * Função para retornar uma array de registros indexados pela id para montar um <code>select</code> em html.
+     * 
+     * @param string $coluna
+     * @param string $where
+     * @param string $orderBy
+     * @return string - Retorna um array indexado pela id dos registros e o valor da coluna passada por parâmetro.
+     */
+    public function getOptionsArray($coluna,$where = '',$orderBy = ''){
+        $result = $this->selecionar('id,'.$coluna,$where,$orderBy);
+        $options = array();
+        foreach($result as $row){
+            $options[$row['id']] = $row[$coluna];
+        }
+        return $options;
+    }
 }
 
