@@ -76,7 +76,7 @@ class Usuario extends CI_Controller {
             $this->usuario_model->senha = $this->input->post('senha');
             $this->usuario_model->sexo = $this->input->post('sexo');
             $this->usuario_model->idtipologin = $this->config->item('tipousuariopadrao');
-            $this->usuario_model->idnivel = $this->config->item('tipousuariopadrao');
+            $this->usuario_model->idnivel = $this->config->item('nivelusuariopadrao');
             $this->usuario_model->inserir(FALSE);
             redirect('login');
         }
