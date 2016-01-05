@@ -47,12 +47,40 @@ class Nivel extends CI_Controller{
             $data = $query->row_array();
             $data['idnivel'] = $id;
             $data['permissoes'] = $this->permissao_model->selecionar('*','idnivel = ' . $id,'nome ASC');
+            $this->form_validation->set_data($data);
             return $this->view('cadastro',$data);
         }
         $this->index();
     }
     
     public function salvar(){
+        $is_unique = $this->input->post('id')==NULL?"|is_unique[nivel.nome]":'';
+        $this->form_validation->set_rules('nome', 'Nome', 'trim|required|min_length[3]|max_length[100]'.$is_unique,array('is_unique'=>'Este nome já foi cadastrado, tente outro.'));
+        $this->form_validation->set_rules('email', 'Email', 'trim|max_length[300]');
         
+        if ($this->form_validation->run() == FALSE) {
+            $this->view('cadastro');
+        }else{
+            $this->nivel_model->setId($this->input->post('idnivel'));
+            $this->nivel_model->nome = $this->input->post('nome');
+            $this->nivel_model->descricao = $this->input->post('descricao');
+            if($this->nivel_model->salvar(FALSE)){
+                $i = 0;
+                foreach($this->input->post('idmenu') as $id){
+                    $this->permissao_model->setId($this->input->post('idpermissao['.$i.']'));
+                    $this->permissao_model->idnivel = $this->nivel_model->getId();
+                    $this->permissao_model->idmenu = $id;
+                    $this->permissao_model->consultar = $this->input->post('consultar['.$i.']');
+                    $this->permissao_model->incluir = $this->input->post('incluir['.$i.']');
+                    $this->permissao_model->editar = $this->input->post('editar['.$i.']');
+                    $this->permissao_model->excluir = $this->input->post('excluir['.$i.']');
+                    $this->permissao_model->salvar(FALSE);
+                    $i++;
+                }
+                $this->view('busca');
+            }else{
+                $this->view('cadastro');
+            }
+        }
     }
 }
