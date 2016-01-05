@@ -23,8 +23,17 @@
                     <li class="has-dropdown">
                         <?=anchor('#','Olá, '.word_limiter($this->session->nome,1,'')); ?>
                         <ul class="dropdown">
+                            <? $where = array('grupo'=>'Top Bar Menu Usuario','sistema'=>TRUE);
+                            $this->menu_model->selecionar('*',$where,'ordem ASC');
+                            $menus = $this->menu_model->getResultados();
+                            foreach ($menus as $menu){
+                               echo $menu->getMenuHTML();
+                            }
+                            /*
                             <?=$perm->postar?'<li>'.anchor('','Novo Post').'</li>':''; ?>
                             <?=$perm->postar?'<li>'.anchor('admin/editar/album','Criar Portfolio').'</li>':''; ?>
+                             */
+                            ?>
                             <li class="divider"></li>
                             <li><?php echo anchor('usuario/sair','Sair'); ?></li>
                         </ul>
