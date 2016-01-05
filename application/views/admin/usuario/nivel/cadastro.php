@@ -8,7 +8,7 @@
         <?= form_open('admin/usuario/nivel/salvar'); ?>
             <?
             $form_id = array('name'=>'idnivel','value'=>set_value('idnivel'),'type'=>'hidden','readonly'=>'');
-            echo form_input($form_id,'');?>
+            echo form_input($form_id);?>
             <div class="row">
                 <div class="medium-12 columns">
                     <?php
