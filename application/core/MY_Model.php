@@ -97,11 +97,23 @@ class MY_Model extends CI_Model{
         }
     }
 
+    /**
+     * Função para inserir um registro no banco. Gera um INSERT SQL.
+     * 
+     * @param boolean $post Por padrão TRUE, a função busca os valores a serem salvos
+     * no método post.
+     * @return boolean TRUE em caso de sucesso, FALSE em caso de falha.
+     */
     public function inserir($post = TRUE){
         if($post){
             $this->PostVariaveis();
         }
-        return $this->db->insert($this->dbtable,$this->getCampos());
+        if($this->db->insert($this->dbtable,$this->getCampos())){
+            $this->id = $this->db->insert_id();
+            return TRUE;
+        }else{
+            return FALSE;
+        }
     }
 
     public function getInserido(){
@@ -117,12 +129,36 @@ class MY_Model extends CI_Model{
         return $this;
     }
 
-
+    /**
+     * Função para atualizar um registro no banco pela id. Gera um UPDATE SQL.
+     * 
+     * @param boolean $post Por padrão TRUE, a função busca os valores a serem salvos
+     * no método post.
+     * @return boolean TRUE em caso de sucesso, FALSE em caso de falha.
+     */
     public function alterar($post = TRUE){
         if($post){
             $this->PostVariaveis();
         }
         return $this->db->update($this->dbtable, $this->getCampos(), array('id' => $this->getId));
+    }
+    
+    /**
+     * Função para salvar registro como INSERT ou UPDATE conforme presença ou não de id.
+     * 
+     * @param boolean $post Por padrão TRUE, a função busca os valores a serem salvos
+     * no método post.
+     * @return boolean TRUE em caso de sucesso, FALSE em caso de falha.
+     */
+    public function salvar($post = TRUE){
+        if($post){
+            $this->PostVariaveis();
+        }
+        if($this->id!==NULL && $this->id>0){
+            return $this->alterar(FALSE);
+        }else{
+            return $this->inserir(FALSE);
+        }
     }
     
     /**
