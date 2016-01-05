@@ -17,7 +17,7 @@
                     if (form_error('nome') != NULL) {
                         $atributos['class'] = isset($atributos['class']) ? $atributos['class'] . ' error' : 'error';
                     }
-                    echo form_label('Nome Nível'.form_input($form_nome,''),'',$atributos);
+                    echo form_label('Nome Nível'.form_input($form_nome),'',$atributos);
                     echo form_error('nome');
                   ?>
                 </div>
@@ -30,7 +30,7 @@
                     if (form_error('nome') != NULL) {
                         $atributos['class'] = isset($atributos['class']) ? $atributos['class'] . ' error' : 'error';
                     }
-                    echo form_label('Descrição'.form_textarea($form_descricao,''),'',$atributos);
+                    echo form_label('Descrição'.form_textarea($form_descricao),'',$atributos);
                     echo form_error('nome');
                   ?>
                 </div>
