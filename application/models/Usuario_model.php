@@ -100,13 +100,12 @@ class Usuario_model extends MY_Model {
     }
 
     public function hasPermissao($idmenu, $para = 'consultar') {
-        $campo = 'idmenu';
         if (!is_numeric($idmenu)) {
-            $campo = 'nome';
+            $idmenu = $this->config->item($idmenu);
         }
 
         foreach ($this->session->permissoes as $permissao) {
-            if ($permissao[$campo] == $idmenu) {
+            if ($permissao['idmenu'] == $idmenu) {
                 return $permissao[$para];
             }
         }
