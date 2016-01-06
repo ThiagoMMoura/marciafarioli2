@@ -24,7 +24,7 @@
                                     echo anchor('admin/usuario/nivel/editar/' . $nivel->getId(), 'Editar');
                                 }
                             }else{
-                                if($this->menu_model->hasPermissao($this->config->item('admin_usuario_nivel_cadastro'))){
+                                if($this->menu_model->hasPermissao($this->config->item('admin-usuario-nivel-cadastro'))){
                                     echo anchor('admin/usuario/nivel/editar/' . $nivel->getId(), 'Editar');
                                 }
                             }?>
