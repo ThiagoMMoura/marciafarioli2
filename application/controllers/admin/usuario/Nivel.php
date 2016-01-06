@@ -73,9 +73,9 @@ class Nivel extends CI_Controller{
                     $this->permissao_model->incluir     = $this->input->post('incluir'.$id)===1;
                     $this->permissao_model->editar      = $this->input->post('editar'.$id)===1;
                     $this->permissao_model->excluir     = $this->input->post('excluir'.$id)===1;
-                    if(($this->permissao_model->getId() !== NULL && $this->permissao_model->getId() > 0) ||
-                            $this->permissao_model->consultar || $this->permissao_model->incluir ||
-                            $this->permissao_model->editar || $this->permissao_model->excluir ){
+                    log_message('info','Post de consultar = '.$this->permissao_model->consultar);
+                    if(($this->permissao_model->consultar || $this->permissao_model->incluir ||
+                            $this->permissao_model->editar || $this->permissao_model->excluir) ||  $this->permissao_model->getId()!==NULL){
                         $this->permissao_model->salvar(FALSE);
                     }
                 }
