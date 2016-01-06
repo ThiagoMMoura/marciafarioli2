@@ -7,12 +7,12 @@
         <?= validation_errors(); ?>
         <?= form_open('admin/usuario/nivel/salvar'); ?>
             <?
-            $form_id = array('name'=>'idnivel','value'=>set_value('idnivel'),'type'=>'hidden','readonly'=>'');
+            $form_id = array('name'=>'idnivel','value'=>set_value('idnivel',isset($idnivel)?$idnivel:''),'type'=>'hidden','readonly'=>'');
             echo form_input($form_id);?>
             <div class="row">
                 <div class="medium-12 columns">
                     <?php
-                    $form_nome = array('name'=>'nome','placeholder'=>'Nome do nível','value'=>set_value('nome'),'required'=>'');
+                    $form_nome = array('name'=>'nome','placeholder'=>'Nome do nível','value'=>set_value('nome',isset($nome)?$nome:''),'required'=>'');
                     $atributos = array();
                     if (form_error('nome') != NULL) {
                         $atributos['class'] = isset($atributos['class']) ? $atributos['class'] . ' error' : 'error';
@@ -25,7 +25,7 @@
             <div class="row">
                 <div class="medium-12 columns">
                     <?php
-                    $form_descricao = array('name'=>'descricao','placeholder'=>'Descreva as funções do nível...','value'=>set_value('descricao'),'rows'=>4,'cols'=>300,'required'=>'');
+                    $form_descricao = array('name'=>'descricao','placeholder'=>'Descreva as funções do nível...','value'=>set_value('descricao',isset($descricao)?$descricao:''),'rows'=>4,'cols'=>300,'required'=>'');
                     $atributos = array();
                     if (form_error('nome') != NULL) {
                         $atributos['class'] = isset($atributos['class']) ? $atributos['class'] . ' error' : 'error';
@@ -41,9 +41,8 @@
                 <table>
                     <thead>
                         <tr class="text-center">
-                            <th></th>
-                            <th></th>
                             <th>Menu</th>
+                            <th>Nome Permissão</th>
                             <th>Consultar</th>
                             <th>Incluir</th>
                             <th>Editar</th>
@@ -55,14 +54,17 @@
                         <? foreach($menus as $row){?>
                             <tr>
                                 <? $perm = array();
-                                foreach($permissoes as $permissao){
-                                    if($permissao['idmenu']==$row['id']){
-                                        $perm = $permissao;
+                                if(isset($permissoes)){
+                                    foreach($permissoes as $permissao){
+                                        if($permissao['idmenu']==$row['id']){
+                                            $perm = $permissao;
+                                        }
                                     }
                                 }?>
-                                <td><?= form_hidden('idpermissao[]', $perm['id']);?></td>
-                                <td><?= form_hidden('idmenu[]', $row['id'])?></td>
+                                <?= form_hidden('idpermissao[]', $perm['id']);?>
+                                <?= form_hidden('idmenu[]', $row['id'])?>
                                 <td><?= $row['nome'];?></td>
+                                <td><?= form_input(array('name'=>'nome_permissao[]'),$perm['nome']);?></td>
                                 <td><?= form_checkbox(array('name'=>'consultar[]','checked'=>$perm['consultar']));?></td>
                                 <td><?= form_checkbox(array('name'=>'incluir[]','checked'=>$perm['incluir']));?></td>
                                 <td><?= form_checkbox(array('name'=>'editar[]','checked'=>$perm['editar']));?></td>
