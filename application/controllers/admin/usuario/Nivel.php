@@ -64,23 +64,16 @@ class Nivel extends CI_Controller{
             $this->nivel_model->nome = $this->input->post('nome');
             $this->nivel_model->descricao = $this->input->post('descricao');
             
-            $idpermissao = $this->input->post('idpermissao');
-            $nome_permissao = $this->input->post('nome_permissao');
-            $consultar = $this->input->post('consultar');
-            $incluir = $this->input->post('incluir');
-            $editar = $this->input->post('editar');
-            $excluir = $this->input->post('excluir');
-            
             if($this->nivel_model->salvar(FALSE)){
                 foreach($this->input->post('idmenu') as $id){
-                    $this->permissao_model->setId($idpermissao[$id]);
+                    $this->permissao_model->setId($this->input->post('idpermissao'.$id));
                     $this->permissao_model->idnivel = $this->nivel_model->getId();
                     $this->permissao_model->idmenu = $id;
-                    $this->permissao_model->nome = $nome_permissao[$id];
-                    $this->permissao_model->consultar = $consultar[$id];
-                    $this->permissao_model->incluir = $incluir[$id];
-                    $this->permissao_model->editar = $editar[$id];
-                    $this->permissao_model->excluir = $excluir[$id];
+                    $this->permissao_model->nome = $this->input->post('nome_permissao'.$id);
+                    $this->permissao_model->consultar = $this->input->post('consultar'.$id);
+                    $this->permissao_model->incluir = $this->input->post('incluir'.$id);
+                    $this->permissao_model->editar = $this->input->post('editar'.$id);
+                    $this->permissao_model->excluir = $this->input->post('excluir'.$id);
                     if($this->permissao_model->nome!==NULL){
                         $this->permissao_model->salvar(FALSE);
                     }
