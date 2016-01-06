@@ -140,7 +140,7 @@ class MY_Model extends CI_Model{
         if($post){
             $this->PostVariaveis();
         }
-        return $this->db->update($this->dbtable, $this->getCampos(), array('id' => $this->getId));
+        return $this->db->update($this->dbtable, $this->getCampos(), array('id' => $this->id));
     }
     
     /**
