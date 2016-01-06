@@ -110,6 +110,7 @@ class MY_Model extends CI_Model{
         }
         if($this->db->insert($this->dbtable,$this->getCampos())){
             $this->id = $this->db->insert_id();
+            log_message('info','inserir SQL - '.$this->db->last_query());
             return TRUE;
         }else{
             return FALSE;
@@ -140,7 +141,12 @@ class MY_Model extends CI_Model{
         if($post){
             $this->PostVariaveis();
         }
-        return $this->db->update($this->dbtable, $this->getCampos(), array('id' => $this->id));
+        if($this->db->update($this->dbtable, $this->getCampos(), array('id' => $this->id))){
+            log_message('info','alterar SQL - '.$this->db->last_query());
+            return TRUE;
+        }else{
+            return FALSE;
+        }
     }
     
     /**
@@ -184,6 +190,7 @@ class MY_Model extends CI_Model{
         }
         
         $this->setQuery($this->db->get($this->dbtable));
+        log_message('info','selecionar SQL - '.$this->db->last_query());
         return $this->getResultadosArray();
     }
 
@@ -197,6 +204,7 @@ class MY_Model extends CI_Model{
         if($id!=NULL&&$id!=''){
             $this->db->where('id = '.$id);
             $this->setCampos($this->db->get($this->dbtable)->first_row());
+            log_message('info','getObjectById SQL - '.$this->db->last_query());
             return $this;
         }
         return NULL;
