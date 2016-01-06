@@ -42,7 +42,6 @@
                     <thead>
                         <tr class="text-center">
                             <th>Menu</th>
-                            <th>Nome Permissão</th>
                             <th>Consultar</th>
                             <th>Incluir</th>
                             <th>Editar</th>
@@ -53,7 +52,7 @@
                         <? $menus = $this->menu_model->selecionar('id,nome','sistema = 1','nome ASC','grupo'); ?>
                         <? foreach($menus as $row){?>
                             <tr>
-                                <? $perm = array('id'=>'','nome'=>'','consultar'=>FALSE,'incluir'=>FALSE,'editar'=>FALSE,'excluir'=>FALSE); //Valores Padrão
+                                <? $perm = array('id'=>'','consultar'=>FALSE,'incluir'=>FALSE,'editar'=>FALSE,'excluir'=>FALSE); //Valores Padrão
                                 if(isset($permissoes)){
                                     foreach($permissoes as $permissao){
                                         if($permissao['idmenu']==$row['id']){
@@ -64,7 +63,6 @@
                                 <?= form_hidden('idpermissao'.$row['id'], $perm['id']);?>
                                 <?= form_hidden('idmenu[]', $row['id'])?>
                                 <td><?= $row['nome'];?></td>
-                                <td><?= form_input(array('name'=>'nome_permissao'.$row['id']),$perm['nome']);?></td>
                                 <td><?= form_checkbox(array('name'=>'consultar'.$row['id'],'checked'=>$perm['consultar']));?></td>
                                 <td><?= form_checkbox(array('name'=>'incluir'.$row['id'],'checked'=>$perm['incluir']));?></td>
                                 <td><?= form_checkbox(array('name'=>'editar'.$row['id'],'checked'=>$perm['editar']));?></td>

@@ -69,16 +69,17 @@ class Nivel extends CI_Controller{
                     $this->permissao_model->setId($this->input->post('idpermissao'.$id));
                     $this->permissao_model->idnivel = $this->nivel_model->getId();
                     $this->permissao_model->idmenu = $id;
-                    $this->permissao_model->nome = $this->input->post('nome_permissao'.$id);
                     $this->permissao_model->consultar = $this->input->post('consultar'.$id);
                     $this->permissao_model->incluir = $this->input->post('incluir'.$id);
                     $this->permissao_model->editar = $this->input->post('editar'.$id);
                     $this->permissao_model->excluir = $this->input->post('excluir'.$id);
-                    if($this->permissao_model->nome!==NULL){
+                    if($this->permissao_model->getId() !== NULL || $this->permissao_model->consultar === TRUE || 
+                            $this->permissao_model->incluir  === TRUE || $this->permissao_model->editar === TRUE ||
+                            $this->permissao_model->excluir === TRUE){
                         $this->permissao_model->salvar(FALSE);
                     }
                 }
-                $this->view('busca');
+                $this->editar($this->nivel_model->getId());
             }else{
                 $this->view('cadastro');
             }
