@@ -46,7 +46,7 @@ class Nivel extends CI_Controller{
             $query = $this->nivel_model->getQuery();
             $data = $query->row_array();
             $data['idnivel'] = $id;
-            $data['permissoes'] = $this->permissao_model->selecionar('*','idnivel = ' . $id,'nome ASC');
+            $data['permissoes'] = $this->permissao_model->selecionar('*','idnivel = ' . $id,'idmenu ASC');
             return $this->view('cadastro',$data);
         }
         $this->index();
