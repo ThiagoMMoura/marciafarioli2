@@ -72,15 +72,15 @@ class Nivel extends CI_Controller{
             $excluir = $this->input->post('excluir');
             
             if($this->nivel_model->salvar(FALSE)){
-                foreach($this->input->post('idmenu') as $i => $id){
-                    $this->permissao_model->setId($idpermissao[$i]);
+                foreach($this->input->post('idmenu') as $id){
+                    $this->permissao_model->setId($idpermissao[$id]);
                     $this->permissao_model->idnivel = $this->nivel_model->getId();
                     $this->permissao_model->idmenu = $id;
-                    $this->permissao_model->nome = $nome_permissao[$i];
-                    $this->permissao_model->consultar = $consultar[$i];
-                    $this->permissao_model->incluir = $incluir[$i];
-                    $this->permissao_model->editar = $editar[$i];
-                    $this->permissao_model->excluir = $excluir[$i];
+                    $this->permissao_model->nome = $nome_permissao[$id];
+                    $this->permissao_model->consultar = $consultar[$id];
+                    $this->permissao_model->incluir = $incluir[$id];
+                    $this->permissao_model->editar = $editar[$id];
+                    $this->permissao_model->excluir = $excluir[$id];
                     if($this->permissao_model->nome!==NULL){
                         $this->permissao_model->salvar(FALSE);
                     }

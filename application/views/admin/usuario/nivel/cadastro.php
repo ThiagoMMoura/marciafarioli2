@@ -61,14 +61,14 @@
                                         }
                                     }
                                 }?>
-                                <?= form_hidden('idpermissao[]', $perm['id']);?>
+                                <?= form_hidden('idpermissao['.$row['id'].']', $perm['id']);?>
                                 <?= form_hidden('idmenu[]', $row['id'])?>
                                 <td><?= $row['nome'];?></td>
-                                <td><?= form_input(array('name'=>'nome_permissao[]'),$perm['nome']);?></td>
-                                <td><?= form_checkbox(array('name'=>'consultar[]','checked'=>$perm['consultar']));?></td>
-                                <td><?= form_checkbox(array('name'=>'incluir[]','checked'=>$perm['incluir']));?></td>
-                                <td><?= form_checkbox(array('name'=>'editar[]','checked'=>$perm['editar']));?></td>
-                                <td><?= form_checkbox(array('name'=>'excluir[]','checked'=>$perm['excluir']));?></td>
+                                <td><?= form_input(array('name'=>'nome_permissao['.$row['id'].']'),$perm['nome']);?></td>
+                                <td><?= form_checkbox(array('name'=>'consultar['.$row['id'].']','checked'=>$perm['consultar']));?></td>
+                                <td><?= form_checkbox(array('name'=>'incluir['.$row['id'].']','checked'=>$perm['incluir']));?></td>
+                                <td><?= form_checkbox(array('name'=>'editar['.$row['id'].']','checked'=>$perm['editar']));?></td>
+                                <td><?= form_checkbox(array('name'=>'excluir['.$row['id'].']','checked'=>$perm['excluir']));?></td>
                             </tr>
                         <? } ?>
                     </tbody>
