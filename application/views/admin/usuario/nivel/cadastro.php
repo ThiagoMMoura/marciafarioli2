@@ -63,10 +63,10 @@
                                 <?= form_hidden('idpermissao'.$row['id'], $perm['id']);?>
                                 <?= form_hidden('idmenu[]', $row['id'])?>
                                 <td><?= $row['nome'];?></td>
-                                <td><?= form_checkbox(array('name'=>'consultar'.$row['id'],'checked'=>$perm['consultar']));?></td>
-                                <td><?= form_checkbox(array('name'=>'incluir'.$row['id'],'checked'=>$perm['incluir']));?></td>
-                                <td><?= form_checkbox(array('name'=>'editar'.$row['id'],'checked'=>$perm['editar']));?></td>
-                                <td><?= form_checkbox(array('name'=>'excluir'.$row['id'],'checked'=>$perm['excluir']));?></td>
+                                <td><?= form_hidden('consultar'.$row['id'],0) . form_checkbox(array('name'=>'consultar'.$row['id'],'checked'=>$perm['consultar'],'value'=>1));?></td>
+                                <td><?= form_hidden('incluir'.$row['id'],0)   . form_checkbox(array('name'=>'incluir'.$row['id'],'checked'=>$perm['incluir'],'value'=>1));?></td>
+                                <td><?= form_hidden('editar'.$row['id'],0)    . form_checkbox(array('name'=>'editar'.$row['id'],'checked'=>$perm['editar'],'value'=>1));?></td>
+                                <td><?= form_hidden('excluir'.$row['id'],0)   . form_checkbox(array('name'=>'excluir'.$row['id'],'checked'=>$perm['excluir'],'value'=>1));?></td>
                             </tr>
                         <? } ?>
                     </tbody>
