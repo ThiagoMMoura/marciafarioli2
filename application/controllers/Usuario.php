@@ -42,7 +42,7 @@ class Usuario extends CI_Controller {
                 $userdata['idtipologin']  = $this->usuario_model->idtipologin;
                 $userdata['idfotoperfil'] = $this->usuario_model->idfotoperfil;
                 $userdata['idnivel']      = $this->usuario_model->idnivel;
-                $userdata['permissoes']   = $this->permissao_model->selecionar('*','idnivel = '.$this->usuario_model->idnivel,'nome ASC');
+                $userdata['permissoes']   = $this->permissao_model->selecionar('*','idnivel = '.$this->usuario_model->idnivel,'idmenu ASC');
                 $userdata['logado']       = TRUE;
 
                 $this->session->set_userdata($userdata);
@@ -55,7 +55,7 @@ class Usuario extends CI_Controller {
     }
 
     public function sair(){
-        $userdata = array('id','nome','email','idtipologin','idfotoperfil','idnivel','logado');
+        $userdata = array('id','nome','email','idtipologin','idfotoperfil','idnivel','logado','permissoes');
         $this->session->set_userdata('logado', FALSE);
         $this->session->unset_userdata($userdata);
         redirect('login');
