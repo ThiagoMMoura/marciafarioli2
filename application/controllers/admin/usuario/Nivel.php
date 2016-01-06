@@ -53,8 +53,8 @@ class Nivel extends CI_Controller{
     }
     
     public function salvar(){
-        $is_unique = $this->input->post('id')==NULL?"|is_unique[nivel.nome]":'';
-        $this->form_validation->set_rules('nome', 'Nome', 'trim|required|min_length[3]|max_length[100]'.$is_unique,array('is_unique'=>'Este nome já foi cadastrado, tente outro.'));
+        $is_unique = $this->input->post('idnivel')==NULL?"|is_unique[nivel.nome]":'';
+        $this->form_validation->set_rules('nome', 'Nome', 'trim|required|min_length[3]|max_length[100]'.$is_unique);//array('is_unique'=>'Este nome já foi cadastrado, tente outro.')
         $this->form_validation->set_rules('email', 'Email', 'trim|max_length[300]');
         
         if ($this->form_validation->run() == FALSE) {
