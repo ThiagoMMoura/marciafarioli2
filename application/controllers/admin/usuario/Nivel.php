@@ -47,7 +47,6 @@ class Nivel extends CI_Controller{
             $data = $query->row_array();
             $data['idnivel'] = $id;
             $data['permissoes'] = $this->permissao_model->selecionar('*','idnivel = ' . $id,'nome ASC');
-            $this->form_validation->set_data($data);
             return $this->view('cadastro',$data);
         }
         $this->index();
@@ -70,11 +69,14 @@ class Nivel extends CI_Controller{
                     $this->permissao_model->setId($this->input->post('idpermissao['.$i.']'));
                     $this->permissao_model->idnivel = $this->nivel_model->getId();
                     $this->permissao_model->idmenu = $id;
+                    $this->permissao_model->nome = $this->input->post('nome_permissao['.$i.']');
                     $this->permissao_model->consultar = $this->input->post('consultar['.$i.']');
                     $this->permissao_model->incluir = $this->input->post('incluir['.$i.']');
                     $this->permissao_model->editar = $this->input->post('editar['.$i.']');
                     $this->permissao_model->excluir = $this->input->post('excluir['.$i.']');
-                    $this->permissao_model->salvar(FALSE);
+                    if($this->permissao_model->nome!==NULL){
+                        $this->permissao_model->salvar(FALSE);
+                    }
                     $i++;
                 }
                 $this->view('busca');
