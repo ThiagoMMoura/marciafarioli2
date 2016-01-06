@@ -69,17 +69,17 @@ class Nivel extends CI_Controller{
                     $this->permissao_model->setId($this->input->post('idpermissao'.$id));
                     $this->permissao_model->idnivel     = $this->nivel_model->getId();
                     $this->permissao_model->idmenu      = $id;
-                    $this->permissao_model->consultar   = $this->input->post('consultar'.$id)==1;
-                    $this->permissao_model->incluir     = $this->input->post('incluir'.$id)==1;
-                    $this->permissao_model->editar      = $this->input->post('editar'.$id)==1;
-                    $this->permissao_model->excluir     = $this->input->post('excluir'.$id)==1;
+                    $this->permissao_model->consultar   = $this->input->post('consultar'.$id)===1;
+                    $this->permissao_model->incluir     = $this->input->post('incluir'.$id)===1;
+                    $this->permissao_model->editar      = $this->input->post('editar'.$id)===1;
+                    $this->permissao_model->excluir     = $this->input->post('excluir'.$id)===1;
                     if(($this->permissao_model->getId() !== NULL && $this->permissao_model->getId() > 0) ||
                             $this->permissao_model->consultar || $this->permissao_model->incluir ||
                             $this->permissao_model->editar || $this->permissao_model->excluir ){
                         $this->permissao_model->salvar(FALSE);
                     }
                 }
-                $this->editar($this->nivel_model->getId());
+                redirect('admin/usuario/nivel/editar/'.$this->nivel_model->getId());
             }else{
                 $this->view('cadastro');
             }
