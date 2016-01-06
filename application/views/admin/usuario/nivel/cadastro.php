@@ -27,7 +27,7 @@
                     <?php
                     $form_descricao = array('name'=>'descricao','placeholder'=>'Descreva as funções do nível...','value'=>set_value('descricao',isset($descricao)?$descricao:''),'rows'=>4,'cols'=>300,'required'=>'');
                     $atributos = array();
-                    if (form_error('nome') != NULL) {
+                    if (form_error('descricao') != NULL) {
                         $atributos['class'] = isset($atributos['class']) ? $atributos['class'] . ' error' : 'error';
                     }
                     echo form_label('Descrição'.form_textarea($form_descricao),'',$atributos);
@@ -53,7 +53,7 @@
                         <? $menus = $this->menu_model->selecionar('id,nome','sistema = 1','nome ASC','grupo'); ?>
                         <? foreach($menus as $row){?>
                             <tr>
-                                <? $perm = array();
+                                <? $perm = array('id'=>'','nome'=>'','consultar'=>FALSE,'incluir'=>FALSE,'editar'=>FALSE,'excluir'=>FALSE); //Valores Padrão
                                 if(isset($permissoes)){
                                     foreach($permissoes as $permissao){
                                         if($permissao['idmenu']==$row['id']){
