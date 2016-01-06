@@ -53,6 +53,7 @@ class Menu_model extends MY_Model{
             $idmenu = $this->getId();
         }else if(!is_numeric($idmenu)){
             $idmenu = $this->config->item($idmenu);
+            $this->getObjectById($idmenu);
         }
         foreach($this->session->permissoes as $permissao){
             if($permissao['idmenu']==$idmenu){
