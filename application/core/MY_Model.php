@@ -74,6 +74,7 @@ class MY_Model extends CI_Model{
         }
         foreach($this->dbcolunas as $coluna){
             if($this->{$coluna}!=NULL OR $this->{$coluna}==0){
+                log_message('debug',$coluna . ' = '.$this->{$coluna});
                 $cmp[$coluna] = $this->{$coluna};
             }
         }
