@@ -120,7 +120,7 @@ $autoload['config'] = array('menus_id');
 |
 */
 
-$autoload['language'] = array('error','warning');
+$autoload['language'] = array('error','warning','success');
 
 
 /*
