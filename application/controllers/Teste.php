@@ -69,10 +69,10 @@ class Teste extends CI_Controller{
                     $this->permissao_model->setId($this->input->post('idpermissao'.$id));
                     $this->permissao_model->idnivel     = $this->nivel_model->getId();
                     $this->permissao_model->idmenu      = $id;
-                    $this->permissao_model->consultar   = $this->input->post('consultar'.$id)===1;
-                    $this->permissao_model->incluir     = $this->input->post('incluir'.$id)===1;
-                    $this->permissao_model->editar      = $this->input->post('editar'.$id)===1;
-                    $this->permissao_model->excluir     = $this->input->post('excluir'.$id)===1;
+                    $this->permissao_model->consultar   = $this->input->post('consultar'.$id)==1;
+                    $this->permissao_model->incluir     = $this->input->post('incluir'.$id)==1;
+                    $this->permissao_model->editar      = $this->input->post('editar'.$id)==1;
+                    $this->permissao_model->excluir     = $this->input->post('excluir'.$id)==1;
                     log_message('info','Post de consultar = '.$this->permissao_model->consultar);
                     echo '<p><h1>' . $id . '</h1>';
                     echo '<br /> consultar ' . $this->permissao_model->consultar;
@@ -82,7 +82,7 @@ class Teste extends CI_Controller{
                     echo '<br /> incluir ' . $this->input->post('incluir'.$id);
                     echo '<br /> editar ' . $this->input->post('editar'.$id);
                     if(($this->permissao_model->consultar OR $this->permissao_model->incluir OR
-                            $this->permissao_model->editar OR $this->permissao_model->excluir) OR  $this->permissao_model->getId()!==NULL){
+                            $this->permissao_model->editar OR $this->permissao_model->excluir) OR  $this->permissao_model->getId()!=NULL){
                         echo '<br /> Passou no if';
                         //$this->permissao_model->salvar(FALSE);
                     }
