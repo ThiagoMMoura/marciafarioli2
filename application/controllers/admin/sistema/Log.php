@@ -9,7 +9,7 @@ class Log extends CI_Controller{
     
     public function __construct(){
         parent::__construct();
-
+        
         if($this->usuario_model->verificaUsuario()){
             $this->usuario_model->validarPermissaoDeAcesso('admin-sistema-log');
         }
@@ -36,6 +36,8 @@ class Log extends CI_Controller{
     }
     
     public function busca($data = array()){
+        $this->load->helper('directory');
+        
         $pasta = './application/logs/';
         $map = directory_map($pasta, 1);
         $data['logs'] = $map;
@@ -44,7 +46,7 @@ class Log extends CI_Controller{
     }
     
     public function arquivo($nome){
-        if($data == NULL){
+        if($nome == NULL){
             show_404();
         }
         $data['title'] = 'Arquivo de Log'; // Capitalize the first letter
