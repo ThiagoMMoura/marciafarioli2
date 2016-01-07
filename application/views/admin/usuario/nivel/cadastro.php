@@ -4,7 +4,6 @@
 </div>
 <div class="row">
     <div class="medium-12 medium-centered column">
-        <?= validation_errors(); ?>
         <?= form_open('admin/usuario/nivel/salvar'); ?>
             <?php
             $form_id = array('name'=>'idnivel','value'=>set_value('idnivel',isset($idnivel)?$idnivel:''),'type'=>'hidden','readonly'=>'');
@@ -25,13 +24,13 @@
             <div class="row">
                 <div class="medium-12 columns">
                     <?php
-                    $form_descricao = array('name'=>'descricao','placeholder'=>'Descreva as funções do nível...','value'=>set_value('descricao',isset($descricao)?$descricao:''),'rows'=>4,'cols'=>300,'required'=>'');
+                    $form_descricao = array('name'=>'descricao','placeholder'=>'Descreva as funções do nível...','value'=>set_value('descricao',isset($descricao)?$descricao:''),'rows'=>4,'cols'=>300);
                     $atributos = array();
                     if (form_error('descricao') != NULL) {
                         $atributos['class'] = isset($atributos['class']) ? $atributos['class'] . ' error' : 'error';
                     }
                     echo form_label('Descrição'.form_textarea($form_descricao),'',$atributos);
-                    echo form_error('nome');
+                    echo form_error('descricao');
                   ?>
                 </div>
             </div>
@@ -49,7 +48,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $menus = $this->menu_model->selecionar('id,nome','sistema = 1','nome ASC','grupo'); ?>
+                        <?php $menus = $this->menu_model->selecionar('id,nome','sistema = 1','grupo ASC, nome ASC'); ?>
                         <?php foreach($menus as $row){?>
                             <tr>
                                 <?php $perm = array('id'=>'','consultar'=>FALSE,'incluir'=>FALSE,'editar'=>FALSE,'excluir'=>FALSE); //Valores Padrão
