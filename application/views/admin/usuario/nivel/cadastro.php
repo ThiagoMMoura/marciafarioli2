@@ -40,6 +40,7 @@
                 <table>
                     <thead>
                         <tr class="text-center">
+                            <th>Grupo</th>
                             <th>Menu</th>
                             <th>Consultar</th>
                             <th>Incluir</th>
@@ -48,7 +49,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $menus = $this->menu_model->selecionar('id,nome','sistema = 1','grupo ASC, nome ASC'); ?>
+                        <?php $menus = $this->menu_model->selecionar('id,nome,grupo','sistema = 1','grupo ASC, nome ASC'); ?>
                         <?php foreach($menus as $row){?>
                             <tr>
                                 <?php $perm = array('id'=>'','consultar'=>FALSE,'incluir'=>FALSE,'editar'=>FALSE,'excluir'=>FALSE); //Valores Padrão
@@ -61,6 +62,7 @@
                                 }?>
                                 <?= form_hidden('idpermissao'.$row['id'], $perm['id']);?>
                                 <?= form_hidden('idmenu[]', $row['id'])?>
+                                <td><?= $row['grupo'];?></td>
                                 <td><?= $row['nome'];?></td>
                                 <td><?= form_hidden('consultar'.$row['id'],0) . form_checkbox(array('name'=>'consultar'.$row['id'],'checked'=>$perm['consultar'],'value'=>1));?></td>
                                 <td><?= form_hidden('incluir'.$row['id'],0)   . form_checkbox(array('name'=>'incluir'.$row['id'],'checked'=>$perm['incluir'],'value'=>1));?></td>
