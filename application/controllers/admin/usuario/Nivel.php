@@ -54,7 +54,7 @@ class Nivel extends CI_Controller{
     
     public function salvar(){
         $is_unique = $this->input->post('idnivel')==NULL?"|is_unique[nivel.nome]":'';
-        $this->form_validation->set_rules('nome', 'Nome', 'trim|required|min_length[3]|max_length[100]'.$is_unique);//array('is_unique'=>'Este nome já foi cadastrado, tente outro.')
+        $this->form_validation->set_rules('nome', 'Nome', 'trim|required|min_length[3]|max_length[100]'.$is_unique);
         $this->form_validation->set_rules('email', 'Email', 'trim|max_length[300]');
         
         if ($this->form_validation->run() == FALSE) {
@@ -66,21 +66,24 @@ class Nivel extends CI_Controller{
             
             if($this->nivel_model->salvar(FALSE)){
                 foreach($this->input->post('idmenu') as $id){
+                    $this->permissao_model = new Permissao_model();
                     $this->permissao_model->setId($this->input->post('idpermissao'.$id));
                     $this->permissao_model->idnivel     = $this->nivel_model->getId();
                     $this->permissao_model->idmenu      = $id;
-                    $this->permissao_model->consultar   = $this->input->post('consultar'.$id)===1;
-                    $this->permissao_model->incluir     = $this->input->post('incluir'.$id)===1;
-                    $this->permissao_model->editar      = $this->input->post('editar'.$id)===1;
-                    $this->permissao_model->excluir     = $this->input->post('excluir'.$id)===1;
-                    log_message('info','Post de consultar = '.$this->permissao_model->consultar);
-                    if(($this->permissao_model->consultar || $this->permissao_model->incluir ||
-                            $this->permissao_model->editar || $this->permissao_model->excluir) ||  $this->permissao_model->getId()!==NULL){
+                    $this->permissao_model->consultar   = $this->input->post('consultar'.$id)==1;
+                    $this->permissao_model->incluir     = $this->input->post('incluir'.$id)==1;
+                    $this->permissao_model->editar      = $this->input->post('editar'.$id)==1;
+                    $this->permissao_model->excluir     = $this->input->post('excluir'.$id)==1;
+                    
+                    if(($this->permissao_model->consultar OR $this->permissao_model->incluir OR
+                            $this->permissao_model->editar OR $this->permissao_model->excluir) OR  $this->permissao_model->getId()!=NULL){
                         $this->permissao_model->salvar(FALSE);
                     }
                 }
+                $this->session->set_flashdata('alerta', 'success_save');
                 redirect('admin/usuario/nivel/editar/'.$this->nivel_model->getId());
             }else{
+                $this->session->set_flashdata('alerta', 'error_save');
                 $this->view('cadastro');
             }
         }
