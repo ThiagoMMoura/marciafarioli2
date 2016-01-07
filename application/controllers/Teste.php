@@ -76,7 +76,7 @@ class Teste extends CI_Controller{
                     log_message('info','Post de consultar = '.$this->permissao_model->consultar);
                     echo '<p><h1>' . $id . '</h1>';
                     echo '<br /> consultar ' . $this->permissao_model->consultar;
-                    if($this->input->post('consultar'.$id)==='1'){
+                    if($this->input->post('consultar'.$id)==1){
                         echo '<br />' . $this->input->post('consultar'.$id);
                     }
                     echo '<br /> incluir ' . $this->input->post('incluir'.$id);
