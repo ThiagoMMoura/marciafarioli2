@@ -16,7 +16,7 @@ class Log extends CI_Controller{
     }
     
     public function view($page = 'busca',$data = array()){
-	if ( ! file_exists(APPPATH.'/views/admin/usuario/nivel/'.$page.'.php')){
+	if ( ! file_exists(APPPATH.'/views/admin/sistema/log/'.$page.'.php')){
             // Whoops, we don't have a page for that!
             show_404();
         }
@@ -38,7 +38,7 @@ class Log extends CI_Controller{
     public function busca($data = array()){
         $this->load->helper('directory');
         
-        $pasta = './application/logs/';
+        $pasta = APPPATH.'/logs/';
         $map = directory_map($pasta, 1);
         
         $logs = array();
@@ -56,7 +56,7 @@ class Log extends CI_Controller{
     }
     
     public function arquivo($nome){
-        if($nome == NULL){
+        if(! file_exists(APPPATH.'/logs/'.$nome)){
             show_404();
         }
         $this->load->helper('typography');
@@ -64,7 +64,7 @@ class Log extends CI_Controller{
         $data['title'] = 'Arquivo de Log'; // Capitalize the first letter
         $data['page'] = 'arquivo';
         
-        $str_file = nl2br_except_pre($this->load->file('application/logs/'.$nome,TRUE));
+        $str_file = nl2br_except_pre($this->load->file(APPPATH.'/logs/'.$nome,TRUE));
         
         $this->load->view('templates/header', $data);
         $this->load->view('templates/top_bar_menu', $data);
