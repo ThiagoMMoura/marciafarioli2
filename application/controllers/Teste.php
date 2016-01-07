@@ -69,24 +69,28 @@ class Teste extends CI_Controller{
                     $this->permissao_model->setId($this->input->post('idpermissao'.$id));
                     $this->permissao_model->idnivel     = $this->nivel_model->getId();
                     $this->permissao_model->idmenu      = $id;
-                    $this->permissao_model->consultar   = $this->input->post('consultar'.$id)==1;
-                    $this->permissao_model->incluir     = $this->input->post('incluir'.$id)==1;
-                    $this->permissao_model->editar      = $this->input->post('editar'.$id)==1;
-                    $this->permissao_model->excluir     = $this->input->post('excluir'.$id)==1;
-                    log_message('info','Post de consultar = '.$this->permissao_model->consultar);
-                    echo '<p><h1>' . $id . '</h1>';
+                    $this->permissao_model->consultar   = $this->input->post('consultar'.$id);
+                    $this->permissao_model->incluir     = $this->input->post('incluir'.$id);
+                    $this->permissao_model->editar      = $this->input->post('editar'.$id);
+                    $this->permissao_model->excluir     = $this->input->post('excluir'.$id);
+
+                    echo '<h1>' . $id . '</h1>';
                     echo '<br /> consultar ' . $this->permissao_model->consultar;
+                    echo '<br /> incluir ' . $this->permissao_model->incluir;
+                    echo '<br /> editar ' . $this->permissao_model->editar;
+                    echo '<br /> excluir ' . $this->permissao_model->excluir;
                     if($this->input->post('consultar'.$id)==1){
-                        echo '<br />' . $this->input->post('consultar'.$id);
+                        echo '<br /> Consultar = 1';
                     }
-                    echo '<br /> incluir ' . $this->input->post('incluir'.$id);
-                    echo '<br /> editar ' . $this->input->post('editar'.$id);
+                    echo '<br /> post consultar ' . $this->input->post('consultar'.$id);
+                    echo '<br /> post incluir ' . $this->input->post('incluir'.$id);
+                    echo '<br /> post editar ' . $this->input->post('editar'.$id);
+                    echo '<br /> post excluir ' . $this->input->post('excluir'.$id);
                     if(($this->permissao_model->consultar OR $this->permissao_model->incluir OR
                             $this->permissao_model->editar OR $this->permissao_model->excluir) OR  $this->permissao_model->getId()!=NULL){
                         echo '<br /> Passou no if';
                         //$this->permissao_model->salvar(FALSE);
                     }
-                    echo '</p>';
                 }
                 //redirect('admin/usuario/nivel/editar/'.$this->nivel_model->getId());
             //}else{
