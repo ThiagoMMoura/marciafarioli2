@@ -73,7 +73,7 @@ class MY_Model extends CI_Model{
             $this->dbcolunas = $this->db->list_fields($this->dbtable);
         }
         foreach($this->dbcolunas as $coluna){
-            if($this->{$coluna}!=NULL){
+            if($this->{$coluna}!=NULL OR $this->{$coluna}==0){
                 $cmp[$coluna] = $this->{$coluna};
             }
         }
