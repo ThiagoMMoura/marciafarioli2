@@ -72,7 +72,7 @@ class Menu_model extends MY_Model{
         if($id===NULL){
             $id = $this->getId();
         }
-        $this->selecionar('*', array('idmenupai'=>$id));
+        $this->selecionar('*', array('idmenupai'=>$id),'grupo ASC, ordem ASC');
         return $this->getResultados();
     }
     
