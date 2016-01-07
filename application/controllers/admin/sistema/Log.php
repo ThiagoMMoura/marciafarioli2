@@ -40,7 +40,17 @@ class Log extends CI_Controller{
         
         $pasta = './application/logs/';
         $map = directory_map($pasta, 1);
-        $data['logs'] = $map;
+        
+        $logs = array();
+        $i = 0;
+        foreach($map as $log){
+            if($log!=NULL && $log!='index.php'){
+                $logs[$i] = $log;
+                $i++;
+            }
+        }
+        
+        $data['logs'] = $logs;
         
         $this->view('busca',$data);
     }
@@ -49,12 +59,16 @@ class Log extends CI_Controller{
         if($nome == NULL){
             show_404();
         }
+        $this->load->helper('typography');
+        
         $data['title'] = 'Arquivo de Log'; // Capitalize the first letter
         $data['page'] = 'arquivo';
         
+        $str_file = nl2br_except_pre($this->load->file('application/logs/'.$nome,TRUE));
+        
         $this->load->view('templates/header', $data);
-	$this->load->view('templates/top_bar_menu', $data);
-        $this->load->file('application/logs/'.$nome);
+        $this->load->view('templates/top_bar_menu', $data);
+        echo $str_file;
         $this->load->view('templates/scripts',$data);
     }
 }

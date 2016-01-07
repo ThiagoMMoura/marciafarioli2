@@ -10,7 +10,7 @@ if(isset($logs)){?>
         <tbody>
         <?php foreach($logs as $log){?>
             <tr>
-                <th><?= anchor('admin/sistema/log/arquivo/' . $log, $log);?></th>
+                <td><?= anchor('admin/sistema/log/arquivo/' . $log, $log);?></td>
             </tr>
         <?php }?>
         </tbody>
