@@ -44,7 +44,7 @@ class Log extends CI_Controller{
         $logs = array();
         $i = 0;
         foreach($map as $log){
-            if($log!=NULL && $log!='index.php'){
+            if($log!=NULL && $log!='index.html'){
                 $logs[$i] = $log;
                 $i++;
             }
@@ -68,7 +68,7 @@ class Log extends CI_Controller{
         
         $this->load->view('templates/header', $data);
         $this->load->view('templates/top_bar_menu', $data);
-        echo $str_file;
+        echo '<div class="row">' . $str_file . '</div>';
         $this->load->view('templates/scripts',$data);
     }
 }
