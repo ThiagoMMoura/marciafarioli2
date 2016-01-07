@@ -1,4 +1,4 @@
-<? $this->load->view('templates/alertas'); ?>
+<?php $this->load->view('templates/alertas'); ?>
 <div class="row">
     <h2 class="text-center">Cadastro de Níveis</h2>
 </div>
@@ -6,7 +6,7 @@
     <div class="medium-12 medium-centered column">
         <?= validation_errors(); ?>
         <?= form_open('admin/usuario/nivel/salvar'); ?>
-            <?
+            <?php
             $form_id = array('name'=>'idnivel','value'=>set_value('idnivel',isset($idnivel)?$idnivel:''),'type'=>'hidden','readonly'=>'');
             echo form_input($form_id);?>
             <div class="row">
@@ -49,10 +49,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <? $menus = $this->menu_model->selecionar('id,nome','sistema = 1','nome ASC','grupo'); ?>
-                        <? foreach($menus as $row){?>
+                        <?php $menus = $this->menu_model->selecionar('id,nome','sistema = 1','nome ASC','grupo'); ?>
+                        <?php foreach($menus as $row){?>
                             <tr>
-                                <? $perm = array('id'=>'','consultar'=>FALSE,'incluir'=>FALSE,'editar'=>FALSE,'excluir'=>FALSE); //Valores Padrão
+                                <?php $perm = array('id'=>'','consultar'=>FALSE,'incluir'=>FALSE,'editar'=>FALSE,'excluir'=>FALSE); //Valores Padrão
                                 if(isset($permissoes)){
                                     foreach($permissoes as $permissao){
                                         if($permissao['idmenu']==$row['id']){
@@ -68,7 +68,7 @@
                                 <td><?= form_hidden('editar'.$row['id'],0)    . form_checkbox(array('name'=>'editar'.$row['id'],'checked'=>$perm['editar'],'value'=>1));?></td>
                                 <td><?= form_hidden('excluir'.$row['id'],0)   . form_checkbox(array('name'=>'excluir'.$row['id'],'checked'=>$perm['excluir'],'value'=>1));?></td>
                             </tr>
-                        <? } ?>
+                        <?php } ?>
                     </tbody>
                 </table>
                 
