@@ -5,7 +5,9 @@ function get_form_field($form_input, $form_label = NULL, $help_text = NULL){
     $form_html = '';
     
     if(!is_array($form_input)){
-        $form_input['name'] = $form_input;
+        $nome = $form_input;
+        $form_input = array();
+        $form_input['name'] = $nome;
     }
     
     $form_error = form_error($form_input['name']);
@@ -20,11 +22,13 @@ function get_form_field($form_input, $form_label = NULL, $help_text = NULL){
         if(is_array($form_label)){
             $label_nome = $form_label['text'];
             unset($form_label['text']);
+        }else{
+            $form_label = array();
         }
         
         $form_label['class'] = isset($form_label['class']) ? $form_label['class'] . ' ' . $error : $error;
         
-        $form_html .= form_label($label_nome.$input_html,'',is);
+        $form_html .= form_label($label_nome.$input_html,'',$form_label);
     }else{
         $form_html .= $input_html;
     }
