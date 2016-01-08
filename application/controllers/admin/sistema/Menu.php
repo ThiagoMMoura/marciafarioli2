@@ -46,6 +46,10 @@ class Menu  extends CI_Controller{
         $this->view('busca',$data);
     }
     
+    public function cadastro($data = array()){
+        $this->view('cadastro',$data);
+    }
+    
     public function editar($id = NULL){
         $data = array();
         if($id!==NULL){
@@ -53,7 +57,7 @@ class Menu  extends CI_Controller{
             $query = $this->menu_model->getQuery();
             $data = $query->row_array();
             $data['idmenu'] = $id;
-            return $this->view('cadastro',$data);
+            return $this->cadastro($data);
         }
         $this->index();
     }
