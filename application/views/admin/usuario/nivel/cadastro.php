@@ -11,13 +11,15 @@
             <div class="row">
                 <div class="medium-12 columns">
                     <?php
-                    $form_nome = array('name'=>'nome','placeholder'=>'Nome do nível','value'=>set_value('nome',isset($nome)?$nome:''),'required'=>'');
-                    $atributos = array();
-                    if (form_error('nome') != NULL) {
-                        $atributos['class'] = isset($atributos['class']) ? $atributos['class'] . ' error' : 'error';
-                    }
-                    echo form_label('Nome Nível'.form_input($form_nome),'',$atributos);
-                    echo form_error('nome');
+                    $input_nome = array('name'=>'nome','placeholder'=>'Nome do nível','value'=>set_value('nome',isset($nome)?$nome:''),'required'=>'');
+                    $label_nome = 'Nome Nível';
+//                    $atributos = array();
+//                    if (form_error('nome') != NULL) {
+//                        $atributos['class'] = isset($atributos['class']) ? $atributos['class'] . ' error' : 'error';
+//                    }
+//                    echo form_label('Nome Nível'.form_input($form_nome),'',$atributos);
+//                    echo form_error('nome');
+                    echo get_form_field($input_nome,$label_nome);
                   ?>
                 </div>
             </div>
