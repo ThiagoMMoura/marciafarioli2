@@ -59,7 +59,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | the query builder class.
 */
 
-$active_group = $_SERVER['SERVER_ADDR']=='localhost'?'default':$_SERVER['SERVER_ADDR'];
+$active_group = 'default';
+if(isset($_SERVER['SERVER_ADDR'])){
+    $server_addr = filter_input(INPUT_SERVER, 'SERVER_ADDR');
+    log_message('info', '$_SERVER = '.$server_addr);
+    switch($server_addr){
+        case '31.220.16.48':{
+            $active_group = 'u857456774_dbmf';
+            break;
+        }default: $active_group = 'default';
+    }
+}
 $query_builder = TRUE;
 
 $db['default'] = array(
@@ -84,7 +94,7 @@ $db['default'] = array(
 	'save_queries' => TRUE
 );
 //DB Hostinger
-$db['31.220.16.48'] = array(
+$db['u857456774_dbmf'] = array(
 	'dsn'	=> '',
 	'hostname' => 'mysql.hostinger.com.br',
 	'username' => 'u857456774_mf',
