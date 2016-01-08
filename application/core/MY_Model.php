@@ -171,13 +171,13 @@ class MY_Model extends CI_Model{
     /**
      * Método personalizavel para selecionar registros do banco.
      * 
-     * @param String $colunas
-     * @param String $where
-     * @param String $orderBy
-     * @param String $groupBy
+     * @param mixed $colunas
+     * @param mixed $where
+     * @param mixed $orderBy
+     * @param mixed $groupBy
      * @return array - Retorna todos as linhas e colunas em uma matriz.
      */
-    public function selecionar($colunas = '*',$where = '',$orderBy = '',$groupBy = ''){
+    public function selecionar($colunas = '*',$where = '',$orderBy = '',$groupBy = '',$having = '',$distinct = FALSE){
         $this->db->select($colunas===NULL?'*':$colunas);
         
         if($where!==NULL){
@@ -189,6 +189,10 @@ class MY_Model extends CI_Model{
         if($groupBy!==NULL){
             $this->db->group_by($groupBy);
         }
+        if($having!==NULL){
+            $this->db->having($having);
+        }
+        $this->db->distinct($distinct);
         
         $this->setQuery($this->db->get($this->dbtable));
         log_message('info','selecionar SQL - '.$this->db->last_query());
@@ -226,6 +230,20 @@ class MY_Model extends CI_Model{
             $options[$row['id']] = $row[$coluna];
         }
         return $options;
+    }
+    
+    /**
+     * Função para selecionar distintos de uma tabela.
+     * 
+     * @param string $coluna
+     * @param mixed $where
+     * @param mixed $order_by
+     * @param mixed $group_by
+     * @param mixed $having
+     * @return array
+     */
+    public function selecionar_distinto($coluna,$where = '',$order_by = '',$group_by = '',$having = ''){
+        return $this->selecionar($coluna, $where, $order_by, $group_by, $having, TRUE);
     }
 }
 
