@@ -8,8 +8,9 @@ if (!defined('BASEPATH')) {
  * @author Thiago Moura
  */
 class Nivel_model extends MY_Model {
-    public $nome;       //String
-    public $descricao;  //String
+    public $nome;            //String
+    public $descricao;       //String
+    public $hierarquia;      //INT Nivel de hierarquia
     
     public function __construct() {
         parent::__construct();
