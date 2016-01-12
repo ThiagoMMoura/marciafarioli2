@@ -7,8 +7,9 @@ $input['descricao'] = array('name'=>'descricao','placeholder'=>'Descreva a funç
 $label['descricao'] = 'Descrição';
 $input['url'] = array('name'=>'url','placeholder'=>'URL do menu','value'=>set_value('url',$url));
 $label['url'] = 'URL';
-$input['grupo'] = array('name'=>'grupo','placeholder'=>'Selecione ou digite um novo Grupo','value'=>set_value('grupo',$grupo),'list'=>'grupos');
+$input['grupo'] = array('name'=>'grupo','id'=>'grupo','placeholder'=>'Selecione ou digite um novo Grupo','value'=>set_value('grupo',$grupo),'list'=>'grupos');
 $label['grupo'] = 'Grupo';
+$datalist['grupo'] = array('options'=>$grupos)
 ?>
 <div class="row">
     <h2 class="text-center">Cadastro de Níveis</h2>
@@ -32,8 +33,25 @@ $label['grupo'] = 'Grupo';
                 </div>
             </div>
             <div class="row">
-                <div class="medium-12 columns">
-                    <?= get_form_field($input['grupo'],$label['grupo']);?>
+                <div class="medium-6 columns">
+                    <label><?= $label['grupo']; ?>
+                        <div class="row collapse">
+                            <div class="small-10 columns">
+                                <?= form_input($input['grupo']);?>
+                            </div>
+                            <div class="small-2 columns">
+                                <a href="#" data-dropdown="drop-grupos" class="button postfix">&raquo;</a>
+                            </div>
+                            <div class="small-12 columns">
+                                <ul id="drop-grupos" class="large f-dropdown" data-dropdown-content>
+                                    <?php foreach($grupos as $key => $gru){ ?>
+                                        <li><a onclick='<?= 'javascript:document.getElementById("'.$input['grupo']['id'].'").value = "'.$key.'"';?>'><?= $gru; ?></a></li>
+                                    <?php }?>
+                                </ul>
+                            </div>
+                        </div>
+                        <?= form_error($input['grupo']['name']);?>
+                    </label>
                 </div>
             </div>
             <div class="row">
