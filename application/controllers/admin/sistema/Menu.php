@@ -33,6 +33,7 @@ class Menu  extends CI_Controller{
             $data[separa_str($alerta, '_', FALSE)] = $this->lang->line($alerta);
         }
         
+        $data = $this->_variaveis_padrao($page, $data);
         $this->load->view('templates/header', $data);
 	$this->load->view('templates/top_bar_menu', $data);
         $this->load->view('admin/sistema/menu/'.$page, $data);
@@ -64,5 +65,36 @@ class Menu  extends CI_Controller{
     
     public function salvar(){
         
+    }
+    
+    private function _variaveis_padrao($page,$data){
+        switch ($page){
+            case 'cadastro':{
+                if(!isset($data['idmenu'])){$data['idmenu'] = '';}
+                if(!isset($data['nome'])){$data['nome'] = '';}
+                if(!isset($data['descricao'])){$data['descricao'] = '';}
+                if(!isset($data['url'])){$data['url'] = '';}
+                if(!isset($data['grupo'])){$data['grupo'] = '';}
+                if(!isset($data['tipo'])){$data['tipo'] = '';}
+                if(!isset($data['formato'])){$data['formato'] = '';}
+                if(!isset($data['permissao'])){$data['permissao'] = '';}
+                if(!isset($data['icone'])){$data['icone'] = '';}
+                if(!isset($data['nivel'])){$data['nivel'] = '';}
+                if(!isset($data['ordem'])){$data['ordem'] = '';}
+                if(!isset($data['idmenu'])){$data['idmenu'] = '';}
+                if(!isset($data['idmenupai'])){$data['idmenupai'] = '';}
+                if(!isset($data['sistema'])){$data['sistema'] = '0';}
+                if(!isset($data['grupos'])){$data['grupos'] = $this->_get_options_grupo();}
+            }
+        }
+        return $data;
+    }
+    
+    private function _get_options_grupo(){
+        $grupos = array();
+        foreach($this->menu_model->selecionar_distinto('grupo',NULL,'grupo ASC') as $menu){
+            $grupos[$menu['grupo']] = $menu['grupo'];
+        }
+        return $grupos;
     }
 }
