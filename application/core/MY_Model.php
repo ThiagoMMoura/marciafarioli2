@@ -180,16 +180,16 @@ class MY_Model extends CI_Model{
     public function selecionar($colunas = '*',$where = '',$orderBy = '',$groupBy = '',$having = '',$distinct = FALSE){
         $this->db->select($colunas===NULL?'*':$colunas);
         
-        if($where!==NULL){
+        if($where!=NULL){
             $this->db->where($where);
         }
-        if($orderBy!==NULL){
+        if($orderBy!=NULL){
             $this->db->order_by($orderBy);
         }
-        if($groupBy!==NULL){
+        if($groupBy!=NULL){
             $this->db->group_by($groupBy);
         }
-        if($having!==NULL){
+        if($having!=NULL){
             $this->db->having($having);
         }
         $this->db->distinct($distinct);
