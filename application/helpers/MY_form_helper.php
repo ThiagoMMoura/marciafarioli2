@@ -1,17 +1,31 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * 
+ * @param mixed $form_input
+ * @param mixed $form_label
+ * @param mixed $datalist
+ * @param type $help_text
+ * @return string
+ */
 function get_form_field($form_input, $form_label = NULL, $datalist = array(), $help_text = NULL){
     $form_html = '';
     
     if(!is_array($form_input)){
         $nome = $form_input;
-        $form_input = array();
-        $form_input['name'] = $nome;
+        $form_input = array('name'=>$nome);
     }
     
     $form_error = form_error($form_input['name']);
     $error = $form_error != NULL? 'error' : '';
+    
+    $form_datalist = '';
+    if(!empty($datalist)){
+        $datalist['id'] = $form_input['name'];
+        $form_input['list'] = $form_input['name'];
+        $form_datalist = form_datalist($datalist);
+    }
     
     $form_input['class'] = isset($form_input['class'])? $form_input['class'] . ' ' . $error : $error;
     $input_html = form_input($form_input);
@@ -33,11 +47,6 @@ function get_form_field($form_input, $form_label = NULL, $datalist = array(), $h
         $form_html .= $input_html;
     }
     
-    $form_datalist = '';
-    if(!empty($datalist)){
-        $datalist['id'] = $form_input['name'];
-        $form_datalist = form_datalist($datalist);
-    }
     $form_html .= $form_error.$form_datalist;
     
     return $form_html;
