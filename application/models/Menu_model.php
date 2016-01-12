@@ -100,4 +100,16 @@ class Menu_model extends MY_Model{
             }
         }
     }
+    
+    public function get_lista_tipos(){
+        return array('acao','botao','imagem','item','link','menu','separador');
+    }
+    
+    public function get_lista_formatos(){
+        return array('aba','botao','dropdown','input','link');
+    }
+    
+    public function get_lista_permissoes(){
+        return array('consultar','incluir','editar','excluir');
+    }
 }
