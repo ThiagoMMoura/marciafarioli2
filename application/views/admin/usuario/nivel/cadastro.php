@@ -1,33 +1,30 @@
-<?php $this->load->view('templates/alertas'); ?>
+<?php $this->load->view('templates/alertas'); 
+// Declaração de arrays de inputs, labels e hiddens.
+$hidden = array('idnivel'=>set_value('idnivel',$idnivel));
+$input['nome'] = array('name'=>'nome','placeholder'=>'Nome do nível','value'=>set_value('nome',$nome),'required'=>'');
+$label['nome'] = 'Nome Nível';
+$input['hierarquia'] = array('name'=>'hierarquia','value'=>set_value('hierarquia',$hierarquia),'type'=>'number','required'=>'','max'=>100,'min'=>$hierarquia_min);
+$label['hierarquia'] = 'Hierarquia';
+$input['descricao'] = array('name'=>'descricao','placeholder'=>'Descreva as funções do nível...','value'=>set_value('descricao',$descricao),'type'=>'textarea','rows'=>4,'cols'=>300);
+$label['descricao'] = 'Descrição';
+?>
 <div class="row">
     <h2 class="text-center">Cadastro de Níveis</h2>
 </div>
 <div class="row">
     <div class="medium-12 medium-centered column">
-        <?= form_open('admin/usuario/nivel/salvar'); ?>
-            <?php
-            $form_id = array('name'=>'idnivel','value'=>set_value('idnivel',isset($idnivel)?$idnivel:''),'type'=>'hidden','readonly'=>'');
-            echo form_input($form_id);?>
+        <?= form_open('admin/usuario/nivel/salvar','',$hidden); ?>
             <div class="row">
-                <div class="medium-12 columns">
-                    <?php
-                    $input_nome = array('name'=>'nome','placeholder'=>'Nome do nível','value'=>set_value('nome',isset($nome)?$nome:''),'required'=>'');
-                    $label_nome = 'Nome Nível';
-                    echo get_form_field($input_nome,$label_nome);
-                  ?>
+                <div class="medium-8 large-10 columns">
+                    <?= get_form_field($input['nome'],$label['nome']);?>
+                </div>
+                <div class="medium-4 large-2 columns">
+                    <?= get_form_field($input['hierarquia'],$label['hierarquia']);?>
                 </div>
             </div>
             <div class="row">
                 <div class="medium-12 columns">
-                    <?php
-                    $form_descricao = array('name'=>'descricao','placeholder'=>'Descreva as funções do nível...','value'=>set_value('descricao',isset($descricao)?$descricao:''),'rows'=>4,'cols'=>300);
-                    $atributos = array();
-                    if (form_error('descricao') != NULL) {
-                        $atributos['class'] = isset($atributos['class']) ? $atributos['class'] . ' error' : 'error';
-                    }
-                    echo form_label('Descrição'.form_textarea($form_descricao),'',$atributos);
-                    echo form_error('descricao');
-                  ?>
+                    <?= get_form_field($input['descricao'],$label['descricao']);?>
                 </div>
             </div>
         <div class="row">
@@ -45,15 +42,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $menus = $this->menu_model->selecionar('id,nome,grupo','sistema = 1','grupo ASC, nome ASC'); ?>
                         <?php foreach($menus as $row){?>
                             <tr>
                                 <?php $perm = array('id'=>'','consultar'=>FALSE,'incluir'=>FALSE,'editar'=>FALSE,'excluir'=>FALSE); //Valores Padrão
-                                if(isset($permissoes)){
-                                    foreach($permissoes as $permissao){
-                                        if($permissao['idmenu']==$row['id']){
-                                            $perm = $permissao;
-                                        }
+
+                                foreach($permissoes as $permissao){
+                                    if($permissao['idmenu']==$row['id']){
+                                        $perm = $permissao;
                                     }
                                 }?>
                                 <?= form_hidden('idpermissao'.$row['id'], $perm['id']);?>
