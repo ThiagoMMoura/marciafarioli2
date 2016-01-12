@@ -42,7 +42,7 @@ class Menu  extends CI_Controller{
     
     public function busca($data = array()){
         
-        $data['menus'] = $this->menu_model->selecionar('*',NULL,'grupo ASC, ordem ASC');
+        $data['menus'] = $this->menu_model->selecionar('*','sistema = 1','grupo ASC, ordem ASC');
         
         $this->view('busca',$data);
     }
@@ -64,7 +64,19 @@ class Menu  extends CI_Controller{
     }
     
     public function salvar(){
+        $this->form_validation->set_rules('nome', 'Nome', 'trim|required|min_length[3]|max_length[100]');
+        $this->form_validation->set_rules('descricao', 'Descricao', 'trim|max_length[300]');
+        $this->form_validation->set_rules('url', 'URL', 'trim|required|min_length[3]|max_length[200]');
+        $this->form_validation->set_rules('grupo', 'Grupo', 'trim|required|max_length[100]');
+        $this->form_validation->set_rules('tipo', 'Tipo', 'trim|required|max_length[100]');
+        $this->form_validation->set_rules('formato', 'Formato', 'trim|required|max_length[100]');
+        $this->form_validation->set_rules('permissao', 'Permissao', 'trim|required|max_length[100]');
         
+        if ($this->form_validation->run() == FALSE) {
+            $this->cadastro();
+        }else{
+            
+        }
     }
     
     private function _variaveis_padrao($page,$data){
@@ -83,8 +95,11 @@ class Menu  extends CI_Controller{
                 if(!isset($data['ordem'])){$data['ordem'] = '';}
                 if(!isset($data['idmenu'])){$data['idmenu'] = '';}
                 if(!isset($data['idmenupai'])){$data['idmenupai'] = '';}
-                if(!isset($data['sistema'])){$data['sistema'] = '0';}
+                if(!isset($data['sistema'])){$data['sistema'] = '1';}
                 if(!isset($data['grupos'])){$data['grupos'] = $this->_get_options_grupo();}
+                if(!isset($data['tipos'])){$data['tipos'] = $this->_get_options_tipo();}
+                if(!isset($data['formatos'])){$data['formatos'] = $this->_get_options_formato();}
+                if(!isset($data['permissoes'])){$data['permissoes'] = $this->_get_options_permissao();}
             }
         }
         return $data;
@@ -92,9 +107,33 @@ class Menu  extends CI_Controller{
     
     private function _get_options_grupo(){
         $grupos = array();
-        foreach($this->menu_model->selecionar_distinto('grupo',NULL,'grupo ASC') as $menu){
+        foreach($this->menu_model->selecionar_distinto('grupo','sistema = 1','grupo ASC') as $menu){
             $grupos[$menu['grupo']] = $menu['grupo'];
         }
         return $grupos;
+    }
+    
+    private function _get_options_tipo(){
+        $tipos = array();
+        foreach($this->menu_model->get_lista_tipos() as $tipo){
+            $tipos[$tipo] = ucfirst($tipo);
+        }
+        return $tipos;
+    }
+    
+    private function _get_options_formato(){
+        $formatos = array();
+        foreach($this->menu_model->get_lista_formatos() as $formato){
+            $formatos[$formato] = ucfirst($formato);
+        }
+        return $formatos;
+    }
+    
+    private function _get_options_permissao(){
+        $permissoes = array();
+        foreach($this->menu_model->get_lista_permissoes() as $permissao){
+            $permissoes[$permissao] = ucfirst($permissao);
+        }
+        return $permissoes;
     }
 }
