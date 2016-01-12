@@ -5,40 +5,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *
  * @author Thiago Moura
  */
-class Nivel extends CI_Controller{
+class Nivel extends MY_Controller{
     
     public function __construct(){
-        parent::__construct();
-
-        if($this->usuario_model->verificaUsuario()){
-            $this->usuario_model->validarPermissaoDeAcesso('admin-usuario-nivel');
-        }
+        parent::__construct('admin/usuario/nivel/',TRUE);
     }
     
     public function index(){
         $this->view('busca');
     }
-    
-    public function view($page = 'busca',$data = array()){
-	if ( ! file_exists(APPPATH.'/views/admin/usuario/nivel/'.$page.'.php')){
-            // Whoops, we don't have a page for that!
-            show_404();
-        }
-
-        $data['title'] = ucfirst($page); // Capitalize the first letter
-        $data['page'] = $page;
-        
-        $alerta = $this->session->flashdata('alerta');
-        if ($alerta !== NULL) {
-            $data[separa_str($alerta, '_', FALSE)] = $this->lang->line($alerta);
-        }
-        
-        $this->load->view('templates/header', $data);
-	$this->load->view('templates/top_bar_menu', $data);
-        $this->load->view('admin/usuario/nivel/'.$page, $data);
-        $this->load->view('templates/scripts',$data);
-    }
-    
+      
     public function editar($id = NULL){
         $data = array();
         if($id!==NULL){
@@ -56,6 +32,7 @@ class Nivel extends CI_Controller{
         $is_unique = $this->input->post('idnivel')==NULL?"|is_unique[nivel.nome]":'';
         $this->form_validation->set_rules('nome', 'Nome', 'trim|required|min_length[3]|max_length[100]'.$is_unique);
         $this->form_validation->set_rules('email', 'Email', 'trim|max_length[300]');
+        $this->form_validation->set_rules('hierarquia','Hierarquia','required|integer|greater_than[100]|less_than['.($this->usuario_model->get_hierarquia()+ 1) .']');
         
         if ($this->form_validation->run() == FALSE) {
             $this->view('cadastro');
@@ -63,6 +40,7 @@ class Nivel extends CI_Controller{
             $this->nivel_model->setId($this->input->post('idnivel'));
             $this->nivel_model->nome = $this->input->post('nome');
             $this->nivel_model->descricao = $this->input->post('descricao');
+            $this->nivel_model->hierarquia = $this->input->post('hierarquia');
             
             if($this->nivel_model->salvar(FALSE)){
                 foreach($this->input->post('idmenu') as $id){
@@ -87,5 +65,20 @@ class Nivel extends CI_Controller{
                 $this->view('cadastro');
             }
         }
+    }
+    
+    private function _variaveis_padrao($page,$data){
+        switch ($page){
+            case 'cadastro':{
+                if(!isset($data['idnivel'])){$data['idnivel'] = '';}
+                if(!isset($data['nome'])){$data['nome'] = '';}
+                if(!isset($data['descricao'])){$data['descricao'] = '';}
+                if(!isset($data['hierarquia'])){$data['hierarquia'] = '';}
+                if(!isset($data['hierarquia_min'])){$data['hierarquia_min'] = $this->usuario_model->get_hierarquia()+1;}
+                if(!isset($data['menus'])){$data['menus'] = $this->menu_model->selecionar('id,nome,grupo','sistema = 1','grupo ASC, nome ASC');}
+                if(!isset($data['permissoes'])){$data['permissoes'] = array();}
+            }
+        }
+        return $data;
     }
 }
