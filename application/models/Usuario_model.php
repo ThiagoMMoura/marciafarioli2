@@ -118,5 +118,20 @@ class Usuario_model extends MY_Model {
             redirect($pagina);
         }
     }
+    
+    /**
+     * Retorna o valor do nivel de hierarquia do usuário na sessão ou do usuário
+     * passado por parâmentro.
+     * 
+     * @param int $id
+     * @return int
+     */
+    public function get_hierarquia($id = NULL){
+        if($id == NULL){
+            $id = $this->session->idnivel;
+        }
+        $nivel = $this->nivel_model->getObjectById($id);
+        return $nivel->hierarquia;
+    }
 
 }
