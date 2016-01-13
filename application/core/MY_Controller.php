@@ -69,7 +69,7 @@ class MY_Controller extends CI_Controller{
     public function view($page,$data = array()){
 	
         $this->_view_exists($page);
-        $data = $this->_variaveis_padrao($page,$data);
+        $data = _variaveis_padrao($page,$data);
         $data = $this->_pre_data_view($page, $data);
         
         $this->load->view('templates/header', $data);
