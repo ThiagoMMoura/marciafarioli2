@@ -66,7 +66,7 @@ class Menu  extends CI_Controller{
     public function salvar(){
         $this->form_validation->set_rules('nome', 'Nome', 'trim|required|min_length[3]|max_length[100]');
         $this->form_validation->set_rules('descricao', 'Descricao', 'trim|max_length[300]');
-        $this->form_validation->set_rules('url', 'URL', 'trim|required|min_length[3]|max_length[200]');
+        $this->form_validation->set_rules('url', 'URL', 'trim|min_length[3]|max_length[200]');
         $this->form_validation->set_rules('grupo', 'Grupo', 'trim|required|max_length[100]');
         $this->form_validation->set_rules('tipo', 'Tipo', 'trim|required|max_length[100]');
         $this->form_validation->set_rules('formato', 'Formato', 'trim|required|max_length[100]');
@@ -75,7 +75,30 @@ class Menu  extends CI_Controller{
         if ($this->form_validation->run() == FALSE) {
             $this->cadastro();
         }else{
-            
+            $this->menu_model-setId($this->input->post('idmenu'));
+            if($this->input->post('idmenupai')==NULL OR $this->input->post('idmenupai')==0){
+                $this->menu_model->nivel = 1;
+                $this->menu_model->idmenupai = '';
+            }else{
+                //Busca o menu pai e incrementa +1 no nivel dele
+                $this->menu_model->nivel = (new Menu_model())->getObjectById($this->input->post('idmenupai'))->nivel + 1;
+                $this->menu_model->idmenupai = $this->input->post('idmenupai');
+            }
+            $this->menu_model->ordem = $this->input->post('ordem')!=NULL?$this->input->post('ordem'):$this->menu_model->get_max_ordem(NULL,NULL,TRUE) + 1;
+            $this->menu_model->nome = $this->input->post('nome');
+            $this->menu_model->descricao = $this->input->post('descricao');
+            $this->menu_model->url = $this->input->post('url');
+            $this->menu_model->grupo = $this->input->post('grupo');
+            $this->menu_model->tipo = $this->input->post('tipo');
+            $this->menu_model->formato = $this->input->post('formato');
+            $this->menu_model->permissao = $this->input->post('permissao');
+            $this->menu_model->sistema = TRUE;
+            if($this->menu_model->salvar()){
+                $this->session->set_flashdata('alerta', 'success_save');
+                redirect('admin/usuario/menu/editar/'.$this->menu_model->getId());
+            }
+            $this->session->set_flashdata('alerta', 'error_save');
+            $this->cadastro($this->menu_model->getCampos());
         }
     }
     
@@ -101,6 +124,7 @@ class Menu  extends CI_Controller{
                 if(!isset($data['formatos'])){$data['formatos'] = $this->_get_options_formato();}
                 if(!isset($data['permissoes'])){$data['permissoes'] = $this->_get_options_permissao();}
                 if(!isset($data['menus'])){$data['menus'] = $this->menu_model->getOptionsArray('nome','sistema = 1','nome ASC');}
+                $data['menus'][0] = "Nenhum";
             }
         }
         return $data;
