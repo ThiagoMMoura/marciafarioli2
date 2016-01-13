@@ -9,6 +9,7 @@ if(isset($menus)){?>
                 <th>Descrição</th>
                 <th>Sistema</th>
                 <th>Menu Pai</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -27,12 +28,13 @@ if(isset($menus)){?>
                     }
                 }?>
                 <td><?= $menupai;?></td>
+                <td><?= anchor('admin/sistema/menu/editar/' . $menu->getId(), 'Editar');?></td>
             </tr>
         <?php }?>
         </tbody>
     </table>
 <?php }else{
-    echo '<p>Nenhum arquivo de log encontrado</p>';
+    echo '<p>Nenhum menu encontrado</p>';
 }?>
 </div>
 
