@@ -100,6 +100,7 @@ class Menu  extends CI_Controller{
                 if(!isset($data['tipos'])){$data['tipos'] = $this->_get_options_tipo();}
                 if(!isset($data['formatos'])){$data['formatos'] = $this->_get_options_formato();}
                 if(!isset($data['permissoes'])){$data['permissoes'] = $this->_get_options_permissao();}
+                if(!isset($data['menus'])){$data['menus'] = $this->menu_model->getOptionsArray('nome','sistema = 1','nome ASC');}
             }
         }
         return $data;

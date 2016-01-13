@@ -24,7 +24,7 @@ $options['permissao'] = $permissoes;
 $selected['permissao'] = set_value('permissao',$permissao);
 $input['idmenupai'] = array('name'=>'idmenupai','placeholder'=>'Selecione um menu para ser pai');
 $label['idmenupai'] = 'Menu Pai';
-$options['idmenupai'] = $idmenupai;
+$options['idmenupai'] = $menus;
 $selected['idmenupai'] = set_value('idmenupai',$idmenupai);
 ?>
 <div class="row">
