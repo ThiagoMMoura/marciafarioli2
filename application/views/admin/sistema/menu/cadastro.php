@@ -1,6 +1,7 @@
 <?php $this->load->view('templates/alertas'); 
 // Declaração de arrays de inputs , labels e hiddens.
-$hidden = array('idmenu'=>set_value('idmenu',$idmenu));
+$hidden['idmenu'] = set_value('idmenu',$idmenu);
+$hidden['ordem'] = set_value('ordem',$ordem);
 $input['nome'] = array('name'=>'nome','placeholder'=>'Nome do menu','value'=>set_value('nome',$nome),'required'=>'');
 $label['nome'] = 'Nome Menu';
 $input['descricao'] = array('name'=>'descricao','placeholder'=>'Descreva a função do menu...','value'=>set_value('descricao',$descricao),'rows'=>4,'cols'=>300);
@@ -28,7 +29,7 @@ $options['idmenupai'] = $menus;
 $selected['idmenupai'] = set_value('idmenupai',$idmenupai);
 ?>
 <div class="row">
-    <h2 class="text-center">Cadastro de Níveis</h2>
+    <h2 class="text-center">Cadastro de Menus</h2>
 </div>
 <div class="row">
     <div class="medium-12 medium-centered column">
@@ -52,11 +53,11 @@ $selected['idmenupai'] = set_value('idmenupai',$idmenupai);
                 <div class="medium-6 columns">
                     <label><?= $label['grupo']; ?>
                         <div class="row collapse">
-                            <div class="small-11 columns">
+                            <div class="small-10 columns">
                                 <?= form_input($input['grupo']) . form_datalist($datalist['grupo']);?>
                             </div>
-                            <div class="small-1 columns">
-                                <a href="#" data-dropdown="drop-grupos" class="button dropdown postfix" style="padding-right: 2rem;"></a>
+                            <div class="small-2 columns">
+                                <a href="#" data-dropdown="drop-grupos" class="button dropdown postfix" style="padding-right: 1.9rem;"></a>
                             </div>
                             <div class="small-12 columns">
                                 <ul id="drop-grupos" class="large f-dropdown" data-dropdown-content>

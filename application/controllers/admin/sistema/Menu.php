@@ -95,7 +95,7 @@ class Menu  extends CI_Controller{
             $this->menu_model->sistema = TRUE;
             if($this->menu_model->salvar()){
                 $this->session->set_flashdata('alerta', 'success_save');
-                redirect('admin/usuario/menu/editar/'.$this->menu_model->getId());
+                redirect('admin/sistema/menu/editar/'.$this->menu_model->getId());
             }
             $this->session->set_flashdata('alerta', 'error_save');
             $this->cadastro($this->menu_model->getCampos());
