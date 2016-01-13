@@ -131,7 +131,7 @@ class Menu_model extends MY_Model{
         $where['nivel'] = $nivel;
         $where['idmenupai'] = $idmenupai;
         $where['sistema'] = $sistema;
-        $result = $this->selecionar('*',$where);
+        $result = $this->selecionar('grupo',$where);
         return isset($result[0])?$result[0]['ordem']:0;
     }
 }
