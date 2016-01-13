@@ -1,6 +1,7 @@
 <?php $this->load->view('templates/alertas'); 
 // Declaração de arrays de inputs, labels e hiddens.
-$hidden = array('idnivel'=>set_value('idnivel',$idnivel));
+$hidden['idnivel'] = set_value('idnivel',$idnivel);
+$hidden['ordem'] = set_value('ordem',$ordem);
 $input['nome'] = array('name'=>'nome','placeholder'=>'Nome do nível','value'=>set_value('nome',$nome),'required'=>'');
 $label['nome'] = 'Nome Nível';
 $input['hierarquia'] = array('name'=>'hierarquia','value'=>set_value('hierarquia',$hierarquia),'type'=>'number','required'=>'','max'=>100,'min'=>$hierarquia_min);
