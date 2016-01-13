@@ -8,7 +8,7 @@ $input['descricao'] = array('name'=>'descricao','placeholder'=>'Descreva a funç
 $label['descricao'] = 'Descrição';
 $input['url'] = array('name'=>'url','placeholder'=>'URL do menu','value'=>set_value('url',$url));
 $label['url'] = 'URL';
-$input['grupo'] = array('name'=>'grupo','id'=>'grupo','placeholder'=>'Selecione ou digite um novo Grupo','value'=>set_value('grupo',$grupo),'list'=>'grupos');
+$input['grupo'] = array('name'=>'grupo','id'=>'grupo','placeholder'=>'Selecione ou digite um novo Grupo','value'=>set_value('grupo',$grupo),'list'=>'grupos','required'=>'');
 $label['grupo'] = 'Grupo';
 $datalist['grupo'] = array('options'=>$grupos,'id'=>'grupos');
 $input['tipo'] = array('name'=>'tipo','placeholder'=>'Selecione um tipo');
@@ -51,7 +51,7 @@ $selected['idmenupai'] = set_value('idmenupai',$idmenupai);
             </div>
             <div class="row">
                 <div class="medium-6 columns">
-                    <label><?= $label['grupo']; ?>
+                    <label <?= form_error($input['grupo']['name'])!=NULL?'class="error"':'';?>><?= $label['grupo']; ?>
                         <div class="row collapse">
                             <div class="small-10 columns">
                                 <?= form_input($input['grupo']) . form_datalist($datalist['grupo']);?>
@@ -67,8 +67,8 @@ $selected['idmenupai'] = set_value('idmenupai',$idmenupai);
                                 </ul>
                             </div>
                         </div>
-                        <?= form_error($input['grupo']['name']);?>
                     </label>
+                    <?= form_error($input['grupo']['name']);?>
                 </div>
                 <div class="medium-6 columns">
                     <label><?= $label['tipo'].form_dropdown($input['tipo'], $options['tipo'], $selected['tipo']);?></label>

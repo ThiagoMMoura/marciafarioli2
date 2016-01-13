@@ -75,7 +75,7 @@ class Menu  extends CI_Controller{
         if ($this->form_validation->run() == FALSE) {
             $this->cadastro();
         }else{
-            $this->menu_model-setId($this->input->post('idmenu'));
+            $this->menu_model->setId($this->input->post('idmenu'));
             if($this->input->post('idmenupai')==NULL OR $this->input->post('idmenupai')==0){
                 $this->menu_model->nivel = 1;
                 $this->menu_model->idmenupai = '';
@@ -123,8 +123,7 @@ class Menu  extends CI_Controller{
                 if(!isset($data['tipos'])){$data['tipos'] = $this->_get_options_tipo();}
                 if(!isset($data['formatos'])){$data['formatos'] = $this->_get_options_formato();}
                 if(!isset($data['permissoes'])){$data['permissoes'] = $this->_get_options_permissao();}
-                if(!isset($data['menus'])){$data['menus'] = $this->menu_model->getOptionsArray('nome','sistema = 1','nome ASC');}
-                $data['menus'][0] = "Nenhum";
+                if(!isset($data['menus'])){$data['menus'] = array_merge(array(0=>'Nenhum'),$this->menu_model->getOptionsArray('nome','sistema = 1','nome ASC'));}
             }
         }
         return $data;
