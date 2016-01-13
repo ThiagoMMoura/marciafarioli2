@@ -11,6 +11,7 @@ if (!defined('BASEPATH')) {
  */
 class MY_Controller extends CI_Controller{
     private $views_path;
+    private $default_page_fields;
 
     public function __construct($views_path = '',$permissao = FALSE,$alerta = '',$pagina = '') {
         parent::__construct();
@@ -69,7 +70,7 @@ class MY_Controller extends CI_Controller{
     public function view($page,$data = array()){
 	
         $this->_view_exists($page);
-        $data = _variaveis_padrao($page,$data);
+        $data = $this->_get_default_fields($page,$data);
         $data = $this->_pre_data_view($page, $data);
         
         $this->load->view('templates/header', $data);
@@ -78,8 +79,12 @@ class MY_Controller extends CI_Controller{
         $this->load->view('templates/scripts',$data);
     }
     
-    private function _variaveis_padrao($page,$data){
+    private function _get_default_fields($page,$data){
         return $data;
+    }
+    
+    private function _set_default_page_fields($page_fields){
+        $this->default_page_fields = $page_fields;
     }
 
 }
