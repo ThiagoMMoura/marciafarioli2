@@ -112,4 +112,26 @@ class Menu_model extends MY_Model{
     public function get_lista_permissoes(){
         return array('consultar','incluir','editar','excluir');
     }
+    
+    /**
+     * Retorna o maior número de ordem do menu de um nivel.
+     * 
+     * @param string $grupo
+     * @param int $idmenupai
+     * @return int
+     */
+    public function get_max_ordem($nivel,$idmenupai,$sistema = FALSE){
+        if($nivel==NULL){
+            $nivel = $this->nivel;
+        }
+        if($idmenupai==NULL){
+            $idmenupai = $this->idmenupai;
+        }
+        $this->db->select_max('ordem');
+        $where['nivel'] = $nivel;
+        $where['idmenupai'] = $idmenupai;
+        $where['sistema'] = $sistema;
+        $result = $this->selecionar('*',$where);
+        return isset($result[0])?$result[0]['ordem']:0;
+    }
 }
