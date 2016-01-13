@@ -28,7 +28,7 @@ if(isset($menus)){?>
                     }
                 }?>
                 <td><?= $menupai;?></td>
-                <td><?= anchor('admin/sistema/menu/editar/' . $menu->getId(), 'Editar');?></td>
+                <td><?= anchor('admin/sistema/menu/editar/' . $menu['id'], 'Editar');?></td>
             </tr>
         <?php }?>
         </tbody>
