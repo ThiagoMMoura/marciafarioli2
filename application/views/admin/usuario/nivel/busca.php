@@ -13,19 +13,19 @@
                 </tr>
             </thead>
             <tbody>
-                <? $this->nivel_model->selecionar('*',NULL,'nome');
-                foreach($this->nivel_model->getResultados() as $nivel){ ?>
+                <? 
+                foreach($niveis as $nivel){ ?>
                     <tr>
-                        <td><?=$nivel->nome;?></td>
-                        <td><?=$nivel->descricao;?></td>
+                        <td><?=$nivel['nome'];?></td>
+                        <td><?=$nivel['descricao'];?></td>
                         <td>
-                            <?if($nivel->getId()==$this->config->item('nivelusuariopadrao')){
-                                if($this->session->idnivel==$nivel->getId()){
-                                    echo anchor('admin/usuario/nivel/editar/' . $nivel->getId(), 'Editar');
+                            <?if($nivel['id']==$this->config->item('nivelusuariopadrao')){
+                                if($this->session->idnivel==$nivel['id']){
+                                    echo anchor('admin/usuario/nivel/editar/' . $nivel['id'], 'Editar');
                                 }
                             }else{
                                 if($this->menu_model->hasPermissao($this->config->item('admin-usuario-nivel-cadastro'))){
-                                    echo anchor('admin/usuario/nivel/editar/' . $nivel->getId(), 'Editar');
+                                    echo anchor('admin/usuario/nivel/editar/' . $nivel['id'], 'Editar');
                                 }
                             }?>
                         </td>
