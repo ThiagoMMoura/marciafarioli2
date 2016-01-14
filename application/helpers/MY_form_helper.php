@@ -2,14 +2,14 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * 
+ * @deprecated since version 1
  * @param mixed $form_input
  * @param mixed $form_label
  * @param mixed $datalist
  * @param type $help_text
  * @return string
  */
-function get_form_field($form_input, $form_label = NULL, $datalist = array(), $help_text = NULL){
+function get_form_field_input($form_input, $form_label = NULL, $datalist = array(), $help_text = NULL){
     $form_html = '';
     
     if(!is_array($form_input)){
@@ -140,5 +140,111 @@ function form_datalist($data = '', $options = array(),$selected = '',$extra = ''
     }
 
     return $form."</datalist>\n";
+}
+
+/**
+ * 
+ * @param mixed $data
+ * @param mixed $label
+ * @param mixed $extra
+ * @param mixed $datalist
+ * @param mixed $options
+ * @param mixed $selected
+ * @return string
+ */
+function get_form_field($data = '',$label = '',$extra = '',$datalist = '',$options = [],$selected = ''){
+    $field = array();
+    $error = '';
+    if(is_array($data)){
+        
+        if(isset($data['label'])){
+            $label = $data['label'];
+            unset($data['label']);
+        }
+        if(isset($data['datalist'])){
+            $datalist = $data['datalist'];
+            unset($data['datalist']);
+        }
+        if(isset($data['options'])){
+            $options = $data['options'];
+            unset($data['options']);
+        }
+        if(isset($data['selected'])){
+            $selected = $data['selected'];
+            unset($data['selected']);
+        }
+        if(isset($data['textarea'])){
+            $field = array('textarea'=>$data['textarea']);
+        }elseif(isset($data['dropdown'])){
+            $field = array('dropdown'=>$data['dropdown']);
+        }elseif(isset($data['multiselect'])){
+            $field = array('multiselect'=>$data['multiselect']);
+        }elseif(isset($data['button'])){
+            $field = array('button'=>$data['button']);
+        }elseif(isset($data['input'])){
+            $field = array('input'=>$data['input']);
+        }else{
+            $field = array('input'=>$data);
+        }
+    }else{
+        $field = array('input'=>$data);
+    }
+    
+    if(isset($field['textarea'])){
+        $field['html'] = form_textarea($field['textarea'],'',$extra);
+        $error = form_error(is_array($field['textarea'])?$field['textarea']['name']:$field['textarea']);
+    }elseif(isset($field['dropdown'])){
+        $field['html'] = form_dropdown($field['dropdown'],$options,$selected,$extra);
+        $error = form_error(is_array($field['dropdown'])?$field['dropdown']['name']:$field['dropdown']);
+    }elseif(isset($field['multiselect'])){
+        $field['html'] = form_multiselect($field['multiselect'],$options,$selected,$extra);
+        $error = form_error(is_array($field['multiselect'])?$field['multiselect']['name']:$field['multiselect']);
+    }elseif(isset($field['button'])){
+        $field['html'] = form_button($field['button'],'',$extra);
+    }else{
+        $field['html'] = form_input($field['input'],'',$extra);
+        $error = form_error(is_array($field['input'])?$field['input']['name']:$field['input']);
+    }
+    
+    if($error!=NULL){
+        $field['html'] = _add_class_to('error', $field['html']);
+    }
+    
+    if($label!=NULL){
+        if(is_array($label)){
+            $field['html'] = form_label($label['text'].$field['html'],$label['id'],$label['attributes']);
+        }else{
+            $field['html'] = form_label($label.$field['html']);
+        }
+        if($error!=NULL){
+            $field['html'] = _add_class_to('error', $field['html']);
+        }
+    }
+    
+    if($datalist!=NULL){
+        $field['html'] .= form_datalist($datalist,$options,$selected,$extra);
+    }
+    
+    return $field['html'] . $error;
+}
+
+function _add_class_to($class,$html){
+    $before_class = stristr($html, 'class="', TRUE);
+    $middle_class = '';
+    $after_class = '';
+    
+    if($before_class===FALSE){
+        
+        $after_class = stristr($html,'>');
+        $before_class = str_replace($after_class,'',$html,1);
+        $middle_class = 'class="' . $class . '"';
+    }else{
+        $after_class = str_replace('class="','',stristr($html,'class="'),1);
+        $middle_class = stristr($after_class, '"', TRUE);
+        $after_class = str_replace($middle_class,'',$after_class);
+        $middle_class = 'class="' . $middle_class . ' ' . $class;
+    }
+    
+    return $before_class . $middle_class . $after_class;
 }
 

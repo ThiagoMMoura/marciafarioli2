@@ -36,17 +36,17 @@ $selected['idmenupai'] = set_value('idmenupai',$idmenupai);
         <?= form_open('admin/sistema/menu/salvar','',$hidden); ?>
             <div class="row">
                 <div class="medium-12 columns">
-                    <?= get_form_field($input['nome'],$label['nome']);?>
+                    <?= get_form_field_input($input['nome'],$label['nome']);?>
                 </div>
             </div>
             <div class="row">
                 <div class="medium-12 columns">
-                    <?= get_form_field($input['descricao'],$label['descricao']);?>
+                    <?= get_form_field_input($input['descricao'],$label['descricao']);?>
                 </div>
             </div>
             <div class="row">
                 <div class="medium-12 columns">
-                    <?= get_form_field($input['url'],$label['url']);?>
+                    <?= get_form_field_input($input['url'],$label['url']);?>
                 </div>
             </div>
             <div class="row">

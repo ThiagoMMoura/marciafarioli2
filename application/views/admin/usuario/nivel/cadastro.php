@@ -1,12 +1,18 @@
 <?php $this->load->view('templates/alertas'); 
 // Declaração de arrays de inputs, labels e hiddens.
 $hidden['idnivel'] = set_value('idnivel',$idnivel);
-$input['nome'] = array('name'=>'nome','placeholder'=>'Nome do nível','value'=>set_value('nome',$nome),'required'=>'');
-$label['nome'] = 'Nome Nível';
-$input['hierarquia'] = array('name'=>'hierarquia','value'=>set_value('hierarquia',$hierarquia),'type'=>'number','required'=>'','max'=>100,'min'=>$hierarquia_min);
-$label['hierarquia'] = 'Hierarquia';
-$input['descricao'] = array('name'=>'descricao','placeholder'=>'Descreva as funções do nível...','value'=>set_value('descricao',$descricao),'type'=>'textarea','rows'=>4,'cols'=>300);
-$label['descricao'] = 'Descrição';
+$field['nome'] = array(
+    'input' => array('name'=>'nome','placeholder'=>'Nome do nível','value'=>set_value('nome',$nome),'required'=>''),
+    'label' => 'Nome Nível'
+);
+$field['hierarquia'] = array(
+    'input' => array('name'=>'hierarquia','value'=>set_value('hierarquia',$hierarquia),'type'=>'number','required'=>'','max'=>100,'min'=>$hierarquia_min),
+    'label' => 'Hierarquia'
+);
+$field['descricao'] = array(
+    'textarea' => array('name'=>'descricao','placeholder'=>'Descreva as funções do nível...','value'=>set_value('descricao',$descricao),'rows'=>4,'cols'=>300),
+    'label' => 'Descrição'
+);
 ?>
 <div class="row">
     <h2 class="text-center">Cadastro de Níveis</h2>
@@ -16,15 +22,15 @@ $label['descricao'] = 'Descrição';
         <?= form_open('admin/usuario/nivel/salvar','',$hidden); ?>
             <div class="row">
                 <div class="medium-8 large-10 columns">
-                    <?= get_form_field($input['nome'],$label['nome']);?>
+                    <?= get_form_field($field['nome']);?>
                 </div>
                 <div class="medium-4 large-2 columns">
-                    <?= get_form_field($input['hierarquia'],$label['hierarquia']);?>
+                    <?= get_form_field($field['hierarquia']);?>
                 </div>
             </div>
             <div class="row">
                 <div class="medium-12 columns">
-                    <?= get_form_field($input['descricao'],$label['descricao']);?>
+                    <?= get_form_field($field['descricao']);?>
                 </div>
             </div>
         <div class="row">
