@@ -9,6 +9,7 @@ class Nivel extends MY_Controller{
     
     public function __construct(){
         parent::__construct('admin/usuario/nivel/',TRUE);
+        $this->_set_campos_padrao();
     }
     
     public function index(){
@@ -67,18 +68,21 @@ class Nivel extends MY_Controller{
         }
     }
     
-    private function _variaveis_padrao($page,$data){
-        switch ($page){
-            case 'cadastro':{
-                if(!isset($data['idnivel'])){$data['idnivel'] = '';}
-                if(!isset($data['nome'])){$data['nome'] = '';}
-                if(!isset($data['descricao'])){$data['descricao'] = '';}
-                if(!isset($data['hierarquia'])){$data['hierarquia'] = '';}
-                if(!isset($data['hierarquia_min'])){$data['hierarquia_min'] = $this->usuario_model->get_hierarquia()+1;}
-                if(!isset($data['menus'])){$data['menus'] = $this->menu_model->selecionar('id,nome,grupo','sistema = 1','grupo ASC, nome ASC');}
-                if(!isset($data['permissoes'])){$data['permissoes'] = array();}
-            }
-        }
-        return $data;
+    private function _set_campos_padrao(){
+        $default_page_fields = array(
+            'cadastro' => array(
+                'idnivel' => '',
+                'nome' => '',
+                'descricao' => '',
+                'hierarquia' => '',
+                'hierarquia_min' => $this->usuario_model->get_hierarquia() + 1,
+                'menus' => $this->menu_model->selecionar('id,nome,grupo', 'sistema = 1', 'grupo ASC, nome ASC'),
+                'permissoes' => array()
+            ),
+            'busca' => array(
+                'niveis' => $this->nivel_model->selecionar('*', NULL, 'nome')
+            )
+        );
+        $this->_set_default_page_fields($default_page_fields);
     }
 }
