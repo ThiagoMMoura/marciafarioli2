@@ -236,10 +236,10 @@ function _add_class_to($class,$html){
     if($before_class===FALSE){
         
         $after_class = stristr($html,'>');
-        $before_class = str_replace($after_class,'',$html,1);
+        $before_class = str_replace($after_class,'',$html);
         $middle_class = 'class="' . $class . '"';
     }else{
-        $after_class = str_replace('class="','',stristr($html,'class="'),1);
+        $after_class = substr(stristr($html,'class="'),7);
         $middle_class = stristr($after_class, '"', TRUE);
         $after_class = str_replace($middle_class,'',$after_class);
         $middle_class = 'class="' . $middle_class . ' ' . $class;
