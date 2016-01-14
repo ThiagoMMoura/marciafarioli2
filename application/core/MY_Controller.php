@@ -50,8 +50,9 @@ class MY_Controller extends CI_Controller{
      * @return array $data
      */
     private function _pre_data_view($page,$data){
-        $data['title'] = ucfirst($page); // Capitalize the first letter
-        $data['page'] = $page;
+        $data = $this->_get_default_fields('default', $data);
+        if(!isset($data['title'])){$data['title'] = ucfirst($page);} // Capitalize the first letter
+        if(!isset($data['page'])){$data['page'] = $page;}
         
         $alerta = $this->session->flashdata('alerta');
         if ($alerta !== NULL) {
@@ -80,10 +81,17 @@ class MY_Controller extends CI_Controller{
     }
     
     private function _get_default_fields($page,$data){
+        if(isset($this->default_page_fields[$page])){
+            foreach($this->default_page_fields[$page] as $field => $value){
+                if(!isset($data[$field])){
+                    $data[$field] = $value;
+                }
+            }
+        }
         return $data;
     }
     
-    private function _set_default_page_fields($page_fields){
+    protected function _set_default_page_fields($page_fields){
         $this->default_page_fields = $page_fields;
     }
 
