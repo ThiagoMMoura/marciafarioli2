@@ -103,7 +103,7 @@ class MY_Controller extends CI_Controller{
     }
     
     protected function _get_function_name(){
-        $remove_url_control = substr(uri_string(), strlen($this->control_url));
+        $remove_url_control = substr(uri_string(), strlen($this->control_url)+1);
         $method_name = stristr($remove_url_control, '/',TRUE);
         if($method_name===FALSE){
             $method_name = stristr($remove_url_control, '.',TRUE);
