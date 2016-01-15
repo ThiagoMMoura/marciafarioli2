@@ -10,13 +10,20 @@ if (!defined('BASEPATH')) {
  * @author Thiago Moura
  */
 class MY_Controller extends CI_Controller{
-    private $views_path;
+    protected $control_url;
     private $default_page_fields;
 
-    public function __construct($views_path = '',$permissao = FALSE,$alerta = '',$pagina = '') {
+    /**
+     * 
+     * @param string $control_url
+     * @param bool $permissao
+     * @param string $alerta
+     * @param string $pagina
+     */
+    public function __construct($control_url = '',$permissao = FALSE,$alerta = '',$pagina = '') {
         parent::__construct();
         
-        $this->views_path = $views_path;
+        $this->_set_control_url($control_url);
         
         if($permissao && $this->usuario_model->verificaUsuario()){
             if($alerta == NULL){
@@ -24,7 +31,8 @@ class MY_Controller extends CI_Controller{
             }if($pagina == NULL){
                 $pagina = 'home';
             }
-            $permissao = substr(str_replace('/', '-', $views_path),0,-1);
+            $permissao = str_replace('/', '-', $this->control_url);
+            $permissao .= $this->_get_function_name()!=''?'/' . $this->_get_function_name() : '';
             $this->usuario_model->validarPermissaoDeAcesso($permissao,$alerta,$pagina);
         }
     }
@@ -35,7 +43,7 @@ class MY_Controller extends CI_Controller{
      * @param string $page
      */
     private function _view_exists($page){
-        if ( ! file_exists(APPPATH.'/views/'.$this->views_path.$page.'.php')){
+        if ( ! file_exists(APPPATH.'/views/'.$this->control_url.$page.'.php')){
             // Whoops, we don't have a page for that!
             show_404();
         }
@@ -76,7 +84,7 @@ class MY_Controller extends CI_Controller{
         
         $this->load->view('templates/header', $data);
 	$this->load->view('templates/top_bar_menu', $data);
-        $this->load->view($this->views_path.$page, $data);
+        $this->load->view($this->control_url.$page, $data);
         $this->load->view('templates/scripts',$data);
     }
     
@@ -93,6 +101,29 @@ class MY_Controller extends CI_Controller{
     
     protected function _set_default_page_fields($page_fields){
         $this->default_page_fields = $page_fields;
+    }
+    
+    protected function _get_function_name(){
+        $remove_url_control = substr(uri_string(), strlen($this->control_url));
+        $method_name = stristr($remove_url_control, '/',TRUE);
+        if($method_name===FALSE){
+            $method_name = stristr($remove_url_control, '.',TRUE);
+            if($method_name===FALSE){
+                $method_name = $remove_url_control;
+            }
+        }
+        if(method_exists($this, $method_name)){
+            return $method_name;
+        }else{
+            return '';
+        }
+    }
+    
+    private function _set_control_url($url = ''){
+        if(substr($url,-1)=='/'){
+            $url = substr($url,0,-1);
+        }
+        $this->control_url = $url;
     }
 
 }
