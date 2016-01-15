@@ -7,7 +7,8 @@
  */
 class Teste extends MY_Controller{
     public function __construct(){
-        parent::__construct('admin/pagina/home/teste',TRUE);
+        parent::__construct('admin/pagina/home/teste');
+        $this->_set_campos_padrao();
     }
     
     public function index(){
