@@ -44,6 +44,7 @@ class MY_Controller extends CI_Controller{
     private function _view_exists($page){
         if ( ! file_exists(APPPATH.'/views/'.$this->control_url.'/'.$page.'.php')){
             // Whoops, we don't have a page for that!
+            echo $page;
             show_404();
         }
     }
