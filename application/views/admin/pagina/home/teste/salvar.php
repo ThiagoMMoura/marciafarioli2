@@ -6,3 +6,5 @@
  * and open the template in the editor.
  */
 
+echo '<br />Salvar';
+echo '<h1>'.$nome.'</h1';
