@@ -2,31 +2,50 @@
 // Declaração de arrays de inputs , labels e hiddens.
 $hidden['idmenu'] = set_value('idmenu',$idmenu);
 $hidden['ordem'] = set_value('ordem',$ordem);
-$input['nome'] = array('name'=>'nome','placeholder'=>'Nome do menu','value'=>set_value('nome',$nome),'required'=>'');
-$label['nome'] = 'Nome Menu';
-$input['descricao'] = array('name'=>'descricao','placeholder'=>'Descreva a função do menu...','value'=>set_value('descricao',$descricao),'rows'=>4,'cols'=>300);
-$label['descricao'] = 'Descrição';
-$input['url'] = array('name'=>'url','placeholder'=>'URL do menu','value'=>set_value('url',$url));
-$label['url'] = 'URL';
+$field['nome'] = array(
+    'input' => array('name'=>'nome','placeholder'=>'Nome do menu','value'=>set_value('nome',$nome),'required'=>''),
+    'label' => 'Nome Menu'
+);
+$field['descricao'] = array(
+    'input' => array('name'=>'descricao','placeholder'=>'Descreva a função do menu...','value'=>set_value('descricao',$descricao),'rows'=>4,'cols'=>300),
+    'label' => 'Descrição'
+);
+$field['url'] = array(
+    'input' => array('name'=>'url','placeholder'=>'URL do menu','value'=>set_value('url',$url)),
+    'label' => 'URL'
+);
 $input['grupo'] = array('name'=>'grupo','id'=>'grupo','placeholder'=>'Selecione ou digite um novo Grupo','value'=>set_value('grupo',$grupo),'list'=>'grupos','required'=>'');
 $label['grupo'] = 'Grupo';
 $datalist['grupo'] = array('options'=>$grupos,'id'=>'grupos');
-$input['tipo'] = array('name'=>'tipo','placeholder'=>'Selecione um tipo');
-$label['tipo'] = 'Tipo';
-$options['tipo'] = $tipos;
-$selected['tipo'] = set_value('tipo',$tipo);
-$input['formato'] = array('name'=>'formato','placeholder'=>'Selecione um formato');
-$label['formato'] = 'Formato';
-$options['formato'] = $formatos;
-$selected['formato'] = set_value('formato',$formato);
-$input['permissao'] = array('name'=>'permissao','placeholder'=>'Selecione uma permissao');
-$label['permissao'] = 'Permissao';
-$options['permissao'] = $permissoes;
-$selected['permissao'] = set_value('permissao',$permissao);
-$input['idmenupai'] = array('name'=>'idmenupai','placeholder'=>'Selecione um menu para ser pai');
-$label['idmenupai'] = 'Menu Pai';
-$options['idmenupai'] = $menus;
-$selected['idmenupai'] = set_value('idmenupai',$idmenupai);
+
+$field['tipo'] = array(
+    'dropdown' => array('name'=>'tipo','placeholder'=>'Selecione um tipo'),
+    'label' => 'Tipo',
+    'options' => $tipos,
+    'selected' => set_value('tipo',$tipo)
+);
+
+$field['formato'] = array(
+    'dropdown' => array('name'=>'formato','placeholder'=>'Selecione um formato'),
+    'label' => 'Formato',
+    'options' => $formatos,
+    'selected' => set_value('formato',$formato)
+);
+
+$field['permissao'] = array(
+    'dropdown' => array('name'=>'permissao','placeholder'=>'Selecione uma permissao'),
+    'label' => 'Permissao',
+    'options' => $permissoes,
+    'selected' => set_value('permissao',$permissao)
+);
+
+$field['idmenupai'] = array(
+    'dropdown' => array('name'=>'idmenupai','placeholder'=>'Selecione um menu para ser pai'),
+    'label' => 'Menu Pai',
+    'options' => $menus,
+    'selected' => set_value('idmenupai',$idmenupai)
+);
+
 ?>
 <div class="row">
     <h2 class="text-center">Cadastro de Menus</h2>
@@ -36,17 +55,17 @@ $selected['idmenupai'] = set_value('idmenupai',$idmenupai);
         <?= form_open('admin/sistema/menu/salvar','',$hidden); ?>
             <div class="row">
                 <div class="medium-12 columns">
-                    <?= get_form_field_input($input['nome'],$label['nome']);?>
+                    <?= get_form_field($field['nome']);?>
                 </div>
             </div>
             <div class="row">
                 <div class="medium-12 columns">
-                    <?= get_form_field_input($input['descricao'],$label['descricao']);?>
+                    <?= get_form_field($field['descricao']);?>
                 </div>
             </div>
             <div class="row">
                 <div class="medium-12 columns">
-                    <?= get_form_field_input($input['url'],$label['url']);?>
+                    <?= get_form_field($field['url']);?>
                 </div>
             </div>
             <div class="row">
@@ -71,23 +90,20 @@ $selected['idmenupai'] = set_value('idmenupai',$idmenupai);
                     <?= form_error($input['grupo']['name']);?>
                 </div>
                 <div class="medium-6 columns">
-                    <label><?= $label['tipo'].form_dropdown($input['tipo'], $options['tipo'], $selected['tipo']);?></label>
-                    <?= form_error($input['tipo']['name']);?>
+                    <?= get_form_field($field['tipo']);?>
                 </div>
             </div>
             <div class="row">
                 <div class="medium-6 columns">
-                    <label><?= $label['formato'].form_dropdown($input['formato'], $options['formato'], $selected['formato']);?></label>
-                    <?= form_error($input['formato']['name']);?>
+                    <?= get_form_field($field['formato']);?>
                 </div>
                 <div class="medium-6 columns">
-                    <label><?= $label['permissao'].form_dropdown($input['permissao'], $options['permissao'], $selected['permissao']);?></label>
-                    <?= form_error($input['permissao']['name']);?>
+                    <?= get_form_field($field['permissao']);?>
                 </div>
             </div>
             <div class="row">
                 <div class="medium-12 columns">
-                    <label><?= $label['idmenupai'].form_dropdown($input['idmenupai'], $options['idmenupai'], $selected['idmenupai']);?></label>
+                    <?= get_form_field($field['idmenupai']);?>
                 </div>
             </div>
             <div class="row">
