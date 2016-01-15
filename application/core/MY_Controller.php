@@ -114,7 +114,7 @@ class MY_Controller extends CI_Controller{
         if(method_exists(get_class(), $method_name)){
             return $method_name;
         }else{
-            return '';
+            return get_class();
         }
     }
     
