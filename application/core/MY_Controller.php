@@ -32,7 +32,6 @@ class MY_Controller extends CI_Controller{
                 $pagina = 'home';
             }
             $permissao = str_replace('/', '-', $this->control_url);
-            $permissao .= $this->_get_function_name()!=''?'/' . $this->_get_function_name() : '';
             $this->usuario_model->validarPermissaoDeAcesso($permissao,$alerta,$pagina);
         }
     }
@@ -43,7 +42,7 @@ class MY_Controller extends CI_Controller{
      * @param string $page
      */
     private function _view_exists($page){
-        if ( ! file_exists(APPPATH.'/views/'.$this->control_url.$page.'.php')){
+        if ( ! file_exists(APPPATH.'/views/'.$this->control_url.'/'.$page.'.php')){
             // Whoops, we don't have a page for that!
             show_404();
         }
@@ -84,7 +83,7 @@ class MY_Controller extends CI_Controller{
         
         $this->load->view('templates/header', $data);
 	$this->load->view('templates/top_bar_menu', $data);
-        $this->load->view($this->control_url.$page, $data);
+        $this->load->view($this->control_url.'/'.$page, $data);
         $this->load->view('templates/scripts',$data);
     }
     
