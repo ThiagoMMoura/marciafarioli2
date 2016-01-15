@@ -111,10 +111,10 @@ class MY_Controller extends CI_Controller{
                 $method_name = $remove_url_control;
             }
         }
-        if(method_exists(get_class(), $method_name)){
+        if(method_exists(get_class($this), $method_name)){
             return $method_name;
         }else{
-            return get_class();
+            return get_class($this);
         }
     }
     
