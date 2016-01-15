@@ -7,4 +7,4 @@
  */
 
 echo '<br />Editar';
-echo '<h1>'.$nome.'</h1';
+echo '<h1>'.$nome.'</h1>';
