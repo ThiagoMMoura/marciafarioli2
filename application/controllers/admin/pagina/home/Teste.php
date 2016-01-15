@@ -20,11 +20,13 @@ class Teste extends MY_Controller{
     public function editar($id = NULL){
         echo '<br />URL solicitada: ' . uri_string();
         echo '<br />URL gerada: '. ($this->_get_function_name()!=''?$this->control_url.'/' . $this->_get_function_name() : $this->control_url);
+        $this->view('editar');
     }
     
     public function salvar(){
         echo '<br />URL solicitada: ' . uri_string();
         echo '<br />URL gerada: '. ($this->_get_function_name()!=''?$this->control_url.'/' . $this->_get_function_name() : $this->control_url);
+        $this->view('salvar');
     }
     
     private function _set_campos_padrao(){
