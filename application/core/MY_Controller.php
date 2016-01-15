@@ -14,6 +14,7 @@ class MY_Controller extends CI_Controller{
     private $default_page_fields;
 
     /**
+     * Contrutor da classe.
      * 
      * @param string $control_url
      * @param bool $permissao
@@ -44,7 +45,6 @@ class MY_Controller extends CI_Controller{
     private function _view_exists($page){
         if ( ! file_exists(APPPATH.'/views/'.$this->control_url.'/'.$page.'.php')){
             // Whoops, we don't have a page for that!
-            echo $page;
             show_404();
         }
     }
@@ -99,10 +99,21 @@ class MY_Controller extends CI_Controller{
         return $data;
     }
     
+    /**
+     * Seta propriedade $default_page_fields
+     * 
+     * @param matriz $page_fields
+     */
     protected function _set_default_page_fields($page_fields){
         $this->default_page_fields = $page_fields;
     }
     
+    /**
+     * Retorna o nome da função chamada por requisição HTTP.
+     * 
+     * @return string Se o método existir ele retorna o nome do método, senão, 
+     * retorna uma <code>string</code> vazia.
+     */
     protected function _get_function_name(){
         $remove_url_control = substr(uri_string(), strlen($this->control_url)+1);
         $method_name = stristr($remove_url_control, '/',TRUE);
@@ -115,10 +126,14 @@ class MY_Controller extends CI_Controller{
         if(method_exists(get_class($this), $method_name)){
             return $method_name;
         }else{
-            return get_class($this). '->' . $method_name . '.' . $remove_url_control;
+            return '';
         }
     }
     
+    /**
+     * Setar a propriedade <code>$control_url</code> que define a <b>URL</b> do controle.
+     * @param string $url <b>URL</b> do controle.
+     */
     private function _set_control_url($url = ''){
         if(substr($url,-1)=='/'){
             $url = substr($url,0,-1);
