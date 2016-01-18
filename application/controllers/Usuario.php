@@ -39,10 +39,8 @@ class Usuario extends CI_Controller {
                 $userdata['id']           = $this->usuario_model->getId();
                 $userdata['nome']         = $this->usuario_model->nome;
                 $userdata['email']        = $this->usuario_model->email;
-                $userdata['idtipologin']  = $this->usuario_model->idtipologin;
                 $userdata['idfotoperfil'] = $this->usuario_model->idfotoperfil;
                 $userdata['idnivel']      = $this->usuario_model->idnivel;
-                $userdata['permissoes']   = $this->permissao_model->selecionar('*','idnivel = '.$this->usuario_model->idnivel,'idmenu ASC');
                 $userdata['logado']       = TRUE;
 
                 $this->session->set_userdata($userdata);
@@ -55,7 +53,7 @@ class Usuario extends CI_Controller {
     }
 
     public function sair(){
-        $userdata = array('id','nome','email','idtipologin','idfotoperfil','idnivel','logado','permissoes');
+        $userdata = array('id','nome','email','idfotoperfil','idnivel','logado','permissoes');
         $this->session->set_userdata('logado', FALSE);
         $this->session->unset_userdata($userdata);
         redirect('login');
@@ -75,10 +73,14 @@ class Usuario extends CI_Controller {
             $this->usuario_model->email = $this->input->post('email');
             $this->usuario_model->senha = $this->input->post('senha');
             $this->usuario_model->sexo = $this->input->post('sexo');
-            $this->usuario_model->idtipologin = $this->config->item('tipousuariopadrao');
             $this->usuario_model->idnivel = $this->config->item('nivelusuariopadrao');
-            $this->usuario_model->inserir(FALSE);
-            redirect('login');
+            
+            if($this->usuario_model->inserir(FALSE)){
+                redirect('login');
+            }else{
+                $this->session->set_flashdata('alerta','error_register_failed_try_later');
+                redirect('cadastrar');
+            }
         }
     }
 
@@ -87,6 +89,7 @@ class Usuario extends CI_Controller {
     }
 
     public function recuperarsenha(){
-        $this->view('login','warning_not_implemented');
+        $this->session->set_flashdata('alerta','warning_not_implemented');
+        $this->view('login');
     }
 }
