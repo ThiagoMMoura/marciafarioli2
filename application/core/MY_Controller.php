@@ -16,24 +16,26 @@ class MY_Controller extends CI_Controller{
     /**
      * Contrutor da classe.
      * 
-     * @param string $control_url
-     * @param bool $permissao
-     * @param string $alerta
-     * @param string $pagina
+     * @param string $control_url <b>URL</b> do controle.
+     * @param string $alerta <b>Id</b> do alerta em caso de falta de permissão.
+     * @param string $pagina Página de redirecionamento automático em caso de falta
+     * de permissão.
      */
-    public function __construct($control_url = '',$permissao = FALSE,$alerta = '',$pagina = '') {
+    public function __construct($control_url = '',$alerta = '',$pagina = '') {
         parent::__construct();
         
         $this->_set_control_url($control_url);
         
-        if($permissao && $this->usuario_model->verificaUsuario()){
+        $url = ($this->_get_function_name()!=NULL ? $this->control_url . '/' . $this->_get_function_name() : $this->control_url);
+        if(!$this->_has_access_permission($url)){
             if($alerta == NULL){
                 $alerta = 'error_permissao';
             }if($pagina == NULL){
                 $pagina = 'home';
             }
-            $permissao = str_replace('/', '-', $this->control_url);
-            $this->usuario_model->validarPermissaoDeAcesso($permissao,$alerta,$pagina);
+            
+            $this->session->set_flashdata('alerta', $alerta);
+            redirect($pagina);
         }
     }
     
@@ -88,6 +90,13 @@ class MY_Controller extends CI_Controller{
         $this->load->view('templates/scripts',$data);
     }
     
+    /**
+     * Retorna um array com os campor padrões na página solicitada.
+     * 
+     * @param string $page
+     * @param array $data
+     * @return array
+     */
     private function _get_default_fields($page,$data){
         if(isset($this->default_page_fields[$page])){
             foreach($this->default_page_fields[$page] as $field => $value){
@@ -132,6 +141,7 @@ class MY_Controller extends CI_Controller{
     
     /**
      * Setar a propriedade <code>$control_url</code> que define a <b>URL</b> do controle.
+     * 
      * @param string $url <b>URL</b> do controle.
      */
     private function _set_control_url($url = ''){
@@ -139,6 +149,43 @@ class MY_Controller extends CI_Controller{
             $url = substr($url,0,-1);
         }
         $this->control_url = $url;
+    }
+    
+    /**
+     * Retorna <b>TRUE</b> se o usuário tem permissão de acesso para está área, 
+     * <b>FALSE</b> caso contrário.
+     * 
+     * @param string $url define a url que será validado o acesso.
+     * @param bool $redirect_on_logoff Se <b>TRUE</b>, caso o usuário não esteja logado,
+     * ele será redirecionado para a página de login.
+     * @return boolean
+     */
+    protected function _has_access_permission($url = '',$redirect_on_logoff = TRUE){
+        if($url == NULL){
+            $url = $this->control_url;
+        }
+        
+        if($this->url_model->has_restricao_for_url($url)){
+            if($this->_logged()){
+                return $this->permissao_model->has_permissao($this->session->idnivel, $this->url_model->getId());
+            }else{
+                if($redirect_on_logoff){
+                    $this->session->set_flashdata('alerta', 'error_login_required');
+                    redirect('login');
+                }
+                return FALSE;
+            }
+        }
+        return TRUE;
+    }
+    
+    /**
+     * Retorna <b>TRUE</b> se o usuário estiver logado, <b>FALSE</b> caso contrário.
+     * 
+     * @return boolean
+     */
+    protected function _logged() {
+        return ($this->session->has_userdata('logado') && $this->session->logado);
     }
 
 }
