@@ -5,9 +5,9 @@ class Portfolio extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		
-		if($this->usuario_model->verificaUsuario()){
-			$this->usuario_model->getPermissao('editarportfolio','error_permissao_edicao',TRUE);
-		}
+//		if($this->usuario_model->verificaUsuario()){
+//			$this->usuario_model->getPermissao('editarportfolio','error_permissao_edicao',TRUE);
+//		}
 	}
 	
 	public function index(){

@@ -16,9 +16,9 @@ class Editar extends CI_Controller {
 		
 		$data['title'] = 'Editar '.ucfirst($page); // Capitalize the first letter
 		$data['page'] = 'editar/'.$page;
-		if($this->usuario_model->verificaUsuario()){
-			$data['perm'] = $this->usuario_model->get_permissoes();
-		}
+//		if($this->usuario_model->verificaUsuario()){
+//			$data['perm'] = $this->usuario_model->get_permissoes();
+//		}
 		if($this->session->flashdata('data')!==NULL){
 			foreach($this->session->flashdata('data') as $campo => $value){
 				$data[$campo] = $value;
