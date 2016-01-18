@@ -15,37 +15,11 @@ class Permissao_model extends MY_Model{
     /**
      * @var int <b>Chave Estrangeira</b> 
      */
-    public $idrestricao;
+    public $idurl;
     /**
      * @var bool 
      */
     public $permite;
-    
-    /**
-     * @deprecated since version 1.0
-     * @var int <b>Chave Estrangeira</b> 
-     */
-    public $idmenu;
-    /**
-     * @deprecated since version 1.0
-     * @var bool 
-     */
-    public $consultar;
-    /**
-     * @deprecated since version 1.0
-     * @var bool 
-     */
-    public $incluir;
-    /**
-     * @deprecated since version 1.0
-     * @var bool 
-     */
-    public $editar;
-    /**
-     * @deprecated since version 1.0
-     * @var bool 
-     */
-    public $excluir;
     
     public function __construct() {
         parent::__construct();
@@ -55,5 +29,29 @@ class Permissao_model extends MY_Model{
     public function Novo($campos){
         $this->setCampos($campos);
         return parent::inserir(FALSE);
+    }
+    
+    /**
+     * Retorna <b>TRUE</b> caso não seja encontrado o registro no banco, senão,
+     * retorna o valor booleano do campo no banco.
+     * 
+     * @param type $idnivel
+     * @param type $idurl
+     * @return boolean
+     */
+    public function has_permissao($idnivel = '',$idurl = ''){
+        if($idnivel==NULL){
+            $idnivel = $this->idnivel;
+        }
+        if($idurl==NULL){
+            $idurl = $this->idurl;
+        }
+        if($idnivel!=NULL&&$idurl!=NULL){
+            $this->selecionar('*', array('idnivel'=>$idnivel,'idurl'=>$idurl));
+            if($this->getNumRows()==1){
+                return $this->get_first_row()->permite;
+            }
+        }
+        return TRUE;
     }
 }
