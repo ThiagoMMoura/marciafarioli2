@@ -208,9 +208,11 @@ class MY_Model extends CI_Model{
     public function getObjectById($id){
         if($id!=NULL&&$id!=''){
             $this->db->where('id = '.$id);
-            $this->setCampos($this->db->get($this->dbtable)->first_row());
-            log_message('info','getObjectById SQL - '.$this->db->last_query());
-            return $this;
+            $this->setQuery($this->db->get($this->dbtable));
+            
+            if($this->getNumRows()==1){
+                return $this->get_first_row();
+            }
         }
         return NULL;
     }
@@ -244,6 +246,23 @@ class MY_Model extends CI_Model{
      */
     public function selecionar_distinto($coluna,$where = '',$order_by = '',$group_by = '',$having = ''){
         return $this->selecionar($coluna, $where, $order_by, $group_by, $having, TRUE);
+    }
+    
+    /**
+     * Retorna um objeto da primeira row da ultima query executada.
+     * @return \MY_Model
+     */
+    public function get_first_row(){
+        $this->setCampos(get_first_row_array());
+        return $this;
+    }
+    
+    /**
+     * Retorna um array da primeira linha da ultima query executada.
+     * @return array
+     */
+    public function get_first_row_array(){
+        return $this->query!=NULL?$this->query->row_array():array();
     }
 }
 
