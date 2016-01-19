@@ -9,13 +9,22 @@ if (!defined('BASEPATH')) {
  * @author Thiago Moura
  */
 class Menu_model extends MY_Model{
-    public $nome;       //String
-    public $descricao;  //String
-    public $url;        //String
+    /**
+     * @var string <b>Nome</b> do menu para exibição.
+     */
+    public $nome;
+    /**
+     * @var string Descrição da função do menu. 
+     */
+    public $descricao;
+    /**
+     *
+     * @var string Define uma <b>URL</b> interna ou externa ao sistema.
+     */
+    public $url;
     public $grupo;      //String Agrupamento dos menus
     public $tipo;       //String Tipos(Separador,Imagem,Menu,Item,Botao,Acao,Link)
     public $formato;    //String Formatos(Aba,Link,Botao,Dropdown)
-    public $permissao;  //String (consultar,incluir,editar,excluir)
     public $icone;      //String html, link, id midia
     public $nivel;      //INT
     public $ordem;      //INT
@@ -42,7 +51,13 @@ class Menu_model extends MY_Model{
         $campos['sistema'] = FALSE;
         return $this->Novo($campos);
     }
-
+    
+    /**
+     * Retorna <b>TRUE</b> se o menu possui itens de menu filhos.
+     * 
+     * @param int $id
+     * @return boolean
+     */
     public function hasItensMenu($id = NULL){
         $this->getItensMenu($id);
         return $this->getNumRows()>0;
@@ -68,6 +83,13 @@ class Menu_model extends MY_Model{
         return site_url($this->url);
     }
     
+    /**
+     * Retorna um <b>array</b> com todos os itens de menu filhos relacionados a id passada
+     * por parâmetro.
+     * 
+     * @param int $id
+     * @return array
+     */
     public function getItensMenu($id = NULL){
         if($id===NULL){
             $id = $this->getId();
