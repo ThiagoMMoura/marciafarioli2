@@ -59,10 +59,18 @@ class Menu_model extends MY_Model{
      * @return boolean
      */
     public function hasItensMenu($id = NULL){
-        $this->getItensMenu($id);
+        if($id==NULL){
+            $id = $this->getId();
+        }
+        $this->selecionar('*','idmenupai = ' . $id);
         return $this->getNumRows()>0;
     }
     
+    /**
+     * @deprecated since version 0.3
+     * @param type $idmenu
+     * @return boolean
+     */
     public function hasPermissao($idmenu=NULL){
         if($idmenu===NULL){
             $idmenu = $this->getId();
@@ -98,6 +106,11 @@ class Menu_model extends MY_Model{
         return $this->getResultados();
     }
     
+    /**
+     * @deprecated since version 0.3
+     * @param type $menu
+     * @return type
+     */
     public function getMenuHTML($menu = NULL){
         if($menu===NULL){
             $menu = $this;
@@ -124,15 +137,22 @@ class Menu_model extends MY_Model{
     }
     
     public function get_lista_tipos(){
-        return array('acao','botao','imagem','item','link','menu','separador');
+        return array('item','menu','posicao','secao');
     }
     
-    public function get_lista_formatos(){
-        return array('aba','botao','dropdown','input','link');
-    }
-    
-    public function get_lista_permissoes(){
-        return array('consultar','incluir','editar','excluir');
+    /**
+     * 
+     * @param string $tipo
+     * @return array
+     */
+    public function get_lista_formatos($tipo = ''){
+        switch($tipo){
+            case 'item': return array('button','divider','label','link');
+            case 'menu': return array('dropdown','link');
+            case 'posicao': return array('direita','esquerda');
+            case 'secao': return array('section');
+            default: return array('button','direita','divider','dropdown','esquerda','label','link','section');
+        }
     }
     
     /**
@@ -155,5 +175,33 @@ class Menu_model extends MY_Model{
         $where['sistema'] = $sistema;
         $result = $this->selecionar('grupo',$where);
         return isset($result[0])?$result[0]['ordem']:0;
+    }
+    
+    /**
+     * Retorna uma arvore de menus correspondente a pesquisa.
+     * 
+     * @param string $colunas
+     * @param mixed $where
+     * @param mixed $ordem_by
+     * @param string $indexador
+     * @return matriz
+     */
+    public function get_arvore_menus($colunas = '*', $where = '',$ordem_by = '',$indexador = ''){
+        
+        $menus = $this->selecionar($colunas, $where, $ordem_by);
+        
+        $arvore = array();
+        foreach($menus as $key => $menu){
+            if($this->hasItensMenu($menu['id'])){
+                $menu = array_merge($menu,$this->get_arvore_menus($colunas,'idmenupai = ' . $menu['id'],$ordem_by,$indexador));
+            }
+            if($indexador!=NULL){
+                $arvore[$menu[$indexador]] = $menu;
+            }else{
+                $arvore[$key] = $menu;
+            }
+        }
+        
+        return $arvore;
     }
 }
