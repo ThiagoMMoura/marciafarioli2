@@ -65,28 +65,90 @@ function alert_div($mensagem='',$tipo='info',$fechavel=TRUE){
 	return $alert;
 }
 
-function menu($data = array()){
+/**
+ * Retorna o HTML completo do menu ou menus passados por parâmetro.
+ * 
+ * @param   mixed   $data
+ * @param   string  $url
+ * @param   string  $tipo
+ * @param   string  $formato
+ * @param   string  $icone
+ * @return  string
+ */
+function menu($data,$url = '',$tipo = '', $formato = '',$icone = ''){
     $html = '';
+    $nome = '';
     if(is_array($data)){
-        foreach($data as $menu){
-            switch($menu['tipo']){
-                case 'link':
-                    $html .= anchor($menu['url'], $menu['nome']);
-                    break;
-                case 'separador':
-                    $html .= '<li class="divider"></li>';
-                    break;
-                case 'dropdown':
-                    if(isset($menu['itens'])){
-                        $html .= '<li class="has-dropdown">';
-                        $html .= anchor($menu['url'], $menu['nome']);
-                        $html .= '<ul class="dropdown">';
-                        $html .= menu($menu['itens']);
-                    }elseif ($menu['url']!=NULL) {
-                        $html .= anchor($menu['url'], $menu['nome']);
-                    }
-                    break;
+        if(isset($data['url'])){
+            $url = $data['url'];
+            unset($data['url']);
+        }
+        if(isset($data['tipo'])){
+            $tipo = $data['tipo'];
+            unset($data['tipo']);
+        }
+        if(isset($data['formato'])){
+            $formato = $data['formato'];
+            unset($data['formato']);
+        }
+        if(isset($data['icone'])){
+            $icone = $data['icone'];
+            unset($data['icone']);
+        }
+        if(isset($data['nome'])){
+            $nome = $data['nome'];
+            unset($data['nome']);
+        }
+        
+        if(empty($tipo) && !empty($data)){
+            foreach($data as $dt){
+                $html .= Top_bar($dt);
             }
         }
+    }else{
+        $nome = $data;
     }
+    
+    if($tipo == 'menu'){
+        if($formato == 'dropdown'){
+            $html .= '<li class="has-dropdown">' . anchor($url, $nome) . '<ul class="dropdown">';
+            foreach($data as $item){
+                $html .= Top_bar($item);
+            }
+            $html .= '</ul></li>';
+        }else{
+            $html .= achor($url,$nome);
+        }
+    }elseif($tipo == 'item'){
+        $html .= '<li';
+        switch($formato){
+            case 'button':
+                $html .= ' class="has-form"><a class="button" href="' . $url . '">' . $nome . '</a>';
+                break;
+            case 'divider':
+                $html .= ' class="divider">';
+            case 'label':
+                $html .= '><label>' . $nome . '</label>';
+                break;
+            case 'link':
+                $html .= '>' . anchor($url, $nome);
+            default: $html .= '>' . Top_bar($data);
+        }
+        $html .= '</li>';
+    }elseif($tipo == 'posicao'){
+        $html .= '<ul class="';
+        if($formato == 'direita'){
+            $html .= 'right';
+        }else{
+            $html .= 'left';
+        }
+        $html .= '">' . Top_bar($data) . '</ul>';
+    }elseif ($tipo == 'secao') {
+        $html .= '<section class="top-bar-section">';
+        $html .= Top_bar($data);
+        $html .= '</section>';
+    }
+    return $html;
 }
+//TIPO - secao(section),item(link, label, divider, button),menu(dropdown,link),posicao(direita,esquerda)
+//FORMATO - link, label, divider, button, direita, esquerda, dropdown, section
