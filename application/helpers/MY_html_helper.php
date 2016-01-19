@@ -51,13 +51,42 @@ function script_tag($src = '', $codigo = '', $type = 'text/javascript', $index_p
 	return $script.">".$codigo."</script>\n";
 }
 function alert_div($mensagem='',$tipo='info',$fechavel=TRUE){
-	if(is_array($mensagem)) return FALSE;
+	if(is_array($mensagem)) {
+            return FALSE;
+        }
 	$alert = '<div data-alert class="alert-box ';
 	$alert .= $tipo;
 	$alert .= '" >';
 	$alert .= $mensagem;
-	if($fechavel===TRUE)$alert .= '<a href="#" class="close">&times;</a>';
+	if($fechavel===TRUE){
+            $alert .= '<a href="#" class="close">&times;</a>';
+        }
 	$alert .= '</div>';
 	return $alert;
 }
-?>
+
+function menu($data = array()){
+    $html = '';
+    if(is_array($data)){
+        foreach($data as $menu){
+            switch($menu['tipo']){
+                case 'link':
+                    $html .= anchor($menu['url'], $menu['nome']);
+                    break;
+                case 'separador':
+                    $html .= '<li class="divider"></li>';
+                    break;
+                case 'dropdown':
+                    if(isset($menu['itens'])){
+                        $html .= '<li class="has-dropdown">';
+                        $html .= anchor($menu['url'], $menu['nome']);
+                        $html .= '<ul class="dropdown">';
+                        $html .= menu($menu['itens']);
+                    }elseif ($menu['url']!=NULL) {
+                        $html .= anchor($menu['url'], $menu['nome']);
+                    }
+                    break;
+            }
+        }
+    }
+}
