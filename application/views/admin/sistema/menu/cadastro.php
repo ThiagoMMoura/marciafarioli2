@@ -32,13 +32,6 @@ $field['formato'] = array(
     'selected' => set_value('formato',$formato)
 );
 
-$field['permissao'] = array(
-    'dropdown' => array('name'=>'permissao','placeholder'=>'Selecione uma permissao'),
-    'label' => 'Permissao',
-    'options' => $permissoes,
-    'selected' => set_value('permissao',$permissao)
-);
-
 $field['idmenupai'] = array(
     'dropdown' => array('name'=>'idmenupai','placeholder'=>'Selecione um menu para ser pai'),
     'label' => 'Menu Pai',
@@ -98,11 +91,6 @@ $field['idmenupai'] = array(
                     <?= get_form_field($field['formato']);?>
                 </div>
                 <div class="medium-6 columns">
-                    <?= get_form_field($field['permissao']);?>
-                </div>
-            </div>
-            <div class="row">
-                <div class="medium-12 columns">
                     <?= get_form_field($field['idmenupai']);?>
                 </div>
             </div>
