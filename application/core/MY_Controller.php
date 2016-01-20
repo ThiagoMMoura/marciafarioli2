@@ -63,6 +63,7 @@ class MY_Controller extends CI_Controller{
         $data = $this->_get_default_fields('default', $data);
         if(!isset($data['title'])){$data['title'] = ucfirst($page);} // Capitalize the first letter
         if(!isset($data['page'])){$data['page'] = $page;}
+        if(!isset($data['logged'])){$data['logged'] = $this->_logged();}
         
         $alerta = $this->session->flashdata('alerta');
         if ($alerta !== NULL) {
