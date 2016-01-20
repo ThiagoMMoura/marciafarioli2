@@ -74,5 +74,41 @@ class Usuario_model extends MY_Model {
         $nivel = $this->nivel_model->getObjectById($id);
         return $nivel->hierarquia;
     }
-
+    
+    /**
+     * Retorna um <b>array</b> de URLs que o usuário não tem permissão de acesso.
+     * 
+     * @param int $idnivel
+     * @return array
+     */
+    public function get_urls_restritas($idnivel = ''){
+        if($idnivel == NULL){
+            $idnivel = $this->idnivel;
+        }
+        $urls_restritas = array();
+        if($idnivel != NULL){
+            $urls = $this->url_model->selecionar('*','restricao = 1');
+            $permissoes = $this->permissao_model->selecionar('*','idnivel = ' . $this->session->idnivel . ' AND permite = 1');
+            
+            foreach ($urls as $url){
+                $add = TRUE;
+                foreach($permissoes as $permissao){
+                    if($url['id']==$permissao['idurl']){
+                        $add = FALSE;
+                        break;
+                    }
+                }
+                if($add){
+                    $urls_restritas[] = $url['url'];
+                }
+            }
+        }else{
+            $urls = $this->url_model->selecionar('url','restricao = 1');
+            foreach($urls as $url){
+                $urls_restritas[] = $url['url'];
+            }
+        }
+        
+        return $urls_restritas;
+    }
 }
