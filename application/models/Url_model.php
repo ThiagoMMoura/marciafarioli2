@@ -41,7 +41,7 @@ class Url_model extends MY_Model{
             $url = $this->url;
         }
         if($url!=NULL){
-            $this->selecionar('*','url = '. $url);
+            $this->selecionar('*',array('url' => $url));
             if($this->getNumRows()==1){
                 return $this->get_first_row();
             }
