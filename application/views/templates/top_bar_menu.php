@@ -1,3 +1,4 @@
+<?php $this->load->library('top_bar');?>
 <div class="fixed">
     <nav class="top-bar" data-topbar role="navigation">
         <ul class="title-area">
@@ -19,17 +20,21 @@
                     </div>
                 </li>
                 <li class="divider"></li>
-                <?php if($this->usuario_model->isLogado()){ ?>
+                <?php if($logged){ 
+                    $this->top_bar->usar_urls_restritas($this->usuario_model->get_urls_restritas($this->session-idnivel));
+                    ?>
                     <li class="has-dropdown">
                         <?=anchor('#','Olá, '.word_limiter($this->session->nome,1,'')); ?>
                         <ul class="dropdown">
                             <? $where = array('grupo'=>'Top Bar Menu Usuario','sistema'=>TRUE);
-                            $this->menu_model->selecionar('*',$where,'ordem ASC');
-                            $menus = $this->menu_model->getResultados();
+                            $arvore = $this->menu_model->get_arvore_menus('*',$where,'ordem ASC');
+                            $this->top_bar->criar($arvore);
+                            $this->top_bar->imprimir();
+                            /*$menus = $this->menu_model->getResultados();
                             foreach ($menus as $menu){
                                echo $menu->getMenuHTML();
                             }
-                            /*
+                            
                             <?=$perm->postar?'<li>'.anchor('','Novo Post').'</li>':''; ?>
                             <?=$perm->postar?'<li>'.anchor('admin/editar/album','Criar Portfolio').'</li>':''; ?>
                              */
@@ -39,25 +44,31 @@
                         </ul>
                     </li>
                     <? $where = array('grupo'=>'Top Bar Menu','sistema'=>TRUE);
-                    $this->menu_model->selecionar('*',$where,'ordem ASC');
-                    $menus = $this->menu_model->getResultados();
-                    foreach ($menus as $menu){
-                       echo '<li class="divider"></li>';
-                       echo $menu->getMenuHTML();
-                    }
+                    $arvore = $this->menu_model->get_arvore_menus('*',$where,'ordem ASC');
+                    $this->top_bar->criar($arvore);
+                    $this->top_bar->imprimir();
+//                    $this->menu_model->selecionar('*',$where,'ordem ASC');
+//                    $menus = $this->menu_model->getResultados();
+//                    foreach ($menus as $menu){
+//                       echo '<li class="divider"></li>';
+//                       echo $menu->getMenuHTML();
+//                    }
                     ?>
-		<?php }else{ ?>
-                    <? $where = array('grupo'=>'Top Bar Menu','sistema'=>FALSE);
-                    $this->menu_model->selecionar('*',$where,'ordem ASC');
-                    $menus = $this->menu_model->getResultados();
-                    $cont = 0;
-                    foreach ($menus as $menu){
-                       echo $cont > 0?'<li class="divider"></li>':'';
-                       echo $menu->getMenuHTML();
-                       $cont++;
-                    }
-                    ?>
-                <?php } ?>
+		<?php }else{
+                    $this->top_bar->usar_urls_restritas($this->usuario_model->get_urls_restritas());
+                    $where = array('grupo'=>'Top Bar Menu','sistema'=>FALSE);
+                    $arvore = $this->menu_model->get_arvore_menus('*',$where,'ordem ASC');
+                    $this->top_bar->criar($arvore);
+                    $this->top_bar->imprimir();
+//                    $this->menu_model->selecionar('*',$where,'ordem ASC');
+//                    $menus = $this->menu_model->getResultados();
+//                    $cont = 0;
+//                    foreach ($menus as $menu){
+//                       echo $cont > 0?'<li class="divider"></li>':'';
+//                       echo $menu->getMenuHTML();
+//                       $cont++;
+//                    }
+                } ?>
             </ul>
         </section>
     </nav>
