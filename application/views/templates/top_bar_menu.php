@@ -21,7 +21,7 @@
                 </li>
                 <li class="divider"></li>
                 <?php if($logged){ 
-                    $this->top_bar->usar_urls_restritas($this->usuario_model->get_urls_restritas($this->session-idnivel));
+                    $this->top_bar->usar_urls_restritas($urls_restritas);
                     ?>
                     <li class="has-dropdown">
                         <?=anchor('#','Olá, '.word_limiter($this->session->nome,1,'')); ?>
@@ -55,7 +55,7 @@
 //                    }
                     ?>
 		<?php }else{
-                    $this->top_bar->usar_urls_restritas($this->usuario_model->get_urls_restritas());
+                    $this->top_bar->usar_urls_restritas($urls_restritas);
                     $where = array('grupo'=>'Top Bar Menu','sistema'=>FALSE);
                     $arvore = $this->menu_model->get_arvore_menus('*',$where,'ordem ASC');
                     $this->top_bar->criar($arvore);

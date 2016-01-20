@@ -1,32 +1,33 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Usuario extends CI_Controller {
+class Usuario extends MY_Controller {
 	
     public function __construct(){
-        parent::__construct();
+        parent::__construct('usuario');
+        $this->set_top_bar_visible(FALSE);
     }
 
     public function index(){
-        $this->view();
+        $this->view('login');
     }
 
-    public function view($page = 'login',$data = array()){
-        if ( ! file_exists(APPPATH.'/views/usuario/'.$page.'.php')){
-            // Whoops, we don't have a page for that!
-            show_404();
-        }
-        $data['title'] = ucfirst($page); // Capitalize the first letter
-        $data['page'] = $page;
-
-        $alerta = $this->session->flashdata('alerta');
-        if ($alerta !== NULL) {
-            $data[separa_str($alerta, '_', FALSE)] = $this->lang->line($alerta);
-        }
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('usuario/'.$page,$data);
-        $this->load->view('templates/scripts',$data);
-    }
+//    public function view($page = 'login',$data = array()){
+//        if ( ! file_exists(APPPATH.'/views/usuario/'.$page.'.php')){
+//            // Whoops, we don't have a page for that!
+//            show_404();
+//        }
+//        $data['title'] = ucfirst($page); // Capitalize the first letter
+//        $data['page'] = $page;
+//
+//        $alerta = $this->session->flashdata('alerta');
+//        if ($alerta !== NULL) {
+//            $data[separa_str($alerta, '_', FALSE)] = $this->lang->line($alerta);
+//        }
+//
+//        $this->load->view('templates/header', $data);
+//        $this->load->view('usuario/'.$page,$data);
+//        $this->load->view('templates/scripts',$data);
+//    }
 
     public function entrar(){
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');

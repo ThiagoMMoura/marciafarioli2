@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 class Configure extends MY_Controller{
     public function __construct(){
-        parent::__construct('admin/sistema/configure/',TRUE);
+        parent::__construct('admin/sistema/configure/');
     }
     
     public function index(){

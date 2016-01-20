@@ -5,35 +5,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *
  * @author Thiago Moura
  */
-class Log extends CI_Controller{
+class Log extends MY_Controller{
     
     public function __construct(){
-        parent::__construct();
+        parent::__construct('admin/sistema/log');
         
         if($this->usuario_model->verificaUsuario()){
             $this->usuario_model->validarPermissaoDeAcesso('admin-sistema-log');
         }
     }
     
-    public function view($page = 'busca',$data = array()){
-	if ( ! file_exists(APPPATH.'/views/admin/sistema/log/'.$page.'.php')){
-            // Whoops, we don't have a page for that!
-            show_404();
-        }
-
-        $data['title'] = ucfirst($page); // Capitalize the first letter
-        $data['page'] = $page;
-        
-        $alerta = $this->session->flashdata('alerta');
-        if ($alerta !== NULL) {
-            $data[separa_str($alerta, '_', FALSE)] = $this->lang->line($alerta);
-        }
-        
-        $this->load->view('templates/header', $data);
-	$this->load->view('templates/top_bar_menu', $data);
-        $this->load->view('admin/sistema/log/'.$page, $data);
-        $this->load->view('templates/scripts',$data);
-    }
+//    public function view($page = 'busca',$data = array()){
+//	if ( ! file_exists(APPPATH.'/views/admin/sistema/log/'.$page.'.php')){
+//            // Whoops, we don't have a page for that!
+//            show_404();
+//        }
+//
+//        $data['title'] = ucfirst($page); // Capitalize the first letter
+//        $data['page'] = $page;
+//        
+//        $alerta = $this->session->flashdata('alerta');
+//        if ($alerta !== NULL) {
+//            $data[separa_str($alerta, '_', FALSE)] = $this->lang->line($alerta);
+//        }
+//        
+//        $this->load->view('templates/header', $data);
+//	$this->load->view('templates/top_bar_menu', $data);
+//        $this->load->view('admin/sistema/log/'.$page, $data);
+//        $this->load->view('templates/scripts',$data);
+//    }
     
     public function busca($data = array()){
         $this->load->helper('directory');

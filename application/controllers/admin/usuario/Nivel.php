@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Nivel extends MY_Controller{
     
     public function __construct(){
-        parent::__construct('admin/usuario/nivel/',TRUE);
+        parent::__construct('admin/usuario/nivel');
         $this->_set_campos_padrao();
     }
     

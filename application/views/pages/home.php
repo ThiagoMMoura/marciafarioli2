@@ -5,7 +5,7 @@ $this->load->view('templates/alertas');
 ?>
 <div class="row">
     <div class="small-12 small-centered columns">
-        <? if (isset($perm) && $perm->editarhome) {
+        <? if (array_search('admin-pagina-home-carrosel-editar', $urls_restritas)===FALSE) {
             echo '<small>' . anchor('admin/editar/carrosel', 'Editar') . '</small>';
         } ?>
         <div class="carrosel">

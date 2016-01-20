@@ -12,6 +12,9 @@ if (!defined('BASEPATH')) {
 class MY_Controller extends CI_Controller{
     protected $control_url;
     private $default_page_fields;
+    private $top_bar_visible;
+    private $redirect_page;
+    private $redirect_alert;
 
     /**
      * Contrutor da classe.
@@ -26,16 +29,24 @@ class MY_Controller extends CI_Controller{
         
         $this->_set_control_url($control_url);
         
+        $this->top_bar_visible = TRUE;
+        
+        if($alerta == NULL){
+            $this->redirect_alert = 'error_permissao';
+        }else{
+            $this->redirect_alert = $alerta;
+        }
+        
+        if($pagina == NULL){
+            $this->redirect_page = 'home';
+        }else{
+            $this->redirect_page = $pagina;
+        }
+        
         $url = ($this->_get_function_name()!=NULL ? $this->control_url . '/' . $this->_get_function_name() : $this->control_url);
         if(!$this->_has_access_permission($url)){
-            if($alerta == NULL){
-                $alerta = 'error_permissao';
-            }if($pagina == NULL){
-                $pagina = 'home';
-            }
-            
-            $this->session->set_flashdata('alerta', $alerta);
-            redirect($pagina);
+            $this->session->set_flashdata('alerta', $this->redirect_alert);
+            redirect($this->redirect_page);
         }
     }
     
@@ -64,6 +75,7 @@ class MY_Controller extends CI_Controller{
         if(!isset($data['title'])){$data['title'] = ucfirst($page);} // Capitalize the first letter
         if(!isset($data['page'])){$data['page'] = $page;}
         if(!isset($data['logged'])){$data['logged'] = $this->_logged();}
+        if(!isset($data['urls_restritas'])){$data['urls_restritas'] = $this->usuario_model->get_urls_restritas($this->session-idnivel);}
         
         $alerta = $this->session->flashdata('alerta');
         if ($alerta !== NULL) {
@@ -82,11 +94,19 @@ class MY_Controller extends CI_Controller{
     public function view($page,$data = array()){
 	
         $this->_view_exists($page);
+        
+        if($this->_has_access_permission($this->control_url . '/' . $page)){
+            $this->session->set_flashdata('alerta', $this->redirect_alert);
+            redirect($this->redirect_page);
+        }
+        
         $data = $this->_get_default_fields($page,$data);
         $data = $this->_pre_data_view($page, $data);
         
         $this->load->view('templates/header', $data);
-	$this->load->view('templates/top_bar_menu', $data);
+	if($this->top_bar_visible){
+            $this->load->view('templates/top_bar_menu', $data);
+        }
         $this->load->view($this->control_url.'/'.$page, $data);
         $this->load->view('templates/scripts',$data);
     }
@@ -189,4 +209,12 @@ class MY_Controller extends CI_Controller{
         return ($this->session->has_userdata('logado') && $this->session->logado);
     }
 
+    /**
+     * Seta o valor da variável $top_bar_visible
+     * 
+     * @param boolean $visible
+     */
+    protected function _set_top_bar_visible($visible){
+        $this->top_bar_visible = $visible;
+    }
 }
