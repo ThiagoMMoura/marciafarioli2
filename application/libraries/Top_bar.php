@@ -3,7 +3,7 @@
  * @package	Application
  * @author	Thiago Moura
  * @since	Version 1.0.0
- * @version     0.3.1
+ * @version     0.3.2
  * @filesource
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
@@ -84,19 +84,28 @@ class Top_bar {
         return $arvore;
     }
     
+    /**
+     * @version 0.3
+     * 
+     * @param array $data
+     * @param boolean $replace_menu_bar
+     * @return array
+     */
     private function _remove_unnecessary_fields($data = array(),$replace_menu_bar = TRUE){
         if(empty($data)){
             $data = $this->menu_bar;
         }
         $arvore = array();
-        foreach($data as $key => $value){
-            if($key=='nome' OR $key=='url' OR $key=='tipo' OR $key=='formato' OR $key=='icone'){
-                $arvore[$key] = $value;
-            }elseif (is_numeric($key)) {
-                if(is_array($value)){
-                    $subarvore = $this->_remove_unnecessary_fields($value,FALSE);
-                    if(!empty($subarvore)){
-                        $arvore[] = $subarvore;
+        if(!empty($data)){
+            foreach($data as $key => $value){
+                if($key=='nome' OR $key=='url' OR $key=='tipo' OR $key=='formato' OR $key=='icone'){
+                    $arvore[$key] = $value;
+                }elseif (is_numeric($key)) {
+                    if(is_array($value)){
+                        $subarvore = $this->_remove_unnecessary_fields($value,FALSE);
+                        if(!empty($subarvore)){
+                            $arvore[] = $subarvore;
+                        }
                     }
                 }
             }
