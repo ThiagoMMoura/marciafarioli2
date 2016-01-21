@@ -253,7 +253,7 @@ class MY_Model extends CI_Model{
      * @return \MY_Model
      */
     public function get_first_row(){
-        $this->setCampos(get_first_row_array());
+        $this->setCampos($this->get_first_row_array());
         return $this;
     }
     
