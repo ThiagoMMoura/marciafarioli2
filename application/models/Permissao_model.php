@@ -32,7 +32,7 @@ class Permissao_model extends MY_Model{
     }
     
     /**
-     * Retorna <b>TRUE</b> caso não seja encontrado o registro no banco, senão,
+     * Retorna <b>FALSE</b> caso não seja encontrado o registro no banco, senão,
      * retorna o valor booleano do campo no banco.
      * 
      * @param type $idnivel
@@ -52,6 +52,6 @@ class Permissao_model extends MY_Model{
                 return $this->get_first_row()->permite;
             }
         }
-        return TRUE;
+        return FALSE;
     }
 }
