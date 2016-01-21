@@ -75,7 +75,7 @@ class MY_Controller extends CI_Controller{
         if(!isset($data['title'])){$data['title'] = ucfirst($page);} // Capitalize the first letter
         if(!isset($data['page'])){$data['page'] = $page;}
         if(!isset($data['logged'])){$data['logged'] = $this->_logged();}
-        if(!isset($data['urls_restritas'])){$data['urls_restritas'] = $this->usuario_model->get_urls_restritas($this->session-idnivel);}
+        if(!isset($data['urls_restritas'])){$data['urls_restritas'] = $this->usuario_model->get_urls_restritas($this->session->idnivel);}
         
         $alerta = $this->session->flashdata('alerta');
         if ($alerta !== NULL) {
