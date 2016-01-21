@@ -68,8 +68,8 @@ $field['descricao'] = array(
                     </div>
                 </div>
             <?php }else{
-                $warning = 'Nenhuma url restrita encontrada!<br /><small>Cadastre URLs com restrição para editar as permissões aqui.</small>';
-                $this->load->view('templates/alertas'); 
+                $data['warning'] = 'Nenhuma url restrita encontrada!<br /><small>Cadastre URLs com restrição para editar as permissões aqui.</small>';
+                $this->load->view('templates/alertas',$data); 
             } ?>
             <div class="row">
                 <div class="medium-2 medium-centered columns">
