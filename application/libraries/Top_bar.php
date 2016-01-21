@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Top_bar {
     private $menu_bar;
     protected $CI;
-    private $html;
+    private $menu_html;
     private $restricted_urls;
 
 
@@ -48,10 +48,9 @@ class Top_bar {
             $data =  $this->_remove_restrict_urls($data);
         }
         
-        $this->CI->load->helper('html');
-        $this->html = $this->CI->html->menu($this->menu_bar);
+        $this->menu_html = $this->CI->menu($this->menu_bar);
         
-        return $this->html;
+        return $this->menu_html;
     }
     
     private function _remove_restrict_urls($data = array(),$replace_menu_bar = TRUE){
@@ -122,6 +121,6 @@ class Top_bar {
      * Imprime o html gerado pela classe.
      */
     public function imprimir(){
-        echo $this->html;
+        echo $this->menu_html;
     }
 }
