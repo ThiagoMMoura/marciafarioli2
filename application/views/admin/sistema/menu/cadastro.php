@@ -12,7 +12,9 @@ $field['descricao'] = array(
 );
 $field['url'] = array(
     'input' => array('name'=>'url','placeholder'=>'URL do menu','value'=>set_value('url',$url)),
-    'label' => 'URL'
+    'label' => 'URL',
+    'datalist' => 'urls',
+    'options' => $urls
 );
 $input['grupo'] = array('name'=>'grupo','id'=>'grupo','placeholder'=>'Selecione ou digite um novo Grupo','value'=>set_value('grupo',$grupo),'list'=>'grupos','required'=>'');
 $label['grupo'] = 'Grupo';

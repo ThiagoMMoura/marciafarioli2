@@ -110,9 +110,9 @@ class Menu  extends MY_Controller{
                 'icone' => '',
                 'nivel' => '',
                 'ordem' => '',
-                'idmenu' => '',
                 'idmenupai' => '',
                 'sistema' => '1',
+                'urls' => $this->_get_options_url(),
                 'grupos' => $this->_get_options_grupo(),
                 'tipos' => $this->_get_options_tipo(),
                 'formatos' => $this->_get_options_formato(),
@@ -145,5 +145,13 @@ class Menu  extends MY_Controller{
             $formatos[$formato] = ucfirst($formato);
         }
         return $formatos;
+    }
+    
+    private function _get_options_url(){
+        $urls = array();
+        foreach($this->usuario_model->get_urls_restritas() as $url){
+            $urls[$url] = $url;
+        }
+        return $urls;
     }
 }
