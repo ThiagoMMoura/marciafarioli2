@@ -102,7 +102,7 @@ function menu($data,$url = '',$tipo = '', $formato = '',$icone = ''){
         
         if(empty($tipo) && !empty($data)){
             foreach($data as $dt){
-                $html .= Top_bar($dt);
+                $html .= menu($dt);
             }
         }
     }else{
@@ -113,7 +113,7 @@ function menu($data,$url = '',$tipo = '', $formato = '',$icone = ''){
         if($formato == 'dropdown'){
             $html .= '<li class="has-dropdown">' . anchor($url, $nome) . '<ul class="dropdown">';
             foreach($data as $item){
-                $html .= Top_bar($item);
+                $html .= menu($item);
             }
             $html .= '</ul></li>';
         }else{
@@ -132,7 +132,7 @@ function menu($data,$url = '',$tipo = '', $formato = '',$icone = ''){
                 break;
             case 'link':
                 $html .= '>' . anchor($url, $nome);
-            default: $html .= '>' . Top_bar($data);
+            default: $html .= '>' . menu($data);
         }
         $html .= '</li>';
     }elseif($tipo == 'posicao'){
@@ -142,10 +142,10 @@ function menu($data,$url = '',$tipo = '', $formato = '',$icone = ''){
         }else{
             $html .= 'left';
         }
-        $html .= '">' . Top_bar($data) . '</ul>';
+        $html .= '">' . menu($data) . '</ul>';
     }elseif ($tipo == 'secao') {
         $html .= '<section class="top-bar-section">';
-        $html .= Top_bar($data);
+        $html .= menu($data);
         $html .= '</section>';
     }
     return $html;
