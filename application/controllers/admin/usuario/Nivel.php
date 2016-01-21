@@ -23,7 +23,7 @@ class Nivel extends MY_Controller{
             $query = $this->nivel_model->getQuery();
             $data = $query->row_array();
             $data['idnivel'] = $id;
-            $data['permissoes'] = $this->permissao_model->selecionar('*','idnivel = ' . $id,'idmenu ASC');
+            $data['permissoes'] = $this->permissao_model->selecionar('*','idnivel = ' . $id,'idurl ASC');
             return $this->view('cadastro',$data);
         }
         $this->index();
@@ -44,23 +44,19 @@ class Nivel extends MY_Controller{
             $this->nivel_model->hierarquia = $this->input->post('hierarquia');
             
             if($this->nivel_model->salvar(FALSE)){
-                foreach($this->input->post('idmenu') as $id){
+                foreach($this->input->post('idurl') as $id){
                     $this->permissao_model = new Permissao_model();
                     $this->permissao_model->setId($this->input->post('idpermissao'.$id));
                     $this->permissao_model->idnivel     = $this->nivel_model->getId();
-                    $this->permissao_model->idmenu      = $id;
-                    $this->permissao_model->consultar   = (string) $this->input->post('consultar'.$id);
-                    $this->permissao_model->incluir     = (string) $this->input->post('incluir'.$id);
-                    $this->permissao_model->editar      = (string) $this->input->post('editar'.$id);
-                    $this->permissao_model->excluir     = (string) $this->input->post('excluir'.$id);
+                    $this->permissao_model->idurl      = $id;
+                    $this->permissao_model->permite   = (string) $this->input->post('permite'.$id);
                     
-                    if(($this->permissao_model->consultar OR $this->permissao_model->incluir OR
-                            $this->permissao_model->editar OR $this->permissao_model->excluir) OR  $this->permissao_model->getId()!=NULL){
+                    if($this->permissao_model->permite OR  $this->permissao_model->getId()!=NULL){
                         $this->permissao_model->salvar(FALSE);
                     }
                 }
                 $this->session->set_flashdata('alerta', 'success_save');
-                redirect('admin/usuario/nivel/editar/'.$this->nivel_model->getId());
+                redirect($this->control_url . '/editar/'.$this->nivel_model->getId());
             }else{
                 $this->session->set_flashdata('alerta', 'error_save');
                 $this->view('cadastro');
@@ -76,7 +72,7 @@ class Nivel extends MY_Controller{
                 'descricao' => '',
                 'hierarquia' => '',
                 'hierarquia_min' => $this->usuario_model->get_hierarquia() + 1,
-                'menus' => $this->menu_model->selecionar('id,nome,grupo', 'sistema = 1', 'grupo ASC, nome ASC'),
+                'urls' => $this->url_model->selecionar('*', 'restricao = 1', 'nome ASC'),
                 'permissoes' => array()
             ),
             'busca' => array(

@@ -33,45 +33,44 @@ $field['descricao'] = array(
                     <?= get_form_field($field['descricao']);?>
                 </div>
             </div>
-        <div class="row">
-            <div class="medium-12 column">
-                
-                <table>
-                    <thead>
-                        <tr class="text-center">
-                            <th>Grupo</th>
-                            <th>Menu</th>
-                            <th>Consultar</th>
-                            <th>Incluir</th>
-                            <th>Editar</th>
-                            <th>Excluir</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach($menus as $row){?>
-                            <tr>
-                                <?php $perm = array('id'=>'','consultar'=>FALSE,'incluir'=>FALSE,'editar'=>FALSE,'excluir'=>FALSE); //Valores Padrão
+            <?php if(!empty($urls)){ ?>
+                <div class="row">
+                    <div class="medium-12 column">
+                        <table>
+                            <thead>
+                                <tr class="text-center">
+                                    <th>Nome</th>
+                                    <th>Descrição</th>
+                                    <th>URL</th>
+                                    <th>Permissão</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach($urls as $row){?>
+                                    <tr>
+                                        <?php $perm = array('id'=>'','permite'=>FALSE); //Valores Padrão
 
-                                foreach($permissoes as $permissao){
-                                    if($permissao['idmenu']==$row['id']){
-                                        $perm = $permissao;
-                                    }
-                                }?>
-                                <?= form_hidden('idpermissao'.$row['id'], $perm['id']);?>
-                                <?= form_hidden('idmenu[]', $row['id'])?>
-                                <td><?= $row['grupo'];?></td>
-                                <td><?= $row['nome'];?></td>
-                                <td><?= form_hidden('consultar'.$row['id'],0) . form_checkbox(array('name'=>'consultar'.$row['id'],'checked'=>$perm['consultar'],'value'=>1));?></td>
-                                <td><?= form_hidden('incluir'.$row['id'],0)   . form_checkbox(array('name'=>'incluir'.$row['id'],'checked'=>$perm['incluir'],'value'=>1));?></td>
-                                <td><?= form_hidden('editar'.$row['id'],0)    . form_checkbox(array('name'=>'editar'.$row['id'],'checked'=>$perm['editar'],'value'=>1));?></td>
-                                <td><?= form_hidden('excluir'.$row['id'],0)   . form_checkbox(array('name'=>'excluir'.$row['id'],'checked'=>$perm['excluir'],'value'=>1));?></td>
-                            </tr>
-                        <?php } ?>
-                    </tbody>
-                </table>
-                
-            </div>
-        </div>
+                                        foreach($permissoes as $permissao){
+                                            if($permissao['idurl']==$row['id']){
+                                                $perm = $permissao;
+                                            }
+                                        }?>
+                                        <?= form_hidden('idpermissao'.$row['id'], $perm['id']);?>
+                                        <?= form_hidden('idurl[]', $row['id'])?>
+                                        <td><?= $row['nome'];?></td>
+                                        <td><?= $row['descricao'];?></td>
+                                        <td><?= $row['url'];?></td>
+                                        <td><?= form_hidden('permite'.$row['id'],0) . form_checkbox(array('name'=>'permite'.$row['id'],'checked'=>$perm['permite'],'value'=>1));?></td>
+                                    </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            <?php }else{
+                $warning = 'Nenhuma url restrita encontrada!<br /><small>Cadastre URLs com restrição para editar as permissões aqui.</small>';
+                $this->load->view('templates/alertas'); 
+            } ?>
             <div class="row">
                 <div class="medium-2 medium-centered columns">
                     <?= form_submit('salvar', 'Salvar', 'class="button expand"'); ?>
