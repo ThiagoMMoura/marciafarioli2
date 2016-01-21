@@ -4,7 +4,7 @@ class Usuario extends MY_Controller {
 	
     public function __construct(){
         parent::__construct('usuario');
-        $this->set_top_bar_visible(FALSE);
+        $this->_set_top_bar_visible(FALSE);
     }
 
     public function index(){
