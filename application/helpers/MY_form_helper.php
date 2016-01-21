@@ -81,7 +81,7 @@ function form_datalist($data = '', $options = array(),$selected = '',$extra = ''
     }
     else
     {
-            $defaults = array('name' => $data);
+            $defaults = array('name' => $data,'id' => $data);
     }
     
     is_array($selected) OR $selected = array($selected);
