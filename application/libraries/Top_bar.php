@@ -48,6 +48,7 @@ class Top_bar {
             $data =  $this->_remove_restrict_urls($data);
         }
         
+        $this->CI->load->helper('html');
         $this->html = $this->CI->html->menu($this->menu_bar);
         
         return $this->html;
