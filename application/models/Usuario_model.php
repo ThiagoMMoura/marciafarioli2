@@ -88,7 +88,7 @@ class Usuario_model extends MY_Model {
         $urls_restritas = array();
         if($idnivel != NULL){
             $urls = $this->url_model->selecionar('*','restricao = 1');
-            $permissoes = $this->permissao_model->selecionar('*','idnivel = ' . $this->session->idnivel . ' AND permite = 1');
+            $permissoes = $this->permissao_model->selecionar('*','idnivel = ' . $idnivel . ' AND permite = 1');
             
             foreach ($urls as $url){
                 $add = TRUE;
