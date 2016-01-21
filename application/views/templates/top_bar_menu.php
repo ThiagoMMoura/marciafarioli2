@@ -1,4 +1,3 @@
-<?php $this->load->library('top_bar');?>
 <div class="fixed">
     <nav class="top-bar" data-topbar role="navigation">
         <ul class="title-area">
@@ -26,7 +25,7 @@
                     <li class="has-dropdown">
                         <?=anchor('#','Olá, '.word_limiter($this->session->nome,1,'')); ?>
                         <ul class="dropdown">
-                            <? $where = array('grupo'=>'Top Bar Menu Usuario','sistema'=>TRUE);
+                            <? $where = array('grupo'=>'top bar menu usuario','sistema'=>TRUE);
                             $arvore = $this->menu_model->get_arvore_menus('*',$where,'ordem ASC');
                             $this->top_bar->criar($arvore);
                             $this->top_bar->imprimir();
@@ -43,7 +42,7 @@
                             <li><?php echo anchor('usuario/sair','Sair'); ?></li>
                         </ul>
                     </li>
-                    <? $where = array('grupo'=>'Top Bar Menu','sistema'=>TRUE);
+                    <? $where = array('grupo'=>'top bar menu','sistema'=>TRUE);
                     $arvore = $this->menu_model->get_arvore_menus('*',$where,'ordem ASC');
                     $this->top_bar->criar($arvore);
                     $this->top_bar->imprimir();
@@ -56,7 +55,7 @@
                     ?>
 		<?php }else{
                     $this->top_bar->usar_urls_restritas($urls_restritas);
-                    $where = array('grupo'=>'Top Bar Menu','sistema'=>FALSE);
+                    $where = array('grupo'=>'top bar menu','sistema'=>FALSE);
                     $arvore = $this->menu_model->get_arvore_menus('*',$where,'ordem ASC');
                     $this->top_bar->criar($arvore);
                     $this->top_bar->imprimir();
