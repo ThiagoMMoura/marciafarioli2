@@ -132,6 +132,7 @@ function menu($data,$url = '',$tipo = '', $formato = '',$icone = ''){
                 break;
             case 'link':
                 $html .= '>' . anchor($url, $nome);
+                break;
             default: $html .= '>' . menu($data);
         }
         $html .= '</li>';
