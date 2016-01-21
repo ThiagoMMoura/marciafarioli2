@@ -57,6 +57,7 @@
                     $this->top_bar->usar_urls_restritas($urls_restritas);
                     $where = array('grupo'=>'top bar menu','sistema'=>FALSE);
                     $arvore = $this->menu_model->get_arvore_menus('*',$where,'ordem ASC');
+                    log_message('debug', 'Dump $arvore ' . print_r($arvore,TRUE));
                     $this->top_bar->criar($arvore);
                     $this->top_bar->imprimir();
 //                    $this->menu_model->selecionar('*',$where,'ordem ASC');
