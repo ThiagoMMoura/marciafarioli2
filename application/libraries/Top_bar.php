@@ -16,14 +16,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 class Top_bar {
     private $menu_bar;
-    protected $CI;
     private $menu_html;
     private $restricted_urls;
 
 
     public function __construct($menu_bar = array()) {
         $this->_remove_unnecessary_fields($menu_bar);
-        $this->CI =& get_instance();
         $this->restricted_urls = NULL;
     }
     
@@ -48,7 +46,7 @@ class Top_bar {
             $data =  $this->_remove_restrict_urls($data);
         }
         
-        $this->menu_html = $this->CI->menu($this->menu_bar);
+        $this->menu_html = menu($this->menu_bar);
         
         return $this->menu_html;
     }
