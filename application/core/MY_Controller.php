@@ -95,7 +95,7 @@ class MY_Controller extends CI_Controller{
 	
         $this->_view_exists($page);
         
-        if($this->_has_access_permission($this->control_url . '/' . $page)){
+        if(!$this->_has_access_permission($this->control_url . '/' . $page)){
             $this->session->set_flashdata('alerta', $this->redirect_alert);
             redirect($this->redirect_page);
         }
