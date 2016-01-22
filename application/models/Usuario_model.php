@@ -81,7 +81,7 @@ class Usuario_model extends MY_Model {
             $id = $this->session->idnivel;
         }
         $nivel = $this->nivel_model->getObjectById($id);
-        return $nivel->hierarquia;
+        return $nivel!=NULL ? $nivel->hierarquia : 0;
     }
     
     /**
