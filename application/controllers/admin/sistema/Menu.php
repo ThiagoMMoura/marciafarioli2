@@ -8,7 +8,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Menu  extends MY_Controller{
     
     public function __construct(){
-        parent::__construct('admin/sistema/menu');
+        $config['control_url'] = 'admin/sistema/menu';
+        $config['login_required'] = TRUE;
+        
+        parent::__construct($config);
+        
         $this->_set_campos_padrao();
     }
     
@@ -18,7 +22,9 @@ class Menu  extends MY_Controller{
     
     public function busca($data = array()){
         
-        $data['menus'] = $this->menu_model->selecionar('*','sistema = 1','grupo ASC, ordem ASC');
+        if(!isset($data['menus'])){
+            $data['menus'] = $this->menu_model->selecionar('*','sistema = 1','grupo ASC, ordem ASC');
+        }
         
         $this->view('busca',$data);
     }
