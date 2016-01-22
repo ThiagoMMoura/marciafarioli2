@@ -36,13 +36,9 @@ class Usuario extends MY_Controller {
         if ($this->form_validation->run() == FALSE) {
             $this->view('login');
         } else {
-            if($this->usuario_model->valida()){
-                $userdata['id']           = $this->usuario_model->getId();
-                $userdata['nome']         = $this->usuario_model->nome;
-                $userdata['email']        = $this->usuario_model->email;
-                $userdata['idfotoperfil'] = $this->usuario_model->idfotoperfil;
-                $userdata['idnivel']      = $this->usuario_model->idnivel;
-                $userdata['logado']       = TRUE;
+            if($this->usuario_model->is_valid_user()){
+                $userdata = $this->usuario_model->get_first_row_array();
+                $userdata['logado'] = TRUE;
 
                 $this->session->set_userdata($userdata);
                 redirect('home');
@@ -54,8 +50,11 @@ class Usuario extends MY_Controller {
     }
 
     public function sair(){
-        $userdata = array('id','nome','email','idfotoperfil','idnivel','logado','permissoes');
+        $userdata = $this->usuario_model->get_list_fields();
+        
         $this->session->set_userdata('logado', FALSE);
+        $this->session->unset_userdata('logado');
+        
         $this->session->unset_userdata($userdata);
         redirect('login');
     }
