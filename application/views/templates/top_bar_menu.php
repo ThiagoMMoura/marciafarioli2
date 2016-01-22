@@ -23,35 +23,23 @@
                     $this->top_bar->usar_urls_restritas($urls_restritas);
                     ?>
                     <li class="has-dropdown">
-                        <?=anchor('#','Olá, '.word_limiter($this->session->nome,1,'')); ?>
+                        <?= anchor('#','Olá, ' . word_limiter($this->session->nome,1,'')); ?>
                         <ul class="dropdown">
-                            <? $where = array('grupo'=>'top bar menu usuario','sistema'=>TRUE);
+                            <?php 
+                            $where = array('grupo'=>'top bar menu usuario','sistema'=>TRUE);
                             $arvore = $this->menu_model->get_arvore_menus('*',$where,'ordem ASC');
                             $this->top_bar->criar($arvore);
                             $this->top_bar->imprimir();
-                            /*$menus = $this->menu_model->getResultados();
-                            foreach ($menus as $menu){
-                               echo $menu->getMenuHTML();
-                            }
-                            
-                            <?=$perm->postar?'<li>'.anchor('','Novo Post').'</li>':''; ?>
-                            <?=$perm->postar?'<li>'.anchor('admin/editar/album','Criar Portfolio').'</li>':''; ?>
-                             */
                             ?>
                             <li class="divider"></li>
                             <li><?php echo anchor('usuario/sair','Sair'); ?></li>
                         </ul>
                     </li>
-                    <? $where = array('grupo'=>'top bar menu','sistema'=>TRUE);
+                    <?php 
+                    $where = array('grupo'=>'top bar menu','sistema'=>TRUE);
                     $arvore = $this->menu_model->get_arvore_menus('*',$where,'ordem ASC');
                     $this->top_bar->criar($arvore);
                     $this->top_bar->imprimir();
-//                    $this->menu_model->selecionar('*',$where,'ordem ASC');
-//                    $menus = $this->menu_model->getResultados();
-//                    foreach ($menus as $menu){
-//                       echo '<li class="divider"></li>';
-//                       echo $menu->getMenuHTML();
-//                    }
                     ?>
 		<?php }else{
                     $this->top_bar->usar_urls_restritas($urls_restritas);
@@ -60,14 +48,6 @@
                     log_message('debug', 'Dump $arvore ' . print_r($arvore,TRUE));
                     $this->top_bar->criar($arvore);
                     $this->top_bar->imprimir();
-//                    $this->menu_model->selecionar('*',$where,'ordem ASC');
-//                    $menus = $this->menu_model->getResultados();
-//                    $cont = 0;
-//                    foreach ($menus as $menu){
-//                       echo $cont > 0?'<li class="divider"></li>':'';
-//                       echo $menu->getMenuHTML();
-//                       $cont++;
-//                    }
                 } ?>
             </ul>
         </section>
