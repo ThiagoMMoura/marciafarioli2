@@ -10,37 +10,48 @@ if (!defined('BASEPATH')) {
  * @author Thiago Moura
  */
 class MY_Controller extends CI_Controller{
-    protected $control_url;
-    private $default_page_fields;
-    private $top_bar_visible;
-    private $redirect_page;
-    private $redirect_alert;
+    /**
+     * @var string 
+     */
+    protected $control_url = '';
+    /**
+     * @var array 
+     */
+    private $default_page_fields = array();
+    /**
+     * @var boolean 
+     */
+    private $top_bar_visible = TRUE;
+    /**
+     * @var string 
+     */
+    private $redirect_page = 'home';
+    /**
+     * @var string 
+     */
+    private $redirect_alert = 'error_permissao';
+    /**
+     * @var boolean 
+     */
+    private $login_required = FALSE;
 
     /**
      * Contrutor da classe.
      * 
-     * @param string $control_url <b>URL</b> do controle.
-     * @param string $alerta <b>Id</b> do alerta em caso de falta de permissão.
-     * @param string $pagina Página de redirecionamento automático em caso de falta
-     * de permissão.
+     * @param mixed $config <b>URL</b> do controle, ou array de configurações.
      */
-    public function __construct($control_url = '',$alerta = '',$pagina = '') {
+    public function __construct($config = '') {
         parent::__construct();
         
-        $this->_set_control_url($control_url);
-        
-        $this->top_bar_visible = TRUE;
-        
-        if($alerta == NULL){
-            $this->redirect_alert = 'error_permissao';
-        }else{
-            $this->redirect_alert = $alerta;
+        if(!is_array($config)){
+            $config = array('control_url' => $config);
         }
         
-        if($pagina == NULL){
-            $this->redirect_page = 'home';
-        }else{
-            $this->redirect_page = $pagina;
+        empty($config) OR $this->_initialize($config, FALSE);
+        
+        if($this->login_required && !$this->_logged()){
+            $this->session->set_flashdata('alerta', 'error_login_required');
+            redirect('login');
         }
         
         $url = ($this->_get_function_name()!=NULL ? $this->control_url . '/' . $this->_get_function_name() : $this->control_url);
@@ -50,6 +61,68 @@ class MY_Controller extends CI_Controller{
         }
     }
     
+    /**
+     * 
+     * @param array $config
+     * @param boolean $reset
+     */
+    protected function _initialize(array $config = [], $reset = TRUE){
+        $reflection = new ReflectionClass('MY_Controller');
+
+        if ($reset === TRUE)
+        {
+            $defaults = $reflection->getDefaultProperties();
+            foreach (array_keys($defaults) as $key)
+            {
+                if ($key[0] === '_')
+                {
+                    continue;
+                }
+
+                if (isset($config[$key]))
+                {
+                    if ($reflection->hasMethod('set_'.$key))
+                    {
+                        $this->{'set_'.$key}($config[$key]);
+                    }
+                    elseif ($reflection->hasMethod('_set_'.$key))
+                    {
+                        $this->{'_set_'.$key}($config[$key]);
+                    }
+                    else
+                    {
+                        $this->$key = $config[$key];
+                    }
+                }
+                else
+                {
+                    $this->$key = $defaults[$key];
+                }
+            }
+        }
+        else
+        {
+            foreach ($config as $key => &$value)
+            {
+                if ($key[0] !== '_' && $reflection->hasProperty($key))
+                {
+                    if ($reflection->hasMethod('set_'.$key))
+                    {
+                        $this->{'set_'.$key}($value);
+                    }
+                    elseif ($reflection->hasMethod('_set_'.$key))
+                    {
+                        $this->{'_set_'.$key}($config[$key]);
+                    }
+                    else
+                    {
+                        $this->$key = $value;
+                    }
+                }
+            }
+        }
+    }
+
     /**
      * Função que verfica se a view existe e retorna erro 404 caso não exista.
      * 
