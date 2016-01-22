@@ -67,18 +67,33 @@ class MY_Model extends CI_Model{
         }
     }
 
-    public function getCampos(){
+    /**
+     * Retorna um array dos campos e seus respectivos valores.
+     * 
+     * @return array
+     */
+    public function get_fields_array(){
         $cmp = array();
-        if ($this->dbcolunas == NULL) {
-            $this->dbcolunas = $this->db->list_fields($this->dbtable);
-        }
-        foreach($this->dbcolunas as $coluna){
+
+        foreach($this->get_list_fields() as $coluna){
             if($this->{$coluna}!=NULL OR $this->{$coluna}==0){
                 log_message('debug',$coluna . ' = '.$this->{$coluna});
                 $cmp[$coluna] = $this->{$coluna};
             }
         }
         return $cmp;
+    }
+    
+    /**
+     * Retorna um array com o nome das colunas da tabela.
+     * 
+     * @return array
+     */
+    public function get_list_fields(){
+        if ($this->dbcolunas == NULL) {
+            $this->dbcolunas = $this->db->list_fields($this->dbtable);
+        }
+        return $this->dbcolunas;
     }
 
     public function limpaCampos(){
@@ -109,7 +124,7 @@ class MY_Model extends CI_Model{
         if($post){
             $this->PostVariaveis();
         }
-        if($this->db->insert($this->dbtable,$this->getCampos())){
+        if($this->db->insert($this->dbtable,$this->get_fields_array())){
             $this->id = $this->db->insert_id();
             log_message('info','inserir SQL - '.$this->db->last_query());
             return TRUE;
@@ -142,7 +157,7 @@ class MY_Model extends CI_Model{
         if($post){
             $this->PostVariaveis();
         }
-        if($this->db->update($this->dbtable, $this->getCampos(), array('id' => $this->id))){
+        if($this->db->update($this->dbtable, $this->get_fields_array(), array('id' => $this->id))){
             log_message('info','alterar SQL - '.$this->db->last_query());
             return TRUE;
         }else{
@@ -212,6 +227,24 @@ class MY_Model extends CI_Model{
             
             if($this->getNumRows()==1){
                 return $this->get_first_row();
+            }
+        }
+        return NULL;
+    }
+    
+    /**
+     * Retorna um array de um registro relacionado com a id passado por parâmetro, ou
+     * <b>NULL</b> se nenhum registro for encontrado.
+     * 
+     * @param integer $id
+     * @return array
+     */
+    public function get_array_by_id($id){
+        if($id!=NULL&&$id!=''){
+            $this->selecionar('*','id = ' . $id);
+            
+            if($this->getNumRows()==1){
+                return $this->get_first_row_array();
             }
         }
         return NULL;
