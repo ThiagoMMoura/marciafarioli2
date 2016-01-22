@@ -8,11 +8,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Log extends MY_Controller{
     
     public function __construct(){
-        parent::__construct('admin/sistema/log');
+        $config['control_url'] = 'admin/sistema/log';
+        $config['login_required'] = TRUE;
         
-        if($this->usuario_model->verificaUsuario()){
-            $this->usuario_model->validarPermissaoDeAcesso('admin-sistema-log');
-        }
+        parent::__construct($config);
     }
     
 //    public function view($page = 'busca',$data = array()){

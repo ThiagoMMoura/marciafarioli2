@@ -8,7 +8,11 @@
 class Url extends MY_Controller{
     
     public function __construct(){
-        parent::__construct('admin/usuario/nivel');
+        $config['control_url'] = 'admin/usuario/nivel';
+        $config['login_required'] = TRUE;
+        
+        parent::__construct($config);
+        
         $this->_set_campos_padrao();
     }
     
