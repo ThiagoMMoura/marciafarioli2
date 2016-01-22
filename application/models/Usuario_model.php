@@ -34,8 +34,15 @@ class Usuario_model extends MY_Model {
         $this->dbtable = 'usuario';
         $this->idnivel = $this->config->item('nivelusuariopadrao');
     }
-
-    public function valida($post = TRUE) {
+    
+    /**
+     * Retorna <b>TRUE</b> se o email e senha do usuário são validos. FALSE caso
+     * contrário.
+     * 
+     * @param boolean $post
+     * @return boolean
+     */
+    public function is_valid_user($post = TRUE) {
         $where = array();
         if ($post) {
             $where = array('email' => $this->input->post('email'), 'senha' => $this->input->post('senha'));
@@ -44,7 +51,9 @@ class Usuario_model extends MY_Model {
         }
         
         $this->selecionar('*', $where);
-
+        
+        $this->setCampos($this->get_first_row_array());
+        
         return ($this->getNumRows() === 1);
     }
     
