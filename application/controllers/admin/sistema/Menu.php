@@ -13,29 +13,8 @@ class Menu  extends MY_Controller{
     }
     
     public function index(){
-        $this->view('busca');
+        $this->busca();
     }
-    
-//    public function view($page = 'busca',$data = array()){
-//	if ( ! file_exists(APPPATH.'/views/admin/sistema/menu/'.$page.'.php')){
-//            // Whoops, we don't have a page for that!
-//            show_404();
-//        }
-//
-//        $data['title'] = ucfirst($page); // Capitalize the first letter
-//        $data['page'] = $page;
-//        
-//        $alerta = $this->session->flashdata('alerta');
-//        if ($alerta !== NULL) {
-//            $data[separa_str($alerta, '_', FALSE)] = $this->lang->line($alerta);
-//        }
-//        
-//        $data = $this->_variaveis_padrao($page, $data);
-//        $this->load->view('templates/header', $data);
-//	$this->load->view('templates/top_bar_menu', $data);
-//        $this->load->view('admin/sistema/menu/'.$page, $data);
-//        $this->load->view('templates/scripts',$data);
-//    }
     
     public function busca($data = array()){
         
@@ -51,9 +30,7 @@ class Menu  extends MY_Controller{
     public function editar($id = NULL){
         $data = array();
         if($id!==NULL){
-            $this->menu_model->selecionar('*','id =' . $id);
-            $query = $this->menu_model->getQuery();
-            $data = $query->row_array();
+            $data = $this->menu_model->get_array_by_id($id);
             $data['idmenu'] = $id;
             return $this->cadastro($data);
         }
@@ -93,7 +70,7 @@ class Menu  extends MY_Controller{
                 redirect('admin/sistema/menu/editar/'.$this->menu_model->getId());
             }
             $this->session->set_flashdata('alerta', 'error_save');
-            $this->cadastro($this->menu_model->getCampos());
+            $this->cadastro($this->menu_model->get_fields_array());
         }
     }
     
@@ -117,6 +94,9 @@ class Menu  extends MY_Controller{
                 'tipos' => $this->_get_options_tipo(),
                 'formatos' => $this->_get_options_formato(),
                 'menus' => array_merge(array(0=>'Nenhum'),$this->menu_model->getOptionsArray('nome','sistema = 1','nome ASC'))
+                ),
+            'busca' => array(
+                'menus' => $this->menu_model->selecionar('*','sistema = 1','grupo ASC, ordem ASC')
                 )
             );
             
