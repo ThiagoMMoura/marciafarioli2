@@ -161,6 +161,10 @@ function get_form_field($data = '',$label = '',$extra = '',$datalist = '',$optio
             $label = $data['label'];
             unset($data['label']);
         }
+        if(isset($data['extra'])){
+            $extra = $data['extra'];
+            unset($data['extra']);
+        }
         if(isset($data['datalist'])){
             $datalist = $data['datalist'];
             unset($data['datalist']);
