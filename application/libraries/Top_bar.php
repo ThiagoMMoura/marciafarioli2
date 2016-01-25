@@ -57,7 +57,7 @@ class Top_bar {
         }
         
         $arvore = array();
-        if(isset($data['url'])){
+        if(array_key_exists('url', $data)){
             $arvore = $data;
             foreach($this->restricted_urls as $url){
                 if($data['url']==$url){
