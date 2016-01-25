@@ -238,7 +238,7 @@ class MY_Controller extends CI_Controller{
      * 
      * @param string $url <b>URL</b> do controle.
      */
-    private function _set_control_url($url = ''){
+    protected function _set_control_url($url = ''){
         if(substr($url,-1)=='/'){
             $url = substr($url,0,-1);
         }
