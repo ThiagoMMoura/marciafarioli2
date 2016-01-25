@@ -36,7 +36,7 @@ $field['restricao'] = array(
             </div>
             <div class="row">
                 <div class="medium-12 columns">
-                    <?= get_form_field($field['urç']);?>
+                    <?= get_form_field($field['url']);?>
                 </div>
             </div>
             <div class="row">
