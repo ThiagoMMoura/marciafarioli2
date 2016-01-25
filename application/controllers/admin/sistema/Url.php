@@ -8,7 +8,7 @@
 class Url extends MY_Controller{
     
     public function __construct(){
-        $config['control_url'] = 'admin/usuario/nivel';
+        $config['control_url'] = 'admin/sistema/url';
         $config['login_required'] = TRUE;
         
         parent::__construct($config);
@@ -44,7 +44,8 @@ class Url extends MY_Controller{
                 'id' => '',
                 'nome' => '',
                 'descricao' => '',
-                'url' => ''
+                'url' => '',
+                'restricao' => FALSE
             ),
             'busca' => array(
                 'urls' => $this->url_model->selecionar('*', NULL, 'nome ASC')
