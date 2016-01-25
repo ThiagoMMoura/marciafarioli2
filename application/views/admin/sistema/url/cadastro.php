@@ -3,7 +3,7 @@
 $hidden['id'] = set_value('id',$id);
 $field['nome'] = array(
     'input' => array('name'=>'nome','placeholder'=>'Nome para identificar a URL','value'=>set_value('nome',$nome),'required'=>''),
-    'label' => 'Nome Nível'
+    'label' => 'Nome URL'
 );
 $field['descricao'] = array(
     'textarea' => array('name'=>'descricao','placeholder'=>'Descreva a função da URL...','value'=>set_value('descricao',$descricao),'rows'=>4,'cols'=>300),
