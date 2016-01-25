@@ -49,6 +49,7 @@ class Log extends MY_Controller{
             }
         }
         
+        arsort($logs);
         $data['logs'] = $logs;
         
         $this->view('busca',$data);
@@ -62,6 +63,8 @@ class Log extends MY_Controller{
         
         $data['title'] = 'Arquivo de Log'; // Capitalize the first letter
         $data['page'] = 'arquivo';
+        if(!isset($data['logged'])){$data['logged'] = $this->_logged();}
+        if(!isset($data['urls_restritas'])){$data['urls_restritas'] = $this->usuario_model->get_urls_restritas($this->session->idnivel);}
         
         $str_file = nl2br_except_pre($this->load->file(APPPATH.'/logs/'.$nome,TRUE));
         
