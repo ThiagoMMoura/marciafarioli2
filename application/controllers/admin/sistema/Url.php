@@ -50,7 +50,7 @@ class Url extends MY_Controller{
             $this->url_model->nome = $this->input->post('nome');
             $this->url_model->descricao = $this->input->post('descricao');
             $this->url_model->url = $this->input->post('url');
-            $this->url_model->restricao = $this->input->post('restricao')==='restrito';
+            $this->url_model->restricao = (string) $this->input->post('restricao');
             
             if($this->url_model->salvar()){
                 $this->session->set_flashdata('alerta', 'success_save');
