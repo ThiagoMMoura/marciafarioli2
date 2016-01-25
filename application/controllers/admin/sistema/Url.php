@@ -61,6 +61,17 @@ class Url extends MY_Controller{
         }
     }
     
+    public function restringir($id){
+        $this->url_model->getObjectById($id);
+        $this->url_model->restricao = !$this->url_model->restricao;
+        if($this->url_model->alterar(FALSE)){
+            $this->session->set_flashdata('alerta', 'success_save');
+        }else{
+            $this->session->set_flashdata('alerta', 'error_save');
+        }
+        redirect('admin/sistema/url/busca');
+    }
+    
     public function _set_campos_padrao() {
         $default_page_fields = array(
             'cadastro' => array(
