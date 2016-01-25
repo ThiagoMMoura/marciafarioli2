@@ -212,7 +212,19 @@ function get_form_field($data = '',$label = '',$extra = '',$datalist = '',$optio
     
     if($label!=NULL){
         if(is_array($label)){
-            $field['html'] = form_label($label['text'].$field['html'],$label['id'],$label['attributes']);
+            $text = isset($label['text'])?$label['text']:'';
+            $for = isset($label['for'])?$label['for']:'';
+            $attributes = isset($label['attributes'])?$label['attributes']:'';
+            
+            if(isset($label['posicao'])){
+                if($label['posicao']==='depois'){
+                    $field['html'] .= form_label($text,$for,$attributes);
+                }else{
+                    $field['html'] = form_label($text,$for,$attributes) . $field['html'];
+                }
+            }else{
+                $field['html'] = form_label($text . $field['html'],$for,$attributes);
+            }
         }else{
             $field['html'] = form_label($label.$field['html']);
         }
