@@ -1,4 +1,7 @@
 <div class="row">
+    <h2 class="text-center"><?= $title; ?></h2>
+</div>
+<div class="row">
 <?php
 if(isset($menus)){?>
     <table>
@@ -7,7 +10,6 @@ if(isset($menus)){?>
                 <th>Grupo</th>
                 <th>Nome</th>
                 <th>Descrição</th>
-                <th>Sistema</th>
                 <th>Menu Pai</th>
                 <th>Ações</th>
             </tr>
@@ -18,7 +20,6 @@ if(isset($menus)){?>
                 <td><?= $menu['grupo'];?></td>
                 <td><?= $menu['nome'];?></td>
                 <td><?= $menu['descricao'];?></td>
-                <td><?= $menu['sistema']?'Sim':'Não';?></td>
                 <?php 
                 $menupai = " - ";
                 foreach($menus as $pai){
