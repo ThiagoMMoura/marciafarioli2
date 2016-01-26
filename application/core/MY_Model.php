@@ -210,7 +210,7 @@ class MY_Model extends CI_Model{
         $this->db->distinct($distinct);
         
         $this->setQuery($this->db->get($this->dbtable));
-        log_message('info','selecionar SQL - '.$this->db->last_query());
+        log_message('info','selecionar SQL - '. preg_replace('/\s/', ' ',$this->db->last_query()));
         return $this->getResultadosArray();
     }
 
