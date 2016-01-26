@@ -7,7 +7,7 @@ $field['nome'] = array(
     'label' => 'Nome Menu'
 );
 $field['descricao'] = array(
-    'input' => array('name'=>'descricao','placeholder'=>'Descreva a função do menu...','value'=>set_value('descricao',$descricao),'rows'=>4,'cols'=>300),
+    'textarea' => array('name'=>'descricao','placeholder'=>'Descreva a função do menu...','value'=>set_value('descricao',$descricao),'rows'=>4,'cols'=>300),
     'label' => 'Descrição'
 );
 $field['url'] = array(
