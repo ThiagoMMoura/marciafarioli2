@@ -36,7 +36,7 @@ class Nivel extends MY_Controller{
         $is_unique = $this->input->post('idnivel')==NULL?"|is_unique[nivel.nome]":'';
         $this->form_validation->set_rules('nome', 'Nome', 'trim|required|min_length[3]|max_length[100]'.$is_unique);
         $this->form_validation->set_rules('email', 'Email', 'trim|max_length[300]');
-        $this->form_validation->set_rules('hierarquia','Hierarquia','required|integer|less_than_equal_to[100]|greater_than['.($this->usuario_model->get_hierarquia()) .']');
+        $this->form_validation->set_rules('hierarquia','Hierarquia','required|integer|less_than_equal_to[100]|greater_than['.($this->usuario_model->get_hierarquia()==1?0:$this->usuario_model->get_hierarquia()) .']');
         
         if ($this->form_validation->run() == FALSE) {
             $this->view('cadastro');
@@ -74,7 +74,7 @@ class Nivel extends MY_Controller{
                 'nome' => '',
                 'descricao' => '',
                 'hierarquia' => '',
-                'hierarquia_min' => $this->usuario_model->get_hierarquia() + 1,
+                'hierarquia_min' => $this->usuario_model->get_hierarquia()==1? 1 :($this->usuario_model->get_hierarquia() + 1),
                 'urls' => $this->url_model->selecionar('*', 'restricao = 1', 'nome ASC'),
                 'permissoes' => array()
             ),
