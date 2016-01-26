@@ -99,7 +99,7 @@ class Menu  extends MY_Controller{
                 'grupos' => $this->_get_options_grupo(),
                 'tipos' => $this->_get_options_tipo(),
                 'formatos' => $this->_get_options_formato(),
-                'menus' => array_merge(array(0=>'Nenhum'),$this->menu_model->getOptionsArray('nome','sistema = 1','nome ASC'))
+                'menus' =>$this->menu_model->getOptionsArray('nome','sistema = 1','nome ASC')
                 ),
             'busca' => array(
                 'menus' => $this->menu_model->selecionar('*','sistema = 1','grupo ASC, ordem ASC')

@@ -33,7 +33,7 @@ $field['formato'] = array(
     'options' => $formatos,
     'selected' => set_value('formato',$formato)
 );
-
+$menus[0] = 'Nenhum';
 $field['idmenupai'] = array(
     'dropdown' => array('name'=>'idmenupai','placeholder'=>'Selecione um menu para ser pai'),
     'label' => 'Menu Pai',
