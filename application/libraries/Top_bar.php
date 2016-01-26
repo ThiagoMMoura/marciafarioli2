@@ -55,18 +55,27 @@ class Top_bar {
         if(empty($data)){
             $data = $this->menu_bar;
         }
-        
+        $menu = array();
+        $itens = array();
+        foreach($data as $key => $value){
+            if(is_numeric($key)){
+                $itens[] = $value;
+            }else{
+                $menu[$key] = $value;
+            }
+        }
+        $restrito = FALSE;
         $arvore = array();
-        if(array_key_exists('url', $data)){
-            $arvore = $data;
+        if(array_key_exists('url', $menu)){
             foreach($this->restricted_urls as $url){
-                if($data['url']==$url){
-                    $arvore = array();
+                if($menu['url']==$url){
+                    $restrito = TRUE;
                     break;
                 }
             }
-        }else{
-            foreach($data as $key => $value){
+        }
+        if(!$restrito){
+            foreach($itens as $key => $value){
                 if(is_numeric($key)){
                     $value = $this->_remove_restrict_urls($value, FALSE);
                     if(!empty($value)){
@@ -74,6 +83,7 @@ class Top_bar {
                     }
                 }
             }
+            $arvore = array_merge($arvore,$menu);
         }
         
         if($replace_menu_bar){
