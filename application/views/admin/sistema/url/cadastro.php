@@ -16,7 +16,7 @@ $field['url'] = array(
 $field['restricao'] = array(
     'input' => array('name'=>'restricao','id'=>'restricao','value'=>'1','type'=>'checkbox'),
     'label'=> array('text' => 'Restringir acesso','for'=>'restricao','posicao'=>'depois'),
-    'extra' => set_checkbox('restricao', 1,$restricao)
+    'extra' => set_value('restricao',$restricao)?'checked':''
 );
 ?>
 <div class="row">
