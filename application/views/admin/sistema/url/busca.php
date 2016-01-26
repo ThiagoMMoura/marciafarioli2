@@ -34,7 +34,11 @@
                             echo anchor('admin/sistema/url/restringir/'.$url['id'], $url['restricao']?'Sim':'Não');
                         }
                         ?></td>
-                        <td><?= anchor('admin/sistema/url/editar/' . $url['id'], 'Editar');?></td>
+                        <td><?php 
+                        if(array_search('admin/sistema/url/editar', $urls_restritas)===FALSE){
+                            echo anchor('admin/sistema/url/editar/' . $url['id'], 'Editar');
+                        }
+                        ?></td>
                     </tr>
                 <?php } ?>
             </tbody>
