@@ -56,7 +56,7 @@ class MY_Model extends CI_Model{
         return $this->query!=NULL?$this->query->num_rows():0;
     }
     
-    public function PostVariaveis(){
+    public function set_fields_sent_by_post(){
         if ($this->dbcolunas == NULL) {
             $this->dbcolunas = $this->db->list_fields($this->dbtable);
         }
@@ -122,7 +122,7 @@ class MY_Model extends CI_Model{
      */
     public function inserir($post = TRUE){
         if($post){
-            $this->PostVariaveis();
+            $this->set_fields_sent_by_post();
         }
         if($this->db->insert($this->dbtable,$this->get_fields_array())){
             $this->id = $this->db->insert_id();
@@ -155,7 +155,7 @@ class MY_Model extends CI_Model{
      */
     public function alterar($post = TRUE){
         if($post){
-            $this->PostVariaveis();
+            $this->set_fields_sent_by_post();
         }
         if($this->db->update($this->dbtable, $this->get_fields_array(), array('id' => $this->id))){
             log_message('info','alterar SQL - '.$this->db->last_query());
@@ -174,7 +174,7 @@ class MY_Model extends CI_Model{
      */
     public function salvar($post = TRUE){
         if($post){
-            $this->PostVariaveis();
+            $this->set_fields_sent_by_post();
         }
         if($this->id!==NULL && $this->id>0){
             return $this->alterar(FALSE);
