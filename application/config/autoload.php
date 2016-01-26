@@ -104,7 +104,7 @@ $autoload['helper'] = array('form','url','html','text','string');
 |
 */
 
-$autoload['config'] = array('menus_id');
+$autoload['config'] = array('sistema','site');
 
 
 /*
