@@ -25,7 +25,7 @@ class MY_Controller extends CI_Controller{
     /**
      * @var string 
      */
-    private $redirect_page = '';
+    private $redirect_page = 'alertas';
     /**
      * @var string 
      */
@@ -57,12 +57,7 @@ class MY_Controller extends CI_Controller{
         $url = ($this->_get_function_name()!=NULL ? $this->control_url . '/' . $this->_get_function_name() : $this->control_url);
         if(!$this->_has_access_permission($url)){
             $this->session->set_flashdata('alerta', $this->redirect_alert);
-            if($this->redirect_page!=NULL){
-                redirect($this->redirect_page);
-            }else{
-                $this->_alertas();
-                return;
-            }
+            redirect($this->redirect_page);
         }
     }
     

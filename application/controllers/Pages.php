@@ -10,6 +10,10 @@ class Pages extends MY_Controller {
     public function index(){
         $this->view('home');
     }
+    
+    public function alertas($data = array()){
+        $this->_alertas('alerta',$data);
+    }
 
 //    public function view($page = 'home'){
 //        if ( ! file_exists(APPPATH.'/views/pages/'.$page.'.php')){
