@@ -61,6 +61,7 @@ class MY_Controller extends CI_Controller{
                 redirect($this->redirect_page);
             }else{
                 $this->_alertas();
+                return;
             }
         }
     }
@@ -178,6 +179,7 @@ class MY_Controller extends CI_Controller{
                 redirect($this->redirect_page);
             }else{
                 $this->_alertas();
+                return;
             }
         }
         
