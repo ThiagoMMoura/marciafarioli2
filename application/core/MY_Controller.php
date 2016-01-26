@@ -25,7 +25,7 @@ class MY_Controller extends CI_Controller{
     /**
      * @var string 
      */
-    private $redirect_page = 'home';
+    private $redirect_page = '';
     /**
      * @var string 
      */
@@ -57,7 +57,11 @@ class MY_Controller extends CI_Controller{
         $url = ($this->_get_function_name()!=NULL ? $this->control_url . '/' . $this->_get_function_name() : $this->control_url);
         if(!$this->_has_access_permission($url)){
             $this->session->set_flashdata('alerta', $this->redirect_alert);
-            redirect($this->redirect_page);
+            if($this->redirect_page!=NULL){
+                redirect($this->redirect_page);
+            }else{
+                $this->_alertas();
+            }
         }
     }
     
@@ -170,7 +174,11 @@ class MY_Controller extends CI_Controller{
         
         if(!$this->_has_access_permission($this->control_url . '/' . $page)){
             $this->session->set_flashdata('alerta', $this->redirect_alert);
-            redirect($this->redirect_page);
+            if($this->redirect_page!=NULL){
+                redirect($this->redirect_page);
+            }else{
+                $this->_alertas();
+            }
         }
         
         $data = $this->_get_default_fields($page,$data);
@@ -289,5 +297,22 @@ class MY_Controller extends CI_Controller{
      */
     protected function _set_top_bar_visible($visible){
         $this->top_bar_visible = $visible;
+    }
+    
+    /**
+     * Retorna uma página de alertas.
+     * 
+     * @param array $data
+     */
+    protected function _alertas($data = array()){
+        
+        $data = $this->_pre_data_view($page, $data);
+        
+        $this->load->view('templates/header', $data);
+	if($this->top_bar_visible){
+            $this->load->view('templates/top_bar_menu', $data);
+        }
+        $this->load->view('templates/alertas', $data);
+        $this->load->view('templates/scripts',$data);
     }
 }
