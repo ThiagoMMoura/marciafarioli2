@@ -178,7 +178,7 @@ class MY_Controller extends CI_Controller{
             if($this->redirect_page!=NULL){
                 redirect($this->redirect_page);
             }else{
-                $this->_alertas();
+                $this->_alertas($page,$data);
                 return;
             }
         }
@@ -306,7 +306,7 @@ class MY_Controller extends CI_Controller{
      * 
      * @param array $data
      */
-    protected function _alertas($data = array()){
+    protected function _alertas($page = 'alerta',$data = array()){
         
         $data = $this->_pre_data_view($page, $data);
         
