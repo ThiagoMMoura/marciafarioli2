@@ -54,6 +54,7 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['home'] = 'pages';
+$route['alertas'] = 'pages/alertas';
 $route['fotografia'] = 'pages/view/fotografia';
 $route['filmes'] = 'pages/view/filmes';
 $route['casa_de_eventos'] = 'pages/view/casa_de_eventos';
