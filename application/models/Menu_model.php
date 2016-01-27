@@ -18,11 +18,13 @@ class Menu_model extends MY_Model{
      */
     public $descricao;
     /**
-     *
      * @var string Define uma <b>URL</b> interna ou externa ao sistema.
      */
     public $url;
-    public $grupo;      //String Agrupamento dos menus
+    /**
+     * @var string Define um grupo de menus. 
+     */
+    public $grupo;
     public $tipo;       //String Tipos(Separador,Imagem,Menu,Item,Botao,Acao,Link)
     public $formato;    //String Formatos(Aba,Link,Botao,Dropdown)
     public $icone;      //String html, link, id midia
@@ -158,23 +160,19 @@ class Menu_model extends MY_Model{
     /**
      * Retorna o maior número de ordem do menu de um nivel.
      * 
-     * @param string $grupo
      * @param int $idmenupai
      * @return int
      */
-    public function get_max_ordem($nivel,$idmenupai,$sistema = FALSE){
-        if($nivel==NULL){
-            $nivel = $this->nivel;
-        }
+    public function get_max_ordem($idmenupai,$sistema = FALSE){
         if($idmenupai==NULL){
             $idmenupai = $this->idmenupai;
         }
         $this->db->select_max('ordem');
-        $where['nivel'] = $nivel;
         $where['idmenupai'] = $idmenupai;
         $where['sistema'] = $sistema;
         $result = $this->selecionar('grupo',$where);
-        return isset($result[0])?$result[0]['ordem']:0;
+        
+        return array_key_exists(0, $result)?$result[0]['ordem']:0;
     }
     
     /**
