@@ -183,13 +183,7 @@ switch (ENVIRONMENT)
         }
 	$responsive_fw_name = 'foundation';
 	
-	$assets_folder = 'assets';
-	$css_folder = 'css';
-	$js_folder = 'js';
-	$plugin_folder = 'plugin';
 	$slick_folder = 'slick';
-	$image_folder = 'images';
-	$framework_folder = 'fw';
 	$responsive_fw_folder = $responsive_fw_name;
 	
 	$normalize_css_file = 'normalize.css';
@@ -310,12 +304,13 @@ switch (ENVIRONMENT)
 //Minhas definições
 	define('SITEURL', 'http://'.$site_name);
 	
-	define('IMAGES_PATH', $image_folder);
-	define('ASSETS_PATH', $assets_folder);
-	define('CSS_PATH', ASSETS_PATH.'/'.$css_folder);
-	define('JS_PATH', ASSETS_PATH.'/'.$js_folder);
-	define('PLUGIN_PATH', ASSETS_PATH.'/'.$plugin_folder);
-	define('FRAMEWORK_PATH', ASSETS_PATH.'/'.$framework_folder);
+	define('IMAGES_PATH', 'images');
+	define('ASSETS_PATH', 'assets');
+	define('CSS_PATH', ASSETS_PATH.'/css');
+	define('JS_PATH', ASSETS_PATH.'/js');
+	define('PLUGIN_PATH', ASSETS_PATH.'/plugin');
+        define('FONTES_PATH',ASSETS_PATH .'/fontes');
+	define('FRAMEWORK_PATH', ASSETS_PATH.'/fw');
 	define('RESPONSIVE_FW_PATH', FRAMEWORK_PATH.'/'.$responsive_fw_folder);
 	define('SLICK_PATH', PLUGIN_PATH.'/'.$slick_folder);
 	

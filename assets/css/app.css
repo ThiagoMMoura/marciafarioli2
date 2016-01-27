@@ -6,14 +6,6 @@
 	margin-bottom: 15px;
 	margin-top: 10px;
 }
-.slick-slide{
-	height:auto;
-}
-.slick-dots{
-	margin-left: 0px;
-	margin-bottom: 26px;
-	background-color: rgba(185, 185, 185, 0.6);
-}
 button.transparente:hover, button.transparente:focus, .button.transparente:hover, .button.transparente:focus {
 	color: #999;
     background-color: transparent;
