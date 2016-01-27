@@ -6,12 +6,18 @@ $field['nome'] = array(
     'input' => array('name'=>'nome','placeholder'=>'Nome do menu','value'=>set_value('nome',$nome),'required'=>''),
     'label' => 'Nome Menu'
 );
+$field['icone'] = array(
+    'input' => array('name'=>'icone','placeholder'=>'Selecione um icone','value'=>set_value('icone',$icone),'list'=>'icones','onchange'=>'javascript:document.getElementById("postfix-icone").class = this'),
+    'label' => 'Icone',
+    'datalist' => 'icones',
+    'options' => $icones
+);
 $field['descricao'] = array(
     'textarea' => array('name'=>'descricao','placeholder'=>'Descreva a função do menu...','value'=>set_value('descricao',$descricao),'rows'=>4,'cols'=>300),
     'label' => 'Descrição'
 );
 $field['url'] = array(
-    'input' => array('name'=>'url','placeholder'=>'URL do menu','value'=>set_value('url',$url)),
+    'input' => array('name'=>'url','placeholder'=>'URL do menu','value'=>set_value('url',$url),'list'=>'urls'),
     'label' => 'URL',
     'datalist' => 'urls',
     'options' => $urls
@@ -49,8 +55,18 @@ $field['idmenupai'] = array(
     <div class="medium-12 medium-centered column">
         <?= form_open('admin/sistema/menu/salvar','',$hidden); ?>
             <div class="row">
-                <div class="medium-12 columns">
+                <div class="small-12 medium-8 large-10 columns">
                     <?= get_form_field($field['nome']);?>
+                </div>
+                <div class="small-12 medium-4 large-2 columns">
+                    <div class="row collapse">
+                        <div class="small-9 columns">
+                            <?= get_form_field($field['icone']);?>
+                        </div>
+                        <div class="small-3 columns">
+                            <span class="postfix"><i id="postfix-icone" class='<?= set_value('icone',$icone); ?>'></i></span>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row">
