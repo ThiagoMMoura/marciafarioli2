@@ -8,7 +8,6 @@ $field['nome'] = array(
 );
 $field['icone'] = array(
     'input' => array('name'=>'icone','placeholder'=>'Selecione um icone','value'=>set_value('icone',$icone),'list'=>'icones','onchange'=>'javascript:document.getElementById("postfix-icone").class = this'),
-    'label' => 'Icone',
     'datalist' => 'icones',
     'options' => $icones
 );
@@ -59,14 +58,16 @@ $field['idmenupai'] = array(
                     <?= get_form_field($field['nome']);?>
                 </div>
                 <div class="small-12 medium-4 large-2 columns">
-                    <div class="row collapse">
-                        <div class="small-9 columns">
-                            <?= get_form_field($field['icone']);?>
+                    <label>Icone
+                        <div class="row collapse">
+                            <div class="small-9 columns">
+                                <?= get_form_field($field['icone']);?>
+                            </div>
+                            <div class="small-3 columns">
+                                <span class="postfix"><i id="postfix-icone" class='<?= set_value('icone',$icone); ?>'></i></span>
+                            </div>
                         </div>
-                        <div class="small-3 columns">
-                            <span class="postfix"><i id="postfix-icone" class='<?= set_value('icone',$icone); ?>'></i></span>
-                        </div>
-                    </div>
+                    </label>
                 </div>
             </div>
             <div class="row">

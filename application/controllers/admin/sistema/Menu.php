@@ -148,5 +148,6 @@ class Menu  extends MY_Controller{
         foreach($this->config->item('icones') as $icone){
             $icones[$icone] = icone($icone);
         }
+        return $icones;
     }
 }
