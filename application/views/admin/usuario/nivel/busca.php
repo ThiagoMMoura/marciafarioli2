@@ -7,8 +7,9 @@
         <table class="hover">
             <thead>
                 <tr>
-                    <th width="150">Nome</th>
-                    <th>Descrição</th>
+                    <th>Hierarquia</th>
+                    <th width="200px">Nome</th>
+                    <th width="500px">Descrição</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -16,14 +17,11 @@
                 <? 
                 foreach($niveis as $nivel){ ?>
                     <tr>
+                        <td><?=$nivel['hierarquia'];?></td>
                         <td><?=$nivel['nome'];?></td>
                         <td><?=$nivel['descricao'];?></td>
                         <td>
-                            <?if($nivel['id']==$this->config->item('nivelusuariopadrao')){
-                                if($this->session->idnivel==$nivel['id']){
-                                    echo anchor('admin/usuario/nivel/editar/' . $nivel['id'], 'Editar');
-                                }
-                            }else{
+                            <?if($nivel_usuario==$this->config->item('nivel-master') OR $hierarquia_usuario < $this->usuario_model->get_hierarquia($nivel['id'])){
                                 echo anchor('admin/usuario/nivel/editar/' . $nivel['id'], 'Editar');
                             }?>
                         </td>

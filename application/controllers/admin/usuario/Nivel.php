@@ -79,7 +79,9 @@ class Nivel extends MY_Controller{
                 'permissoes' => array()
             ),
             'busca' => array(
-                'niveis' => $this->nivel_model->selecionar('*', NULL, 'nome')
+                'niveis' => $this->nivel_model->selecionar('*', NULL, 'hierarquia ASC, nome ASC'),
+                'nivel_usuario' => $this->session->idnivel,
+                'hierarquia_usuario' => $this->usuario_model->get_hierarquia()
             )
         );
         $this->_set_default_page_fields($default_page_fields);
