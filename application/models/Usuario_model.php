@@ -96,6 +96,9 @@ class Usuario_model extends MY_Model {
         }
         $urls_restritas = array();
         if($idnivel != NULL){
+            if($this->config->item('nivel-master')==$idnivel){
+                return $urls_restritas;
+            }
             $urls = $this->url_model->selecionar('*','restricao = 1');
             $permissoes = $this->permissao_model->selecionar('*','idnivel = ' . $idnivel . ' AND permite = 1');
             
