@@ -63,7 +63,7 @@ class Menu  extends MY_Controller{
                 $this->menu_model->nivel = (new Menu_model())->getObjectById($this->input->post('idmenupai'))->nivel + 1;
                 $this->menu_model->idmenupai = $this->input->post('idmenupai');
             }
-            $this->menu_model->ordem = $this->input->post('ordem')!=NULL?$this->input->post('ordem'):$this->menu_model->get_max_ordem(NULL,NULL,TRUE) + 1;
+            $this->menu_model->ordem = $this->input->post('ordem')!=0?$this->input->post('ordem'):($this->menu_model->get_max_ordem(NULL,TRUE) + 1);
             $this->menu_model->nome = $this->input->post('nome');
             $this->menu_model->descricao = $this->input->post('descricao');
             $this->menu_model->url = $this->input->post('url');
@@ -71,7 +71,7 @@ class Menu  extends MY_Controller{
             $this->menu_model->tipo = $this->input->post('tipo');
             $this->menu_model->formato = $this->input->post('formato');
             $this->menu_model->sistema = TRUE;
-            if($this->menu_model->salvar()){
+            if($this->menu_model->salvar(FALSE)){
                 $this->session->set_flashdata('alerta', 'success_save');
                 redirect('admin/sistema/menu/editar/'.$this->menu_model->getId());
             }
