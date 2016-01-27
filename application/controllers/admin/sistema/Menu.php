@@ -67,6 +67,7 @@ class Menu  extends MY_Controller{
             $this->menu_model->nome = $this->input->post('nome');
             $this->menu_model->descricao = $this->input->post('descricao');
             $this->menu_model->url = $this->input->post('url');
+            $this->menu_model->icone = $this->input->post('icone');
             $this->menu_model->grupo = $this->input->post('grupo');
             $this->menu_model->tipo = $this->input->post('tipo');
             $this->menu_model->formato = $this->input->post('formato');
@@ -95,6 +96,7 @@ class Menu  extends MY_Controller{
                 'ordem' => '0',
                 'idmenupai' => '0',
                 'sistema' => '1',
+                'icones' => $this->_get_options_icone(),
                 'urls' => $this->_get_options_url(),
                 'grupos' => $this->_get_options_grupo(),
                 'tipos' => $this->_get_options_tipo(),
@@ -139,5 +141,12 @@ class Menu  extends MY_Controller{
             $urls[$url] = $url;
         }
         return $urls;
+    }
+    
+    private function _get_options_icone(){
+        $icones = array();
+        foreach($this->config->item('icones') as $icone){
+            $icones[$icone] = icone($icone);
+        }
     }
 }
