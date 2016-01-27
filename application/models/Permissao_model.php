@@ -47,7 +47,7 @@ class Permissao_model extends MY_Model{
             $idurl = $this->idurl;
         }
         if($idnivel!=NULL&&$idurl!=NULL){
-            if($this->config->item('nivel-master')===$idnivel){
+            if($this->config->item('nivel-master')==$idnivel){
                 return TRUE;
             }
             $this->selecionar('*', array('idnivel'=>$idnivel,'idurl'=>$idurl));
