@@ -27,7 +27,7 @@
             echo link_tag($link_item);
     }
     if(array_key_exists($page,$link_list)){
-        foreach($link_list[$link_list_name] as $key => $link_item){
+        foreach($link_list[$page] as $key => $link_item){
             echo link_tag($link_item);
         }
     }
