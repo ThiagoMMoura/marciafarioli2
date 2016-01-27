@@ -153,3 +153,29 @@ function menu($data,$url = '',$tipo = '', $formato = '',$icone = ''){
 }
 //TIPO - secao(section),item(link, label, divider, button),menu(dropdown,link),posicao(direita,esquerda)
 //FORMATO - link, label, divider, button, direita, esquerda, dropdown, section
+
+/**
+ * Retorna a tag do icone caso ele exista, senão retorna uma string vazia.
+ * 
+ * @param mixed $id
+ * @return string
+ */
+function icone($id){
+    $CI =& get_instance();
+    $icones = $CI->config->item('icones');
+    $icone = '';
+    
+    if(is_numeric($id) && array_key_exists($id, $icones)){
+        $icone = $icones[$id];
+    }else{
+        $icone = array_search($id, $icones);
+        if($icone===FALSE){
+            return '';
+        }
+    }
+    
+    if($icone!=NULL){
+        return '<i class="' . $icone . '"></i>';
+    }
+    return '';
+}
