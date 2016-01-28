@@ -18,3 +18,14 @@ button.transparente, .button.transparente {
 .nav-header ul.button-group .nav-active .button{
 	border-bottom:2px rgba(204,204,204,1) solid;
 }
+i.ficone{
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'foundation-icons';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

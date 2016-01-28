@@ -64,7 +64,7 @@ $field['idmenupai'] = array(
                                 <?= get_form_field($field['icone']);?>
                             </div>
                             <div class="small-3 columns">
-                                <span class="postfix"><i id="postfix-icone" class='<?= set_value('icone',$icone); ?>'></i></span>
+                                <span class="postfix"><i id="postfix-icone" class='ficone <?= set_value('icone',$icone); ?>'></i></span>
                             </div>
                         </div>
                     </label>
