@@ -145,8 +145,8 @@ class Menu  extends MY_Controller{
     
     private function _get_options_icone(){
         $icones = array();
-        foreach($this->config->item('icones') as $icone){
-            $icones[$icone] = icone($icone);
+        foreach($this->config->item('icones') as $key => $icone){
+            $icones[$icone] = icone($key);
         }
         return $icones;
     }
