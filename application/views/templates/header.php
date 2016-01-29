@@ -19,7 +19,13 @@
             CSS_PATH . '/home.css'
             ),
         'editar/carrosel'=>array(
-            PLUGIN_PATH . 'assets/plugin/jcrop/css/jquery.Jcrop.min.css',
+            PLUGIN_PATH . '/jcrop/css/jquery.Jcrop.min.css',
+            ),
+        'cadastro'=>array(
+            CSS_PATH .'/barra-ferramentas.css'
+            ),
+        'busca'=>array(
+            CSS_PATH .'/barra-ferramentas.css'
             )
         );
 
