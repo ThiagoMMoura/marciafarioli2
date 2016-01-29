@@ -66,11 +66,16 @@ $field['idmenupai'] = array(
 <?php /*Inicio Formulário de cadastro para menus do sistema*/ ?>
 <div class="row">
     <div class="medium-12 medium-centered column">
-        <div class="panel">
-            <?= form_open('admin/sistema/menu/salvar','',$hidden); ?>
-                <div class="row">
-                    <h3>MENU FORMULÁRIO</h3>
-                </div>
+        <?= form_open('admin/sistema/menu/salvar','',$hidden); ?>
+            <?php 
+            $ferramentas['title'] = $title;
+            $ferramentas['limpar'] = TRUE;
+            $ferramentas['salvar'] = TRUE;
+            $ferramentas['adicionar'] = array('href'=>'admin/sistema/menu/cadastro');
+            $ferramentas['buscar'] = array('href'=>'admin/sistema/menu/busca');
+            $this->load->view('templates/barra_ferramentas',$ferramentas);
+            ?>
+            <div class="panel">
                 <div class="row">
                     <div class="small-12 medium-8 large-10 columns">
                         <?= get_form_field($field['nome']);?>
@@ -137,7 +142,7 @@ $field['idmenupai'] = array(
                         <?= form_submit('salvar', 'Salvar', 'class="button expand"'); ?>
                     </div>
                 </div>
-            <?= form_close(); ?>
-        </div>
+            </div>
+        <?= form_close(); ?>
     </div>
 </div>
