@@ -1,0 +1,96 @@
+/* 
+    Created on : 29/01/2016, 11:13:28
+    Author     : Thiago Moura
+*/
+.tool-bar{
+    background-color: #BBB;
+    height: 3rem;
+    line-height: 3rem;
+    overflow: hidden;
+    position: relative;
+    padding: 0px;
+}
+.tool-bar-title{
+    font-size: 1.0625rem;
+    line-height: 3rem;
+    height: 3rem;
+    margin: 0;
+}
+.tool-bar-title>label{
+    color: #fff;
+    display: block;
+    font-weight: normal;
+    line-height: 3rem;
+    padding: 0 1.25rem;
+    width: auto;
+}
+.tool-bar-buttons{
+    display: block;
+    font-size: 0.8125rem;
+    height: 3rem;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: auto;
+    transition: left 300ms ease-out;
+}
+.tool-bar>ul>.divider{
+    border-right: solid 1px #4e4e4e;
+    border-bottom: none;
+    border-top: none;
+    clear: none;
+    height: 3rem;
+    width: 0;
+}
+.tool-bar-buttons li{
+    padding: 0;
+    margin: 0;
+}
+.button-tool{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: 0;
+    border-style: solid;
+    border-width: 0;
+    cursor: pointer;
+    font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+    font-weight: normal;
+    margin: 0;
+    position: relative;
+    line-height: 3rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    padding: 0 0.9375rem 0 0.9375rem;
+    font-size: 0.8125rem;
+    background-color: transparent;
+    border-color: #007095;
+    transition: background-color 300ms ease-out;
+}
+.button-tool:hover,.button-tool:focus{
+    color: #fff;
+    background-color: #007095;
+}
+.button-tool > i{
+    line-height: 3rem;
+    color: #fff;
+    display: inline-block;
+    float: left;
+}
+.button-tool > label{
+    color: #fff;
+    font-weight: normal;
+    line-height: 3rem;
+    padding: 0 0 0 0.46875rem;
+    width: auto;
+    float: right;
+}
+
+@media only screen and (min-width: 40.0625em) {
+    .tool-bar .tool-bar-title{
+        float: left;
+    }
+    .tool-bar-buttons ul li{
+        float: right;
+    }
+}
