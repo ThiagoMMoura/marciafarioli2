@@ -79,7 +79,7 @@
     color: #fff;
     display: inline-block;
 }
-.button-tool > label{
+.button-tool .label-icone{
     color: #fff;
     font-weight: normal;
     line-height: 3rem;
@@ -122,8 +122,11 @@
     .tool-6 li{
         width: 16.666666666667%;
     }
-    .button-tool > label{
+    .button-tool .label-icone{
         display: none;
+    }
+    .button-tool > i{
+        float: none;
     }
 }
 @media only screen and (min-width: 40.0625em) {
@@ -145,7 +148,7 @@
     }
 }
 @media only screen and (min-width: 64.0625em) {
-    .button-tool label{
+    .button-tool .label-icone{
         display: inline;
     }
 }
