@@ -22,3 +22,7 @@ button.transparente, .button.transparente {
     border-color: #bbb;
     background: #eee;
 }
+.top-bar i[class|="fi"]{
+    float: left;
+    padding-right: 0.9375rem;
+}
