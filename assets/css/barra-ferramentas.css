@@ -4,7 +4,6 @@
 */
 .tool-bar{
     background-color: #BBB;
-    height: 3rem;
     line-height: 3rem;
     overflow: hidden;
     position: relative;
@@ -34,8 +33,11 @@
     width: auto;
     transition: left 300ms ease-out;
 }
-.tool-bar>ul>.divider{
-    border-right: solid 1px #4e4e4e;
+.tool-bar > ul{
+    list-style: none;
+}
+.tool-bar > ul .divider{
+    border-right: solid 1px #fff;
     border-bottom: none;
     border-top: none;
     clear: none;
@@ -66,6 +68,7 @@
     background-color: transparent;
     border-color: #007095;
     transition: background-color 300ms ease-out;
+    width: 100%;
 }
 .button-tool:hover,.button-tool:focus{
     color: #fff;
@@ -75,7 +78,6 @@
     line-height: 3rem;
     color: #fff;
     display: inline-block;
-    float: left;
 }
 .button-tool > label{
     color: #fff;
@@ -85,12 +87,65 @@
     width: auto;
     float: right;
 }
-
+.tool-0{
+    display: none;
+}
+@media only screen {
+    .tool-bar{
+        height: 6rem;
+    }
+    .tool-bar .tool-bar-title{
+        float: none;
+        text-align: center;
+    }
+    .tool-bar-buttons{
+        width: 100%;
+    }
+    .tool-bar-buttons li{
+        float: left;
+    }
+    .tool-1 li{
+        width: 100%;
+    }
+    .tool-2 li{
+        width: 50%;
+    }
+    .tool-3 li{
+        width: 33.333333333337%;
+    }
+    .tool-4 li{
+        width: 25%;
+    }
+    .tool-5 li{
+        width: 20%;
+    }
+    .tool-6 li{
+        width: 16.666666666667%;
+    }
+    .button-tool > label{
+        display: none;
+    }
+}
 @media only screen and (min-width: 40.0625em) {
+    .tool-bar{
+        height: 3rem;
+    }
+    .tool-bar-buttons{
+        width: auto;
+    }
     .tool-bar .tool-bar-title{
         float: left;
     }
-    .tool-bar-buttons ul li{
+    .tool-bar-buttons li{
         float: right;
+    }
+    .tool-1 li,.tool-2 li,.tool-3 li,.tool-4 li
+    ,.tool-5 li,.tool-6 li{
+        width: auto;
+    }
+}
+@media only screen and (min-width: 64.0625em) {
+    .button-tool label{
+        display: inline;
     }
 }
