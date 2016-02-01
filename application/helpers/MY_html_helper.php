@@ -108,22 +108,21 @@ function menu($data,$url = '',$tipo = '', $formato = '',$icone = ''){
     }else{
         $nome = $data;
     }
-    
     if($tipo == 'menu'){
         if($formato == 'dropdown'){
-            $html .= '<li class="has-dropdown">' . anchor($url, $nome) . '<ul class="dropdown">';
+            $html .= '<li class="has-dropdown">' . anchor($url, icone($icone) . $nome) . '<ul class="dropdown">';
             foreach($data as $item){
                 $html .= menu($item);
             }
             $html .= '</ul></li>';
         }else{
-            $html .= achor($url,$nome);
+            $html .= achor($url,icone($icone) . $nome);
         }
     }elseif($tipo == 'item'){
         $html .= '<li';
         switch($formato){
             case 'button':
-                $html .= ' class="has-form"><a class="button" href="' . $url . '">' . $nome . '</a>';
+                $html .= ' class="has-form"><a class="button" href="' . $url . '">' . icone($icone) . $nome . '</a>';
                 break;
             case 'divider':
                 $html .= ' class="divider">';
@@ -131,7 +130,7 @@ function menu($data,$url = '',$tipo = '', $formato = '',$icone = ''){
                 $html .= '><label>' . $nome . '</label>';
                 break;
             case 'link':
-                $html .= '>' . anchor($url, $nome);
+                $html .= '>' . anchor($url, icone($icone) . $nome);
                 break;
             default: $html .= '>' . menu($data);
         }
@@ -168,9 +167,11 @@ function icone($id){
     if(is_numeric($id) && array_key_exists($id, $icones)){
         $icone = $icones[$id];
     }else{
-        $icone = array_search($id, $icones);
-        if($icone===FALSE){
+        $key = array_search($id, $icones);
+        if($key===FALSE){
             return '';
+        }else{
+            $icone = $icones[$key];
         }
     }
     
