@@ -68,7 +68,7 @@ $field['idmenupai'] = array(
     <div class="medium-12 medium-centered column">
         <?= form_open('admin/sistema/menu/salvar','',$hidden); ?>
             <?php 
-            $ferramentas['title'] = $title;
+            $ferramentas['title'] = 'Cadastro de Menu';
             $ferramentas['limpar'] = TRUE;
             $ferramentas['salvar'] = TRUE;
             $ferramentas['adicionar'] = array('href'=>'admin/sistema/menu/cadastro');
@@ -135,11 +135,6 @@ $field['idmenupai'] = array(
                     </div>
                     <div class="medium-6 columns">
                         <?= get_form_field($field['idmenupai']);?>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="medium-2 medium-centered columns">
-                        <?= form_submit('salvar', 'Salvar', 'class="button expand"'); ?>
                     </div>
                 </div>
             </div>
