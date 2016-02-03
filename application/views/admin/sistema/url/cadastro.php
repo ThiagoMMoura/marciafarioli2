@@ -25,29 +25,34 @@ $field['restricao'] = array(
 <div class="row">
     <div class="medium-12 medium-centered column">
         <?= form_open('admin/sistema/url/salvar','',$hidden); ?>
-            <div class="row">
-                <div class="medium-12 columns">
-                    <?= get_form_field($field['nome']);?>
+            <?php 
+            $ferramentas['title'] = 'Cadastro de URL';
+            $ferramentas['limpar'] = TRUE;
+            $ferramentas['salvar'] = TRUE;
+            $ferramentas['adicionar'] = array('href'=>'admin/sistema/url/cadastro');
+            $ferramentas['buscar'] = array('href'=>'admin/sistema/url/busca');
+            $this->load->view('templates/barra_ferramentas',$ferramentas);
+            ?>
+            <div class="panel">
+                <div class="row">
+                    <div class="medium-12 columns">
+                        <?= get_form_field($field['nome']);?>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="medium-12 columns">
-                    <?= get_form_field($field['descricao']);?>
+                <div class="row">
+                    <div class="medium-12 columns">
+                        <?= get_form_field($field['descricao']);?>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="medium-12 columns">
-                    <?= get_form_field($field['url']);?>
+                <div class="row">
+                    <div class="medium-12 columns">
+                        <?= get_form_field($field['url']);?>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="medium-12 columns">
-                    <?= get_form_field($field['restricao']);?>
-                </div>
-            </div>
-            <div class="row">
-                <div class="medium-2 medium-centered columns">
-                    <?= form_submit('salvar', 'Salvar', 'class="button expand"'); ?>
+                <div class="row">
+                    <div class="medium-12 columns">
+                        <?= get_form_field($field['restricao']);?>
+                    </div>
                 </div>
             </div>
         <?= form_close(); ?>

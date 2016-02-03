@@ -20,61 +20,66 @@ $field['descricao'] = array(
 <div class="row">
     <div class="medium-12 medium-centered column">
         <?= form_open('admin/usuario/nivel/salvar','',$hidden); ?>
-            <div class="row">
-                <div class="medium-8 large-10 columns">
-                    <?= get_form_field($field['nome']);?>
-                </div>
-                <div class="medium-4 large-2 columns">
-                    <?= get_form_field($field['hierarquia']);?>
-                </div>
-            </div>
-            <div class="row">
-                <div class="medium-12 columns">
-                    <?= get_form_field($field['descricao']);?>
-                </div>
-            </div>
-            <?php if(!empty($urls)){ ?>
+            <?php 
+            $ferramentas['title'] = 'Cadastro de Nivel';
+            $ferramentas['limpar'] = TRUE;
+            $ferramentas['salvar'] = TRUE;
+            $ferramentas['adicionar'] = array('href'=>'admin/usuario/nivel/cadastro');
+            $ferramentas['buscar'] = array('href'=>'admin/usuario/nivel/busca');
+            $this->load->view('templates/barra_ferramentas',$ferramentas);
+            ?>
+            <div class="panel">
                 <div class="row">
-                    <div class="medium-12 column">
-                        <table>
-                            <thead>
-                                <tr class="text-center">
-                                    <th>Nome</th>
-                                    <th>Descrição</th>
-                                    <th>URL</th>
-                                    <th>Permissão</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach($urls as $row){?>
-                                    <tr>
-                                        <?php $perm = array('id'=>'','permite'=>FALSE); //Valores Padrão
-
-                                        foreach($permissoes as $permissao){
-                                            if($permissao['idurl']==$row['id']){
-                                                $perm = $permissao;
-                                            }
-                                        }?>
-                                        <?= form_hidden('idpermissao'.$row['id'], $perm['id']);?>
-                                        <?= form_hidden('idurl[]', $row['id'])?>
-                                        <td><?= $row['nome'];?></td>
-                                        <td><?= $row['descricao'];?></td>
-                                        <td><?= $row['url'];?></td>
-                                        <td><?= form_hidden('permite'.$row['id'],0) . form_checkbox(array('name'=>'permite'.$row['id'],'checked'=>$perm['permite'],'value'=>1));?></td>
-                                    </tr>
-                                <?php } ?>
-                            </tbody>
-                        </table>
+                    <div class="medium-8 large-10 columns">
+                        <?= get_form_field($field['nome']);?>
+                    </div>
+                    <div class="medium-4 large-2 columns">
+                        <?= get_form_field($field['hierarquia']);?>
                     </div>
                 </div>
-            <?php }else{
-                $data['warning'] = 'Nenhuma url restrita encontrada!<br /><small>Cadastre URLs com restrição para editar as permissões aqui.</small>';
-                $this->load->view('templates/alertas',$data); 
-            } ?>
-            <div class="row">
-                <div class="medium-2 medium-centered columns">
-                    <?= form_submit('salvar', 'Salvar', 'class="button expand"'); ?>
+                <div class="row">
+                    <div class="medium-12 columns">
+                        <?= get_form_field($field['descricao']);?>
+                    </div>
                 </div>
+                <?php if(!empty($urls)){ ?>
+                    <div class="row">
+                        <div class="medium-12 column">
+                            <table>
+                                <thead>
+                                    <tr class="text-center">
+                                        <th>Nome</th>
+                                        <th>Descrição</th>
+                                        <th>URL</th>
+                                        <th>Permissão</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach($urls as $row){?>
+                                        <tr>
+                                            <?php $perm = array('id'=>'','permite'=>FALSE); //Valores Padrão
+
+                                            foreach($permissoes as $permissao){
+                                                if($permissao['idurl']==$row['id']){
+                                                    $perm = $permissao;
+                                                }
+                                            }?>
+                                            <?= form_hidden('idpermissao'.$row['id'], $perm['id']);?>
+                                            <?= form_hidden('idurl[]', $row['id'])?>
+                                            <td><?= $row['nome'];?></td>
+                                            <td><?= $row['descricao'];?></td>
+                                            <td><?= $row['url'];?></td>
+                                            <td><?= form_hidden('permite'.$row['id'],0) . form_checkbox(array('name'=>'permite'.$row['id'],'checked'=>$perm['permite'],'value'=>1));?></td>
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                <?php }else{
+                    $data['warning'] = 'Nenhuma url restrita encontrada!<br /><small>Cadastre URLs com restrição para editar as permissões aqui.</small>';
+                    $this->load->view('templates/alertas',$data); 
+                } ?>
             </div>
         <?= form_close(); ?>
     </div>

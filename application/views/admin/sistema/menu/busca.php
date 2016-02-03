@@ -1,3 +1,4 @@
+<? $this->load->view('templates/alertas'); ?>
 <div class="row">
     <div class="medium-12 medium-centered column">
         <?php
@@ -7,7 +8,7 @@
         ?>
         <div class="panel">
             <?php
-            if(isset($menus)){?>
+            if(isset($menus) && !empty($menus)){?>
                 <table>
                     <thead>
                         <tr>
