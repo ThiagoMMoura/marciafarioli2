@@ -126,6 +126,7 @@ function menu($data,$url = '',$tipo = '', $formato = '',$icone = ''){
                 break;
             case 'divider':
                 $html .= ' class="divider">';
+                break;
             case 'label':
                 $html .= '><label>' . $nome . '</label>';
                 break;
