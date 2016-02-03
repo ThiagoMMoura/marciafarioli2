@@ -169,7 +169,7 @@ class Menu_model extends MY_Model{
         }
         $this->db->select_max('ordem');
         $where['idmenupai'] = $idmenupai;
-        $where['sistema'] = $sistema;
+        $where['sistema'] = (string) $sistema;
         $result = $this->selecionar('grupo',$where);
         
         return array_key_exists(0, $result)?$result[0]['ordem']:0;
