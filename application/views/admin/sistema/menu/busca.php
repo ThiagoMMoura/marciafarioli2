@@ -4,18 +4,82 @@
         //função que faz a linha descer na tabela
         $(".descer").click(function(){
             var objLinha = $(this).parent().parent(); //Pega o objeto linha <tr>
+            var id = $(objLinha).attr('id');
+            var idnext = $(objLinha).next().attr('id');
+            
+            var valor = $("input[name='ordem" + id + "'").val();
+            $("input[name='ordem" + id + "'").val($("input[name='ordem" + idnext + "'").val());
+            $("input[name='ordem" + idnext + "'").val(valor);
+            
             $(objLinha).next().after(objLinha); //Abaixo da linha clicada, insere a linha clicada
         });
 
         //função que faz a linha subir na tabela
         $(".subir").click(function(){
             var objLinha = $(this).parent().parent(); //Pega o objeto linha <tr>
+            var id = $(objLinha).attr('id');
+            var idnext = $(objLinha).prev().attr('id');
+            
+            var valor = $("input[name='ordem" + id + "'").val();
+            $("input[name='ordem" + id + "'").val($("input[name='ordem" + idnext + "'").val());
+            $("input[name='ordem" + idnext + "'").val(valor);
+            
             $(objLinha).prev().before(objLinha); //Acima da linha clicada, insere a linha clicada
         });             
 
     });
-
 </script>
+
+<div id="popup-ordenar-menu" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+    <h2 id="modalTitle">Menu</h2>
+    <?= form_open('admin/sistema/menu/salvar_ordem','',$hidden); ?>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Grupo</th>
+                <th>Descrição</th>
+                <th>Ordem</th>
+            </tr>
+        </thead>
+        <tbody id="itens_ordenar_menu">
+            
+        </tbody>
+    </table>
+    <input type="submit" name="salvar" value="Salvar">
+    <?= form_close(); ?>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<script type="text/javascript">
+    function ordenar(idmenupai){
+        $.ajax({
+            method: "POST",
+            url: "admin/sistema/menu/ordenar",
+            data: { id : idmenupai, requisicao : "ajax"},
+            dataType: "json"
+        }).done(function(retorno){
+            var obj = jQuery.parseJSON(retorno);
+            $('#itens_ordenar_menu').empty();
+            var i;
+            var html = '';
+            for(i in obj.itens){
+                html += '<tr id="' + obj.itens[i]['id'] '">';
+                html += '<input name="id[]" type="hidden" value="' + obj.itens[i]['id'] '">';
+                html += '<td>' + obj.itens[i]['nome'] + '</td>';
+                html += '<td>' + obj.itens[i]['grupo'] + '</td>';
+                html += '<td>' + obj.itens[i]['descricao'] + '</td>';
+                html += '<td><input name="ordem'+ obj.itens[i]['id'] + '" type="text" value="' + obj.itens[i]['ordem'] + '" disabled>' +
+                    '<a href="javascript:void(0)" class="subir"><i class="fi-arrow-up"></i></a>' +
+                    '<a href="javascript:void(0)" class="descer"><i class="fi-arrow-down"></i></a></td>';
+                html += '</tr>';
+            }
+            $('#itens_ordenar_menu').add(html);
+            $('#popup-ordenar-menu').foundation('reveal', 'open');
+        });
+    }
+</script>
+
 <div class="row">
     <div class="medium-12 medium-centered column">
         <?php
@@ -37,18 +101,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <?php $menu_pai_anterior = -1;
-                    foreach(array_reverse($menus) as $key => $menu){
-                        $menus[$key]['pra_baixo'] = $menus[$key]['pra_cima'] = FALSE;
-                        if($menu['idmenupai']==$menu_pai_anterior){
-                            $menus[$key]['pra_baixo'] = TRUE;
-                        }
-                        if($menu['ordem']>1){
-                            $menus[$key]['pra_cima'] = TRUE;
-                        }
-                        $menu_pai_anterior = $menu['idmenupai'];
-                    }
-                    ?>
                     <?php foreach($menus as $menu){?>
                         <tr id="<?= $menu['id'];?>">
                             
@@ -66,11 +118,8 @@
                             <td><?= $menupai;?></td>
                             <td><?= anchor('admin/sistema/menu/editar/' . $menu['id'], 'Editar');?>
                                 <?php
-                                    if($menu['pra_cima']){
-                                        echo '<a href="javascript:void(0)" class="subir"><i class="fi-arrow-up"></i></a>';
-                                    }
-                                    if($menu['pra_baixo']){
-                                        echo '<a href="javascript:void(0)" class="descer"><i class="fi-arrow-down"></i></a>';
+                                    if($menu['formato']=='dropdown'){
+                                        echo '<a href="javascript:ordenar(' . $menu['id'] . ')">Ordenar</a>';
                                     }
                                 ?>
                             </td>

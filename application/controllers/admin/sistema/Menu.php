@@ -111,6 +111,17 @@ class Menu  extends MY_Controller{
         $this->_set_default_page_fields($default_page_fields);
     }
     
+    public function ordenar(){
+        $requisicao = $this->input->post('requisicao');
+        if($requisicao === 'ajax'){
+            $id = $this->input->post('id');
+            $retorno = $this->menu_model->get_array_by_id($id);
+            $retorno['itens'] = $this->menu_model->get_itens_menu($id);
+            
+            echo json_encode($retorno);
+        }
+    }
+    
     private function _get_options_grupo(){
         $grupos = array();
         foreach($this->menu_model->selecionar_distinto('grupo','sistema = 1','grupo ASC') as $menu){
