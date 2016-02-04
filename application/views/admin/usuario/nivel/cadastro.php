@@ -15,9 +15,6 @@ $field['descricao'] = array(
 );
 ?>
 <div class="row">
-    <h2 class="text-center">Cadastro de Níveis</h2>
-</div>
-<div class="row">
     <div class="medium-12 medium-centered column">
         <?= form_open('admin/usuario/nivel/salvar','',$hidden); ?>
             <?php 

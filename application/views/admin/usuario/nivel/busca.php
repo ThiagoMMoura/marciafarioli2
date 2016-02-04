@@ -1,8 +1,5 @@
 <? $this->load->view('templates/alertas'); ?>
 <div class="row">
-    <h2 class="text-center">Níveis de Permissão</h2>
-</div>
-<div class="row">
     <div class="medium-12 medium-centered column">
         <?php
         $ferramentas['title'] = 'Busca Níveis de Usuário';
