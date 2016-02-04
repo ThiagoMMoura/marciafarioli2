@@ -100,12 +100,12 @@ class Menu_model extends MY_Model{
      * @param int $id
      * @return array
      */
-    public function getItensMenu($id = NULL){
+    public function get_itens_menu($id = NULL){
         if($id===NULL){
             $id = $this->getId();
         }
         $this->selecionar('*', array('idmenupai'=>$id),'grupo ASC, ordem ASC');
-        return $this->getResultados();
+        return $this->getResultadosArray();
     }
     
     /**
