@@ -1,6 +1,6 @@
 <? $this->load->view('templates/alertas'); ?>
 <script type="text/javascript">
-    $(function(){
+    $(document).ready(function(){
         //função que faz a linha descer na tabela
         $(".descer").click(function(){
             var objLinha = $(this).parent().parent(); //Pega o objeto linha <tr>
@@ -32,7 +32,7 @@
 
 <div id="popup-ordenar-menu" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
     <h2 id="modalTitle">Menu</h2>
-    <?= form_open('admin/sistema/menu/salvar_ordem','',$hidden); ?>
+    <?= form_open('admin/sistema/menu/salvar_ordem'); ?>
     <table>
         <thead>
             <tr>
@@ -42,7 +42,7 @@
                 <th>Ordem</th>
             </tr>
         </thead>
-        <tbody id="itens_ordenar_menu">
+        <tbody id="itens-ordenar-menu">
             
         </tbody>
     </table>
@@ -53,29 +53,34 @@
 
 <script type="text/javascript">
     function ordenar(idmenupai){
-        $.ajax({
+        var request = $.ajax({
             method: "POST",
-            url: "admin/sistema/menu/ordenar",
-            data: { id : idmenupai, requisicao : "ajax"},
+            url: "ordenar",
+            data: { id : idmenupai, requisicao : "ajax", retorna : "json"},
             dataType: "json"
-        }).done(function(retorno){
-            var obj = jQuery.parseJSON(retorno);
-            $('#itens_ordenar_menu').empty();
+        });
+        request.done(function(data){
+            $('#modalTitle').html("Menu  " + data.nome);
+            $('#itens-ordenar-menu').empty();
             var i;
             var html = '';
-            for(i in obj.itens){
-                html += '<tr id="' + obj.itens[i]['id'] '">';
-                html += '<input name="id[]" type="hidden" value="' + obj.itens[i]['id'] '">';
-                html += '<td>' + obj.itens[i]['nome'] + '</td>';
-                html += '<td>' + obj.itens[i]['grupo'] + '</td>';
-                html += '<td>' + obj.itens[i]['descricao'] + '</td>';
-                html += '<td><input name="ordem'+ obj.itens[i]['id'] + '" type="text" value="' + obj.itens[i]['ordem'] + '" disabled>' +
+            var itens = data.itens;
+            for(i in itens){
+                html += '<tr id="' + itens[i]['id'] + '">';
+                html += '<input name="id[]" type="hidden" value="' + itens[i]['id'] + '">';
+                html += '<td>' + itens[i]['nome'] + '</td>';
+                html += '<td>' + itens[i]['grupo'] + '</td>';
+                html += '<td>' + itens[i]['descricao'] + '</td>';
+                html += '<td><input name="ordem'+ itens[i]['id'] + '" type="text" value="' + itens[i]['ordem'] + '" disabled>' +
                     '<a href="javascript:void(0)" class="subir"><i class="fi-arrow-up"></i></a>' +
                     '<a href="javascript:void(0)" class="descer"><i class="fi-arrow-down"></i></a></td>';
                 html += '</tr>';
             }
-            $('#itens_ordenar_menu').add(html);
+            $('#itens-ordenar-menu').add(html);
             $('#popup-ordenar-menu').foundation('reveal', 'open');
+        });
+        request.fail(function( jqXHR, textStatus ) {
+            alert( "Request failed: " + textStatus );
         });
     }
 </script>

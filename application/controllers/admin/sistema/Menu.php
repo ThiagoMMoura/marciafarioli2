@@ -115,10 +115,19 @@ class Menu  extends MY_Controller{
         $requisicao = $this->input->post('requisicao');
         if($requisicao === 'ajax'){
             $id = $this->input->post('id');
+            $retorna = $this->input->post('retorna');
             $retorno = $this->menu_model->get_array_by_id($id);
             $retorno['itens'] = $this->menu_model->get_itens_menu($id);
             
-            echo json_encode($retorno);
+            if($retorna==='json'){
+                echo json_encode($retorno);
+            }elseif($retorna==='html'){
+                
+            }elseif($retorna==='xml'){
+                
+            }else{
+                echo print_r($retorno);
+            }
         }
     }
     
