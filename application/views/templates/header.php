@@ -39,6 +39,7 @@
     }
     
     echo script_tag(MODERNIZR_JS_FILE_LOCAL);
+    echo script_tag(JQUERY_JS_FILE_LOCAL);
     ?>
 </head>
 
