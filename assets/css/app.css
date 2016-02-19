@@ -26,3 +26,6 @@ button.transparente, .button.transparente {
     float: left;
     padding-right: 0.9375rem;
 }
+a.desativado{
+    color: #bbb;
+}
