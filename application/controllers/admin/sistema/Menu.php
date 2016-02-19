@@ -81,6 +81,38 @@ class Menu  extends MY_Controller{
         }
     }
     
+    public function ordenar($data = array()){
+        $formato = $this->input->post('formato');
+        $id = $this->input->post('id');
+        
+        if($formato === 'painel-suspenso'){
+            $data = $this->menu_model->get_array_by_id($id);
+            $data['itens_menu'] = $this->menu_model->get_itens_menu($id);
+            
+            $data['conteudo'] = $this->load->view($this->control_url . '/ordenar',$data,TRUE);
+            $data['id_painel'] =  'menu-' . $id;
+            $data['painel_titulo'] = $data['nome'];
+            
+            $this->load->view('templates/painel_suspenso',$data);
+        }else{
+            $this->view('ordenar',$data);
+        }
+    }
+    
+    public function salvar_ordem(){
+        $iditem = $this->input->post('iditem');
+        foreach($iditem as $id){
+            $menu_model = new Menu_model();
+            $menu_model->setId($id);
+            $menu_model->ordem = $this->input->post('ordem' . $id);
+            if(!$menu_model->salvar(FALSE)){
+                $this->session->set_flashdata('alerta', 'error_save');
+                redirect($this->control_url . '/busca');
+            }
+        }$this->session->set_flashdata('alerta', 'success_save');
+        redirect($this->control_url . '/busca');
+    }
+
     private function _set_campos_padrao(){
         $default_page_fields = array(
             'cadastro' => array(
@@ -105,30 +137,13 @@ class Menu  extends MY_Controller{
                 ),
             'busca' => array(
                 'menus' => $this->menu_model->selecionar('*','sistema = 1','grupo ASC, ordem ASC')
+                ),
+            'ordenar' => array(
+                'itens_menu' => array()
                 )
             );
             
         $this->_set_default_page_fields($default_page_fields);
-    }
-    
-    public function ordenar(){
-        $requisicao = $this->input->post('requisicao');
-        if($requisicao === 'ajax'){
-            $id = $this->input->post('id');
-            $retorna = $this->input->post('retorna');
-            $retorno = $this->menu_model->get_array_by_id($id);
-            $retorno['itens'] = $this->menu_model->get_itens_menu($id);
-            
-            if($retorna==='json'){
-                echo json_encode($retorno);
-            }elseif($retorna==='html'){
-                
-            }elseif($retorna==='xml'){
-                
-            }else{
-                echo print_r($retorno);
-            }
-        }
     }
     
     private function _get_options_grupo(){
