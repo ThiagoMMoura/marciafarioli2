@@ -105,11 +105,13 @@ class Menu  extends MY_Controller{
             $menu_model = new Menu_model();
             $menu_model->setId($id);
             $menu_model->ordem = $this->input->post('ordem' . $id);
+            $menu_model->set_fields_update_only(array('ordem'));
             if(!$menu_model->salvar(FALSE)){
                 $this->session->set_flashdata('alerta', 'error_save');
                 redirect($this->control_url . '/busca');
             }
-        }$this->session->set_flashdata('alerta', 'success_save');
+        }
+        $this->session->set_flashdata('alerta', 'success_save');
         redirect($this->control_url . '/busca');
     }
 
@@ -133,7 +135,7 @@ class Menu  extends MY_Controller{
                 'grupos' => $this->_get_options_grupo(),
                 'tipos' => $this->_get_options_tipo(),
                 'formatos' => $this->_get_options_formato(),
-                'menus' =>$this->menu_model->getOptionsArray('nome','sistema = 1','nome ASC')
+                'menus' => $this->menu_model->getOptionsArray('nome','sistema = 1','nome ASC')
                 ),
             'busca' => array(
                 'menus' => $this->menu_model->selecionar('*','sistema = 1','grupo ASC, ordem ASC')

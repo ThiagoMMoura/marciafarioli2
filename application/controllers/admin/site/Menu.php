@@ -63,7 +63,7 @@ class Menu  extends MY_Controller{
                 $this->menu_model->nivel = (new Menu_model())->getObjectById($this->input->post('idmenupai'))->nivel + 1;
                 $this->menu_model->idmenupai = $this->input->post('idmenupai');
             }
-            $this->menu_model->ordem = $this->input->post('ordem')!=NULL?$this->input->post('ordem'):$this->menu_model->get_max_ordem(NULL,NULL,FALSE) + 1;
+            $this->menu_model->ordem = $this->input->post('ordem')!=0?$this->input->post('ordem'):($this->menu_model->get_max_ordem() + 1);
             $this->menu_model->nome = $this->input->post('nome');
             $this->menu_model->descricao = $this->input->post('descricao');
             $this->menu_model->url = $this->input->post('url');
@@ -81,6 +81,40 @@ class Menu  extends MY_Controller{
         }
     }
     
+    public function ordenar($data = array()){
+        $formato = $this->input->post('formato');
+        $id = $this->input->post('id');
+        
+        if($formato === 'painel-suspenso'){
+            $data = $this->menu_model->get_array_by_id($id);
+            $data['itens_menu'] = $this->menu_model->get_itens_menu($id);
+            
+            $data['conteudo'] = $this->load->view($this->control_url . '/ordenar',$data,TRUE);
+            $data['id_painel'] =  'menu-' . $id;
+            $data['painel_titulo'] = $data['nome'];
+            
+            $this->load->view('templates/painel_suspenso',$data);
+        }else{
+            $this->view('ordenar',$data);
+        }
+    }
+    
+    public function salvar_ordem(){
+        $iditem = $this->input->post('iditem');
+        foreach($iditem as $id){
+            $menu_model = new Menu_model();
+            $menu_model->setId($id);
+            $menu_model->ordem = $this->input->post('ordem' . $id);
+            $menu_model->set_fields_update_only(array('ordem'));
+            if(!$menu_model->salvar(FALSE)){
+                $this->session->set_flashdata('alerta', 'error_save');
+                redirect($this->control_url . '/busca');
+            }
+        }
+        $this->session->set_flashdata('alerta', 'success_save');
+        redirect($this->control_url . '/busca');
+    }
+    
     private function _set_campos_padrao(){
         $default_page_fields = array(
             'cadastro' => array(
@@ -92,19 +126,22 @@ class Menu  extends MY_Controller{
                 'tipo' => '',
                 'formato' => '',
                 'icone' => '',
-                'nivel' => '',
-                'ordem' => '',
-                'idmenupai' => '',
+                'nivel' => '0',
+                'ordem' => '0',
+                'idmenupai' => '0',
                 'sistema' => '0',
                 'icones' => $this->_get_options_icone(),
                 'urls' => $this->_get_options_url(),
                 'grupos' => $this->_get_options_grupo(),
                 'tipos' => $this->_get_options_tipo(),
                 'formatos' => $this->_get_options_formato(),
-                'menus' => array_merge(array(0=>'Nenhum'),$this->menu_model->getOptionsArray('nome','sistema = 0','nome ASC'))
+                'menus' => $this->menu_model->getOptionsArray('nome','sistema = 0','nome ASC')
                 ),
             'busca' => array(
                 'menus' => $this->menu_model->selecionar('*','sistema = 0','grupo ASC, ordem ASC')
+                ),
+            'ordenar' => array(
+                'itens_menu' => array()
                 )
             );
             

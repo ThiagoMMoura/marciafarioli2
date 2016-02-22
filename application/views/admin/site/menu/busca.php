@@ -1,4 +1,28 @@
 <? $this->load->view('templates/alertas'); ?>
+
+<div id="popup-ordenar-menu">
+    
+</div>
+
+<script type="text/javascript">
+    function ordenar(idmenupai){
+        $.ajax({
+            method: "POST",
+            url: "<?= base_url("admin/site/menu/ordenar");?>",
+            data: { id : idmenupai, formato : "painel-suspenso"},
+            dataType: 'html',
+            success: function(data){
+                $("#popup-ordenar-menu").empty();
+                $('#popup-ordenar-menu').html(data);
+                $('#menu-' + idmenupai).foundation('reveal', 'open');
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown){ 
+                alert("Não foi possível carregar os dados!"); 
+            }
+        });
+    }
+</script>
+
 <div class="row">
     <div class="medium-12 medium-centered column">
         <?php
@@ -12,19 +36,20 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Grupo</th>
-                            <th>Nome</th>
-                            <th>Descrição</th>
-                            <th>Menu Pai</th>
-                            <th>Ações</th>
+                            <th class="visible-for-medium-up" width="154px">Grupo</th>
+                            <th width="180px">Nome</th>
+                            <th class="visible-for-medium-up" width="270px">Descrição</th>
+                            <th width="180px">Menu Pai</th>
+                            <th width="100px">Ações</th>
                         </tr>
                     </thead>
                     <tbody>
                     <?php foreach($menus as $menu){?>
-                        <tr>
-                            <td><?= $menu['grupo'];?></td>
+                        <tr id="<?= $menu['id'];?>">
+                            
+                            <td class="visible-for-medium-up" ><?= $menu['grupo'];?></td>
                             <td><?= $menu['nome'];?></td>
-                            <td><?= $menu['descricao'];?></td>
+                            <td class="visible-for-medium-up" ><?= $menu['descricao'];?></td>
                             <?php 
                             $menupai = " - ";
                             foreach($menus as $pai){
@@ -34,7 +59,14 @@
                                 }
                             }?>
                             <td><?= $menupai;?></td>
-                            <td><?= anchor('admin/site/menu/editar/' . $menu['id'], 'Editar');?></td>
+                            <td >
+                                <?= anchor('admin/site/menu/editar/' . $menu['id'], '<i class="fi-pencil"></i>');?>
+                                <?php
+                                    if($menu['formato']=='dropdown'){
+                                        echo '<a href="javascript:ordenar(' . $menu['id'] . ')">Ordenar</a>';
+                                    }
+                                ?>
+                            </td>
                         </tr>
                     <?php }?>
                     </tbody>

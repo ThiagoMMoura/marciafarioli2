@@ -8,7 +8,7 @@
     function ordenar(idmenupai){
         $.ajax({
             method: "POST",
-            url: "ordenar",
+            url: "<?= base_url("admin/sistema/menu/ordenar");?>",
             data: { id : idmenupai, formato : "painel-suspenso"},
             dataType: 'html',
             success: function(data){
@@ -37,10 +37,10 @@
                     <thead>
                         <tr>
                             <th class="visible-for-medium-up" width="154px">Grupo</th>
-                            <th width="170px">Nome</th>
+                            <th width="180px">Nome</th>
                             <th class="visible-for-medium-up" width="270px">Descrição</th>
-                            <th width="170px">Menu Pai</th>
-                            <th width="120px">Ações</th>
+                            <th width="180px">Menu Pai</th>
+                            <th width="100px">Ações</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -60,7 +60,7 @@
                             }?>
                             <td><?= $menupai;?></td>
                             <td >
-                                <?= anchor('admin/sistema/menu/editar/' . $menu['id'], 'Editar');?>
+                                <?= anchor('admin/sistema/menu/editar/' . $menu['id'], '<i class="fi-pencil"></i>');?>
                                 <?php
                                     if($menu['formato']=='dropdown'){
                                         echo '<a href="javascript:ordenar(' . $menu['id'] . ')">Ordenar</a>';
