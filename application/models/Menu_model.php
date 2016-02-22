@@ -163,7 +163,7 @@ class Menu_model extends MY_Model{
      * @param int $idmenupai
      * @return int
      */
-    public function get_max_ordem($idmenupai,$sistema = FALSE){
+    public function get_max_ordem($idmenupai = '',$sistema = FALSE){
         if($idmenupai==NULL){
             $idmenupai = $this->idmenupai;
         }
