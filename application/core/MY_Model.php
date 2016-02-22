@@ -12,6 +12,7 @@ class MY_Model extends CI_Model{
     protected $dbtable;
     protected $dbcolunas;
     protected $query;
+    protected $update_only;
     private $id;
 
     public function __construct(){
@@ -72,11 +73,13 @@ class MY_Model extends CI_Model{
      * 
      * @return array
      */
-    public function get_fields_array(){
+    public function get_fields_array($fields = array()){
         $cmp = array();
-
-        foreach($this->get_list_fields() as $coluna){
-            if($this->{$coluna}!=NULL OR $this->{$coluna}==0){
+        if(empty($fields)){
+            $fields = $this->get_list_fields();
+        }
+        foreach($fields as $coluna){
+            if(($this->{$coluna}!=NULL OR $this->{$coluna}==0)){
                 log_message('debug',$coluna . ' = '.$this->{$coluna});
                 $cmp[$coluna] = $this->{$coluna};
             }
@@ -157,7 +160,7 @@ class MY_Model extends CI_Model{
         if($post){
             $this->set_fields_sent_by_post();
         }
-        if($this->db->update($this->dbtable, $this->get_fields_array(), array('id' => $this->id))){
+        if($this->db->update($this->dbtable, $this->get_fields_array($this->update_only), array('id' => $this->id))){
             log_message('info','alterar SQL - '.$this->db->last_query());
             return TRUE;
         }else{
@@ -296,6 +299,10 @@ class MY_Model extends CI_Model{
      */
     public function get_first_row_array(){
         return $this->query!=NULL?$this->query->row_array():array();
+    }
+    
+    public function set_fields_update_only($fields){
+        $this->update_only = $fields;
     }
 }
 
