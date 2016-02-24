@@ -61,11 +61,7 @@
                             <td><?= $menupai;?></td>
                             <td >
                                 <?= anchor('admin/sistema/menu/editar/' . $menu['id'], '<i class="fi-pencil"></i>');?>
-                                <?php
-                                    if($menu['formato']=='dropdown'){
-                                        echo '<a href="javascript:ordenar(' . $menu['id'] . ')">Ordenar</a>';
-                                    }
-                                ?>
+                                <a href="javascript:ordenar('<?=$menu['idmenupai'];?>')">Ordenar</a>
                             </td>
                         </tr>
                     <?php }?>

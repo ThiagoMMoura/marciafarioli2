@@ -86,7 +86,11 @@ class Menu  extends MY_Controller{
         $id = $this->input->post('id');
         
         if($formato === 'painel-suspenso'){
-            $data = $this->menu_model->get_array_by_id($id);
+            if($id>0){
+                $data = $this->menu_model->get_array_by_id($id);
+            }else{
+                $data['nome'] = 'Top Bar';
+            }
             $data['itens_menu'] = $this->menu_model->get_itens_menu($id);
             
             $data['conteudo'] = $this->load->view($this->control_url . '/ordenar',$data,TRUE);
@@ -101,10 +105,11 @@ class Menu  extends MY_Controller{
     
     public function salvar_ordem(){
         $iditem = $this->input->post('iditem');
+        $i = 1;
         foreach($iditem as $id){
             $menu_model = new Menu_model();
             $menu_model->setId($id);
-            $menu_model->ordem = $this->input->post('ordem' . $id);
+            $menu_model->ordem = $i++;
             $menu_model->set_fields_update_only(array('ordem'));
             if(!$menu_model->salvar(FALSE)){
                 $this->session->set_flashdata('alerta', 'error_save');
