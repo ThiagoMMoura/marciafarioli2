@@ -1,4 +1,4 @@
-﻿    <?php
+    <?php
 	$script_list = array(
 			'padrao'=>array(
 					RESPONSIVE_FW_JS_FILE_LOCAL,
@@ -10,12 +10,11 @@
 					SLICK_JS_FILE_LOCAL,
 					SLICK_INI_JS_FILE_LOCAL
 					),
-			'editar/carrosel'=>array(
+			'adicionar'=>array(
 					RESPONSIVE_FW_JS_FILE_LOCAL,
 					array('codigo'=>'$(document).foundation();'),
 					'assets/plugin/jcrop/js/jquery.Jcrop.min.js',
-					array('src'=>'http://malsup.github.com/jquery.form.js'),
-					'assets/js/jcrop_carrosel.js'
+					array('src'=>'http://malsup.github.com/jquery.form.js')
 					),
 			'editar/portfolio'=>array(
 					RESPONSIVE_FW_JS_FILE_LOCAL,
