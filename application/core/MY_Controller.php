@@ -19,6 +19,42 @@ class MY_Controller extends CI_Controller{
      */
     private $default_page_fields = array();
     /**
+     * @var array 
+     */
+    private $_default_page_data = array();
+    /**
+     * @var array 
+     */
+    private $_page_data = array();
+    /**
+     * @var array 
+     */
+    private $_default_page_head_elements = array(
+        'links' => array(
+            NORMALIZE_CSS_FILE_LOCAL,
+            RESPONSIVE_FW_CSS_FILE_LOCAL,
+            FONTES_PATH . '/foundation-icons/foundation-icons.css',
+            APP_CSS_FILE_LOCAL,
+            CSS_PATH .'/barra-ferramentas.css'
+        ),
+        'scripts' => array(
+            MODERNIZR_JS_FILE_LOCAL,
+            JQUERY_JS_FILE_LOCAL
+        )
+    );
+    /**
+     * @var array 
+     */
+    private $_page_head_elements = array();
+    /**
+     * @var array 
+     */
+    private $_default_page_foot_elements = array();
+    /**
+     * @var array 
+     */
+    private $_page_foot_elements = array();
+    /**
      * @var boolean 
      */
     private $top_bar_visible = TRUE;
@@ -149,7 +185,8 @@ class MY_Controller extends CI_Controller{
         if(!isset($data['page'])){$data['page'] = $page;}
         if(!isset($data['logged'])){$data['logged'] = $this->_logged();}
         if(!isset($data['urls_restritas'])){$data['urls_restritas'] = $this->usuario_model->get_urls_restritas($this->session->idnivel);}
-        
+        $data['page_head_elements'] = $this->_get_page_head_elements($page, $data);
+
         $alerta = $this->session->flashdata('alerta');
         if ($alerta !== NULL) {
             $data[separa_str($alerta, '_', FALSE)] = $this->lang->line($alerta);
@@ -190,7 +227,7 @@ class MY_Controller extends CI_Controller{
     }
     
     /**
-     * Retorna um array com os campor padrões na página solicitada.
+     * Retorna um array com os campos padrões na página solicitada.
      * 
      * @param string $page
      * @param array $data
@@ -207,6 +244,33 @@ class MY_Controller extends CI_Controller{
         return $data;
     }
     
+    private function _get_page_head_elements($page,$data){
+        $page_head_elements = $this->_default_page_head_elements;
+        if(isset($this->_page_head_elements[$page])){
+            foreach($this->_page_head_elements[$page] as $key => $value){
+                if(isset($page_head_elements[$key])){
+                    $page_head_elements[$key] = array_merge($page_head_elements[$key],$value);
+                }else{
+                    $page_head_elements[$key] = $value;
+                }
+                if(isset($data['page_head_elements'][$key])){
+                    $page_head_elements[$key] = array_merge($page_head_elements[$key],$data['page_head_elements'][$key]);
+                }
+            }
+        }else{
+            if(isset($data['page_head_elements'])){
+                foreach($data['page_head_elements'] as $key => $value){
+                    if(isset($page_head_elements[$key])){
+                        $page_head_elements[$key] = array_merge($page_head_elements[$key],$value);
+                    }else{
+                        $page_head_elements[$key] = $value;
+                    }
+                }
+            }
+        }
+        return $page_head_elements;
+    }
+    
     /**
      * Seta propriedade $default_page_fields
      * 
@@ -214,6 +278,24 @@ class MY_Controller extends CI_Controller{
      */
     protected function _set_default_page_fields($page_fields){
         $this->default_page_fields = $page_fields;
+    }
+    
+    /**
+     * Seta propriedade $_page_head_elements
+     * 
+     * @param type $page_head_elements
+     */
+    protected function _set_page_head_elements($page_head_elements){
+        $this->_page_head_elements = $page_head_elements;
+    }
+    
+    /**
+     * Seta propriedade $_page_foot_elements
+     * 
+     * @param type $page_foot_elements
+     */
+    protected function _set_page_foot_elements($page_foot_elements){
+        $this->_page_foot_elements = $page_foot_elements;
     }
     
     /**
