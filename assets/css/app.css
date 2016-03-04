@@ -29,3 +29,33 @@ button.transparente, .button.transparente {
 a.desativado{
     color: #bbb;
 }
+.ellipsis-text{
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.imagem-upload-box{
+    border: 3px #bbb dashed;
+    background-color: #FFF;
+}
+.imagem-upload-box input{
+    position: absolute;
+    height: 100%;
+    margin: 0px;
+    padding: 0px 15px 0px 15px;
+    left: 0px;
+    top:0px;
+    filter:alpha(opacity:0);
+    opacity: 0;
+    -moz-opacity:0;
+}
+.imagem-upload-box:hover{
+    box-shadow: #FFF 5px;
+}
+.background-load-img{
+    width: 100%;
+    height: 50%;
+    background-image: url('../../images/site/loaders/load-img.gif');
+    background-position: center;
+    background-repeat: no-repeat;
+}
