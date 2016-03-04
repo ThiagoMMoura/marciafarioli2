@@ -27,40 +27,21 @@
         <title>Marcia Farioli - <?= $title ?></title>
 
         <?php 
-        $link_list = array(
-            'padrao'=>array(
-                NORMALIZE_CSS_FILE_LOCAL,
-                RESPONSIVE_FW_CSS_FILE_LOCAL,
-                FONTES_PATH . '/foundation-icons/foundation-icons.css',
-                APP_CSS_FILE_LOCAL
-                ),
-            'home'=>array(
-                SLICK_CSS_FILE_LOCAL,
-                SLICK_THEME_CSS_FILE_LOCAL,
-                CSS_PATH . '/home.css'
-                ),
-            'editar/carrosel'=>array(
-                PLUGIN_PATH . '/jcrop/css/jquery.Jcrop.min.css',
-                ),
-            'cadastro'=>array(
-                CSS_PATH .'/barra-ferramentas.css'
-                ),
-            'busca'=>array(
-                CSS_PATH .'/barra-ferramentas.css'
-                )
-            );
-
-        foreach($link_list['padrao'] as $key => $link_item){
-                echo link_tag($link_item);
-        }
-        if(array_key_exists($page,$link_list)){
-            foreach($link_list[$page] as $key => $link_item){
-                echo link_tag($link_item);
+        foreach($page_head_elements as $key => $value){
+            foreach($page_head_elements[$key] as $element){
+                switch($key){
+                    case 'link':case 'links':{
+                        echo link_tag($element);
+                        break;
+                    }case 'script':case 'scripts':{
+                        echo script_tag($element);
+                        break;
+                    }default:{
+                        echo link_tag($element);
+                    }
+                }
             }
         }
-
-        echo script_tag(MODERNIZR_JS_FILE_LOCAL);
-        echo script_tag(JQUERY_JS_FILE_LOCAL);
         ?>
     </head>
-<body>
+    <body>
