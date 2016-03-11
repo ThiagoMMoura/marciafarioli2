@@ -40,18 +40,15 @@ $field['userfile'] = array(
     var cancelar_count = 0;
     function upload(){
         var options = {
-            //url: "<?= base_url('admin/pagina/home/carrosel/salvar/ajax');?>",
-            //target: '#imgupload',
             cache: false,
             dataType: 'json',
             beforeSubmit: function(){
                 $('#userfile').hide();
-                $('.img-padrao').hide();
+                $('.img-padrao').fadeTo('slow',0);
                 $('#salvar').prop('disabled',true);
-                $('#upload-box').addClass('background-load-img');
             },
             success: function(data){
-                $('#upload-box').append('<img src="'+data.src+'" id="crop-img" />');
+                $('#upload-box').append('<img src="'+data.src+'" id="crop-img" style="display:hidden"/>');
                 jQuery(function($) {
                     $('#crop-img').Jcrop({
                         onChange: getCoordenadas,
@@ -65,19 +62,19 @@ $field['userfile'] = array(
                 });
                 $('#acao').val('salvar');
                 $('#url_uploaded').val(data.src);
-                $('#upload-box').removeClass('background-load-img');
+                $('.img-padrao').hide();
             },
             error: function(data){
                 $('#acao').val('upload');
                 $('#userfile').show();
-                $('.img-padrao').show();
+                $('.img-padrao').fadeTo('slow',100);
                 $('.alert-area').html('<div class="small-12 columns"><?= alert_div('Um erro ocorreu ao enviar a imagem automaticamente.','alert'); ?></div>');
                 console.error(data);
             }
         };
         jQuery('#uploadform').ajaxSubmit(options);
         $('#salvar').prop('disabled',false);
-        $('#upload-box').removeClass('background-load-img');
+        $('#crop-img').show('slow');
         return false;
     }
     function getCoordenadas(c){
@@ -98,13 +95,15 @@ $field['userfile'] = array(
                 method: "POST",
                 data: { ajax : "1", url_uploaded : $('#url_uploaded').val()},
                 error: function(data){
-                    alert('error ' + data);
+                    alert('Não foi possível cancelar, tente novamente!');
+                    console.error(data);
                 }
             }).done(function(data){
                 if(data==='1'){
                     $('#acao').val('upload');
                     $('#userfile').show();
                     $('.img-padrao').show();
+                    $('.img-padrao').fadeTo('slow',100);
                     $('#crop-img').remove();
                     $('.jcrop-holder').remove();
                 }else{
@@ -143,14 +142,12 @@ $field['userfile'] = array(
             <div class="panel">
                 <div class="row">
                     <div class="large-12 columns">
-                        <div class="imagem-upload-box" id="upload-box">
+                        <div class="imagem-upload-box background-load-img" id="upload-box">
                             <?php if($acao==='salvar'){
                                 echo img(set_value('url_uploaded',$url_uploaded),FALSE,'id="crop-img"');
                             }else{ ?>
                                 <?= img("images/site/adicionar/adicionar_imagem_1000x400.png",FALSE,'class="img-padrao"');?>
                                 <?= get_form_field($field['userfile']);?>
-                                <span id="background-load-img" style="display:none;"></span>
-                                
                             <?php } ?>
                         </div>
                     </div>

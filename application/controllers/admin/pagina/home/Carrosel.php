@@ -1,5 +1,4 @@
 <?php
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
@@ -48,7 +47,6 @@ class Carrosel extends MY_Controller {
         } else {
             $data = $this->upload->data();
             echo json_encode(array('src' => base_url() . $config['upload_path'] . $data['file_name']));
-            //echo img(array('src' => base_url() . $config['upload_path'] . $data['file_name'], 'id' => 'crop-img', 'width' => $data['image_width'], 'height' => $data['image_height']));
         }
     }
 

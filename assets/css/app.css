@@ -52,6 +52,9 @@ a.desativado{
     opacity: 0;
     -moz-opacity:0;
 }
+.imagem-upload-box .img-padrao{
+    background-color: white;
+}
 .imagem-upload-box:hover{
     box-shadow: #FFF 5px;
 }
