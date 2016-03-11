@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 function script_tag($src = '', $codigo = '', $type = 'text/javascript', $index_page = FALSE){
 	$CI =& get_instance();

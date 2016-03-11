@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 class Video_model extends MY_Model{
 	
 	public $id;

@@ -1,4 +1,4 @@
-﻿<div class="row">
+<div class="row alert-area">
   <div class="small-12 columns">
   <?php 
 	if(isset($error)){
