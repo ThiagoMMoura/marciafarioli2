@@ -10,7 +10,7 @@ $this->load->view('templates/alertas');
         } ?>
         <div class="carrosel">
             <?
-            $pasta = './images/site/carrosel/';
+            $pasta = './images/site/pagina/home/carrosel/';
             $map = directory_map($pasta, 1);
             foreach ($map as $img) {
                 ?>

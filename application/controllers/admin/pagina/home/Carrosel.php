@@ -18,13 +18,16 @@ class Carrosel extends MY_Controller {
     }
 
     public function index() {
-        show_404();
+        $this->busca();
     }
     
     public function adicionar($data = array()){
         $this->view('adicionar',$data);
     }
-
+    
+    public function busca($data = array()){
+        $this->view('busca',$data);
+    }
     public function upload() {
         $pasta = 'tmp_data/';
         if (!is_dir($pasta)) {
@@ -44,34 +47,35 @@ class Carrosel extends MY_Controller {
             $this->load->view('templates/alertas', $data);
         } else {
             $data = $this->upload->data();
-            
-            echo img(array('src' => base_url() . $config['upload_path'] . $data['file_name'], 'id' => 'imgcrop', 'width' => $data['image_width'], 'height' => $data['image_height']));
+            echo json_encode(array('src' => base_url() . $config['upload_path'] . $data['file_name']));
+            //echo img(array('src' => base_url() . $config['upload_path'] . $data['file_name'], 'id' => 'crop-img', 'width' => $data['image_width'], 'height' => $data['image_height']));
         }
     }
 
-    public function salvar($tipo_resposta = 'redirect',$data = array()) {
+    public function salvar($data = array()) {
         if(empty($data)){
             $data = $this->input->post();
         }
+        
         if($data['acao'] === 'upload'){
             $this->upload();
         }else{
-            $img = str_replace(base_url(), '', $data['url']);
+            $img = str_replace(base_url(), '', $data['url_uploaded']);
             if (isset($data['cancelar'])) {
                 $this->cancelar($img);
             }
 
-            $nome = date('YmdHis') . random_string('alnum', 16) . strrchr($data['url'], '.');
+            $nome = date('YmdHis') . random_string('alnum', 16) . strrchr($data['url_uploaded'], '.');
             $pasta = 'images/site/pagina/home/carrosel/';
             if (!is_dir($pasta)) {
-                mkdir($pasta);
+                mkdir($pasta,0777,TRUE);
             }
 
             list($largura, $altura) = getimagesize($img);
-            $w = ($data['w'] * 100 / $data['real-w']) * $largura / 100;
-            $h = ($data['h'] * 100 / $data['real-h']) * $altura / 100;
-            $x = ($data['x'] * 100 / $data['real-w']) * $largura / 100;
-            $y = ($data['y'] * 100 / $data['real-h']) * $altura / 100;
+            $w = ($data['w'] * 100 / $data['real_w']) * $largura / 100;
+            $h = ($data['h'] * 100 / $data['real_h']) * $altura / 100;
+            $x = ($data['x'] * 100 / $data['real_w']) * $largura / 100;
+            $y = ($data['y'] * 100 / $data['real_h']) * $altura / 100;
 
             $img_cfg['image_library'] = 'gd2';
             $img_cfg['source_image'] = $img;
@@ -88,7 +92,7 @@ class Carrosel extends MY_Controller {
                 echo $this->image_lib->display_errors();
             } else {
                 unlink($img_cfg['source_image']);
-                redirect('admin/editar/carrosel');
+                redirect('admin/pagina/home/carrosel/busca');
             }
         }
     }
@@ -97,24 +101,35 @@ class Carrosel extends MY_Controller {
         if ($nome === NULL){
             $nome = $this->input->post('nome');
         }
-        unlink('./images/site/carrosel/' . $nome);
+        unlink('./images/site/pagina/home/carrosel/' . $nome);
         $this->session->set_flashdata('alerta', 'success_excluded_image');
-        redirect('admin/editar/carrosel');
+        redirect('admin/pagina/home/carrosel');
     }
 
-    public function cancelar($nome = NULL) {
-        if ($nome === NULL)
-            $nome = $this->input->post['url'];
-        $nome = strrchr($nome, '/');
-        unlink('./tmp_data/' . $nome);
-        redirect('admin/editar/carrosel');
+    public function cancelar($url_uploaded = NULL) {
+        if ($url_uploaded === NULL) {
+            $url_uploaded = $this->input->post('url_uploaded');
+        }
+        $nome_arquivo = strrchr($url_uploaded, '/');
+        if(unlink('tmp_data' . $nome_arquivo)){
+            if($this->input->post('ajax')){
+                echo 1;
+                return 1;
+            }else{
+                redirect('admin/pagina/home/carrosel/adicionar');
+            }
+        }
+        echo 0;
+        return 0;
     }
     
     private function _set_campos_padrao(){
         $default_page_fields = array(
             'adicionar' => array(
                 'acao' => 'upload',
-                'url_uploaded' => ''
+                'url_uploaded' => '',
+                'max_width_image_carrosel' => $this->config->item('max-width-image-carrosel'),
+                'max_height_image_carrosel' => $this->config->item('max-height-image-carrosel')
             )
         );
         $this->_set_default_page_fields($default_page_fields);

@@ -2,26 +2,42 @@
 $this->load->helper('directory');
 ?>
 <div class="row">
-    <div class="small-12 columns text-center">
-        <?php echo heading('Imagens do carrosel',2);?>
-    </div>
-</div>
-<div class="row">
-    <div class="carrosel-lista">
-    	<ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-5">
+    <div class="medium-12 medium-centered column">
+        <?php
+        $ferramentas['title'] = 'Busca Imagens Carrosel';
+        $ferramentas['adicionar'] = array('href'=>'admin/pagina/home/carrosel/adicionar');
+        $this->load->view('templates/barra_ferramentas',$ferramentas);
+        ?>
+        <div class="panel">
             <?php
-            $pasta = './images/site/carrosel/';
+            $pasta = './images/site/pagina/home/carrosel/';
             $map = directory_map($pasta,1);
                 if(empty($map)) {
-                    echo '<p>Nenhuma imagem encontrada.</p>';
-                }else{
-                    foreach($map as $img){ ?>
-                        <li>
-                            <?= img($pasta.$img) . anchor('admin/carrosel/excluir/'.$img,'Excluir');?>
-                        </li>
-                <?php } ?>
+                    //echo '<p>Nenhuma imagem encontrada.</p>';
+                    $data['warning'] = $this->lang->line('warning_no_registration_found');
+                    $this->load->view('templates/alertas',$data);
+                }else{?>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Miniatura</th>
+                                <th>Nome</th>
+                                <th>Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <?php foreach($map as $img){ ?>
+                                <tr>
+                                    <td><?= img($pasta.$img,FALSE,'style="width:12.500rem;"');?></td>
+                                    <td><?= $img;?></td>
+                                    <td><?= anchor('admin/pagina/home/carrosel/excluir/'.$img,'Excluir');?></td>
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
             <?php }?>
-        </ul>
+        </div>
     </div>
 </div>
 

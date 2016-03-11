@@ -37,38 +37,47 @@ $field['userfile'] = array(
 );
 ?>
 <script type="text/javascript">
+    var cancelar_count = 0;
     function upload(){
         var options = {
-            url: "<?= base_url('admin/pagina/home/carrosel/salvar/ajax');?>",
+            //url: "<?= base_url('admin/pagina/home/carrosel/salvar/ajax');?>",
             //target: '#imgupload',
             cache: false,
+            dataType: 'json',
             beforeSubmit: function(){
                 $('#userfile').hide();
                 $('.img-padrao').hide();
-                
+                $('#salvar').prop('disabled',true);
                 $('#upload-box').addClass('background-load-img');
             },
             success: function(data){
+                $('#upload-box').append('<img src="'+data.src+'" id="crop-img" />');
                 jQuery(function($) {
-                    $('#imgcrop').Jcrop({
+                    $('#crop-img').Jcrop({
                         onChange: getCoordenadas,
                         onSelect: getCoordenadas,
                         bgColor:     'black',
                         bgOpacity:   .4,
-                        aspectRatio: 10 / 4,
-                        maxSize: [1000,400],
-                        setSelect: [0,0,0,1000]
+                        aspectRatio: <?= $max_width_image_carrosel;?> / <?= $max_height_image_carrosel;?>,
+                        maxSize: [<?= $max_width_image_carrosel;?>,<?= $max_height_image_carrosel;?>],
+                        setSelect: [0,0,0,<?= $max_width_image_carrosel;?>]
                     });
                 });
                 $('#acao').val('salvar');
-                $('#crop-img').scr = data.scr;
-                $('#url_uploaded').val($('#crop-img').attr('src'));
+                $('#url_uploaded').val(data.src);
+                $('#upload-box').removeClass('background-load-img');
             },
             error: function(data){
-                alert('error');
+                $('#acao').val('upload');
+                $('#userfile').show();
+                $('.img-padrao').show();
+                $('.alert-area').html('<div class="small-12 columns"><?= alert_div('Um erro ocorreu ao enviar a imagem automaticamente.','alert'); ?></div>');
+                console.error(data);
             }
         };
         jQuery('#uploadform').ajaxSubmit(options);
+        $('#salvar').prop('disabled',false);
+        $('#upload-box').removeClass('background-load-img');
         return false;
     }
     function getCoordenadas(c){
@@ -78,8 +87,34 @@ $field['userfile'] = array(
 	$('#y2').val(c.y2);
 	$('#w').val(c.w);
 	$('#h').val(c.h);
-	$('#real-w').val($('.jcrop-holder').css('width'));
-	$('#real-h').val($('.jcrop-holder').css('height'));
+	$('#real_w').val($('.jcrop-holder').css('width'));
+	$('#real_h').val($('.jcrop-holder').css('height'));
+    }
+    function cancelar(){
+        cancelar_count++;
+        if(cancelar_count<2){
+            $.ajax({
+                url:'<?= base_url('admin/pagina/home/carrosel/cancelar');?>',
+                method: "POST",
+                data: { ajax : "1", url_uploaded : $('#url_uploaded').val()},
+                error: function(data){
+                    alert('error ' + data);
+                }
+            }).done(function(data){
+                if(data==='1'){
+                    $('#acao').val('upload');
+                    $('#userfile').show();
+                    $('.img-padrao').show();
+                    $('#crop-img').remove();
+                    $('.jcrop-holder').remove();
+                }else{
+                    alert('Não é possível cancelar.');
+                }
+                return false;
+            });
+        }else{
+            cancelar_count = 0;
+        }
     }
 </script>
 
@@ -99,10 +134,10 @@ $field['userfile'] = array(
             ?>
             <?php 
             $ferramentas['title'] = 'EDITAR CARROSEL';
-            $ferramentas['limpar'] = TRUE;
-            $ferramentas['salvar'] = array('id' => 'btnenviar');
+            $ferramentas['limpar'] = array('extra'=>'onclick="cancelar()"','text'=>'Cancelar');
+            $ferramentas['salvar'] = TRUE;
             $ferramentas['adicionar'] = array('href'=>'admin/pagina/home/carrosel/editar');
-            //$ferramentas['buscar'] = array('href'=>'admin/sistema/menu/busca');
+            $ferramentas['buscar'] = array('href'=>'admin/pagina/home/carrosel/busca');
             $this->load->view('templates/barra_ferramentas',$ferramentas);
             ?>
             <div class="panel">
@@ -115,7 +150,7 @@ $field['userfile'] = array(
                                 <?= img("images/site/adicionar/adicionar_imagem_1000x400.png",FALSE,'class="img-padrao"');?>
                                 <?= get_form_field($field['userfile']);?>
                                 <span id="background-load-img" style="display:none;"></span>
-                                <?= img('',FALSE,'id="crop-img"');?>
+                                
                             <?php } ?>
                         </div>
                     </div>
