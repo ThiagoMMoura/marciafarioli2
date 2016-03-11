@@ -16,23 +16,23 @@
         <li>
             <label for="limpar" class="button-tool" <?= isset($limpar['extra'])?$limpar['extra']:'';?>>
                 <i class="fi-page-delete"></i>
-                <span class="label-icone">Limpar</span>
+                <span class="label-icone"><?= isset($limpar['text'])?$limpar['text']:'limpar';?></span>
             </label>
-            <input type="reset" id="limpar" name="limpar" hidden>
+            <input type="reset" id="<?= isset($limpar['id'])?$limpar['id']:'limpar';?>" name="<?= isset($limpar['name'])?$limpar['name']:'limpar';?>" <?= isset($limpar['extra'])?$limpar['extra']:'';?> hidden>
         </li>
         <?php } ?>
         <?php if(isset($salvar)){ ?>
         <li>
             <label for="salvar" class="button-tool" <?= isset($salvar['extra'])?$salvar['extra']:'';?>>
                 <i class="fi-save"></i>
-                <span class="label-icone">Salvar</span>
+                <span class="label-icone"><?= isset($salvar['text'])?$salvar['text']:'Salvar';?></span>
             </label>
-            <input type="submit" name="salvar" id="salvar" hidden>
+            <input type="submit" name="<?= isset($salvar['name'])?$salvar['name']:'salvar';?>" id="<?= isset($salvar['id'])?$salvar['id']:'salvar';?>" <?= isset($salvar['extra'])?$salvar['extra']:'';?> hidden>
         </li>
         <?php } ?>
         <?php if(isset($excluir)){ ?>
         <li>
-            <a name="excluir" class="button-tool" href="<?= isset($excluir['href'])?base_url($excluir['href']):'#';?>" <?= isset($excluir['extra'])?$excluir['extra']:'';?>>
+            <a name="<?= isset($excluir['name'])?$excluir['name']:'excluir';?>" class="button-tool" href="<?= isset($excluir['href'])?base_url($excluir['href']):'#';?>" <?= isset($excluir['extra'])?$excluir['extra']:'';?>>
                 <i class="fi-trash"></i>
                 <span class="label-icone">Excluir</span>
             </a>
