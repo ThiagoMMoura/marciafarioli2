@@ -1,5 +1,7 @@
-﻿<?php
-if (!defined('BASEPATH')) exit('No direct script access allowed');
+<?php
+if (!defined('BASEPATH')) {
+    exit('No direct script access allowed');
+}
 
 class Config_model extends MY_Model{
 	
@@ -27,4 +29,3 @@ class Config_model extends MY_Model{
 	
 	
 }
-?>
