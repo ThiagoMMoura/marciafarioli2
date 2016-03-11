@@ -18,6 +18,9 @@ button.transparente, .button.transparente {
 .nav-header ul.button-group .nav-active .button{
 	border-bottom:2px rgba(204,204,204,1) solid;
 }
+.fixed + .row > .columns:first-child,.fixed + .row > .column:first-child {
+    margin-top: 1.250rem;
+}
 .panel{
     border-color: #bbb;
     background: #eee;
