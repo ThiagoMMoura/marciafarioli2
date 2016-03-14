@@ -1,12 +1,12 @@
-﻿<?php
+<?php
 class Album_model extends MY_Model{
 	
 	public $nome;
 	public $descricao;
+        public $url;
 	public $biblioteca;
 	public $classificacao;
-	public $url;
-	public $privado;
+	public $idcategoria;
 	public $idusuario;
 	public $idcapa;
 	public $criado;
@@ -14,7 +14,7 @@ class Album_model extends MY_Model{
 	public function __construct(){
 		parent::__construct();
 		$this->dbtable = 'album';
-		$privado = TRUE;
+                $this->load->model('categoria_album_model');
 	}
 	
 	public function Novo($campos){
@@ -31,8 +31,6 @@ class Album_model extends MY_Model{
 	public function NovoImagemPortfolio($campos){
 		$campos['classificacao'] = 'portfolio';
 		$campos['url'] = 'images/portfolio/'.date('Y').'/'.date('m').'/'.str_replace(' ','_',strtolower($campos['nome'])).'/';
-		$campos['privado'] = FALSE;
 		return $this->NovoImagem($campos);
 	}
 }
-?>
