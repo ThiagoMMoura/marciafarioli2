@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Midia_model extends MY_Model{
 	
@@ -35,4 +35,3 @@ class Midia_model extends MY_Model{
 		return $this->NovaImagem($campos);
 	}
 }
-?>

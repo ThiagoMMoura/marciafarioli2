@@ -1,4 +1,4 @@
-﻿<?php $this->load->view('templates/alertas'); ?>
+<?php $this->load->view('templates/alertas'); ?>
 <div class="row">
   <div class="small-12 columns text-center">
     <?php echo heading('Adicionar imagem ao Album:',2);?>
