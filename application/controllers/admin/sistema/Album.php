@@ -52,7 +52,8 @@ class Album extends MY_Controller{
             $this->cadastro();
         }else{
             $album = new Album_model();
-            $album->setId($this->input->post('idalbum'));
+            $album->getObjectById($this->input->post('idalbum'));
+            
             $album->nome = $this->input->post('nome');
             $album->descricao = $this->input->post('descricao');
             $album->biblioteca = $this->input->post('biblioteca');
@@ -61,10 +62,7 @@ class Album extends MY_Controller{
             $album->idusuario = $this->input->post('idusuario');
             $album->idcapa = $this->input->post('idcapa');
             
-            if($album->getId()>0){
-                $album->url = $this->input->post('url');
-                $album->criado = $this->input->post('criado');
-            }else{
+            if($album->getId()==0){
                 $album->url = 'images/portfolio/'.date('Y').'/'.date('m').'/'.str_replace(' ','_',strtolower($album->nome)).'/';
                 $album->criado = date('Y-m-d H:i:s');
             }
