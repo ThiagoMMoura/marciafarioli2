@@ -6,6 +6,9 @@
 	margin-bottom: 15px;
 	margin-top: 10px;
 }
+.text-bold{
+    font-weight: bold;
+}
 button.transparente:hover, button.transparente:focus, .button.transparente:hover, .button.transparente:focus {
 	color: #999;
     background-color: transparent;
@@ -64,4 +67,8 @@ a.desativado{
     background-image: url('../../images/site/loaders/load-img.gif');
     background-position: center;
     background-repeat: no-repeat;
+}
+.table-row{
+    margin: 0 0rem;
+    width: 100%;
 }
