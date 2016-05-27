@@ -34,4 +34,9 @@ class Midia_model extends MY_Model{
 		$campos['privado'] = FALSE;
 		return $this->NovaImagem($campos);
 	}
+        
+        public function url_imagem_padrao($id){
+            $this->getObjectById($id);
+            return $this->url;
+        }
 }
