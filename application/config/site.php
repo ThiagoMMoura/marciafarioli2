@@ -6,6 +6,7 @@
 $config['pagina-principal-site'] = 'home';
 $config['max-width-image-carrosel'] = 1000;
 $config['max-height-image-carrosel'] = 400;
+$config['imagem-sem-capa'] = 1;
 $config['icones'] = array(
     "fi-address-book",
     "fi-alert",
