@@ -111,8 +111,10 @@ class MY_Model extends CI_Model{
     }
 
     public function setCampos($campos){
-        foreach($campos as $campo => $value){
-            $this->{$campo} = $value;
+        if($campos != NULL){
+            foreach($campos as $campo => $value){
+                $this->{$campo} = $value;
+            }
         }
     }
 
