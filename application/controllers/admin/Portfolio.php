@@ -79,7 +79,7 @@ class Portfolio extends CI_Controller {
 			$midia['idalbum'] = $this->input->post('idalbum');
 			$midia['idusuario'] = $this->session->id;
 			
-			if($this->midia_model->NovaImagemPortfolio($midia)) {
+			if($this->midia_model->add_imagem_portfolio($midia)) {
 				$this->midia_model->getInserido();
 				echo $this->midia_model->url;
 			}else {
