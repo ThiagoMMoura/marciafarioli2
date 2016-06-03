@@ -21,6 +21,8 @@ class Midia_model extends MY_Model{
 	public function Nova($campos){
 		$this->setCampos($campos);
 		$this->criado = date('Y-m-d H:i:s');
+                $this->idusuario = $this->session->id;
+                $this->setId(NULL);
 		return parent::inserir(FALSE);
 	}
 	
@@ -29,10 +31,19 @@ class Midia_model extends MY_Model{
 		return $this->Nova($campos);
 	}
 	
-	public function NovaImagemPortfolio($campos){
-		$campos['classificacao'] = 'portfolio';
-		$campos['privado'] = FALSE;
-		return $this->NovaImagem($campos);
+	public function add_imagem_portfolio($campos,$url = '',$id_album = '',$alt = ''){
+            if(!is_array($campos)){
+                $nome = $campos;
+                $campos = array();
+                $campos['nome'] = $nome;
+                $campos['url'] = $url;
+                $campos['idalbum'] = $id_album;
+                $campos['alt'] = $alt;
+            }
+            $campos['classificacao'] = 'portfolio';
+            $campos['privado'] = FALSE;
+            $campos['local'] = 1;
+            return $this->NovaImagem($campos);
 	}
         
         public function url_imagem_padrao($id){
