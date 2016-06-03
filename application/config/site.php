@@ -4,6 +4,9 @@
  * Lista de configurações do site.
  */
 $config['pagina-principal-site'] = 'home';
+$config['max-size-image-upload'] = 2048;
+$config['max-width-image-upload'] = 4000;
+$config['max-height-image-upload'] = 4000;
 $config['max-width-image-carrosel'] = 1000;
 $config['max-height-image-carrosel'] = 400;
 $config['imagem-sem-capa'] = 1;
