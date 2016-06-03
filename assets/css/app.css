@@ -72,3 +72,33 @@ a.desativado{
     margin: 0 0rem;
     width: 100%;
 }
+.album-up-img-header,.album-up-img-box{
+    background-color: #FFF;
+    padding: 1rem;
+    border: #bbb solid 1px;
+}
+.album-img-container {
+    border: #e1e1e1 solid 1px;
+    webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.06);
+    -moz-box-shadow: 0px 0px 3px rgba(0,0,0,0.06);
+    box-shadow: 0px 0px 3px rgba(0,0,0,0.06);
+    padding: 0.2rem;
+}
+.album-img-item{
+    
+}
+.album-img-thumb{
+    width: auto;
+    height: 10.188rem;
+    border: 1px solid #e1e1e1;
+    overflow: hidden;
+}
+.album-img-thumb-image{
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+.album-img-thumb-image img{
+    max-width: none;
+    max-height: 100%;
+}
