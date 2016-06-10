@@ -10,6 +10,7 @@ $config['max-height-image-upload'] = 4000;
 $config['max-width-image-carrosel'] = 1000;
 $config['max-height-image-carrosel'] = 400;
 $config['imagem-sem-capa'] = 1;
+$config['ajax-load-up-img'] = 3;
 $config['icones'] = array(
     "fi-address-book",
     "fi-alert",
