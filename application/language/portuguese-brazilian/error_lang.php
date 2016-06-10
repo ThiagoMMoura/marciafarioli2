@@ -19,3 +19,6 @@ $lang['error_album_inexistente']='O Album procurado não existe!';
 $lang['error_save']='Falha ao salvar!';
 $lang['error_register_failed'] = 'Falha ao salvar cadastro!';
 $lang['error_register_failed_try_later'] = 'Falha ao salvar cadastro, tente mais tarde!';
+$lang['error_deleting_image'] = 'Falha ao excluir imagem. Tente novamente mais tarde!';
+$lang['error_deleting'] = 'Falha ao excluir. Tente novamente mais tarde!';
+$lang['error_changing_cover'] = 'Não foi possível alterar a capa deste album. Tente novamente mais tarde!';
