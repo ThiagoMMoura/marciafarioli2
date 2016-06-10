@@ -139,15 +139,13 @@ class MY_Model extends CI_Model{
     }
 
     public function getInserido(){
-        $query = $this->selecionar(NULL,'id = '.$this->db->insert_id());
-        $result = $query->row_array();
+        $result = $this->get_array_by_id($this->db->insert_id());
         $this->setCampos($result);
         return $result;
     }
 
     public function getInsertObject(){
-        $query = $this->selecionar(NULL,'id = '.$this->db->insert_id());
-        $this->setCampos($query->row_array());
+        $this->setCampos($this->getInserido());
         return $this;
     }
 
@@ -305,6 +303,14 @@ class MY_Model extends CI_Model{
     
     public function set_fields_update_only($fields){
         $this->update_only = $fields;
+    }
+    
+    public function deletar($id){
+        if($id!=NULL&&$id!=''){
+            $this->db->where('id', $id);
+            return $this->db->delete($this->dbtable);
+        }
+        return FALSE;
     }
 }
 
