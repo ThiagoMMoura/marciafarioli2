@@ -41,7 +41,7 @@ a.desativado{
     text-overflow: ellipsis;
 }
 .imagem-upload-box{
-    border: 3px #bbb dashed;
+    border: 2px dashed #C8CBCE;
     background-color: #FFF;
 }
 .imagem-upload-box input{
@@ -72,7 +72,7 @@ a.desativado{
     margin: 0 0rem;
     width: 100%;
 }
-.album-up-img-header,.album-up-img-box{
+.album-up-img-box{
     background-color: #FFF;
     padding: 1rem;
     border: #bbb solid 1px;
@@ -101,4 +101,41 @@ a.desativado{
 .album-img-thumb-image img{
     max-width: none;
     max-height: 100%;
+}
+.album-up-img-box .album-img-container .album-img-item .album-img-action{
+    position: absolute;
+    /*bottom: 0;
+    left: 0;*/
+    width: auto;
+    color: #fff;
+    padding: 0px 10px;
+    z-index: 9;
+}
+.album-up-img-box .album-img-container .album-img-item .album-img-action a{
+    color: #fff;
+    webkit-text-shadow: rgba(0,0,0,0.4) 0em 0em 0.15em;
+    -moz-text-shadow: rgba(0,0,0,0.4) 0em 0em 0.15em;
+    text-shadow: rgba(0,0,0,0.4) 0em 0em 0.15em;
+    margin-right: 0.313rem;
+}
+.album-up-img-box .album-img-container .album-img-item .album-img-action a:hover{
+    color: #0088cc;
+}
+.album-up-img-button {
+    height: 10.188rem;
+    text-align: center;
+    cursor: pointer;
+    z-index: 9;
+}
+.album-up-img-button img{
+    height: 10.188rem;
+}
+.album-up-img-box li.capa .album-img-container{
+    background-color: #fbe54e;
+}
+.album-up-img-box li.capa [name="alterar_capa"]{
+    display: none;
+}
+.album-up-img-box li[id^="up-item-box-"] [name="alterar_capa"], .album-up-img-box li[id^="up-item-box-"] [name="excluir"]{
+    display: none;
 }
