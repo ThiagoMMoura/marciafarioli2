@@ -64,7 +64,9 @@ class Portfolio extends MY_Controller{
         } else {
             $data = $this->upload->data();
             if($this->midia_model->add_imagem_portfolio($data['file_name'], $pasta . $data['file_name'], $this->input->post('id'))){
-                echo json_encode(array('estatus' => 'sucesso'));
+                $imagem = $this->midia_model->getInserido();
+                $imagem['url'] = base_url() . $imagem['url'];
+                echo json_encode(array('estatus' => 'sucesso','imagem'=>$imagem));
             }else{
                 $mensagem = array('error'=>$this->lang->line('error_insert_failed'));
 		echo json_encode(array('alertas'=>$this->load->view('templates/alertas',$mensagem,TRUE),'estatus'=>'falha'));
@@ -72,6 +74,34 @@ class Portfolio extends MY_Controller{
         }
     }
     
+    public function excluir($id = ''){
+        if($id == ''){
+            $id = $this->input->post('id');
+        }
+        
+        $data = $this->midia_model->get_array_by_id($id);
+        if(unlink($data['url'])){
+            if($this->midia_model->deletar($id)!== FALSE){
+                echo json_encode(array('estatus'=>'sucesso'));
+                return;
+            }
+        }
+        $mensagem = array('error'=>$this->lang->line('error_deleting_image'));
+        echo json_encode(array('alertas'=>$this->load->view('templates/alertas',$mensagem,TRUE),'estatus'=>'falha'));
+    }
+    
+    public function alterar_capa(){
+        $this->album_model->setId($this->input->post('idalbum'));
+        $this->album_model->idcapa = $this->input->post('idcapa');
+        $this->album_model->set_fields_update_only(array('idcapa'));
+        if($this->album_model->salvar(FALSE)){
+            echo json_encode(array('estatus'=>'sucesso'));
+        }else{
+            $mensagem = array('error'=>$this->lang->line('error_changing_cover'));
+            echo json_encode(array('alertas'=>$this->load->view('templates/alertas',$mensagem,TRUE),'estatus'=>'falha'));
+        }
+    }
+
     private function _set_campos_padrao(){
         $default_page_fields = array(
             'albuns' => array(
@@ -82,7 +112,9 @@ class Portfolio extends MY_Controller{
                 'id'=>'0',
                 'nome'=>'',
                 'descricao'=>'',
-                'fotos' => array()
+                'fotos' => array(),
+                'url_imagem_add' => $this->midia_model->url_imagem_padrao($this->config->item('image-adicionar-upload')),
+                'url_ajax_load_gif' => $this->midia_model->url_imagem_padrao($this->config->item('ajax-load-up-img'))
             )
         );
         

@@ -34,16 +34,25 @@ $field['descricao'] = array(
                 </div>
                 <div class="row">
                     <div class="medium-12 columns">
-                        <div class="album-up-img-header">
-                            
-                        </div>
                         <div class="album-up-img-box">
-                            <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
-                                <?php foreach ($fotos as $foto){ ?>
+                            <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4" id="album-up-list">
                                 <li>
+                                    <div class="imagem-upload-box">
+                                        <div class="album-up-img-button">
+                                            <?= img($url_imagem_add);?>
+                                            <input type="file" name="files[]" id="up_img" multiple="multiple">
+                                        </div>
+                                    </div>
+                                </li>
+                                <?php foreach ($fotos as $foto){ ?>
+                                <li id="img-<?= $foto['id'];?>" <?= $idcapa==$foto['id']?'class="capa"':'';?>>
                                     <div class="album-img-container">
                                         <div class="album-img-item">
                                             <div class="album-img-thumb">
+                                                <div class="album-img-action">
+                                                    <a name="excluir" onclick="excluir(<?= $foto['id'];?>)"><i class="fi-trash" ></i></a>
+                                                    <a name="alterar_capa" onclick="tornarCapa(<?= $foto['id'];?>)"><i class="fi-photo"></i></a>
+                                                </div>
                                                 <div class="album-img-info">
                                                 </div>
                                                 <div class="album-img-thumb-image">
@@ -56,33 +65,6 @@ $field['descricao'] = array(
                                 <?php } ?>
                             </ul>
                         </div>
-                        <div class="jFiler jFiler-theme-dragdropbox">
-                            <!--input type="file" name="files[]" id="filer_input" multiple="multiple" style="position: absolute; left: -9999px; top: -9999px; z-index: -9999;">
-                            <div class="jFiler-input-dragDrop"><div class="jFiler-input-inner"><div class="jFiler-input-icon"><i class="icon-jfi-cloud-up-o"></i></div><div class="jFiler-input-text"><h3>Drag&Drop files here</h3> <span style="display:inline-block; margin: 15px 0">or</span></div><a class="jFiler-input-choose-btn blue">Browse Files</a></div></div>
-                            <div class="jFiler-items jFiler-row">
-                                <ul class="jFiler-items-list jFiler-items-grid">
-                                    <?php foreach ($fotos as $foto){ ?>
-                                        <li class="jFiler-item">
-                                            <div class="jFiler-item-container">
-                                                <div class="jFiler-item-inner">
-                                                    <div class="jFiler-item-thumb">
-                                                        <div class="jFiler-item-status"></div>
-                                                        <div class="jFiler-item-info">
-                                                            <span class="jFiler-item-title"><b title="<?= $foto['nome'];?>"><?= character_limiter($foto['nome'],25);?></b></span>
-                                                            <span class="jFiler-item-others">0</span>
-                                                        </div>
-                                                        <?= img($foto['url']);?>
-                                                    </div>
-                                                    
-                                                </div>
-                                            </div>
-                                        </li>
-                                    <?php } ?>
-
-                                </ul>
-                            </div-->
-                            
-                        </div>
                     </div>
                 </div>
 
@@ -92,96 +74,87 @@ $field['descricao'] = array(
 </div>
 <script type="text/javascript">
     $(document).ready(function(){
-        $('#filer_input').filer({
-            //changeInput: '<div class="jFiler-input-dragDrop"><div class="jFiler-input-inner"><div class="jFiler-input-icon"><i class="icon-jfi-cloud-up-o"></i></div><div class="jFiler-input-text"><h3>Drag&Drop files here</h3> <span style="display:inline-block; margin: 15px 0">or</span></div><a class="jFiler-input-choose-btn blue">Browse Files</a></div></div>',
-            changeInput: ' ',        
-            showThumbs: true,
-            theme: "dragdropbox",
-            templates: {
-                box: '<ul class="jFiler-items-list jFiler-items-grid"></ul>',
-                item: '<li class="jFiler-item">\
-                            <div class="jFiler-item-container">\
-                                <div class="jFiler-item-inner">\
-                                    <div class="jFiler-item-thumb">\
-                                        <div class="jFiler-item-status"></div>\
-                                        <div class="jFiler-item-info">\
-                                            <span class="jFiler-item-title"><b title="{{fi-name}}">{{fi-name | limitTo: 25}}</b></span>\
-                                            <span class="jFiler-item-others">{{fi-size2}}</span>\
-                                        </div>\
-                                        {{fi-image}}\
-                                    </div>\
-                                    <div class="jFiler-item-assets jFiler-row">\
-                                        <ul class="list-inline pull-left">\
-                                            <li>{{fi-progressBar}}</li>\
-                                        </ul>\
-                                        <ul class="list-inline pull-right">\
-                                            <li><a class="icon-jfi-trash jFiler-item-trash-action"></a></li>\
-                                        </ul>\
-                                    </div>\
-                                </div>\
-                            </div>\
-                        </li>',
-                itemAppend: '<li class="jFiler-item">\
-                                <div class="jFiler-item-container">\
-                                    <div class="jFiler-item-inner">\
-                                        <div class="jFiler-item-thumb">\
-                                            <div class="jFiler-item-status"></div>\
-                                            <div class="jFiler-item-info">\
-                                                <span class="jFiler-item-title"><b title="{{fi-name}}">{{fi-name | limitTo: 25}}</b></span>\
-                                                <span class="jFiler-item-others">{{fi-size2}}</span>\
-                                            </div>\
-                                            {{fi-image}}\
-                                        </div>\
-                                        <div class="jFiler-item-assets jFiler-row">\
-                                            <ul class="list-inline pull-left">\
-                                                <li><span class="jFiler-item-others">{{fi-icon}}</span></li>\
-                                            </ul>\
-                                            <ul class="list-inline pull-right">\
-                                                <li><a class="icon-jfi-trash jFiler-item-trash-action"></a></li>\
-                                            </ul>\
+        $('#up_img').on('change',function(event){
+            files = event.target.files;
+            
+            $.each(files,function(key,value){
+                $("#album-up-list").append('<li id="up-item-box-'+key+'">'+
+                                    '<div class="album-img-container">'+
+                                        '<div class="album-img-item">'+
+                                            '<div class="album-img-thumb">'+
+                                                '<div class="album-img-action">'+
+                                                    '<a name="excluir" ><i class="fi-trash" ></i></a>'+
+                                                    '<a name="alterar_capa" ><i class="fi-photo"></i></a>'+
+                                                '</div>'+
+                                                '<div class="album-img-info">'+
+                                                '</div>'+
+                                                '<div class="album-img-thumb-image">'+
+                                                    '<?= img($url_ajax_load_gif);?>'+
+                                                '</div>'+
+                                            '</div>\
                                         </div>\
                                     </div>\
-                                </div>\
-                            </li>',
-                progressBar: '<div class="bar"></div>',
-                itemAppendToEnd: false,
-                removeConfirmation: true,
-                _selectors: {
-                    list: '.jFiler-items-list',
-                    item: '.jFiler-item',
-                    progressBar: '.bar',
-                    remove: '.jFiler-item-trash-action'
-                }
-            },
-            dragDrop: {
-                dragEnter: null,
-                dragLeave: null,
-                drop: null
-            },
-            addMore:false,
-            uploadFile: {
-                url: "<?= site_url('admin/site/portfolio/upload');?>",
-                data: {id : $('[name="id"]').val(), url: $('[name="url"]').val()},
-                type: 'POST',
-                enctype: 'multipart/form-data',
-                beforeSend: function(){},
-                success: function(data, el){
-                    var parent = el.find(".jFiler-jProgressBar").parent();
-                    el.find(".jFiler-jProgressBar").fadeOut("slow", function(){
-                        $("<div class=\"jFiler-item-others text-success\"><i class=\"icon-jfi-check-circle\"></i> Success</div>").hide().appendTo(parent).fadeIn("slow");    
-                    });
-                },
-                error: function(el){
-                    var parent = el.find(".jFiler-jProgressBar").parent();
-                    el.find(".jFiler-jProgressBar").fadeOut("slow", function(){
-                        $("<div class=\"jFiler-item-others text-error\"><i class=\"icon-jfi-minus-circle\"></i> Error</div>").hide().appendTo(parent).fadeIn("slow");    
-                    });
-                },
-                statusCode: null,
-                onProgress: null,
-                onComplete: null
-            }
+                                </li>');
+                var formData = new FormData();
+                formData.append('id',$('[name="id"]').val());
+                formData.append('url',$('[name="url"]').val());
+                formData.append('files',value);
+
+                $.ajax({
+                    url: "<?= site_url('admin/site/portfolio/upload');?>",
+                    data: formData,
+                    type: 'POST',
+                    processData: false, // Don't process the files
+                    contentType: false,
+                    dataType: 'json',
+                    success: function(data){
+                        $('#up-item-box-'+key).find('img').attr('src',data.imagem.url);
+                        $('#up-item-box-'+key).find('[name="excluir"]').attr('onclick','excluir('+data.imagem.id+')');
+                        $('#up-item-box-'+key).find('[name="alterar_capa"]').attr('onclick','tornarCapa('+data.imagem.id+')');
+                        $('#up-item-box-'+key).attr('id','img-'+data.imagem.id);
+                    }
+                });
+            });
         });
     });
+    function excluir(id){
+        $.ajax({
+            url: "<?= site_url('admin/site/portfolio/excluir');?>",
+            data: {id: id},
+            type: 'POST',
+            dataType: 'json',
+            success: function(data){
+                if(data.estatus==='sucesso'){
+                    $('#img-'+id).remove();
+                }else{
+                    $('.alert-area').last().after(data.alertas);
+                }
+            },
+            error: function(el){
+                console.log("Erro ao excluir imagem");
+            }
+        });
+    }
+    function tornarCapa(id){
+        if(!$('#img-'+id).hasClass('capa')){
+            $.ajax({
+                url: "<?= site_url('admin/site/portfolio/alterar_capa');?>",
+                data: {idalbum: <?= $id;?>,idcapa: id},
+                type: 'POST',
+                dataType: 'json',
+                success: function(data){
+                    if(data.estatus==='sucesso'){
+                        $('.capa').removeClass('capa');
+                        $('#img-'+id).addClass('capa');
+                    }else{
+                        $('.alert-area').last().after(data.alertas);
+                    }
+                },
+                error: function(el){
+                    console.log("Erro ao alterar capa");
+                }
+            });
+        }
+    }
 </script>
 
