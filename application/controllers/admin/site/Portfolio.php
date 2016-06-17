@@ -26,13 +26,42 @@ class Portfolio extends MY_Controller{
     public function album($id){
         $data = array();
         if($id!==NULL){
-            $data = $this->album_model->get_array_by_id($id);
-            $data['fotos'] = $this->midia_model->selecionar('*','idalbum = '.$id);
+            if(!is_array($id)){
+                $data = $this->album_model->get_array_by_id($id);
+            }else{
+                $data = $id;
+            }
+            $data['fotos'] = $this->midia_model->selecionar('*','idalbum = '.$data['id']);
             return $this->view('album',$data);
         }
         $this->index();
     }
     
+    public function salvar(){
+        $this->form_validation->set_rules('nome', 'Nome', 'trim|required|min_length[3]|max_length[100]');
+        
+        if ($this->form_validation->run() == FALSE) {
+            $this->album($this->input->post('id'));
+        }else{
+            $this->album_model->setId($this->input->post('id'));
+            $this->album_model->nome = $this->input->post('nome');
+            $this->album_model->descricao = $this->input->post('descricao');
+            $this->album_model->set_fields_update_only(array('nome','descricao'));
+            if($this->album_model->salvar(FALSE)){
+                if($this->input->post('retorno')=='ajax'){
+                    $mensagem = array('success'=>$this->lang->line('success_save'));
+                    echo json_encode(array('alerta'=>$this->load->view('templates/alertas',$mensagem,TRUE),'estatus'=>'sucesso'));
+                }else{
+                    $this->session->set_flashdata('alerta', 'success_save');
+                    //redirect('admin/site/portfolio/album/'.$this->album_model->getId());
+                }
+            }else{
+                $this->session->set_flashdata('alerta', 'error_save');
+                $this->album($this->album_model->get_fields_array());
+            }
+        }
+    }
+
     public function upload(){
         $pasta = $this->input->post('url');
         if (!is_dir($pasta)) {
@@ -114,7 +143,8 @@ class Portfolio extends MY_Controller{
                 'descricao'=>'',
                 'fotos' => array(),
                 'url_imagem_add' => $this->midia_model->url_imagem_padrao($this->config->item('image-adicionar-upload')),
-                'url_ajax_load_gif' => $this->midia_model->url_imagem_padrao($this->config->item('ajax-load-up-img'))
+                'url_ajax_load_gif' => $this->midia_model->url_imagem_padrao($this->config->item('ajax-load-up-img')),
+                'retorno' => 'redirect'
             )
         );
         
